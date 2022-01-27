@@ -62,6 +62,11 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         PhotonNetwork.LoadLevel(1);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 
     //----------------------Photon Callbacks----------------------
     public override void OnConnectedToMaster() //called when connecting to master server

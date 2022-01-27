@@ -35,29 +35,4 @@ public class PlayerGroundCheck : MonoBehaviour
 
         playerController.SetGrounded(false);
     }
-
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject == playerController.gameObject) //Safe check
-    //        return;
-
-    //    playerController.SetGrounded(true);
-    //}
-
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.gameObject == playerController.gameObject) //Safe check
-    //        return;
-
-    //    playerController.SetGrounded(true); 
-    //}
-
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.gameObject == playerController.gameObject) //Safe check
-    //        return;
-
-    //    playerController.SetGrounded(false);
-    //}
 }

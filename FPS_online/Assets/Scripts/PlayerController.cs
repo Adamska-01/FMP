@@ -1,15 +1,16 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private GameObject cameraHolder;
+    private PhotonView pv;
     private Rigidbody rb;
 
-    private PhotonView pv;
-
+    [SerializeField] private GameObject cameraHolder;
     [SerializeField] private float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
 
     private float verticalLookRotation;
@@ -27,8 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         pv = GetComponent<PhotonView>();
-
-        
+         
         if (pv.IsMine)
         {
             EquipItem(0); //Equip first item in the array
@@ -128,11 +128,26 @@ public class PlayerController : MonoBehaviour
             items[previousItemIndex].itemObject.SetActive(false);
         }
         previousItemIndex = itemIndex;
-    }
 
+        if (pv.IsMine)
+        {
+            Hashtable hash = new Hashtable();
+            hash.Add("itemIndex", itemIndex);
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        }
+    }
 
     public void SetGrounded(bool _grnd)
     {
         grounded = _grnd;
+    }
+
+    //----------------------Photon Callbacks----------------------
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
+    {//Called every time a custom property updates
+        if(!pv.IsMine && targetPlayer == pv.Owner)
+        {
+            EquipItem((int)changedProps["itemIndex"]);
+        }
     }
 }
