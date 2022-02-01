@@ -15,11 +15,11 @@ C:/Users/salva/Desktop/FMP/FPS_online
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-56786
+50192
 Successfully changed project path to: C:/Users/salva/Desktop/FMP/FPS_online
 C:/Users/salva/Desktop/FMP/FPS_online
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 19.92 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 35.43 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.9f1 (108be757e447)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/Resources/UnitySubsystems
@@ -35,490 +35,62 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56912
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56448
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.000860 seconds.
+Registered in 0.001321 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 20.91 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 33.60 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.370 seconds
+- Completed reload, in  0.991 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002154 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.593 seconds
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1365 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 72.4 MB.
-System memory in use after: 72.5 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 1803.
-Total: 1.390700 ms (FindLiveObjects: 0.135400 ms CreateObjectMapping: 0.027200 ms MarkObjects: 1.157900 ms  DeleteObjects: 0.069600 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Animations_Controllers
-  artifactKey: Guid(f27c9dfcd2af6b146817612d83eac366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Animations_Controllers using Guid(f27c9dfcd2af6b146817612d83eac366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ec56f9c96d10170f22b73816cfc9804') in 0.008205 seconds
-  Import took 0.010092 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.386925 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Animations_Controllers/Candle.controller
-  artifactKey: Guid(b0613dd159bfab846a6ae2da4b63b0ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Animations_Controllers/Candle.controller using Guid(b0613dd159bfab846a6ae2da4b63b0ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '555ada058b1ca10480fccadc4fa6cd84') in 0.034110 seconds
-  Import took 0.036562 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 30.836147 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons
-  artifactKey: Guid(c81d90eecc195e242a3cfa30675b259a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons using Guid(c81d90eecc195e242a3cfa30675b259a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09b866042ca9f27cde230c76612b3ecb') in 0.007248 seconds
-  Import took 0.009035 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.417607 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas
-  artifactKey: Guid(530746061cd1dbb4a9e072b7912c9e65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas using Guid(530746061cd1dbb4a9e072b7912c9e65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b4b0098add5ac0cfe9f39f849e2a94b') in 0.006110 seconds
-  Import took 0.007907 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.601127 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03
-  artifactKey: Guid(8d8d1d8c6f48577408e7389b67bbc40a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03 using Guid(8d8d1d8c6f48577408e7389b67bbc40a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e82da4b202c35c8337b9c266181ce401') in 0.007110 seconds
-  Import took 0.008917 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.946788 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations
-  artifactKey: Guid(40d4e3858281c1c4395a21d521869545) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations using Guid(40d4e3858281c1c4395a21d521869545) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59865f87c789477e5dc4210e02e6fa18') in 0.012837 seconds
-  Import took 0.014704 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.563878 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh
-  artifactKey: Guid(9ffc0c51d05e6a249bb116cfb886b045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh using Guid(9ffc0c51d05e6a249bb116cfb886b045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '870fb13f3ceb4dc14866ee92cca9ac32') in 0.007741 seconds
-  Import took 0.009659 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.910801 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Hands_Rifle_03_Mesh.FBX
-  artifactKey: Guid(fb9b9a5ca65dfa24da26558d10a35386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Hands_Rifle_03_Mesh.FBX using Guid(fb9b9a5ca65dfa24da26558d10a35386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40e4e3a4fa5b9c9c27a7c50d507b6eb9') in 0.226787 seconds
-  Import took 0.229145 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 58.204763 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_03.psd
-  artifactKey: Guid(5cce39cf79daa74479a8a5fc5bea4ff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_03.psd using Guid(5cce39cf79daa74479a8a5fc5bea4ff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dbffa0cd92f0a24619baa7c441cd961') in 0.025668 seconds
-  Import took 0.027916 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 69.138054 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Hands_Rifle_03_Mesh.FBX
-  artifactKey: Guid(fb9b9a5ca65dfa24da26558d10a35386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Hands_Rifle_03_Mesh.FBX using Guid(fb9b9a5ca65dfa24da26558d10a35386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bca6c7929b420b205c3c071b285fdaaf') in 0.084011 seconds
-  Import took 0.086908 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000172 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Rifle.mat
-  artifactKey: Guid(594c5cc37203f674ba7cf6ab37d72c36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Rifle.mat using Guid(594c5cc37203f674ba7cf6ab37d72c36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e01529494519c5ff02df7ba9c178c13') in 0.017690 seconds
-  Import took 0.019806 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000216 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/09 - Default.mat
-  artifactKey: Guid(8615ab22cdcb7d7498d70c760a25d100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/09 - Default.mat using Guid(8615ab22cdcb7d7498d70c760a25d100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be433bc14904e0effba2b54430f9d497') in 0.012059 seconds
-  Import took 0.014499 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 36.101849 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Walk.FBX
-  artifactKey: Guid(f8422320a531764428db2a82fa983ee5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Walk.FBX using Guid(f8422320a531764428db2a82fa983ee5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50b6dd05d8ee7693070c0cbe753627fb') in 0.082676 seconds
-  Import took 0.085299 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000262 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Effects/Automatic_rifle/VFX/Materials/BurstWave.mat
-  artifactKey: Guid(388b31e99fd78fc46b822f04de8f684c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Effects/Automatic_rifle/VFX/Materials/BurstWave.mat using Guid(388b31e99fd78fc46b822f04de8f684c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c936f34c636e95f8bdf4b2e2deb992c2') in 0.042620 seconds
-  Import took 0.044777 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000152 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Walk.FBX
-  artifactKey: Guid(f8422320a531764428db2a82fa983ee5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Walk.FBX using Guid(f8422320a531764428db2a82fa983ee5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50b6dd05d8ee7693070c0cbe753627fb') in 0.054403 seconds
-  Import took 0.056735 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000194 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Aim_Shot.FBX
-  artifactKey: Guid(dc3d8e000ec416649bb3847d61114ee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Aim_Shot.FBX using Guid(dc3d8e000ec416649bb3847d61114ee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce4b55abf8d47730d69c807db72fc1eb') in 0.046923 seconds
-  Import took 0.049427 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000188 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Aim_Walk.FBX
-  artifactKey: Guid(b0d0949ccee21fd46a78609f5e79c91b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Aim_Walk.FBX using Guid(b0d0949ccee21fd46a78609f5e79c91b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53e6934df21bdfc359676c610ba2e183') in 0.049556 seconds
-  Import took 0.052380 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000147 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Aim_Idle.FBX
-  artifactKey: Guid(aa1e6b1f8a4fd3a40bd7649b1e50d02e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Aim_Idle.FBX using Guid(aa1e6b1f8a4fd3a40bd7649b1e50d02e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4331d506e087e66631b6f919ad334305') in 0.052978 seconds
-  Import took 0.055292 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000247 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Run.FBX
-  artifactKey: Guid(0cf113bf8aa7d4f4084fbed589580944) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Run.FBX using Guid(0cf113bf8aa7d4f4084fbed589580944) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cff15089beb17d84e7ba57b1bc7394f') in 0.049196 seconds
-  Import took 0.052099 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000207 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Aim_Idle.FBX
-  artifactKey: Guid(aa1e6b1f8a4fd3a40bd7649b1e50d02e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Aim_Idle.FBX using Guid(aa1e6b1f8a4fd3a40bd7649b1e50d02e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4331d506e087e66631b6f919ad334305') in 0.052055 seconds
-  Import took 0.054402 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000162 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Run.FBX
-  artifactKey: Guid(0cf113bf8aa7d4f4084fbed589580944) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Run.FBX using Guid(0cf113bf8aa7d4f4084fbed589580944) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cff15089beb17d84e7ba57b1bc7394f') in 0.054963 seconds
-  Import took 0.057833 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.761622 seconds.
-  path: Assets/Character/Materials/Ch15_body.mat
-  artifactKey: Guid(91b1d7ff2334fb44dbab77b3d36e8af3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Character/Materials/Ch15_body.mat using Guid(91b1d7ff2334fb44dbab77b3d36e8af3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a255890c273e486ccb9a2add8b092fa2') in 0.024045 seconds
-  Import took 0.026855 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000189 seconds.
-  path: Assets/Character/Materials/Ch15_body1.mat
-  artifactKey: Guid(1ade08f4ea5cc0944a213d4ec5b89330) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Character/Materials/Ch15_body1.mat using Guid(1ade08f4ea5cc0944a213d4ec5b89330) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '426b5d2682ab0ec340727a469c34530b') in 0.025923 seconds
-  Import took 0.028450 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.699519 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Hands_Rifle_03_Mesh.FBX
-  artifactKey: Guid(fb9b9a5ca65dfa24da26558d10a35386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Hands_Rifle_03_Mesh.FBX using Guid(fb9b9a5ca65dfa24da26558d10a35386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ec99800cdcbdbae063736e15c8c8130') in 0.075452 seconds
-  Import took 0.078559 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.296093 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Effects/Automatic_rifle/VFX/Materials/Fire.mat
-  artifactKey: Guid(d88c2fc166932f746b67cf360f798e3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Effects/Automatic_rifle/VFX/Materials/Fire.mat using Guid(d88c2fc166932f746b67cf360f798e3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd614f7786f9a3b581c32fab0389aaea3') in 0.012733 seconds
-  Import took 0.021384 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000258 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Effects/GranadeGunExplosion/VFX/Materials/Fire2.mat
-  artifactKey: Guid(ec0cfe940b4f0464a81ad21edc384d2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Effects/GranadeGunExplosion/VFX/Materials/Fire2.mat using Guid(ec0cfe940b4f0464a81ad21edc384d2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de97fed6aabc8310981b9a4dfdc7b2b1') in 0.012037 seconds
-  Import took 0.014605 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000181 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Effects/Automatic_rifle/VFX/Materials/Fire.mat
-  artifactKey: Guid(d88c2fc166932f746b67cf360f798e3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Effects/Automatic_rifle/VFX/Materials/Fire.mat using Guid(d88c2fc166932f746b67cf360f798e3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd614f7786f9a3b581c32fab0389aaea3') in 0.013040 seconds
-  Import took 0.015624 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000594 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Effects/GranadeGunExplosion/VFX/Materials/Fire2.mat
-  artifactKey: Guid(ec0cfe940b4f0464a81ad21edc384d2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Effects/GranadeGunExplosion/VFX/Materials/Fire2.mat using Guid(ec0cfe940b4f0464a81ad21edc384d2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de97fed6aabc8310981b9a4dfdc7b2b1') in 0.012008 seconds
-  Import took 0.014255 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.641777 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Hands_Rifle_03_Mesh.FBX
-  artifactKey: Guid(fb9b9a5ca65dfa24da26558d10a35386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Hands_Rifle_03_Mesh.FBX using Guid(fb9b9a5ca65dfa24da26558d10a35386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9b3dfbe1629feda696ff54067232462') in 0.156884 seconds
-  Import took 0.160168 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.005254 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Hands_Rifle_03_Mesh.FBX
-  artifactKey: Guid(fb9b9a5ca65dfa24da26558d10a35386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Hands_Rifle_03_Mesh.FBX using Guid(fb9b9a5ca65dfa24da26558d10a35386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9b3dfbe1629feda696ff54067232462') in 0.057019 seconds
-  Import took 0.059988 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.110846 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Hands_Rifle_03_Mesh.FBX
-  artifactKey: Guid(fb9b9a5ca65dfa24da26558d10a35386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Mesh/Hands_Rifle_03_Mesh.FBX using Guid(fb9b9a5ca65dfa24da26558d10a35386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0aa602785a9caaaf848e8689ebdd0857') in 0.065942 seconds
-  Import took 0.068136 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 831.738203 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Hide.FBX
-  artifactKey: Guid(bf9a0d86c05317f4bba4011b6ad74fbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Hide.FBX using Guid(bf9a0d86c05317f4bba4011b6ad74fbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48776edaeceb5084b8eddc14b087ea50') in 0.088249 seconds
-  Import took 0.091699 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000174 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Shot.FBX
-  artifactKey: Guid(bf017600bdf10534d8b207521b3451fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Shot.FBX using Guid(bf017600bdf10534d8b207521b3451fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddf209b83ce99cd3f9aa6ee81addee8e') in 0.048099 seconds
-  Import took 0.051672 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000168 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Hide.FBX
-  artifactKey: Guid(bf9a0d86c05317f4bba4011b6ad74fbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Hide.FBX using Guid(bf9a0d86c05317f4bba4011b6ad74fbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48776edaeceb5084b8eddc14b087ea50') in 0.052544 seconds
-  Import took 0.055200 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000181 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Shot.FBX
-  artifactKey: Guid(bf017600bdf10534d8b207521b3451fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Shot.FBX using Guid(bf017600bdf10534d8b207521b3451fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddf209b83ce99cd3f9aa6ee81addee8e') in 0.047727 seconds
-  Import took 0.050244 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.974844 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Idle.FBX
-  artifactKey: Guid(a1ae0511dc5499649b49954d022e275c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Idle.FBX using Guid(a1ae0511dc5499649b49954d022e275c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0237f8bd62dce61aec63d82b88fe867f') in 0.057820 seconds
-  Import took 0.060736 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000158 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Get.FBX
-  artifactKey: Guid(73d679f2b6c8a0546acc1e4612180484) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Get.FBX using Guid(73d679f2b6c8a0546acc1e4612180484) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4417c32b9dda136c491e584da8aebeb2') in 0.067897 seconds
-  Import took 0.070225 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108428 seconds.
-  path: Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Reload.FBX
-  artifactKey: Guid(0a665ce70f29e4b41bf7c9072b96073c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Hands_Weapons_Animations_Pack_Update/Modelas/Hands_Automatic_rifle03/Animations/Hands_Rifle_03@Reload.FBX using Guid(0a665ce70f29e4b41bf7c9072b96073c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1006c67def85d9de8e9252126b12b54b') in 0.057312 seconds
-  Import took 0.060377 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001427 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.612 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1320 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.9 MB.
-System memory in use after: 85.9 MB.
-
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1853.
-Total: 1.907100 ms (FindLiveObjects: 0.110600 ms CreateObjectMapping: 0.023300 ms MarkObjects: 1.705200 ms  DeleteObjects: 0.066100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001303 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.530 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1319 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.8 MB.
-System memory in use after: 85.9 MB.
-
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 1856.
-Total: 1.407100 ms (FindLiveObjects: 0.100200 ms CreateObjectMapping: 0.022500 ms MarkObjects: 1.235700 ms  DeleteObjects: 0.047900 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001376 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.765 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1319 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.9 MB.
-System memory in use after: 85.9 MB.
-
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1860.
-Total: 1.996700 ms (FindLiveObjects: 0.166800 ms CreateObjectMapping: 0.038800 ms MarkObjects: 1.727500 ms  DeleteObjects: 0.062800 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001288 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.602 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1319 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.9 MB.
-System memory in use after: 85.9 MB.
-
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1864.
-Total: 1.629500 ms (FindLiveObjects: 0.114000 ms CreateObjectMapping: 0.024900 ms MarkObjects: 1.434000 ms  DeleteObjects: 0.055100 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 474.567874 seconds.
-  path: Assets/TextMesh Pro/Documentation
-  artifactKey: Guid(8e7e8f5a82a3a134e91c54efd2274ea9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/TextMesh Pro/Documentation using Guid(8e7e8f5a82a3a134e91c54efd2274ea9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f5aa99e36510f23d626084d8be9669f') in 0.011643 seconds
-  Import took 0.013825 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.578587 seconds.
-  path: Assets/Rifle
-  artifactKey: Guid(96dd57be2b1df00489a7537a9fadb421) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Rifle using Guid(96dd57be2b1df00489a7537a9fadb421) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31132737e5db42af4da1792c688c0e26') in 0.008387 seconds
-  Import took 0.011022 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.652516 seconds.
-  path: Assets/Character/Rifle/Prefabs
-  artifactKey: Guid(570ddc12b95d2d84791a1241e20dabf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Character/Rifle/Prefabs using Guid(570ddc12b95d2d84791a1241e20dabf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a620f0f062fd56715bb728a3cea16613') in 0.007252 seconds
-  Import took 0.009510 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.097711 seconds.
-  path: Assets/Character/Rifle/Prefabs/rifle.prefab
-  artifactKey: Guid(9a21925963ad72641b17d3da3e0c173f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Character/Rifle/Prefabs/rifle.prefab using Guid(9a21925963ad72641b17d3da3e0c173f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f704e8c8b10ffd44dc600eec804821a6') in 0.155529 seconds
-  Import took 0.158130 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001510 seconds.
+Registered in 0.002325 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.992 seconds
+- Completed reload, in  0.790 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.51 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1701 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 105.8 MB.
-System memory in use after: 105.9 MB.
+Unloading 1554 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80.6 MB.
+System memory in use after: 80.6 MB.
 
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2250.
-Total: 1.674900 ms (FindLiveObjects: 0.120200 ms CreateObjectMapping: 0.028300 ms MarkObjects: 1.447100 ms  DeleteObjects: 0.078100 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 1996.
+Total: 1.850100 ms (FindLiveObjects: 0.245300 ms CreateObjectMapping: 0.047500 ms MarkObjects: 1.451900 ms  DeleteObjects: 0.104100 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Scenes/FirstPersonController.unity
+  artifactKey: Guid(027f5cc008e2f1c4890f37dc49486b55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/FirstPersonController.unity using Guid(027f5cc008e2f1c4890f37dc49486b55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18d5cc60e16c9823251cf6ea8f8cb83e') in 0.026304 seconds
+  Import took 0.029529 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001309 seconds.
+Registered in 0.002065 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.656 seconds
+- Completed reload, in  0.778 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.58 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1701 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 105.8 MB.
-System memory in use after: 105.9 MB.
+Unloading 1509 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 76.6 MB.
+System memory in use after: 76.7 MB.
 
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2254.
-Total: 2.611100 ms (FindLiveObjects: 0.222500 ms CreateObjectMapping: 0.057800 ms MarkObjects: 2.200200 ms  DeleteObjects: 0.129100 ms)
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2000.
+Total: 1.670100 ms (FindLiveObjects: 0.173900 ms CreateObjectMapping: 0.037500 ms MarkObjects: 1.372500 ms  DeleteObjects: 0.085000 ms)
 

@@ -144,8 +144,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     //----------------------Photon Callbacks----------------------
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
-    {//Called every time a custom property updates
-        if(!pv.IsMine && targetPlayer == pv.Owner)
+    {//Called every time a custom property updates 
+        if(pv && !pv.IsMine && targetPlayer == pv.Owner)
         {
             EquipItem((int)changedProps["itemIndex"]);
         }

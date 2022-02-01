@@ -12,16 +12,23 @@ public class InputManager : MonoBehaviour
     public float Forward { get { return forward; } }
     protected float sideway; 
     public float Sideway { get { return sideway; } }
-    
+
+    [Header("Weapon Keys")]
+    private KeyCode aimKey = KeyCode.Mouse1;
+    protected bool isAiming;
+    public bool IsAiming { get { return isAiming; } }
+
 
     private void Update()
     {
         HandleInput();
     }
     
+
     protected void HandleInput()
     {
         forward = Input.GetAxis(m_forwardAxis);
         sideway = Input.GetAxis(m_sidewayAxis);
-    } 
+        isAiming = Input.GetKey(aimKey);
+    }
 }
