@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 { 
-    [Header("Movement Axis")]
-    [SerializeField] private string m_forwardAxis = "Vertical";
-    [SerializeField] private string m_sidewayAxis = "Horizontal"; 
-    protected float forward;
-    public float Forward { get { return forward; } }
-    protected float sideway; 
-    public float Sideway { get { return sideway; } }
+    [Header("Movement Input")] 
+    protected bool forward;
+    public bool Forward { get { return forward; } }
+    protected bool left; 
+    public bool Left { get { return left; } }
+    protected bool right;
+    public bool Right { get { return right; } }
+    protected bool back;
+    public bool Back { get { return back; } }
+    protected bool run;
+    public bool Run { get { return run; } }
+    protected bool crouch;
+    public bool Crouch { get { return crouch; } }
 
     [Header("Weapon Keys")]
     private KeyCode aimKey = KeyCode.Mouse1;
@@ -37,10 +43,16 @@ public class InputManager : MonoBehaviour
     protected void HandleInput()
     {
         //Movement
-        forward = Input.GetAxis(m_forwardAxis);
-        sideway = Input.GetAxis(m_sidewayAxis);
+        forward = Input.GetKey(KeyCode.W);
+        left = Input.GetKey(KeyCode.A);
+        back = Input.GetKey(KeyCode.S);
+        right = Input.GetKey(KeyCode.D);
+        run = Input.GetKey(KeyCode.LeftShift);
+        crouch = Input.GetKeyDown(KeyCode.C) ? !crouch : crouch;
+
         //ADS
         isAiming = Input.GetKey(aimKey);
+
         //Camera rotate
         xAxis = Input.GetAxis(horizontalLookAxis) * xAxisSensitivity;
         yAxis = Input.GetAxis(verticalLookAxis) * yAxisSensitivity;

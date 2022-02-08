@@ -20,8 +20,7 @@ public class PlayerAnimationManager : MonoBehaviour
     private Vector3 floorMovement;
     private float groundRayLenght;
 
-    [SerializeField] private Animator m_animator = default;
-
+    [SerializeField] private Animator m_animator = default; 
 
     private void FixedUpdate()
     {
@@ -33,17 +32,17 @@ public class PlayerAnimationManager : MonoBehaviour
 
     private void UpdateMovementInput()
     {
-        Vector3 forward = inputManager.Forward * transform.forward;
-        Vector3 sideway = inputManager.Sideway * transform.right;
-        Vector3 combinedInput = (forward + sideway).normalized;
+        //Vector3 forward = inputManager.Forward * transform.forward;
+        //Vector3 sideway = inputManager.Sideway * transform.right;
+        //Vector3 combinedInput = (forward + sideway).normalized;
 
-        movementDir = Vector3.zero;
-        movementDir = new Vector3(combinedInput.x, 0f, combinedInput.z);
+        //movementDir = Vector3.zero;
+        //movementDir = new Vector3(combinedInput.x, 0f, combinedInput.z);
         
-        float inputMagnitude = Mathf.Abs(inputManager.Forward) + Mathf.Abs(inputManager.Sideway);
+        //float inputMagnitude = Mathf.Abs(inputManager.Forward) + Mathf.Abs(inputManager.Sideway);
 
-        //Clamp to keep between 0 and 1 (for blend tree)
-        inputAmount = Mathf.Clamp01(inputMagnitude);
+        ////Clamp to keep between 0 and 1 (for blend tree)
+        //inputAmount = Mathf.Clamp01(inputMagnitude);
     }
     
     private void UpdatePhysics()
@@ -104,7 +103,7 @@ public class PlayerAnimationManager : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        m_animator.SetFloat("Forward", inputManager.Forward);
-        m_animator.SetFloat("Sideway", inputManager.Sideway);
+        //m_animator.SetFloat("Forward", inputManager.Forward);
+        //m_animator.SetFloat("Sideway", inputManager.Sideway);
     }
 }

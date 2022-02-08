@@ -470,8 +470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625973c7189355441a9fec5226b1325e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_forwardAxis: Vertical
-  m_sidewayAxis: Horizontal
 --- !u!4 &349195379
 Transform:
   m_ObjectHideFlags: 0
@@ -2257,6 +2255,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 568590063b301364eb2bae8e6cbbd551, type: 3}
   m_PrefabInstance: {fileID: 62324574}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1810820412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810820411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e964a2643936054e8ed1b02395d2a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acceleration: 2
+  deceleration: 5
+  maximumWalkVelocity: 0.5
+  maximumRunVelocity: 2
+  inputManager: {fileID: 349195378}
 --- !u!95 &1810820413
 Animator:
   serializedVersion: 3
