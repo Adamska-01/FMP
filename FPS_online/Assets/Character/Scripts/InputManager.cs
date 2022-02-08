@@ -17,17 +17,19 @@ public class InputManager : MonoBehaviour
     public bool Run { get { return run; } }
     protected bool crouch;
     public bool Crouch { get { return crouch; } }
+    protected bool jump;
+    public bool Jump { get { return jump; } }
 
-    [Header("Weapon Keys")]
+    [Header("Action Keys")]
     private KeyCode aimKey = KeyCode.Mouse1;
     protected bool isAiming;
     public bool IsAiming { get { return isAiming; } }
+    
 
     [Header("Camera Axis")]
     private string verticalLookAxis = "Mouse Y";
     private string horizontalLookAxis = "Mouse X";
-    private float xAxisSensitivity = 0.2f;
-    private float yAxisSensitivity = 0.2f;
+    
     protected float xAxis;
     public float XLookAxis { get { return xAxis; } }
     protected float yAxis;
@@ -49,12 +51,13 @@ public class InputManager : MonoBehaviour
         right = Input.GetKey(KeyCode.D);
         run = Input.GetKey(KeyCode.LeftShift);
         crouch = Input.GetKeyDown(KeyCode.C) ? !crouch : crouch;
+        jump = Input.GetKeyDown(KeyCode.Space);
 
         //ADS
         isAiming = Input.GetKey(aimKey);
 
         //Camera rotate
-        xAxis = Input.GetAxis(horizontalLookAxis) * xAxisSensitivity;
-        yAxis = Input.GetAxis(verticalLookAxis) * yAxisSensitivity;
+        xAxis = Input.GetAxisRaw(horizontalLookAxis);
+        yAxis = Input.GetAxisRaw(verticalLookAxis);
     }
 }
