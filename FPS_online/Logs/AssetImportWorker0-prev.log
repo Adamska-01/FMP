@@ -15,11 +15,11 @@ C:/Users/salva/Desktop/FMP/FPS_online
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-59575
+49254
 Successfully changed project path to: C:/Users/salva/Desktop/FMP/FPS_online
 C:/Users/salva/Desktop/FMP/FPS_online
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 26.69 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 28.61 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.9f1 (108be757e447)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/Resources/UnitySubsystems
@@ -35,139 +35,395 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56220
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56948
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.000928 seconds.
+Registered in 0.001151 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 26.58 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 30.90 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.734 seconds
+- Completed reload, in  0.766 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.083602 seconds.
+Registered in 0.001481 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.699 seconds
+- Completed reload, in  0.663 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1554 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 80.6 MB.
 System memory in use after: 80.6 MB.
 
 Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 1996.
-Total: 1.584000 ms (FindLiveObjects: 0.135600 ms CreateObjectMapping: 0.028700 ms MarkObjects: 1.306800 ms  DeleteObjects: 0.111800 ms)
+Total: 2.372200 ms (FindLiveObjects: 0.233800 ms CreateObjectMapping: 0.047300 ms MarkObjects: 1.959200 ms  DeleteObjects: 0.130200 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Character/Scripts/UpperBodyIK.cs
-  artifactKey: Guid(14bda2b407393f34594a1a5783d7891d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Character/Scripts/UpperBodyIK.cs using Guid(14bda2b407393f34594a1a5783d7891d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a278dbf085da89eadadc52ec1f3e2676') in 0.039063 seconds
-  Import took 0.041824 seconds .
+  path: Assets/Plugins/RootMotion/Shared Demo Assets/Humanoid Animations/Crouch.fbx
+  artifactKey: Guid(c79d18b7598993246a99ebc7c22b5f0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/RootMotion/Shared Demo Assets/Humanoid Animations/Crouch.fbx using Guid(c79d18b7598993246a99ebc7c22b5f0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5234550ceac31b5da2427bbf084e5e05') in 0.192320 seconds
+  Import took 0.196886 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 34.797721 seconds.
-  path: Assets/Character/Scripts/UpperBodyIK.cs
-  artifactKey: Guid(14bda2b407393f34594a1a5783d7891d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Character/Scripts/UpperBodyIK.cs using Guid(14bda2b407393f34594a1a5783d7891d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e978463fd09e58f156b2016193ff5c8') in 0.003808 seconds
-  Import took 0.006732 seconds .
+  Time since last request: 0.000345 seconds.
+  path: Assets/Plugins/RootMotion/Shared Demo Assets/Humanoid Animations/Aim MP-40/Aim MP-40 Standing Right.FBX
+  artifactKey: Guid(8dce395c12cc54bb1801f2be4a8d1342) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/RootMotion/Shared Demo Assets/Humanoid Animations/Aim MP-40/Aim MP-40 Standing Right.FBX using Guid(8dce395c12cc54bb1801f2be4a8d1342) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab40cc39e081c0703fc0ec2724cdaff5') in 0.025282 seconds
+  Import took 0.029711 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 4.881040 seconds.
-  path: Assets/Character/Scripts/UpperBodyIK.cs
-  artifactKey: Guid(14bda2b407393f34594a1a5783d7891d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Character/Scripts/UpperBodyIK.cs using Guid(14bda2b407393f34594a1a5783d7891d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e60032215500bf90cdad700b64f37e89') in 0.003322 seconds
-  Import took 0.006415 seconds .
+  Time since last request: 19.171733 seconds.
+  path: Assets/Character/Rifle/Prefabs/rifle.prefab
+  artifactKey: Guid(9a21925963ad72641b17d3da3e0c173f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Rifle/Prefabs/rifle.prefab using Guid(9a21925963ad72641b17d3da3e0c173f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce593422ef959b6f09ae70010c4183d8') in 0.041793 seconds
+  Import took 0.045622 seconds .
 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001276 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.600 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1509 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 76.6 MB.
-System memory in use after: 76.7 MB.
-
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2000.
-Total: 1.444400 ms (FindLiveObjects: 0.163600 ms CreateObjectMapping: 0.028900 ms MarkObjects: 1.188400 ms  DeleteObjects: 0.062000 ms)
+Received Import Request.
+  Time since last request: 2741.173107 seconds.
+  path: Assets/Character/Sniper
+  artifactKey: Guid(50cfe834a64e9e64db7c98da5b5ffcd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper using Guid(50cfe834a64e9e64db7c98da5b5ffcd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c623b4d747ee83b37305ae1ed7fc5333') in 0.005202 seconds
+  Import took 0.045160 seconds .
 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001440 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.617 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.54 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1509 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 76.6 MB.
-System memory in use after: 76.7 MB.
-
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2004.
-Total: 1.593500 ms (FindLiveObjects: 0.156100 ms CreateObjectMapping: 0.031600 ms MarkObjects: 1.327200 ms  DeleteObjects: 0.076700 ms)
+Received Import Request.
+  Time since last request: 19.651575 seconds.
+  path: Assets/Character/Sniper/SniperRifle.prefab
+  artifactKey: Guid(5b6f4c5c90c0e044d822b8af8d578cf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/SniperRifle.prefab using Guid(5b6f4c5c90c0e044d822b8af8d578cf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '017876db4b2f2c968d8b778ea1b576a2') in 0.047013 seconds
+  Import took 0.050571 seconds .
 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002497 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.45 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.715 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.02 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1509 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 76.6 MB.
-System memory in use after: 76.7 MB.
-
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2008.
-Total: 1.891500 ms (FindLiveObjects: 0.134000 ms CreateObjectMapping: 0.027600 ms MarkObjects: 1.636500 ms  DeleteObjects: 0.092000 ms)
+Received Import Request.
+  Time since last request: 5.918568 seconds.
+  path: Assets/Character/Sniper/Hands_Sniper_Rifle_02_Mesh.FBX
+  artifactKey: Guid(3416f6c6fca92cd409f8b40010fb2c14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Hands_Sniper_Rifle_02_Mesh.FBX using Guid(3416f6c6fca92cd409f8b40010fb2c14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '246cf406ad48b91cb6ea2cd2c19bfda1') in 0.388095 seconds
+  Import took 0.391429 seconds .
 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001819 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.742 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.47 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1509 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 76.6 MB.
-System memory in use after: 76.7 MB.
+Received Import Request.
+  Time since last request: 24.555983 seconds.
+  path: Assets/Character/Sniper/09 - Default.mat
+  artifactKey: Guid(5bc27140184e81f4ab8c2f96eab21ddc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/09 - Default.mat using Guid(5bc27140184e81f4ab8c2f96eab21ddc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c689b1cb8a6cfd9c2eb9f0c6aff2477') in 0.018686 seconds
+  Import took 0.022674 seconds .
 
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2012.
-Total: 1.854400 ms (FindLiveObjects: 0.134100 ms CreateObjectMapping: 0.029000 ms MarkObjects: 1.585000 ms  DeleteObjects: 0.104800 ms)
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/Character/Sniper/Hands_Sniper_Rifle_02_Mesh.FBX
+  artifactKey: Guid(3416f6c6fca92cd409f8b40010fb2c14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Hands_Sniper_Rifle_02_Mesh.FBX using Guid(3416f6c6fca92cd409f8b40010fb2c14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7ce4b68d6307ee351d969a98c40b641') in 0.198547 seconds
+  Import took 0.202352 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/Character/Sniper/Cloth.mat
+  artifactKey: Guid(7d33a52bda9ebfc409878c10380e9502) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Cloth.mat using Guid(7d33a52bda9ebfc409878c10380e9502) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c972c38efad4857d012fbe7e4df4525') in 0.008395 seconds
+  Import took 0.011404 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/Character/Sniper/Rifle.mat
+  artifactKey: Guid(46691d796f32ca6418a1849aa6a8d8a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Rifle.mat using Guid(46691d796f32ca6418a1849aa6a8d8a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '182d7432b3d116053ec4e5666b5bf7d5') in 0.007837 seconds
+  Import took 0.011924 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 54.971036 seconds.
+  path: Assets/Character/Sniper/09 - Default 1.mat
+  artifactKey: Guid(73788f74695bd7d44a9938e62ea3ae97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/09 - Default 1.mat using Guid(73788f74695bd7d44a9938e62ea3ae97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34247b3f64bdbc0bd9987f817ea033e5') in 0.018477 seconds
+  Import took 0.022247 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Character/Sniper/Rifle 1.mat
+  artifactKey: Guid(39a3790093e560040a78e43108e4641d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Rifle 1.mat using Guid(39a3790093e560040a78e43108e4641d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '163da4a2c1f19283c43ea8122852b151') in 0.017928 seconds
+  Import took 0.021211 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000295 seconds.
+  path: Assets/Character/Sniper/Cloth 1.mat
+  artifactKey: Guid(5397d6498b028614c9edd41f57cc6519) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Cloth 1.mat using Guid(5397d6498b028614c9edd41f57cc6519) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '697b63e7e2b50425f6dd8e4c11ea49a6') in 0.019677 seconds
+  Import took 0.023134 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.533706 seconds.
+  path: Assets/Character/Sniper/SniperRifle.prefab
+  artifactKey: Guid(5b6f4c5c90c0e044d822b8af8d578cf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/SniperRifle.prefab using Guid(5b6f4c5c90c0e044d822b8af8d578cf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cccfd361b724b7103afdd0af1941bfcc') in 0.010589 seconds
+  Import took 0.014291 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.908662 seconds.
+  path: Assets/Plugins/RootMotion/Shared Demo Assets/Humanoid Animations/Materials/body_color_map.mat
+  artifactKey: Guid(08a3af2fbc23c4bcaae0c29e0708051b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/RootMotion/Shared Demo Assets/Humanoid Animations/Materials/body_color_map.mat using Guid(08a3af2fbc23c4bcaae0c29e0708051b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfedc4ca2dcfa4db3216df6e8de8b857') in 0.031097 seconds
+  Import took 0.035080 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000324 seconds.
+  path: Assets/Plugins/RootMotion/Shared Demo Assets/Characters/Dummy/Materials/Dummy Ghost.mat
+  artifactKey: Guid(4a91f2f2fa6c34023a979b7c09f122fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/RootMotion/Shared Demo Assets/Characters/Dummy/Materials/Dummy Ghost.mat using Guid(4a91f2f2fa6c34023a979b7c09f122fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91e1f8104853a1dd638e11c1d40c3b3b') in 0.079818 seconds
+  Import took 0.083975 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/Plugins/RootMotion/Shared Demo Assets/Humanoid Animations/Materials/body_color_map.mat
+  artifactKey: Guid(08a3af2fbc23c4bcaae0c29e0708051b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/RootMotion/Shared Demo Assets/Humanoid Animations/Materials/body_color_map.mat using Guid(08a3af2fbc23c4bcaae0c29e0708051b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfedc4ca2dcfa4db3216df6e8de8b857') in 0.008985 seconds
+  Import took 0.011428 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000323 seconds.
+  path: Assets/Plugins/RootMotion/Shared Demo Assets/Characters/Dummy/Materials/Dummy Ghost.mat
+  artifactKey: Guid(4a91f2f2fa6c34023a979b7c09f122fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/RootMotion/Shared Demo Assets/Characters/Dummy/Materials/Dummy Ghost.mat using Guid(4a91f2f2fa6c34023a979b7c09f122fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91e1f8104853a1dd638e11c1d40c3b3b') in 0.020004 seconds
+  Import took 0.023149 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.260876 seconds.
+  path: Assets/Character/Sniper/Hands_Sniper_Rifle_02_Mesh.FBX
+  artifactKey: Guid(3416f6c6fca92cd409f8b40010fb2c14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Hands_Sniper_Rifle_02_Mesh.FBX using Guid(3416f6c6fca92cd409f8b40010fb2c14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c35ab5bdd4df347b8bc64ecdec5f004e') in 0.197497 seconds
+  Import took 0.200996 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.344041 seconds.
+  path: Assets/Character/Sniper/Hands_Sniper_Rifle_02_Mesh.FBX
+  artifactKey: Guid(3416f6c6fca92cd409f8b40010fb2c14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Hands_Sniper_Rifle_02_Mesh.FBX using Guid(3416f6c6fca92cd409f8b40010fb2c14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f82aa5540d0e7f0201e9f02fba318bd7') in 0.175380 seconds
+  Import took 0.178594 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.795619 seconds.
+  path: Assets/Character/Sniper/Materials
+  artifactKey: Guid(e51734858488d584aaf3d6335ab2a98a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Materials using Guid(e51734858488d584aaf3d6335ab2a98a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ce3f90a54bd997be00c0d39d316d434') in 0.012277 seconds
+  Import took 0.014692 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.037017 seconds.
+  path: Assets/Character/Sniper/Materials/Cloth_Albedo_01.mat
+  artifactKey: Guid(bab7e6e85437a544db6cffafdfc86a6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Materials/Cloth_Albedo_01.mat using Guid(bab7e6e85437a544db6cffafdfc86a6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd3519a7d7138c1b9f5930e21c473ab3') in 0.019789 seconds
+  Import took 0.029022 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000424 seconds.
+  path: Assets/Character/Sniper/Materials/Sniper_Rifle_Albedo_01.mat
+  artifactKey: Guid(ac93194c13567a047b07402c0f7f0516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Materials/Sniper_Rifle_Albedo_01.mat using Guid(ac93194c13567a047b07402c0f7f0516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b61abdf3b26772cb3954edc5c738c1d4') in 0.017456 seconds
+  Import took 0.020299 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/Character/Sniper/Materials/Hand_Albedo(3).mat
+  artifactKey: Guid(25c846e79e4fa5e4193efeb17c5b9a8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Materials/Hand_Albedo(3).mat using Guid(25c846e79e4fa5e4193efeb17c5b9a8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44cc0412a8ee122df50e2debccf0d3fb') in 0.009665 seconds
+  Import took 0.013942 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 101.485214 seconds.
+  path: Assets/Character/Sniper/09 - Default.mat
+  artifactKey: Guid(5bc27140184e81f4ab8c2f96eab21ddc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/09 - Default.mat using Guid(5bc27140184e81f4ab8c2f96eab21ddc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78965da414ece1494f244c5f46fab601') in 0.009094 seconds
+  Import took 0.014304 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.981997 seconds.
+  path: Assets/Character/Sniper/Cloth.mat
+  artifactKey: Guid(7d33a52bda9ebfc409878c10380e9502) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Cloth.mat using Guid(7d33a52bda9ebfc409878c10380e9502) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89b705aaaa14b4fab3aa459d0ec4549b') in 0.017219 seconds
+  Import took 0.021455 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.987927 seconds.
+  path: Assets/Character/Sniper/Rifle.mat
+  artifactKey: Guid(46691d796f32ca6418a1849aa6a8d8a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Rifle.mat using Guid(46691d796f32ca6418a1849aa6a8d8a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46380ccc028903ef8f57044dfba2047d') in 0.010495 seconds
+  Import took 0.021303 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 121.695444 seconds.
+  path: Assets/Character/Sniper/Textures
+  artifactKey: Guid(23d705ee13652df4081a6be6e14a00c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures using Guid(23d705ee13652df4081a6be6e14a00c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43ff740fbb73dab3f6d2ae04543cfd02') in 0.010614 seconds
+  Import took 0.016078 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.053014 seconds.
+  path: Assets/Character/Sniper/Textures/Cloth_Albedo_01.tga
+  artifactKey: Guid(48b5f9c7252000c4182f49f0349ab6ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures/Cloth_Albedo_01.tga using Guid(48b5f9c7252000c4182f49f0349ab6ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '631d5715531cea2d78b23c246b025cda') in 0.071882 seconds
+  Import took 0.076753 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000263 seconds.
+  path: Assets/Character/Sniper/Textures/Sniper_Rifle_Ao.tga
+  artifactKey: Guid(e22c213bbe744b94fb1d04490dcb4741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures/Sniper_Rifle_Ao.tga using Guid(e22c213bbe744b94fb1d04490dcb4741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66915229bff15b8e4f56ee490b286c2e') in 0.028514 seconds
+  Import took 0.031480 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/Character/Sniper/Textures/Cloth_Ao.tga
+  artifactKey: Guid(434c84ff7c618ed4b91e28273d90977c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures/Cloth_Ao.tga using Guid(434c84ff7c618ed4b91e28273d90977c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd33d8f68e6a18dc91cb277e2a20cb91e') in 0.031856 seconds
+  Import took 0.036600 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000963 seconds.
+  path: Assets/Character/Sniper/Textures/Sniper_Rifle_Albedo_03.tga
+  artifactKey: Guid(9804ffdaf9d068948a0d4e6d7911fb5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures/Sniper_Rifle_Albedo_03.tga using Guid(9804ffdaf9d068948a0d4e6d7911fb5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea0aaac9abc496ce900e0f5a5114cacc') in 0.032991 seconds
+  Import took 0.037575 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000474 seconds.
+  path: Assets/Character/Sniper/Textures/Sniper_Rifle_Metallic.tga
+  artifactKey: Guid(112d62e596b39d241b0ccc44235d1f58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures/Sniper_Rifle_Metallic.tga using Guid(112d62e596b39d241b0ccc44235d1f58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9794a2f8fad776f03e72defe41f10913') in 0.061544 seconds
+  Import took 0.065897 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/Character/Sniper/Textures/Cloth_Albedo_03.tga
+  artifactKey: Guid(c20f8146b23713f4d9b85482e6ab87b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures/Cloth_Albedo_03.tga using Guid(c20f8146b23713f4d9b85482e6ab87b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '208578a1e0fc4061b1bf84d07e56551e') in 0.050282 seconds
+  Import took 0.054125 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/Character/Sniper/Textures/Cloth_Normals.tga
+  artifactKey: Guid(e7f8007fd2992a2418fc124366e872b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures/Cloth_Normals.tga using Guid(e7f8007fd2992a2418fc124366e872b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd0f9d578ca539e5773a088add09ca08') in 0.047836 seconds
+  Import took 0.052811 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000159 seconds.
+  path: Assets/Character/Sniper/Textures/Cloth_Albedo_02.tga
+  artifactKey: Guid(3ddc01339e24cdb47b081fcb40841db3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures/Cloth_Albedo_02.tga using Guid(3ddc01339e24cdb47b081fcb40841db3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '776f0903a226886dd34d5e37133b86a9') in 0.045964 seconds
+  Import took 0.050125 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/Character/Sniper/Textures/Sniper_Rifle_Normals.tga
+  artifactKey: Guid(49155f7dfc3b5e24eb246ed443a7d225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures/Sniper_Rifle_Normals.tga using Guid(49155f7dfc3b5e24eb246ed443a7d225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '862006e26c7c2b1787d009cf39dc3be7') in 0.035050 seconds
+  Import took 0.040367 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Character/Sniper/Textures/Sniper_Rifle_Albedo_01.tga
+  artifactKey: Guid(b1b35d079d1ebea45bb77bf9ed661d14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures/Sniper_Rifle_Albedo_01.tga using Guid(b1b35d079d1ebea45bb77bf9ed661d14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c0cd4d527be6d6ef734ee38523dbdee') in 0.017262 seconds
+  Import took 0.020474 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000310 seconds.
+  path: Assets/Character/Sniper/Textures/Sniper_Rifle_Albedo_02.tga
+  artifactKey: Guid(bc32d39bfec278047bc7dfe976d39699) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures/Sniper_Rifle_Albedo_02.tga using Guid(bc32d39bfec278047bc7dfe976d39699) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65338703412e2edba0b84c1fa8d1cb71') in 0.019651 seconds
+  Import took 0.022608 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/Character/Sniper/Textures/Cloth_Metallic.tga
+  artifactKey: Guid(c6164ec006f70a34d8cec97c803e5f2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Textures/Cloth_Metallic.tga using Guid(c6164ec006f70a34d8cec97c803e5f2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98a915a4ae165346d8e2feefb926d0cd') in 0.035742 seconds
+  Import took 0.040748 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 94.373693 seconds.
+  path: Assets/Character/Sniper/Hands_Sniper_Rifle_02_Mesh.prefab
+  artifactKey: Guid(9552b6d0ae5134a4bac221a7ad17c7dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/Hands_Sniper_Rifle_02_Mesh.prefab using Guid(9552b6d0ae5134a4bac221a7ad17c7dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75f2dbb147f0710750ae3cfcc1fed4ba') in 0.084886 seconds
+  Import took 0.089819 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 101.839675 seconds.
+  path: Assets/Character/Sniper/SniperPrefab.prefab
+  artifactKey: Guid(9552b6d0ae5134a4bac221a7ad17c7dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/SniperPrefab.prefab using Guid(9552b6d0ae5134a4bac221a7ad17c7dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21aa58ba1a79048d91e4ae1d9b277353') in 0.096447 seconds
+  Import took 0.101907 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.437011 seconds.
+  path: Assets/Character/Sniper/SniperPrefab.prefab
+  artifactKey: Guid(9552b6d0ae5134a4bac221a7ad17c7dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/SniperPrefab.prefab using Guid(9552b6d0ae5134a4bac221a7ad17c7dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9fa79191119790aeae6ddea413893f3') in 0.047546 seconds
+  Import took 0.051699 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.151235 seconds.
+  path: Assets/Character/Sniper/SniperPrefab.prefab
+  artifactKey: Guid(9552b6d0ae5134a4bac221a7ad17c7dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/SniperPrefab.prefab using Guid(9552b6d0ae5134a4bac221a7ad17c7dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7dd93a370332c6cc0cc175fa842ee5e') in 0.050310 seconds
+  Import took 0.055219 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.971627 seconds.
+  path: Assets/Character/Sniper/SniperPrefab.prefab
+  artifactKey: Guid(9552b6d0ae5134a4bac221a7ad17c7dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Sniper/SniperPrefab.prefab using Guid(9552b6d0ae5134a4bac221a7ad17c7dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd67b2b28dc990c5c07c5d08f021c844d') in 0.048733 seconds
+  Import took 0.054249 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

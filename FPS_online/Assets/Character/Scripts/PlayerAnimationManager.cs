@@ -9,6 +9,7 @@ public class PlayerAnimationManager : MonoBehaviour
     private float inputAmount;
 
     [SerializeField] private Rigidbody rb = default;
+    [SerializeField] private Rigidbody headTargetRigidbody = default;
     [SerializeField] private CapsuleCollider col = default;
     [SerializeField] private float offsetFloorY = 0.4f;
     [SerializeField] private float movementSpeed = 3f;
@@ -56,6 +57,7 @@ public class PlayerAnimationManager : MonoBehaviour
 
         //Update velocity
         rb.velocity = (movementDir * movementSpeed * inputAmount) + gravity;
+        headTargetRigidbody.velocity = rb.velocity;
 
         //Adjust rigid body position so that the player is at the correct height
         floorMovement = new Vector3(rb.position.x, FindFloor().y, rb.position.z); 

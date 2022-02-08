@@ -32,6 +32,16 @@ public class UpperBodyIK : MonoBehaviour
     [SerializeField] private Camera mainCamera = default;
     [SerializeField] private float adsOffFov = 60.0f;
     [SerializeField] private float adsOnFov = 40.0f;
+    [Header("Camera Rotation")]
+    [SerializeField] private Transform bodyTarget = default;
+    [Range(-89, 0)] [SerializeField] private float _maxAngleUp = -50f;
+    [Range(0, 89)] [SerializeField] private float _maxAngleDown = 70f;
+    [Range(-89f, 89f)] private float bodyOffsetAngle = 45f;
+    private float currentBodyAngle;
+    [SerializeField] private Transform m_headEffectorNeutral = default;
+    [SerializeField] private Transform m_headEffectorUp = default;
+    [SerializeField] private Transform m_headEffectorDown = default;
+    [SerializeField] private float rotateSpeed = 7.0f;
 
     [Header("Input")] 
     [SerializeField] private InputManager inputManager;
@@ -39,12 +49,17 @@ public class UpperBodyIK : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         //Disable IKs to update them manually 
         headLookAtIK.enabled = false;
         bodyLookAtIK.enabled = false;
         rightArmIK.enabled = false;
         leftArmIK.enabled = false;
-        fbbIK.enabled = false; 
+        fbbIK.enabled = false;
+
+        currentBodyAngle = bodyOffsetAngle;
     }
 
     void Update()
@@ -57,7 +72,7 @@ public class UpperBodyIK : MonoBehaviour
     }
 
     void LateUpdate()
-    {//Override
+    {//Override animation
         LookAtIKUpdate();
         FBBIKUpdate();
         ArmsIKUpdate();
@@ -70,19 +85,28 @@ public class UpperBodyIK : MonoBehaviour
         bodyLookAtIK.solver.Update();
         headLookAtIK.solver.Update();
     }
+
     private void ArmsIKUpdate()
     {
         AimDownSightUpdate();
         rightArmIK.solver.Update();
         leftArmIK.solver.Update();
     }
+
     private void FBBIKUpdate()
     {
         fbbIK.solver.Update();
         //Set targets
         cameraTransf.LookAt(headTarget);
         headEffector.LookAt(headTarget);
+        //Camera Rotation
+        UpdateLookTargetPos();
+        //Character rotation
+        transform.rotation = Quaternion.Lerp(transform.rotation,
+            Quaternion.LookRotation(new Vector3(cameraTransf.transform.forward.x, 0f,
+            cameraTransf.transform.forward.z)), Time.smoothDeltaTime * rotateSpeed);
     }
+
     private void AimDownSightUpdate()
     {
         //Check ADS state
@@ -105,5 +129,49 @@ public class UpperBodyIK : MonoBehaviour
         //Lerp
         rightHandTarget.position = Vector3.SmoothDamp(rightHandTarget.position, rightHandFollow, ref refRightHandFollow, rightHandPosSpeed * Time.smoothDeltaTime);
         rightHandTarget.rotation = Quaternion.Lerp(rightHandTarget.rotation, rightHandFollowRot, Time.smoothDeltaTime * rightHandRotSpeed);
+    }
+
+    //Camera Rotation
+    private void UpdateLookTargetPos()
+    {
+        Vector3 targetForward = Quaternion.LookRotation(new Vector3(cameraTransf.transform.forward.x, 0f, cameraTransf.transform.forward.z)) * Vector3.forward;
+        //Get angle between the camera look direction and the forward direction of the charater
+        float angle = Vector3.SignedAngle(targetForward, cameraTransf.forward, cameraTransf.right);
+        float percent;
+        float maxY = 100f;
+        float minY = -100f;
+        //Clamp angle
+        if (angle < 0)
+        {
+            percent = Mathf.Clamp01(angle / _maxAngleUp);
+            if (percent >= 1f) 
+                maxY = 0f;
+
+            //Update HeadEffector
+            headEffector.position = Vector3.Lerp(m_headEffectorNeutral.position, m_headEffectorUp.position, percent);
+        }
+        else
+        {
+            percent = Mathf.Clamp01(angle / _maxAngleDown);
+            if (percent >= 1f) 
+                minY = 0f;
+
+            //Update HeadEffector
+            headEffector.position = Vector3.Lerp(m_headEffectorNeutral.position,m_headEffectorDown.position, percent);
+        }
+
+        Vector3 offset = cameraTransf.right * inputManager.XLookAxis + cameraTransf.up * Mathf.Clamp(inputManager.YLookAxis, minY, maxY);
+        offset += headTarget.transform.position;
+        Vector3 projectedPoint = (offset - cameraTransf.position).normalized * 20f + cameraTransf.position;
+        currentBodyAngle = Mathf.Lerp(bodyOffsetAngle, 0, percent);
+        //Get Body angle
+        headTarget.transform.position = projectedPoint;
+        bodyTarget.transform.position = GetPosFromAngle(projectedPoint, currentBodyAngle, transform.right);
+    }
+
+    private Vector3 GetPosFromAngle(Vector3 projectedPoint, float angle, Vector3 axis)
+    {
+        float dist = (projectedPoint - transform.position).magnitude * Mathf.Tan(angle * Mathf.Deg2Rad);
+        return projectedPoint + (dist * axis);
     }
 }
