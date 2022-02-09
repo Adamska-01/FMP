@@ -7,12 +7,16 @@ public class UpperBodyIK : MonoBehaviour
 { 
     [Header("Final IK Modules")]
     [SerializeField] private LookAtIK headLookAtIK = default;
-    [SerializeField] private LookAtIK bodyLookAtIK = default;
+    [SerializeField] private LookAtIK ArmLookAtIK = default;
     [SerializeField] private ArmIK leftArmIK = default;
     [SerializeField] private ArmIK rightArmIK = default;
     [SerializeField] private FullBodyBipedIK fbbIK = default;
+    [SerializeField] private AimIK gunAim = default;
     [Header("LookAt Settings")]
     [SerializeField] private Transform cameraTransf = default;
+    [SerializeField] private Transform cameraHolder = default;
+    [SerializeField] private Transform cameraTarget = default;
+    [SerializeField] private Transform gunTarget = default;
     [SerializeField] private Transform headTarget = default;
     [Header("Head Effector Settings")]
     [SerializeField] private Transform headEffector = default;
@@ -53,27 +57,23 @@ public class UpperBodyIK : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         //Disable IKs to update them manually 
-        headLookAtIK.enabled = false;
-        bodyLookAtIK.enabled = false;
+        //ArmLookAtIK.enabled = false;
+        //bodyLookAtIK.enabled = false;
         rightArmIK.enabled = false;
         leftArmIK.enabled = false;
         fbbIK.enabled = false;
-
-        currentBodyAngle = bodyOffsetAngle;
+        //currentBodyAngle = bodyOffsetAngle;
     }
 
     void Update()
     {
-        bodyLookAtIK.solver.FixTransforms();
-        headLookAtIK.solver.FixTransforms();
         fbbIK.solver.FixTransforms();
         rightArmIK.solver.FixTransforms();
-        leftArmIK.solver.FixTransforms();
+        leftArmIK.solver.FixTransforms(); 
     }
 
     void LateUpdate()
-    {//Override animation
-        LookAtIKUpdate();
+    {
         FBBIKUpdate();
         ArmsIKUpdate();
     }
@@ -82,13 +82,13 @@ public class UpperBodyIK : MonoBehaviour
     private void LookAtIKUpdate()
     { 
         //Right order
-        bodyLookAtIK.solver.Update();
-        headLookAtIK.solver.Update();
+        ArmLookAtIK.solver.Update(); 
+         
     }
 
     private void ArmsIKUpdate()
     {
-        AimDownSightUpdate();
+        //AimDownSightUpdate();
         rightArmIK.solver.Update();
         leftArmIK.solver.Update();
     }
@@ -96,15 +96,16 @@ public class UpperBodyIK : MonoBehaviour
     private void FBBIKUpdate()
     {
         fbbIK.solver.Update();
+
         //Set targets
-        cameraTransf.LookAt(headTarget);
-        headEffector.LookAt(headTarget);
-        //Camera Rotation
-        UpdateLookTargetPos();
-        //Character rotation
-        transform.rotation = Quaternion.Lerp(transform.rotation,
-            Quaternion.LookRotation(new Vector3(cameraTransf.transform.forward.x, 0f,
-            cameraTransf.transform.forward.z)), Time.smoothDeltaTime * rotateSpeed);
+        //cameraTransf.LookAt(headTarget);
+        //headEffector.LookAt(headTarget);
+        ////Camera Rotation
+        //UpdateLookTargetPos();
+        ///Character rotation
+        //transform.rotation = Quaternion.Lerp(transform.rotation,
+        //    Quaternion.LookRotation(new Vector3(cameraTransf.transform.forward.x, 0f,
+        //    cameraTransf.transform.forward.z)), Time.smoothDeltaTime * rotateSpeed);
     }
 
     private void AimDownSightUpdate()

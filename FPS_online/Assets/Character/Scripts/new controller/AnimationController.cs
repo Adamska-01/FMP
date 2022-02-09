@@ -14,6 +14,24 @@ public class AnimationController : MonoBehaviour
     private int XvelocityHash;
     private int ZvelocityHash;
     private int crouchHash;
+    private int jumpHash;
+
+    //Crouch lerp
+    [SerializeField] private Transform cameraTansf;
+    [SerializeField] private Transform cameraStandTarget;
+    [SerializeField] private Transform cameraCrouchTarget;
+    [SerializeField] private Transform HeadEffector;
+    [SerializeField] private Transform headEffectorStandTarget;
+    [SerializeField] private Transform headEffectorCrouchTarget;
+    private float transitionCrouch = 0.0f;
+    private float transitionCrouchTime = 5.0f;
+    //Aim lerp
+    [SerializeField] private Transform rightArmTransf; 
+    private float transitionADS = 0.0f;
+    private float transitionADSTime = 10.0f;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private float adsOffFov = 60.0f;
+    [SerializeField] private float adsOnFov = 40.0f;
 
     [Header("Input")]
     [SerializeField] private InputManager inputManager;
@@ -25,6 +43,7 @@ public class AnimationController : MonoBehaviour
         XvelocityHash = Animator.StringToHash("VelocityX");
         ZvelocityHash = Animator.StringToHash("VelocityZ");
         crouchHash = Animator.StringToHash("IsCrouched");
+        jumpHash = Animator.StringToHash("Jump");
     }
 
 
@@ -38,7 +57,31 @@ public class AnimationController : MonoBehaviour
         bool runPressed = inputManager.Run;
 
         //set current maxVelocity (running)
-        float currentMaxVelocity = (runPressed && !backPressed) ? maximumRunVelocity : maximumWalkVelocity;
+        float currentMaxVelocity = ((runPressed && !backPressed) && !inputManager.Crouch) ? maximumRunVelocity : maximumWalkVelocity;
+
+        //Crouch lerp
+        if(inputManager.Crouch)
+        {
+            transitionCrouch = Mathf.Lerp(transitionCrouch, 1, Time.smoothDeltaTime * transitionCrouchTime); 
+        }
+        else
+        {
+            transitionCrouch = Mathf.Lerp(transitionCrouch, 0, Time.smoothDeltaTime * transitionCrouchTime);
+        } 
+        cameraTansf.position = Vector3.Lerp(cameraStandTarget.position, cameraCrouchTarget.position, transitionCrouch);
+        HeadEffector.position = Vector3.Lerp(headEffectorStandTarget.position, headEffectorCrouchTarget.position, transitionCrouch);
+
+        //ADS lerp
+        if (inputManager.IsAiming)
+        {
+            transitionADS = Mathf.Lerp(transitionADS, 1, Time.smoothDeltaTime * transitionADSTime);
+        }
+        else
+        {
+            transitionADS = Mathf.Lerp(transitionADS, 0, Time.smoothDeltaTime * transitionADSTime);
+        }
+        //FOV
+        mainCamera.fieldOfView = Mathf.Lerp(adsOffFov, adsOnFov, transitionADS);
 
         ChangeVelocity(forwardPressed, leftPressed, rightPressed, backPressed, runPressed, currentMaxVelocity);
         LockOrResetVelocity(forwardPressed, leftPressed, rightPressed, backPressed, runPressed, currentMaxVelocity);
@@ -47,6 +90,7 @@ public class AnimationController : MonoBehaviour
         animator.SetFloat(XvelocityHash, velocityX);
         animator.SetFloat(ZvelocityHash, velocityZ);
         animator.SetBool(crouchHash, inputManager.Crouch);
+        if(inputManager.Jump) animator.SetTrigger(jumpHash);
     }
 
     //Check for input and assign velocities 

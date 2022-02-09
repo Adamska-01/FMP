@@ -24,7 +24,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private float jumpForce = 200.0f;
 
     private float verticalLookRotation = 0.0f;
-
+    [SerializeField] private Transform gunTarget;
+    [SerializeField] private Transform cameraTarget;  
+    private bool setTarget = false;
 
     void Update()
     {
@@ -64,7 +66,6 @@ public class Movement : MonoBehaviour
         //Update velocity
         rb.velocity = (movementDir * movementSpeed) + gravity;
 
-        
         //Adjust rigid body position so that the player is at the correct height
         floorMovement = new Vector3(rb.position.x, FindFloor().y, rb.position.z);
         if (FloorRaycasts(0, 0, groundRayLenght).transform != null && floorMovement != rb.position)
@@ -84,6 +85,13 @@ public class Movement : MonoBehaviour
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -70.0f, 70f);
 
         cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation;
+
+        if (!setTarget)
+        {
+            cameraHolder.transform.rotation = Quaternion.Euler(Vector3.zero);
+            gunTarget.SetParent(cameraHolder.transform); 
+            setTarget = true;
+        }
     }
 
     private Vector3 FindFloor()
