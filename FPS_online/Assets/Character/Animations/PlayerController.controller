@@ -13,7 +13,6 @@ AnimatorState:
   m_Transitions:
   - {fileID: 6120948402111278028}
   - {fileID: -2926146493979237386}
-  - {fileID: 8940092322239744267}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -99,9 +98,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -7336046083771132261}
     m_Position: {x: 620, y: 120, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -304584304191828833}
-    m_Position: {x: 677.7061, y: 232.44287, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -336,7 +332,6 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -483556267919527685}
-  - {fileID: -6241488607036955935}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -493,19 +488,19 @@ AnimatorController:
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
-    m_DefaultWeight: 0.35
+    m_DefaultWeight: 0.83
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
     m_Name: Reloading Layer
     m_StateMachine: {fileID: 6066571319076304792}
-    m_Mask: {fileID: 31900000, guid: 374cc0c48ae2d6e4f92f8e9f24f19f95, type: 2}
+    m_Mask: {fileID: 31900000, guid: 11b1f6110722de747a6f3362ba4d4fac, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
-    m_DefaultWeight: 0
+    m_DefaultWeight: 1
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
@@ -566,7 +561,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Reloading
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6117632501947227796}
