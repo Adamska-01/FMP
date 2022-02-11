@@ -13,12 +13,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CapsuleCollider col;
     [SerializeField] private float offsetFloorY = 0.4f;
     [SerializeField] private float movementSpeed = 3f;
+    [SerializeField] private float speedMultiplier = 1.6f;
     [SerializeField] private float xAxisSensitivity = 0.2f;
     [SerializeField] private float yAxisSensitivity = 0.2f; 
     private bool isGrounded; 
     [SerializeField] private float jumpForce = 200.0f;
     public float fallMultiplier;
     private Vector3 gravity;
+    public bool IsRunning { get { return (!inputManager.Crouch && !inputManager.Back && inputManager.Run); } }
 
     private float verticalLookRotation = 0.0f;
     [SerializeField] private Transform gunTarget;
@@ -141,7 +143,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Update velocity
-        rb.velocity = (movementDir * movementSpeed) + gravity; 
+        rb.velocity = (movementDir * (IsRunning ? movementSpeed * speedMultiplier : movementSpeed )) + gravity; 
     }
 
     private void Look()

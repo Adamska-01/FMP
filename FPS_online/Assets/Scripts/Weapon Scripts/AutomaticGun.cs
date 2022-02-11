@@ -5,6 +5,7 @@ using UnityEngine;
 public class AutomaticGun : Gun
 {
     [SerializeField] Camera cam;
+    public float bulletVelocity = 200.0f;
 
     public override void Use()
     {
