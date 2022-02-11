@@ -6,6 +6,8 @@ public class AutomaticGun : Gun
 {
     [SerializeField] Camera cam;
     public float bulletVelocity = 200.0f;
+    public Transform bulletStart;
+    public GameObject bulletPrefab;
 
     public override void Use()
     {
@@ -18,23 +20,17 @@ public class AutomaticGun : Gun
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
         ray.origin = cam.transform.position;
 
+        GameObject bullet = null;
         if(Physics.Raycast(ray, out RaycastHit hit))
         {
-            if(hit.collider.gameObject.TryGetComponent<HitboxPlayer>(out var hitbox))
-            {
-                switch(hitbox.colType)
-                {
-                    case HitboxPlayer.CollisionType.BODY: 
-                        hitbox.TakeDamage(((GunInfo)itemInfo).damageBody); 
-                    break;
-                    case HitboxPlayer.CollisionType.HEAD:
-                        hitbox.TakeDamage(((GunInfo)itemInfo).damageHead);
-                    break;
-                    case HitboxPlayer.CollisionType.LEG:
-                        hitbox.TakeDamage(((GunInfo)itemInfo).damageLeg);
-                    break; 
-                }
-            } 
+            bullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.LookRotation(hit.point - cam.transform.position)); 
         }
+        else
+        {
+            bullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.LookRotation(cam.transform.forward));
+        }
+
+        //Assign damages
+        bullet.GetComponent<Bullet>().SetDamages(((GunInfo)itemInfo).damageHead, ((GunInfo)itemInfo).damageBody, ((GunInfo)itemInfo).damageLeg);
     }
 }
