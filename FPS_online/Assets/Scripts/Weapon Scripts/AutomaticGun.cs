@@ -19,7 +19,21 @@ public class AutomaticGun : Gun
 
         if(Physics.Raycast(ray, out RaycastHit hit))
         {
-            hit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damageHead);
+            if(hit.collider.gameObject.TryGetComponent<HitboxPlayer>(out var hitbox))
+            {
+                switch(hitbox.colType)
+                {
+                    case HitboxPlayer.CollisionType.BODY: 
+                        hitbox.TakeDamage(((GunInfo)itemInfo).damageBody); 
+                    break;
+                    case HitboxPlayer.CollisionType.HEAD:
+                        hitbox.TakeDamage(((GunInfo)itemInfo).damageHead);
+                    break;
+                    case HitboxPlayer.CollisionType.LEG:
+                        hitbox.TakeDamage(((GunInfo)itemInfo).damageLeg);
+                    break; 
+                }
+            } 
         }
     }
 }

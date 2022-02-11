@@ -40,7 +40,14 @@ public class PlayerStats : MonoBehaviour, IDamageable
         if (!isDead)
         {
             Debug.Log("Took Damage: " + damage);
-            HealthValue -= damage;
+            if(ArmourValue > 0.0f)
+            {
+                ArmourValue -= damage;
+                if (ArmourValue < 0.0f)
+                    HealthValue -= 0.0f;
+            }
+            else
+                HealthValue -= damage;
 
             if (HealthValue <= 0)
             {

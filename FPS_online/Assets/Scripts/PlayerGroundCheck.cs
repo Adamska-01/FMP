@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerGroundCheck : MonoBehaviour
 {
-    PlayerController1 playerController;
+    PlayerController playerController;
 
     private void Awake()
     {
-        playerController = GetComponentInParent<PlayerController1>();
+        playerController = GetComponentInParent<PlayerController>();
     }
      
 
