@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   itemName: Rifle
-  damageHead: 0
-  damageBody: 0
-  damageLeg: 0
+  damageHead: 110
+  damageBody: 35
+  damageLeg: 25
