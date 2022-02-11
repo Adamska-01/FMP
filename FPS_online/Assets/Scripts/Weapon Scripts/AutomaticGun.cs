@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AutomaticGun : Gun
+{
+    [SerializeField] Camera cam;
+
+    public override void Use()
+    {
+        Shoot();
+    }
+
+    private void Shoot()
+    {
+        //Start ray from center of screen
+        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+        ray.origin = cam.transform.position;
+
+        if(Physics.Raycast(ray, out RaycastHit hit))
+        {
+            hit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damageHead);
+        }
+    }
+}

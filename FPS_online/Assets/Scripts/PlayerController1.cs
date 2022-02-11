@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
-public class PlayerController : MonoBehaviourPunCallbacks
+public class PlayerController1 : MonoBehaviourPunCallbacks
 {
     private PhotonView pv;
     private Rigidbody rb;
@@ -113,28 +113,28 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private void EquipItem(int _index)
     {
-        if (_index == previousItemIndex) //safe check 
-            return;
+        //if (_index == previousItemIndex) //safe check 
+        //    return;
 
-        //Set current index
-        itemIndex = _index;
+        ////Set current index
+        //itemIndex = _index;
 
-        //Set current gun to true
-        items[itemIndex].itemObject.SetActive(true);
+        ////Set current gun to true
+        //items[itemIndex].itemObject.SetActive(true);
 
-        //Set the previous gun to false
-        if(previousItemIndex != -1)
-        {
-            items[previousItemIndex].itemObject.SetActive(false);
-        }
-        previousItemIndex = itemIndex;
+        ////Set the previous gun to false
+        //if(previousItemIndex != -1)
+        //{
+        //    items[previousItemIndex].itemObject.SetActive(false);
+        //}
+        //previousItemIndex = itemIndex;
 
-        if (pv.IsMine)
-        {
-            Hashtable hash = new Hashtable();
-            hash.Add("itemIndex", itemIndex);
-            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
-        }
+        //if (pv.IsMine)
+        //{
+        //    Hashtable hash = new Hashtable();
+        //    hash.Add("itemIndex", itemIndex);
+        //    PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        //}
     }
 
     public void SetGrounded(bool _grnd)

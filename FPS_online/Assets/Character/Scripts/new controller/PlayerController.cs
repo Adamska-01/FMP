@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] private InputManager inputManager;
     [SerializeField] private GameObject cameraHolder;
@@ -28,10 +29,17 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform cameraTarget;  
     private bool setTarget = false;
 
+    //Guns
+    [SerializeField] Item[] items;
+    int itemIndex;
+    int previousItemIndex = -1;
+
     void Update()
     {
         UpdateMovementInput();
+        UpdateWeapon();
     }
+
 
     void FixedUpdate()
     { 
@@ -51,6 +59,77 @@ public class Movement : MonoBehaviour
         if (inputManager.Jump && !inputManager.Crouch && IsGrounded)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Acceleration);
+        }
+    }
+
+    private void UpdateWeapon()
+    {
+        //Switch guns with numbers
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (Input.GetKeyDown((i + 1).ToString()))
+            {
+                EquipItem(i);
+                break;
+            }
+        }
+        //Switch guns with scroll wheel
+        if (inputManager.SwitchWeaponUp)
+        {
+            if (itemIndex >= (items.Length - 1))
+                EquipItem(0);
+            else
+                EquipItem(itemIndex + 1);
+        }
+        if (inputManager.SwitchWeaponDown)
+        {
+            if (itemIndex <= 0)
+                EquipItem(items.Length - 1);
+            else
+                EquipItem(itemIndex - 1);
+        }
+
+        //Fire
+        FireWeapon();
+    }
+
+    private void EquipItem(int _index)
+    {
+        if (_index == previousItemIndex) //safe check 
+            return;
+
+        //Set current index
+        itemIndex = _index;
+
+        //Set current gun to true
+        foreach (var item in items[itemIndex].itemObject)
+        {
+            item.SetActive(true); 
+        }
+
+        //Set the previous gun to false
+        if (previousItemIndex != -1)
+        {
+            foreach (var item in items[itemIndex].itemObject)
+            {
+                item.SetActive(false);
+            } 
+        }
+        previousItemIndex = itemIndex;
+
+        //if (pv.IsMine)
+        //{
+        //    Hashtable hash = new Hashtable();
+        //    hash.Add("itemIndex", itemIndex);
+        //    PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        //}
+    }
+
+    private void FireWeapon()
+    {
+        if(inputManager.FireSingleShot)
+        {
+            items[itemIndex].Use();
         }
     }
 

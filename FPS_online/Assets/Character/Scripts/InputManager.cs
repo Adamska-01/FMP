@@ -20,11 +20,25 @@ public class InputManager : MonoBehaviour
     protected bool jump;
     public bool Jump { get { return jump; } }
 
-    [Header("Action Keys")]
-    private KeyCode aimKey = KeyCode.Mouse1;
+    [Header("Action Keys")] 
     protected bool isAiming;
     public bool IsAiming { get { return isAiming; } }
-    
+    protected bool fireSingleShot;
+    public bool FireSingleShot { get { return fireSingleShot; } }
+    protected bool reload;
+    public bool Reload { get { return reload; } }
+    private string scrollWheelAxis = "Mouse ScrollWheel";
+    protected bool switchWeaponUp;
+    public bool SwitchWeaponUp { get { return switchWeaponUp; } } 
+    protected bool switchWeaponDown;
+    public bool SwitchWeaponDown { get { return switchWeaponDown; } }
+    protected bool firstWeapon;
+    public bool FirstWeapoon { get { return firstWeapon; } }
+    protected bool secondWeapon;
+    public bool SecondWeapoon { get { return secondWeapon; } }
+    protected bool thirdWeapoon;
+    public bool ThirdWeapoon { get { return thirdWeapoon; } }
+
 
     [Header("Camera Axis")]
     private string verticalLookAxis = "Mouse Y";
@@ -52,9 +66,16 @@ public class InputManager : MonoBehaviour
         run = Input.GetKey(KeyCode.LeftShift);
         crouch = Input.GetKeyDown(KeyCode.C) ? !crouch : crouch;
         jump = Input.GetKeyDown(KeyCode.Space);
-
-        //ADS
-        isAiming = Input.GetKey(aimKey);
+         
+        //Actions
+        isAiming = Input.GetKey(KeyCode.Mouse1);
+        reload = Input.GetKeyDown(KeyCode.R);
+        switchWeaponUp = Input.GetAxisRaw(scrollWheelAxis) > 0.0f;
+        switchWeaponDown = Input.GetAxisRaw(scrollWheelAxis) < 0.0f;
+        firstWeapon = Input.GetKeyDown(KeyCode.Alpha1);
+        secondWeapon = Input.GetKeyDown(KeyCode.Alpha2);
+        thirdWeapoon = Input.GetKeyDown(KeyCode.Alpha3);
+        fireSingleShot = Input.GetMouseButtonDown(0);
 
         //Camera rotate
         xAxis = Input.GetAxisRaw(horizontalLookAxis);

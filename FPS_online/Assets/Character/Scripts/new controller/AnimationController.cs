@@ -15,6 +15,7 @@ public class AnimationController : MonoBehaviour
     private int ZvelocityHash;
     private int crouchHash;
     private int jumpHash;
+    private int reloadHash;
 
     //Crouch lerp
     [SerializeField] private Transform cameraTansf;
@@ -44,6 +45,7 @@ public class AnimationController : MonoBehaviour
         ZvelocityHash = Animator.StringToHash("VelocityZ");
         crouchHash = Animator.StringToHash("IsCrouched");
         jumpHash = Animator.StringToHash("Jump");
+        reloadHash = Animator.StringToHash("Reloading");
     }
 
 
@@ -91,6 +93,7 @@ public class AnimationController : MonoBehaviour
         animator.SetFloat(ZvelocityHash, velocityZ);
         animator.SetBool(crouchHash, inputManager.Crouch);
         if(inputManager.Jump) animator.SetTrigger(jumpHash);
+        if(inputManager.Reload) animator.SetTrigger(reloadHash);
     }
 
     //Check for input and assign velocities 
