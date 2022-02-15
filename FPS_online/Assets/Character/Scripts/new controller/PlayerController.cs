@@ -36,12 +36,11 @@ public class PlayerController : MonoBehaviour
     {
         UpdateMovementInput();
         UpdateWeapon(); 
-        UpdatePhysics();
     }
      
     void FixedUpdate()
     { 
-        
+        UpdatePhysics();        
     }
      
 

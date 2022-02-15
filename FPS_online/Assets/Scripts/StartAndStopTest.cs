@@ -20,16 +20,16 @@ public class StartAndStopTest : MonoBehaviour
     {
         myButton.color = isStart ? Color.green : Color.red;
        
-        yield return new WaitForSeconds(2.0f);
-
-        //Start test
-        shootingRange.StartCoroutine(shootingRange.RunTest());
-
+        yield return new WaitForSeconds(1.0f);
+         
         //Set deafult color
         myButton.color = Color.white;
         
         //Set buttons
         otherButton.SetActive(true);
         root.SetActive(false);
+
+        //Start test
+        shootingRange.StartCoroutine(shootingRange.RunTest());
     }
 }

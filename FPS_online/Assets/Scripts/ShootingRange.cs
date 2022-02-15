@@ -96,11 +96,11 @@ public class ShootingRange : MonoBehaviour
         timerIsRunning = true;
 
         //Start test
-        while (timeRemaining > 0.0f || !startButton.activeSelf)
+        while (timeRemaining > 0.0f && !startButton.activeSelf)
         {
             if (timerIsRunning)
             {
-                if (timeRemaining > 0)
+                if (timeRemaining > 0.0f)
                 {
                     //RUN test
                     if (!isSpawning)
@@ -112,20 +112,20 @@ public class ShootingRange : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Time has run out!");
-                    timeRemaining = 0;
-                    timerIsRunning = false;
-
-                    //Reset timer
-                    timerIsRunning = false;
-                    timeRemaining = TEST_TIME;
-
-                    //Set the start button again
-                    startButton.SetActive(true);
-                    stopButton.SetActive(false);
+                    Debug.Log("Time has run out!"); 
+                     
+                    break;
                 }
             } 
-        } 
+        }
+
+        //Reset timer
+        timerIsRunning = false;
+        timeRemaining = TEST_TIME;
+
+        //Set the start button again
+        startButton.SetActive(true);
+        stopButton.SetActive(false);
     }
 
     private IEnumerator SpawnDummy()
