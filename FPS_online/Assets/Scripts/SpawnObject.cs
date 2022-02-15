@@ -9,13 +9,13 @@ public class SpawnObject : MonoBehaviour
     public Transform player;
      
 
-    public void SpawnObjectFacingPlayer()
+    public GameObject SpawnObjectFacingPlayer()
     {
         //Spawn point based on the x and z pos (y is equal to the transform)
         Vector3 randomPos = new Vector3(Random.Range((-size.x / 2), (size.x / 2)), 0.0f, Random.Range((-size.z / 2), (size.z / 2)));
         Vector3 pos = transform.position + randomPos;
 
-        Instantiate(objectToSpawn, pos, Quaternion.LookRotation(player.position - pos));
+        return Instantiate(objectToSpawn, pos, Quaternion.LookRotation(player.position - pos));
     }
 
     

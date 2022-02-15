@@ -44,7 +44,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
             {
                 ArmourValue -= damage;
                 if (ArmourValue < 0.0f)
-                    HealthValue -= 0.0f;
+                    HealthValue += ArmourValue;
             }
             else
                 HealthValue -= damage;

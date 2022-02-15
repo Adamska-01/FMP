@@ -10,11 +10,10 @@ public class HitboxPlayer : MonoBehaviour
         BODY,
         LEG
     }
-    public CollisionType colType;
-    public PlayerStats damageable;
+    public CollisionType colType; 
 
     public void TakeDamage(float _dmg)
     {
-        damageable.TakeDamage(_dmg);
+        transform.root.GetComponent<IDamageable>()?.TakeDamage(_dmg);
     }
 }

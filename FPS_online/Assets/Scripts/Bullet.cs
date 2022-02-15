@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        velocity = 50.0f;
+        velocity = 60.0f;
         StartCoroutine("DestroySelf");
     }
      
@@ -35,6 +35,16 @@ public class Bullet : MonoBehaviour
                         hitbox.TakeDamage(damageLeg);
                         break;
                 }
+            }
+            //Single player shooting range difficulty select
+            if(hit.collider.gameObject.TryGetComponent<DifficultyButton>(out var diffButton))
+            {
+                diffButton.SelectDifficulty(diffButton.diff);
+            }
+            //Single player start test buton
+            if (hit.collider.gameObject.TryGetComponent<StartAndStopTest>(out var testButton))
+            {
+                testButton.StartOrStopTest();
             }
 
             Debug.Log(hit.collider.gameObject.name);

@@ -20,7 +20,7 @@ public class UpperBodyIK : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-         
+
         rightArmIK.enabled = false;
         leftArmIK.enabled = false;
         fbbIK.enabled = false; 
