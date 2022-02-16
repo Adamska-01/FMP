@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutomaticGun : Gun
+public class SingleShotGun : Gun
 {
     [SerializeField] Camera cam;
     public float bulletVelocity = 200.0f;
@@ -19,8 +19,8 @@ public class AutomaticGun : Gun
     { 
         currentAmmoInMagazine = maxAmmoInMagazine;
     }
-
-
+    
+    
     public override void Use()
     {
         Shoot();
@@ -28,7 +28,7 @@ public class AutomaticGun : Gun
 
     private void Shoot()
     {
-        if(CanShoot)
+        if (CanShoot)
         {
             AmmoConsumption();
 
@@ -37,10 +37,10 @@ public class AutomaticGun : Gun
             ray.origin = cam.transform.position;
 
             GameObject bullet = null;
-            if(Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 Debug.DrawLine(cam.transform.position, hit.point);
-                bullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.LookRotation(hit.point - bulletStart.transform.position)); 
+                bullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.LookRotation(hit.point - bulletStart.transform.position));
             }
             else
             {
