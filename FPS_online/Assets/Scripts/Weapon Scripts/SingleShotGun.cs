@@ -57,4 +57,21 @@ public class SingleShotGun : Gun
     {
         currentAmmoInMagazine -= 1;
     }
+
+    public override bool CanReload()
+    {
+        if (currentAmmoInMagazine < maxAmmoInMagazine && ammoAvailable > 0)
+            return true;
+
+        return false;
+    }
+
+    public override void Reload()
+    {
+        int availableSpaceInMagazine = maxAmmoInMagazine - currentAmmoInMagazine;
+        int bulletsToAdd = Mathf.Min(availableSpaceInMagazine, ammoAvailable);
+
+        ammoAvailable -= bulletsToAdd;
+        currentAmmoInMagazine += bulletsToAdd;
+    }
 }

@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d11bc09d16016242a216177f7bd7672, type: 3}
-  m_Name: Handgun
+  m_Name: Rifle
   m_EditorClassIdentifier: 
-  itemName: Handgun
-  damageHead: 85
-  damageBody: 30
-  damageLeg: 20
+  itemName: Rifle
+  damageHead: 110
+  damageBody: 35
+  damageLeg: 25
+  rightHandTarget: {fileID: 0}
+  leftHandTarget: {fileID: 494919282289881834, guid: 43f5994e78ee03f418f450a9e441653e, type: 3}

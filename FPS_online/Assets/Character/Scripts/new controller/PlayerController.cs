@@ -15,8 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private float speedMultiplier = 1.6f;
     [SerializeField] private float xAxisSensitivity = 0.2f;
-    [SerializeField] private float yAxisSensitivity = 0.2f; 
-    private bool isGrounded; 
+    [SerializeField] private float yAxisSensitivity = 0.2f;
+    private bool isGrounded;
     [SerializeField] private float jumpForce = 200.0f;
     public float fallMultiplier;
     private Vector3 gravity;
@@ -24,13 +24,20 @@ public class PlayerController : MonoBehaviour
 
     private float verticalLookRotation = 0.0f;
     [SerializeField] private Transform gunTarget;
-    [SerializeField] private Transform cameraTarget;  
+    [SerializeField] private Transform cameraTarget;
     private bool setTarget = false;
+
+    [SerializeField] private UpperBodyIK ik;
 
     //Guns
     [SerializeField] Item[] items;
     int itemIndex;
     int previousItemIndex = -1;
+
+    private void Start()
+    {
+        EquipItem(0); 
+    }
 
     void Update()
     {
@@ -107,12 +114,15 @@ public class PlayerController : MonoBehaviour
         //Set the previous gun to false
         if (previousItemIndex != -1)
         {
-            foreach (var item in items[itemIndex].itemObject)
+            foreach (var item in items[previousItemIndex].itemObject)
             {
                 item.SetActive(false);
             } 
         }
         previousItemIndex = itemIndex;
+
+        //Change left arm target
+        ik.StartCoroutine(ik.ChangeLeftArmTarget(((GunInfo)items[itemIndex].itemInfo).leftHandTarget));
 
         //if (pv.IsMine)
         //{
@@ -132,14 +142,10 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePhysics()
     {  
-        if(rb.velocity.y < 0.0f)
-        {
-            gravity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
-        }
-        else
-        {
-            gravity = Vector3.zero;
-        }
+        if(rb.velocity.y < 0.0f) 
+            gravity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime; 
+        else 
+            gravity = Vector3.zero; 
 
         //Update velocity
         rb.velocity = (movementDir * (IsRunning ? movementSpeed * speedMultiplier : movementSpeed )) + gravity; 
