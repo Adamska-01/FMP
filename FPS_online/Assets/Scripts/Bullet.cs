@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        velocity = 60.0f;
+        velocity = 80.0f;
         StartCoroutine("DestroySelf");
     }
      

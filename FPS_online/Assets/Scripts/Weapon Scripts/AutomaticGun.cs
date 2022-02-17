@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AutomaticGun : Gun
 {
-    [SerializeField] Camera cam;
-    public float bulletVelocity = 200.0f;
+    [SerializeField] Camera cam; 
+    [SerializeField] PlayerController p;
     public Transform bulletStart;
     public GameObject bulletPrefab;
      
@@ -22,6 +22,9 @@ public class AutomaticGun : Gun
             AmmoConsumption();
 
             StartCoroutine(FireRateDelay());
+
+            //Set state (for animation)
+            p.isFiring = true;
 
             //Start ray from center of screen
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));

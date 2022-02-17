@@ -8,7 +8,7 @@ public abstract class Gun : Item
     public int ammoAvailable;
     public int currentAmmoInMagazine;
     public int maxAmmoInMagazine;
-    private bool canShootNextBullet;
+    protected bool canShootNextBullet;
     public bool CanShoot { get { return currentAmmoInMagazine > 0.0f && canShootNextBullet; } }
 
     void Start()

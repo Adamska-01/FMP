@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     private Animator animator;
+    [SerializeField] private PlayerController player;
     private float velocityZ = 0.0f;
     private float velocityX = 0.0f;
     public float acceleration = 0.1f;
@@ -64,14 +65,14 @@ public class AnimationController : MonoBehaviour
         float currentMaxVelocity = ((runPressed && !backPressed) && !inputManager.Crouch) ? maximumRunVelocity : maximumWalkVelocity;
 
         //Crouch lerp
-        if(inputManager.Crouch)
+        if (inputManager.Crouch)
         {
-            transitionCrouch = Mathf.Lerp(transitionCrouch, 1, Time.smoothDeltaTime * transitionCrouchTime); 
+            transitionCrouch = Mathf.Lerp(transitionCrouch, 1, Time.smoothDeltaTime * transitionCrouchTime);
         }
         else
         {
             transitionCrouch = Mathf.Lerp(transitionCrouch, 0, Time.smoothDeltaTime * transitionCrouchTime);
-        } 
+        }
         cameraTansf.position = Vector3.Lerp(cameraStandTarget.position, cameraCrouchTarget.position, transitionCrouch);
         HeadEffector.position = Vector3.Lerp(headEffectorStandTarget.position, headEffectorCrouchTarget.position, transitionCrouch);
 
@@ -94,10 +95,14 @@ public class AnimationController : MonoBehaviour
         animator.SetFloat(XvelocityHash, velocityX);
         animator.SetFloat(ZvelocityHash, velocityZ);
         animator.SetBool(crouchHash, inputManager.Crouch);
-        if(inputManager.Jump) animator.SetTrigger(jumpHash);
-        if(inputManager.Reload) animator.SetTrigger(reloadHash);
-        if(inputManager.Reload) animator.SetTrigger(reloadHash);
-        if(inputManager.FireSingleShot) animator.SetTrigger(fireHash);
+        if (inputManager.Jump) animator.SetTrigger(jumpHash);
+        if (inputManager.Reload) animator.SetTrigger(reloadHash);
+        if (inputManager.Reload) animator.SetTrigger(reloadHash);
+        if (inputManager.FireSingleShot && player.isFiring)
+        {
+            animator.SetTrigger(fireHash);
+            player.isFiring = false;
+        }
     }
 
     //Check for input and assign velocities 

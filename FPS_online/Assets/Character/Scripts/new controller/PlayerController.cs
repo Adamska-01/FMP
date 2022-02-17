@@ -27,6 +27,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform cameraTarget;
     private bool setTarget = false;
 
+    //States
+    public bool isJumping;
+    public bool isFiring;
+
     [SerializeField] private UpperBodyIK ik;
 
     //Guns
@@ -67,7 +71,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void UpdateWeapon()
-    {
+    { 
         //Switch guns with numbers
         for (int i = 0; i < items.Length; i++)
         {
@@ -134,7 +138,7 @@ public class PlayerController : MonoBehaviour
 
     private void FireWeapon()
     {
-        if(inputManager.FireSingleShot && items[itemIndex].TryGetComponent<SingleShotGun>(out var ssg))
+        if(inputManager.FireSingleShot && (items[itemIndex].TryGetComponent<SingleShotGun>(out var ssg) || items[itemIndex].TryGetComponent<MeleeWeapon>(out var melee)))
         {
             items[itemIndex].Use();
         }
