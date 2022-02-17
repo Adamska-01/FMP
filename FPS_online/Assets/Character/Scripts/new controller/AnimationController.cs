@@ -95,9 +95,8 @@ public class AnimationController : MonoBehaviour
         animator.SetFloat(XvelocityHash, velocityX);
         animator.SetFloat(ZvelocityHash, velocityZ);
         animator.SetBool(crouchHash, inputManager.Crouch);
-        if (inputManager.Jump) animator.SetTrigger(jumpHash);
-        if (inputManager.Reload) animator.SetTrigger(reloadHash);
-        if (inputManager.Reload) animator.SetTrigger(reloadHash);
+        if (inputManager.Jump && player.IsGrounded) animator.SetTrigger(jumpHash);
+        if (inputManager.Reload && !player.isReloading) animator.SetTrigger(reloadHash); 
         if (inputManager.FireSingleShot && player.isFiring)
         {
             animator.SetTrigger(fireHash);
@@ -234,5 +233,10 @@ public class AnimationController : MonoBehaviour
         {
             velocityZ = -currentMaxVelocity;
         }
+    }
+
+    public bool IsReloadComplete()
+    {
+        return animator.GetCurrentAnimatorStateInfo(3).IsName("Reloading");
     }
 }

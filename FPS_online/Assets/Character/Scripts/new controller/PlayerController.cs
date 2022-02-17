@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float xAxisSensitivity = 0.2f;
     [SerializeField] private float yAxisSensitivity = 0.2f;
     private bool isGrounded;
+    public bool IsGrounded { get { return isGrounded; } }
     [SerializeField] private float jumpForce = 200.0f;
     public float fallMultiplier;
     private Vector3 gravity;
@@ -27,9 +28,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform cameraTarget;
     private bool setTarget = false;
 
-    //States
-    public bool isJumping;
+    //States 
     public bool isFiring;
+    public bool isReloading;
 
     [SerializeField] private UpperBodyIK ik;
 
@@ -71,35 +72,40 @@ public class PlayerController : MonoBehaviour
     }
 
     private void UpdateWeapon()
-    { 
-        //Switch guns with numbers
-        for (int i = 0; i < items.Length; i++)
+    {
+        if (!isReloading)
         {
-            if (Input.GetKeyDown((i + 1).ToString()))
+            for (int i = 0; i < items.Length; i++)
             {
-                EquipItem(i);
-                break;
+                if (Input.GetKeyDown((i + 1).ToString()))
+                {
+                    EquipItem(i); 
+                    break;
+                }
             }
-        }
-        //Switch guns with scroll wheel
-        if (inputManager.SwitchWeaponUp)
-        {
-            if (itemIndex >= (items.Length - 1))
-                EquipItem(0);
-            else
-                EquipItem(itemIndex + 1);
-        }
-        if (inputManager.SwitchWeaponDown)
-        {
-            if (itemIndex <= 0)
-                EquipItem(items.Length - 1);
-            else
-                EquipItem(itemIndex - 1);
+            //Switch guns with scroll wheel
+            if (inputManager.SwitchWeaponUp)
+            {
+                if (itemIndex >= (items.Length - 1))
+                    EquipItem(0);
+                else
+                    EquipItem(itemIndex + 1);
+            }
+            //Switch guns with numbers
+            if (inputManager.SwitchWeaponDown)
+            {
+                if (itemIndex <= 0)
+                    EquipItem(items.Length - 1);
+                else
+                    EquipItem(itemIndex - 1);
+            }
         }
 
         //Fire
         FireWeapon();
+        TryToReloadWeapon();
     }
+
 
     private void EquipItem(int _index)
     {
@@ -146,6 +152,20 @@ public class PlayerController : MonoBehaviour
         {
             items[itemIndex].Use();
         }
+    }
+
+    private void TryToReloadWeapon()
+    {
+        if (!isReloading && inputManager.Reload && items[itemIndex].CanReload())
+        {
+            isReloading = true;
+        }
+    }
+
+    public void ReloadWeapon()
+    {
+        isReloading = false;
+        items[itemIndex].Reload();
     }
 
     private void UpdatePhysics()

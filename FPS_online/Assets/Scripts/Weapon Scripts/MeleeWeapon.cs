@@ -16,7 +16,7 @@ public class MeleeWeapon : Gun
     public override bool CanReload()
     {
         //No need to reload
-        return true;
+        return false;
     }
      
     public override void Reload()
