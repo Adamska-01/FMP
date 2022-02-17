@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class MeleeWeapon : Gun
 {
-    [SerializeField] Camera cam;
-    [SerializeField] PlayerController p;
+    [SerializeField] Camera cam; 
 
 
-    public override void Use()
+    public override bool Use()
     {
-        Hit();
+        return Hit();
     }
 
     public override bool CanReload()
@@ -22,14 +21,11 @@ public class MeleeWeapon : Gun
     public override void Reload()
     { }
 
-    private void Hit()
+    private bool Hit()
     {
         if(canShootNextBullet)
         {
-            StartCoroutine(FireRateDelay());
-
-            //Set state (for animation)
-            p.isFiring = true;
+            StartCoroutine(FireRateDelay()); 
 
             //Start ray from center of screen
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
@@ -53,7 +49,11 @@ public class MeleeWeapon : Gun
                             break;
                     }
                 }
-            }   
+            }
+
+            return true;
         }
+
+        return false;
     }
 }

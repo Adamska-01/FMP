@@ -4,22 +4,26 @@ using UnityEngine;
 
 public abstract class Gun : Item
 {
+    [SerializeField] protected PlayerController player; 
+    [SerializeField] protected Recoil recoil; 
     //Clip info
     public int ammoAvailable;
     public int currentAmmoInMagazine;
     public int maxAmmoInMagazine;
-    protected bool canShootNextBullet;
+    public bool canShootNextBullet;
     public bool CanShoot { get { return currentAmmoInMagazine > 0.0f && canShootNextBullet; } }
+     
 
     void Start()
     {
         //Start with full reloaded weapon
         currentAmmoInMagazine = maxAmmoInMagazine;
 
-        canShootNextBullet = true;
+        canShootNextBullet = true; 
     }
+      
 
-    public abstract override void Use();
+    public abstract override bool Use();
 
     public override bool CanReload()
     {
@@ -37,13 +41,28 @@ public abstract class Gun : Item
         ammoAvailable -= bulletsToAdd;
         currentAmmoInMagazine += bulletsToAdd;
     }
+    
+    protected Vector2 Recoil()
+    {
+        recoil.recoilIntensityCounter += recoil.increaseRate * Time.deltaTime;
+        if (recoil.recoilIntensityCounter > recoil.recoilMaxIntensity)
+            recoil.recoilIntensityCounter = recoil.recoilMaxIntensity;
+
+        Vector2 offset = new Vector2(Random.Range(0, recoil.recoilIntensityCounter), Random.Range(0, recoil.recoilIntensityCounter));
+        if (Random.Range(0.0f, 1.0f) < 0.5f)
+            offset.x = -offset.x;
+
+        return offset;
+    }
 
     protected IEnumerator FireRateDelay()
     {
         canShootNextBullet = false;
 
+        player.isFiringSingleShot = true;
         yield return new WaitForSeconds(((GunInfo)itemInfo).fireRate);
+        player.isFiringSingleShot = false;
         
         canShootNextBullet = true;
-    }
+    } 
 }

@@ -16,5 +16,5 @@ MonoBehaviour:
   damageHead: 150
   damageBody: 100
   damageLeg: 70
-  fireRate: 0.5
+  fireRate: 0.8
   leftHandTarget: {fileID: 1659346716672096496, guid: 37eb822a5fbe02646a034a7aa296c686, type: 3}

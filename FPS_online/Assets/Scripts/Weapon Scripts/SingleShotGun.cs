@@ -5,17 +5,15 @@ using UnityEngine;
 public class SingleShotGun : Gun
 {
     [SerializeField] Camera cam; 
-    [SerializeField] PlayerController p; 
     public Transform bulletStart;
-    public GameObject bulletPrefab;
-     
-    
-    public override void Use()
+    public GameObject bulletPrefab; 
+
+    public override bool Use()
     {
-        Shoot();
+        return Shoot();
     }
 
-    private void Shoot()
+    private bool Shoot()
     {
         if (CanShoot)
         {
@@ -24,10 +22,11 @@ public class SingleShotGun : Gun
             StartCoroutine(FireRateDelay());
 
             //Set state (for animation)
-            p.isFiring = true;
+            player.isFiringSingleShot = true;
 
             //Start ray from center of screen
-            Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+            Vector2 recoil = player.isAiming ? Vector2.zero : Recoil();
+            Ray ray = cam.ViewportPointToRay(new Vector3(0.5f + recoil.x, 0.5f + recoil.y));
             ray.origin = cam.transform.position;
 
             GameObject bullet = null;
@@ -44,7 +43,11 @@ public class SingleShotGun : Gun
 
             //Assign damages
             bullet.GetComponent<Bullet>().SetDamages(((GunInfo)itemInfo).damageHead, ((GunInfo)itemInfo).damageBody, ((GunInfo)itemInfo).damageLeg);
+
+            return true;
         }
+
+        return false;
     }
 
     private void AmmoConsumption()

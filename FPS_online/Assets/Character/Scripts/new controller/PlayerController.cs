@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private InputManager inputManager;
     [SerializeField] private GameObject cameraHolder;
+    [SerializeField] private Animator animator;
+    [SerializeField] private AnimationController animController;
     private Vector3 movementDir;
 
     [SerializeField] private Rigidbody rb;
@@ -30,7 +32,10 @@ public class PlayerController : MonoBehaviour
 
     //States 
     public bool isFiring;
+    public bool isFiringSingleShot;
     public bool isReloading;
+    public bool isAiming;
+    public bool canReload;
 
     [SerializeField] private UpperBodyIK ik;
 
@@ -41,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        isReloading = false;
         EquipItem(0); 
     }
 
@@ -73,6 +80,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateWeapon()
     {
+        isAiming = inputManager.IsAiming;
         if (!isReloading)
         {
             for (int i = 0; i < items.Length; i++)
@@ -146,11 +154,19 @@ public class PlayerController : MonoBehaviour
     {
         if(inputManager.FireSingleShot && (items[itemIndex].TryGetComponent<SingleShotGun>(out var ssg) || items[itemIndex].TryGetComponent<MeleeWeapon>(out var melee)))
         {
-            items[itemIndex].Use();
+            if (items[itemIndex].Use())  
+                animator.SetTrigger(animController.FireHash);
         }
         else if (inputManager.AutomaticShot && items[itemIndex].TryGetComponent<AutomaticGun>(out var ag))
         {
-            items[itemIndex].Use();
+            
+            if(items[itemIndex].Use())
+                animator.SetTrigger(animController.FireHash);
+        }
+        else
+        {
+            isFiring = false;
+            isFiringSingleShot = false;
         }
     }
 
@@ -159,6 +175,7 @@ public class PlayerController : MonoBehaviour
         if (!isReloading && inputManager.Reload && items[itemIndex].CanReload())
         {
             isReloading = true;
+            animator.SetTrigger(animController.ReloadHash);
         }
     }
 

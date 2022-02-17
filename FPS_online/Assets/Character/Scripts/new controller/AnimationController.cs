@@ -17,7 +17,9 @@ public class AnimationController : MonoBehaviour
     private int crouchHash;
     private int jumpHash;
     private int reloadHash;
+    public int ReloadHash { get { return reloadHash; } }
     private int fireHash;
+    public int FireHash { get { return fireHash; } }
 
     //Crouch lerp
     [SerializeField] private Transform cameraTansf;
@@ -95,13 +97,7 @@ public class AnimationController : MonoBehaviour
         animator.SetFloat(XvelocityHash, velocityX);
         animator.SetFloat(ZvelocityHash, velocityZ);
         animator.SetBool(crouchHash, inputManager.Crouch);
-        if (inputManager.Jump && player.IsGrounded) animator.SetTrigger(jumpHash);
-        if (inputManager.Reload && !player.isReloading) animator.SetTrigger(reloadHash); 
-        if (inputManager.FireSingleShot && player.isFiring)
-        {
-            animator.SetTrigger(fireHash);
-            player.isFiring = false;
-        }
+        if (inputManager.Jump && player.IsGrounded) animator.SetTrigger(jumpHash);  
     }
 
     //Check for input and assign velocities 
