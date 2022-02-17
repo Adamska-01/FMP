@@ -8,19 +8,8 @@ public class AutomaticGun : Gun
     public float bulletVelocity = 200.0f;
     public Transform bulletStart;
     public GameObject bulletPrefab;
-
-    //Ammo info
-    public int ammoAvailable;
-    private int currentAmmoInMagazine;
-    public int maxAmmoInMagazine;
-    public bool CanShoot { get { return currentAmmoInMagazine > 0.0f; } }
-
-    private void Start()
-    { 
-        currentAmmoInMagazine = maxAmmoInMagazine;
-    }
-
-
+     
+     
     public override void Use()
     {
         Shoot();
@@ -31,6 +20,8 @@ public class AutomaticGun : Gun
         if(CanShoot)
         {
             AmmoConsumption();
+
+            StartCoroutine(FireRateDelay());
 
             //Start ray from center of screen
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
@@ -60,18 +51,11 @@ public class AutomaticGun : Gun
 
     public override bool CanReload()
     {
-        if (currentAmmoInMagazine < maxAmmoInMagazine && ammoAvailable > 0)
-            return true;
-
-        return false;
+        return base.CanReload();
     }
 
     public override void Reload()
     {
-        int availableSpaceInMagazine = maxAmmoInMagazine - currentAmmoInMagazine;
-        int bulletsToAdd = Mathf.Min(availableSpaceInMagazine, ammoAvailable);
-
-        ammoAvailable -= bulletsToAdd;
-        currentAmmoInMagazine += bulletsToAdd;
-    }
+        base.Reload();
+    } 
 }

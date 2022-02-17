@@ -134,7 +134,11 @@ public class PlayerController : MonoBehaviour
 
     private void FireWeapon()
     {
-        if(inputManager.FireSingleShot)
+        if(inputManager.FireSingleShot && items[itemIndex].TryGetComponent<SingleShotGun>(out var ssg))
+        {
+            items[itemIndex].Use();
+        }
+        else if (inputManager.AutomaticShot && items[itemIndex].TryGetComponent<AutomaticGun>(out var ag))
         {
             items[itemIndex].Use();
         }

@@ -25,6 +25,8 @@ public class InputManager : MonoBehaviour
     public bool IsAiming { get { return isAiming; } }
     protected bool fireSingleShot;
     public bool FireSingleShot { get { return fireSingleShot; } }
+    protected bool automaticShot;
+    public bool AutomaticShot { get { return automaticShot; } }
     protected bool reload;
     public bool Reload { get { return reload; } }
     private string scrollWheelAxis = "Mouse ScrollWheel";
@@ -76,6 +78,7 @@ public class InputManager : MonoBehaviour
         secondWeapon = Input.GetKeyDown(KeyCode.Alpha2);
         thirdWeapoon = Input.GetKeyDown(KeyCode.Alpha3);
         fireSingleShot = Input.GetMouseButtonDown(0);
+        automaticShot = Input.GetMouseButton(0);
 
         //Camera rotate
         xAxis = Input.GetAxisRaw(horizontalLookAxis);
