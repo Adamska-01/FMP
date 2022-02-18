@@ -44,7 +44,7 @@ public abstract class Gun : Item
     
     protected Vector2 Recoil()
     {
-        recoil.recoilIntensityCounter += recoil.increaseRate * Time.deltaTime;
+        recoil.recoilIntensityCounter += recoil.increaseRate;
         if (recoil.recoilIntensityCounter > recoil.recoilMaxIntensity)
             recoil.recoilIntensityCounter = recoil.recoilMaxIntensity;
 

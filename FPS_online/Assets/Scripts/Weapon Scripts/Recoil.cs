@@ -14,7 +14,7 @@ public class Recoil : MonoBehaviour
     {
         if (!player.isFiring && !player.isFiringSingleShot)
         {
-            recoilIntensityCounter -= decreaseRate * Time.deltaTime;
+            recoilIntensityCounter -= decreaseRate;
             recoilIntensityCounter = Mathf.Clamp(recoilIntensityCounter, 0, recoilMaxIntensity);
         }
     }

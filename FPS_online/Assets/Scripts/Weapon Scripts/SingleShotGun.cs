@@ -7,6 +7,7 @@ public class SingleShotGun : Gun
     [SerializeField] Camera cam; 
     public Transform bulletStart;
     public GameObject bulletPrefab; 
+    public GameObject effectPrefab; 
 
     public override bool Use()
     {
@@ -40,6 +41,8 @@ public class SingleShotGun : Gun
                 Debug.DrawLine(cam.transform.position, hit.point);
                 bullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.LookRotation(cam.transform.forward));
             }
+
+            Instantiate(effectPrefab, bulletStart.position, Quaternion.LookRotation(cam.transform.forward));
 
             //Assign damages
             bullet.GetComponent<Bullet>().SetDamages(((GunInfo)itemInfo).damageHead, ((GunInfo)itemInfo).damageBody, ((GunInfo)itemInfo).damageLeg);
