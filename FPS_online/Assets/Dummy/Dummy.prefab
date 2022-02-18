@@ -1491,10 +1491,16 @@ MonoBehaviour:
   itemObject:
   - {fileID: 5419062879299167091}
   - {fileID: 5419062879299167089}
-  cam: {fileID: 0}
-  bulletVelocity: 200
-  bulletStart: {fileID: 5419062878545100213}
+  player: {fileID: 0}
+  recoil: {fileID: 0}
   bulletPrefab: {fileID: 6497936358320960965, guid: ceea856c5647867459518eb829060766, type: 3}
+  effectPrefab: {fileID: 0}
+  ammoAvailable: 0
+  currentAmmoInMagazine: 0
+  maxAmmoInMagazine: 0
+  canShootNextBullet: 0
+  cam: {fileID: 0}
+  bulletStart: {fileID: 5419062878545100213}
 --- !u!1 &5419062879963087758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,7 +1574,7 @@ GameObject:
   - component: {fileID: 5556115469731988501}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1627,7 +1633,7 @@ GameObject:
   - component: {fileID: 5556115470021191495}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1686,7 +1692,7 @@ GameObject:
   - component: {fileID: 5556115470161840762}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1745,7 +1751,7 @@ GameObject:
   - component: {fileID: 5556115470288436800}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1804,7 +1810,7 @@ GameObject:
   - component: {fileID: 5556115470603684509}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1863,7 +1869,7 @@ GameObject:
   - component: {fileID: 5556115470613859216}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1922,7 +1928,7 @@ GameObject:
   - component: {fileID: 5556115470636010903}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1981,7 +1987,7 @@ GameObject:
   - component: {fileID: 5556115471297430759}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2040,7 +2046,7 @@ GameObject:
   - component: {fileID: 5556115471313368260}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2098,7 +2104,7 @@ GameObject:
   - component: {fileID: 5556115471322096876}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2157,7 +2163,7 @@ GameObject:
   - component: {fileID: 5556115471420436366}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2216,7 +2222,7 @@ GameObject:
   - component: {fileID: 5556115471494444275}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

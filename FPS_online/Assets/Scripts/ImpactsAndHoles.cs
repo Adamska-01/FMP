@@ -1,0 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ImpactsAndHoles : MonoBehaviour
+{
+    public enum ImpactType
+    {
+        CONCRETE,
+        DIRT,
+        METAL,
+        SAND,
+        WOOD,
+        BODY
+    }
+
+    [System.Serializable] public class ImpactAndHole
+    {
+        public GameObject impact;
+        public GameObject hole;
+    }
+     
+    public List<ImpactType> impactTypes = new List<ImpactType>();
+    public List<ImpactAndHole> impactObjects = new List<ImpactAndHole>();
+    public Dictionary<ImpactType, ImpactAndHole> impactsAndHoles = new Dictionary<ImpactType, ImpactAndHole>();
+
+
+    void Start()
+    {
+        for (int i = 0; i < impactTypes.Count; i++)
+        {
+            impactsAndHoles.Add(impactTypes[i], impactObjects[i]);
+        }
+    }
+
+
+    public Dictionary<ImpactType, ImpactAndHole> GetBulletsAndImpacts()
+    {
+        return impactsAndHoles;
+    }
+}

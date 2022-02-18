@@ -5,9 +5,7 @@ using UnityEngine;
 public class SingleShotGun : Gun
 {
     [SerializeField] Camera cam; 
-    public Transform bulletStart;
-    public GameObject bulletPrefab; 
-    public GameObject effectPrefab; 
+    public Transform bulletStart; 
 
     public override bool Use()
     {

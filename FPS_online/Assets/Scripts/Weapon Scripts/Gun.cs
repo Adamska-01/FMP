@@ -5,7 +5,9 @@ using UnityEngine;
 public abstract class Gun : Item
 {
     [SerializeField] protected PlayerController player; 
-    [SerializeField] protected Recoil recoil; 
+    [SerializeField] protected Recoil recoil;
+    public GameObject bulletPrefab;
+    public GameObject effectPrefab;
     //Clip info
     public int ammoAvailable;
     public int currentAmmoInMagazine;

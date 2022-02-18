@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - OnlyPlayerCanCollide
+  - FxTemporaire
+  - Concrete
+  - Dirt
+  - Metal
+  - Sand
+  - Wood
   layers:
   - Default
   - TransparentFX

@@ -6,8 +6,7 @@ public class AutomaticGun : Gun
 {
     [SerializeField] Camera cam;  
     public Transform bulletStart;
-    public GameObject bulletPrefab; 
-    public GameObject effectPrefab; 
+    
 
     public override bool Use()
     {
