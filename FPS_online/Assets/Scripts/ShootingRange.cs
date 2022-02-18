@@ -30,7 +30,9 @@ public class ShootingRange : MonoBehaviour
     //Timer
     private const float TEST_TIME = 30.0f;
     private float timeRemaining;
-    public bool timerIsRunning; 
+    public bool timerIsRunning;
+
+    public int currentScore;
 
 
 
@@ -53,13 +55,7 @@ public class ShootingRange : MonoBehaviour
         //Reset timer
         timerIsRunning = false; //Do not start automatically 
         timeRemaining = TEST_TIME;
-    }
-
-    void Update()
-    {
-        
-    }
-
+    }  
 
     public void DifficultySelect(Difficulty _diff)
     {
@@ -77,9 +73,12 @@ public class ShootingRange : MonoBehaviour
     } 
 
     public IEnumerator RunTest()
-    { 
+    {
+        //Reset score board
+        ShootingRangeUI.instance.scoreText.text = "0"; currentScore = 0;
+
         //Select difficulty (spawn time)
-        switch(difficulty)
+        switch (difficulty)
         {
             case Difficulty.EASY:
                 spawnTime = easySpawnTime;
@@ -107,15 +106,9 @@ public class ShootingRange : MonoBehaviour
                         StartCoroutine(SpawnDummy()); 
 
                     timeRemaining -= Time.deltaTime;
-                    DisplayTime(timeRemaining);
+                    ShootingRangeUI.instance.timeText.text = GetFormattedTime(timeRemaining);
                     yield return null; //Test is over
-                }
-                else
-                {
-                    Debug.Log("Time has run out!"); 
-                     
-                    break;
-                }
+                } 
             } 
         }
 
@@ -136,18 +129,23 @@ public class ShootingRange : MonoBehaviour
 
         yield return new WaitForSeconds(spawnTime); //Test is over
 
-        //TODO: add points
-
-        Destroy(dummy);
+        if (dummy == null)
+        {
+            ++currentScore;
+            ShootingRangeUI.instance.scoreText.text = currentScore.ToString();
+        }
+        else
+            Destroy(dummy);  
 
         isSpawning = false;
     }
 
-    void DisplayTime(float timeToDisplay)
+    string GetFormattedTime(float timeToDisplay)
     {
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        Debug.Log(string.Format("{0:00}:{1:00}", minutes, seconds));
+        
+        return string.Format("{0:00}", seconds);
     }
 }
