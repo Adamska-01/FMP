@@ -52,8 +52,7 @@ public class Bullet : MonoBehaviour
             }
              
             InstantiateImpactAndHole(hit);
-
-            Debug.Log(hit.collider.gameObject.name);
+             
             Destroy(this.gameObject, Time.deltaTime);
         }
         

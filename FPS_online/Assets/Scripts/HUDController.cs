@@ -52,10 +52,12 @@ public class HUDController : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2.0f);
-         
+
         //Fade
-        for (float alpha = 1.0f; alpha >= 0; alpha -= 0.01f)
+        float alpha = 1.0f;
+        while(alpha >= 0)
         {
+            alpha -= Time.deltaTime * 0.3f;
             for (int i = 0; i < weapons.Length; i++)
             {
                 float a = weapons[i].weaponSelected.color.a * alpha;
@@ -63,6 +65,6 @@ public class HUDController : MonoBehaviour
                 weapons[i].keyText.color = new Color(1.0f, 1.0f, 1.0f, a);
             }
             yield return null;
-        }
+        } 
     }
 }

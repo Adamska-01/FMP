@@ -112,6 +112,15 @@ public class PlayerController : MonoBehaviour
         //Fire
         FireWeapon();
         TryToReloadWeapon();
+
+        //Update UI
+        Gun gun = ((Gun)items[itemIndex]);
+        string ammoInMagazine = gun.currentAmmoInMagazine.ToString();
+        string ammoAvailable = gun.ammoAvailable > 999 ? "\u221E" : gun.ammoAvailable.ToString();
+        if(itemIndex == 2)
+            HUDController.instance.ammunitionText.text = string.Empty;
+        else
+            HUDController.instance.ammunitionText.text = ammoInMagazine + "/" + ammoAvailable;
     }
 
 

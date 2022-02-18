@@ -1437,10 +1437,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
+  m_fontSize: 72
   m_fontSizeBase: 60
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -4516,7 +4516,7 @@ GameObject:
   - component: {fileID: 1480554388}
   - component: {fileID: 1480554392}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6868,7 +6868,7 @@ MonoBehaviour:
   recoil: {fileID: 2020897406}
   bulletPrefab: {fileID: 6497936358320960965, guid: ceea856c5647867459518eb829060766, type: 3}
   effectPrefab: {fileID: 1523098076475304, guid: 49aa1d4c5624e66418cbfbe9784d6f23, type: 3}
-  ammoAvailable: 35
+  ammoAvailable: 2147483647
   currentAmmoInMagazine: 0
   maxAmmoInMagazine: 7
   canShootNextBullet: 0
