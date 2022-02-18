@@ -19,7 +19,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
     void Start()
     {  
         HealthValue = MAX_HEALTH_VALUE; 
-        ArmourValue = MAX_ARMOUR_VALUE; 
+        ArmourValue = MAX_ARMOUR_VALUE;
+
+        HUDController.instance.healthText.text = HealthValue.ToString();
+        HUDController.instance.armourText.text = ArmourValue.ToString();
     }
 
     //Changed by Mattie to FixedUpdate
@@ -32,7 +35,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
     private void updateUI() //For now there is no UI
     {
         HealthValue = Mathf.Clamp(HealthValue, 0, MAX_HEALTH_VALUE);
-        ArmourValue = Mathf.Clamp(ArmourValue, 0, MAX_ARMOUR_VALUE);  
+        ArmourValue = Mathf.Clamp(ArmourValue, 0, MAX_ARMOUR_VALUE);
+
+        HUDController.instance.healthText.text = HealthValue.ToString();
+        HUDController.instance.armourText.text = ArmourValue.ToString(); 
     }
 
     public void TakeDamage(float damage)

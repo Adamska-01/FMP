@@ -2369,3 +2369,779 @@ System memory in use after: 154.8 MB.
 Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2259.
 Total: 1.720500 ms (FindLiveObjects: 0.142300 ms CreateObjectMapping: 0.027900 ms MarkObjects: 1.337900 ms  DeleteObjects: 0.211400 ms)
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001418 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.58 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.735 seconds
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1540 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.0 MB.
+System memory in use after: 154.8 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2263.
+Total: 2.201300 ms (FindLiveObjects: 0.309500 ms CreateObjectMapping: 0.070800 ms MarkObjects: 1.538600 ms  DeleteObjects: 0.280200 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001541 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.619 seconds
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.62 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1540 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.0 MB.
+System memory in use after: 154.8 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2267.
+Total: 1.939000 ms (FindLiveObjects: 0.217700 ms CreateObjectMapping: 0.054000 ms MarkObjects: 1.452500 ms  DeleteObjects: 0.213500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 1631.921457 seconds.
+  path: Assets/Scripts/HUDController.cs
+  artifactKey: Guid(d8d72922761d0a44791deb51e8f01575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/HUDController.cs using Guid(d8d72922761d0a44791deb51e8f01575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a5ce62d6193f06015cd54974025a897') in 0.011899 seconds
+  Import took 0.015879 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001134 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.47 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.653 seconds
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1541 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.2 MB.
+System memory in use after: 155.0 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2272.
+Total: 1.805600 ms (FindLiveObjects: 0.138200 ms CreateObjectMapping: 0.031400 ms MarkObjects: 1.411300 ms  DeleteObjects: 0.223200 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001417 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.651 seconds
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1541 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.2 MB.
+System memory in use after: 155.0 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2276.
+Total: 1.811200 ms (FindLiveObjects: 0.138200 ms CreateObjectMapping: 0.029000 ms MarkObjects: 1.418300 ms  DeleteObjects: 0.224900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 1032.536644 seconds.
+  path: Assets/Scripts/HUDController.cs
+  artifactKey: Guid(d8d72922761d0a44791deb51e8f01575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/HUDController.cs using Guid(d8d72922761d0a44791deb51e8f01575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c47094b847578f6e13827c664890ea9') in 0.005131 seconds
+  Import took 0.007801 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 29.220079 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons
+  artifactKey: Guid(51ae381d535dfa24eae0af8392a926c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons using Guid(51ae381d535dfa24eae0af8392a926c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '916f44db27517a8f65b53d62380a9b3f') in 0.003026 seconds
+  Import took 0.005784 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.064545 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Armor_Box.psd
+  artifactKey: Guid(0b8fa47eb6baf274d89846c15370db3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Armor_Box.psd using Guid(0b8fa47eb6baf274d89846c15370db3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd29e59242d4cac4976eba34fe98c0c21') in 0.370529 seconds
+  Import took 0.372937 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000171 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Gun_01.psd
+  artifactKey: Guid(86e14b86b0d58674e8c4cf27dbd0dd27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Gun_01.psd using Guid(86e14b86b0d58674e8c4cf27dbd0dd27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54ae69e4ddef1fe36dffa908dffcf8f3') in 0.009158 seconds
+  Import took 0.011648 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000168 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_02.psd
+  artifactKey: Guid(a7df07fbdec03a04786b73e24f38cd9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_02.psd using Guid(a7df07fbdec03a04786b73e24f38cd9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9cd6ba0544017b261efa4606fde0cd7') in 0.011425 seconds
+  Import took 0.014895 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Knife.psd
+  artifactKey: Guid(6b0c27ec78295b4418c609b656cb4dd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Knife.psd using Guid(6b0c27ec78295b4418c609b656cb4dd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '403e6fb549b008c11aa7f6f5e4965e89') in 0.011613 seconds
+  Import took 0.014268 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Sniper_Rifle.psd
+  artifactKey: Guid(92a6affaf5d451a49a99f6e38eb8af72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Sniper_Rifle.psd using Guid(92a6affaf5d451a49a99f6e38eb8af72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81f144b1498e5c5baa0d7927ec019825') in 0.010782 seconds
+  Import took 0.014068 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Gun.psd
+  artifactKey: Guid(f7d98018e30517043b584dbb77c8771f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Gun.psd using Guid(f7d98018e30517043b584dbb77c8771f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aebccabb8d7396c1df48a7e43bc56a7c') in 0.009636 seconds
+  Import took 0.012315 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000483 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Grenade.psd
+  artifactKey: Guid(5efe9c5f284c8f548907512e8a3d6d9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Grenade.psd using Guid(5efe9c5f284c8f548907512e8a3d6d9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b2613ca57e1ebd795da8487ef195edd') in 0.010170 seconds
+  Import took 0.012935 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000165 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/GrenadeGun.psd
+  artifactKey: Guid(49f6413b7187d9748a1c26b89ac57bd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/GrenadeGun.psd using Guid(49f6413b7187d9748a1c26b89ac57bd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f08f899df92f65b61d7d16fc25036c9') in 0.014066 seconds
+  Import took 0.016714 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/First_Aid.psd
+  artifactKey: Guid(375df6510129cea49bef117210d7ea43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/First_Aid.psd using Guid(375df6510129cea49bef117210d7ea43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b07ec5ff656c3eef36dd5aaebbfbd4a3') in 0.010635 seconds
+  Import took 0.013277 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000165 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Two_Hands_Axe.psd
+  artifactKey: Guid(edf42f427df1828468a53e0ce0283ee6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Two_Hands_Axe.psd using Guid(edf42f427df1828468a53e0ce0283ee6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '761d84a9b557220c1d42fc03664f643c') in 0.013990 seconds
+  Import took 0.016764 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Axe.psd
+  artifactKey: Guid(2d3e75a3512a5904ca3a59a9bef72e63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Axe.psd using Guid(2d3e75a3512a5904ca3a59a9bef72e63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a7cc71270f8608be165f6014a40838d') in 0.010638 seconds
+  Import took 0.013443 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Gun_02.psd
+  artifactKey: Guid(314bd68ca393a9e4c86395f9bad986be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Gun_02.psd using Guid(314bd68ca393a9e4c86395f9bad986be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90d47eb3c79a59f80440968da4300c4a') in 0.009959 seconds
+  Import took 0.012448 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_01.psd
+  artifactKey: Guid(7bf228388cd7919489505da6dc804568) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_01.psd using Guid(7bf228388cd7919489505da6dc804568) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5678d1a320fcebeaef09d2fa0c2dabd2') in 0.014049 seconds
+  Import took 0.017241 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Flaslight.psd
+  artifactKey: Guid(b0162e5b3a046a943887f591b9d1b94f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Flaslight.psd using Guid(b0162e5b3a046a943887f591b9d1b94f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f84ac8200322f25a96e5de863b37507') in 0.012219 seconds
+  Import took 0.014977 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Crossbow.psd
+  artifactKey: Guid(38b48f7b0f0855e48b67fb52571fb71b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Crossbow.psd using Guid(38b48f7b0f0855e48b67fb52571fb71b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b656cf654a95d9f8a1a0018dc9a9bd02') in 0.012427 seconds
+  Import took 0.015010 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_04.psd
+  artifactKey: Guid(099714b640d608c419323511a8712aac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_04.psd using Guid(099714b640d608c419323511a8712aac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a4dfe1b6f307265eac3fb1abd7e2fd6') in 0.014422 seconds
+  Import took 0.016951 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Gun_03.psd
+  artifactKey: Guid(852e03d420de6e747813ba34b649d3f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Gun_03.psd using Guid(852e03d420de6e747813ba34b649d3f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7597d0223afdf0a480edb0369179434') in 0.020953 seconds
+  Import took 0.023349 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Syringe.psd
+  artifactKey: Guid(83d525b2704e6834584f19d7d791e27f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Syringe.psd using Guid(83d525b2704e6834584f19d7d791e27f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3509de52d24694eb86682d41aaecfdd4') in 0.009465 seconds
+  Import took 0.011821 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_03.psd
+  artifactKey: Guid(5cce39cf79daa74479a8a5fc5bea4ff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_03.psd using Guid(5cce39cf79daa74479a8a5fc5bea4ff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dbffa0cd92f0a24619baa7c441cd961') in 0.012717 seconds
+  Import took 0.015605 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/ShotGun.psd
+  artifactKey: Guid(1e521cefafd36614ebeb1607ef395659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/ShotGun.psd using Guid(1e521cefafd36614ebeb1607ef395659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc515929c42d8fd0ffb5fceab7062aff') in 0.012668 seconds
+  Import took 0.015218 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 67.794116 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Armor_Box.psd
+  artifactKey: Guid(0b8fa47eb6baf274d89846c15370db3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Armor_Box.psd using Guid(0b8fa47eb6baf274d89846c15370db3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7445f659073ef37d27d71c3869a6d7b5') in 0.037836 seconds
+  Import took 0.041524 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000316 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Gun_01.psd
+  artifactKey: Guid(86e14b86b0d58674e8c4cf27dbd0dd27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Gun_01.psd using Guid(86e14b86b0d58674e8c4cf27dbd0dd27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '001503a3f78986acd6f2fb5e24863d64') in 0.014679 seconds
+  Import took 0.017876 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_02.psd
+  artifactKey: Guid(a7df07fbdec03a04786b73e24f38cd9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_02.psd using Guid(a7df07fbdec03a04786b73e24f38cd9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e30932ad4eab7ed2792e97b44f0cebd8') in 0.012267 seconds
+  Import took 0.015238 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Knife.psd
+  artifactKey: Guid(6b0c27ec78295b4418c609b656cb4dd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Knife.psd using Guid(6b0c27ec78295b4418c609b656cb4dd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '989f6e5cc3c5dcb11952e58073cc0da0') in 0.010976 seconds
+  Import took 0.013791 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Sniper_Rifle.psd
+  artifactKey: Guid(92a6affaf5d451a49a99f6e38eb8af72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Sniper_Rifle.psd using Guid(92a6affaf5d451a49a99f6e38eb8af72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '457bf061b391e7d5d6c840cb53ce4726') in 0.013882 seconds
+  Import took 0.017108 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Gun.psd
+  artifactKey: Guid(f7d98018e30517043b584dbb77c8771f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Gun.psd using Guid(f7d98018e30517043b584dbb77c8771f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7d208c21a9c026830676275afb4de84') in 0.011874 seconds
+  Import took 0.014242 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Grenade.psd
+  artifactKey: Guid(5efe9c5f284c8f548907512e8a3d6d9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Grenade.psd using Guid(5efe9c5f284c8f548907512e8a3d6d9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f31ae95911f2b6a28837c8ce90e8155e') in 0.011103 seconds
+  Import took 0.013594 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000293 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/GrenadeGun.psd
+  artifactKey: Guid(49f6413b7187d9748a1c26b89ac57bd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/GrenadeGun.psd using Guid(49f6413b7187d9748a1c26b89ac57bd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0007cbb583a80be8f4a445278f9d8fd') in 0.011949 seconds
+  Import took 0.014776 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/First_Aid.psd
+  artifactKey: Guid(375df6510129cea49bef117210d7ea43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/First_Aid.psd using Guid(375df6510129cea49bef117210d7ea43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '372b577cc0f341a7a2251fb172eeb121') in 0.010680 seconds
+  Import took 0.013308 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Two_Hands_Axe.psd
+  artifactKey: Guid(edf42f427df1828468a53e0ce0283ee6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Two_Hands_Axe.psd using Guid(edf42f427df1828468a53e0ce0283ee6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a19b8c7e9c69e7a1e5edafbd1d6f531a') in 0.012738 seconds
+  Import took 0.015594 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Axe.psd
+  artifactKey: Guid(2d3e75a3512a5904ca3a59a9bef72e63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Axe.psd using Guid(2d3e75a3512a5904ca3a59a9bef72e63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e98968e2b1b492f77ea38e28f128ae28') in 0.012510 seconds
+  Import took 0.015111 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Gun_02.psd
+  artifactKey: Guid(314bd68ca393a9e4c86395f9bad986be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Gun_02.psd using Guid(314bd68ca393a9e4c86395f9bad986be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80fe3b57341d893c7772550e90bed672') in 0.010777 seconds
+  Import took 0.013516 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_01.psd
+  artifactKey: Guid(7bf228388cd7919489505da6dc804568) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_01.psd using Guid(7bf228388cd7919489505da6dc804568) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '523da5cd6e4c08f30514290a552dc6a0') in 0.011345 seconds
+  Import took 0.015114 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Flaslight.psd
+  artifactKey: Guid(b0162e5b3a046a943887f591b9d1b94f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Flaslight.psd using Guid(b0162e5b3a046a943887f591b9d1b94f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f855c6ea343553132efaf9bd52c657d5') in 0.011180 seconds
+  Import took 0.013803 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Crossbow.psd
+  artifactKey: Guid(38b48f7b0f0855e48b67fb52571fb71b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Crossbow.psd using Guid(38b48f7b0f0855e48b67fb52571fb71b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccd31c23f1523a8c3ff9478a85a4dbbd') in 0.014314 seconds
+  Import took 0.017424 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_04.psd
+  artifactKey: Guid(099714b640d608c419323511a8712aac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_04.psd using Guid(099714b640d608c419323511a8712aac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66d682d7f01f0598735948c40991160e') in 0.013219 seconds
+  Import took 0.016399 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000340 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Gun_03.psd
+  artifactKey: Guid(852e03d420de6e747813ba34b649d3f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Gun_03.psd using Guid(852e03d420de6e747813ba34b649d3f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cf304c4792af506be264224005e70b0') in 0.014536 seconds
+  Import took 0.018462 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Syringe.psd
+  artifactKey: Guid(83d525b2704e6834584f19d7d791e27f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Syringe.psd using Guid(83d525b2704e6834584f19d7d791e27f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e38cb26068220a56f3d53339617205a') in 0.012733 seconds
+  Import took 0.015371 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_03.psd
+  artifactKey: Guid(5cce39cf79daa74479a8a5fc5bea4ff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Automatic_Rifle_03.psd using Guid(5cce39cf79daa74479a8a5fc5bea4ff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a864adbb3e15495e7089683ab45c2e8') in 0.011447 seconds
+  Import took 0.014538 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/ShotGun.psd
+  artifactKey: Guid(1e521cefafd36614ebeb1607ef395659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/ShotGun.psd using Guid(1e521cefafd36614ebeb1607ef395659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03791f966d74c24add32ac814810f6d8') in 0.010299 seconds
+  Import took 0.012933 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1456.542719 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/bullets.png
+  artifactKey: Guid(db728ca0c8b37304889e6e397f2b09a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/bullets.png using Guid(db728ca0c8b37304889e6e397f2b09a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd41b87a0ba352c583d930ae7ea4d8c86') in 0.034699 seconds
+  Import took 0.038000 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006602 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/bullets.png
+  artifactKey: Guid(db728ca0c8b37304889e6e397f2b09a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/bullets.png using Guid(db728ca0c8b37304889e6e397f2b09a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd41b87a0ba352c583d930ae7ea4d8c86') in 0.017316 seconds
+  Import took 0.019950 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.378953 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/bullets.png
+  artifactKey: Guid(db728ca0c8b37304889e6e397f2b09a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/bullets.png using Guid(db728ca0c8b37304889e6e397f2b09a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4c87ecbae22e9cad3cb267763108628') in 0.015605 seconds
+  Import took 0.018213 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 543.382157 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/ammunition.png
+  artifactKey: Guid(b2e1403388b78d247b82a3052c67f43a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/ammunition.png using Guid(b2e1403388b78d247b82a3052c67f43a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '716f87388e69340e8ca8d47da4c7308a') in 0.012934 seconds
+  Import took 0.016618 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.090904 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/ammunition.png
+  artifactKey: Guid(b2e1403388b78d247b82a3052c67f43a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/ammunition.png using Guid(b2e1403388b78d247b82a3052c67f43a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a2c105da4141d56b42406cc7a63667f') in 0.052709 seconds
+  Import took 0.055303 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 226.165441 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Bar.png
+  artifactKey: Guid(09637291d0094ff4fa59a13077b6267a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Bar.png using Guid(09637291d0094ff4fa59a13077b6267a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17f96487d07f7bbb75464bee7ca9b585') in 0.012229 seconds
+  Import took 0.015203 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.976748 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/Bar.png
+  artifactKey: Guid(09637291d0094ff4fa59a13077b6267a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/Bar.png using Guid(09637291d0094ff4fa59a13077b6267a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9bfcc1c4e54daa3607cce65b3dab664') in 0.025241 seconds
+  Import took 0.028309 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 633.429826 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/rifle-gun-bullet.png
+  artifactKey: Guid(3e0983e9d19387a4fa20eb1b14d8517f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/rifle-gun-bullet.png using Guid(3e0983e9d19387a4fa20eb1b14d8517f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72e74a3643f059ce13049696d55d3b01') in 0.011843 seconds
+  Import took 0.015236 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.346484 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/rifle-gun-bullet.png
+  artifactKey: Guid(3e0983e9d19387a4fa20eb1b14d8517f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/rifle-gun-bullet.png using Guid(3e0983e9d19387a4fa20eb1b14d8517f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3abd1c7d091034215b06d205938793f9') in 0.019162 seconds
+  Import took 0.021753 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000370 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/rifle-gun-bullet.png
+  artifactKey: Guid(3e0983e9d19387a4fa20eb1b14d8517f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/rifle-gun-bullet.png using Guid(3e0983e9d19387a4fa20eb1b14d8517f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3abd1c7d091034215b06d205938793f9') in 0.029529 seconds
+  Import took 0.032172 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.486979 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/rifle-gun-bullet.png
+  artifactKey: Guid(3e0983e9d19387a4fa20eb1b14d8517f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/rifle-gun-bullet.png using Guid(3e0983e9d19387a4fa20eb1b14d8517f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e850d325cb808b8e1314036a976f43b') in 0.008741 seconds
+  Import took 0.011152 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 82.461252 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/rifle-gun-bullet.png
+  artifactKey: Guid(3e0983e9d19387a4fa20eb1b14d8517f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/rifle-gun-bullet.png using Guid(3e0983e9d19387a4fa20eb1b14d8517f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a782d3e8d9949a6ddaad1418886c798') in 0.011183 seconds
+  Import took 0.013743 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000796 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/rifle-gun-bullet.png
+  artifactKey: Guid(3e0983e9d19387a4fa20eb1b14d8517f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/rifle-gun-bullet.png using Guid(3e0983e9d19387a4fa20eb1b14d8517f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a782d3e8d9949a6ddaad1418886c798') in 0.020821 seconds
+  Import took 0.023268 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 51.391443 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/heart-beat.png
+  artifactKey: Guid(dfda81132f246be4782f4ed0338d6beb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/heart-beat.png using Guid(dfda81132f246be4782f4ed0338d6beb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ae973ecb5f36302d016098afb7f369b') in 0.010918 seconds
+  Import took 0.013868 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.206022 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/heart-beat.png
+  artifactKey: Guid(dfda81132f246be4782f4ed0338d6beb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/heart-beat.png using Guid(dfda81132f246be4782f4ed0338d6beb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95e38fcf12cbc994fb9413b813d3964e') in 0.015015 seconds
+  Import took 0.017475 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004040 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/heart-beat.png
+  artifactKey: Guid(dfda81132f246be4782f4ed0338d6beb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/heart-beat.png using Guid(dfda81132f246be4782f4ed0338d6beb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95e38fcf12cbc994fb9413b813d3964e') in 0.032092 seconds
+  Import took 0.034692 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 491.695471 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/armour.png
+  artifactKey: Guid(94a63ed85e2aa684facb57c33e263d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/armour.png using Guid(94a63ed85e2aa684facb57c33e263d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d38aa80e0f91d974b84541d55486ac2') in 0.011913 seconds
+  Import took 0.015511 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.931608 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/armour.png
+  artifactKey: Guid(94a63ed85e2aa684facb57c33e263d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/armour.png using Guid(94a63ed85e2aa684facb57c33e263d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03e2428e877d7df35bf598841adae46d') in 0.033901 seconds
+  Import took 0.036414 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002368 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/armour.png
+  artifactKey: Guid(94a63ed85e2aa684facb57c33e263d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/armour.png using Guid(94a63ed85e2aa684facb57c33e263d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03e2428e877d7df35bf598841adae46d') in 0.016330 seconds
+  Import took 0.018828 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 115.949605 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/armour 1.png
+  artifactKey: Guid(5891eb10ab31e29498d6db5fccf07dc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/armour 1.png using Guid(5891eb10ab31e29498d6db5fccf07dc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e18bf74577ee0fbfc43197058446f5e6') in 0.011609 seconds
+  Import took 0.014860 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.984179 seconds.
+  path: Assets/Hands_Weapons_Animations_Pack_Update/Icons/armour 1.png
+  artifactKey: Guid(5891eb10ab31e29498d6db5fccf07dc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Hands_Weapons_Animations_Pack_Update/Icons/armour 1.png using Guid(5891eb10ab31e29498d6db5fccf07dc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50cf854c15746f6ee27f2acf2a5bd725') in 0.023386 seconds
+  Import took 0.026039 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001782 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.823 seconds
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.57 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1541 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.4 MB.
+System memory in use after: 155.2 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2291.
+Total: 2.096200 ms (FindLiveObjects: 0.187300 ms CreateObjectMapping: 0.034100 ms MarkObjects: 1.644800 ms  DeleteObjects: 0.228600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001548 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.674 seconds
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1541 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.3 MB.
+System memory in use after: 155.1 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2295.
+Total: 2.184900 ms (FindLiveObjects: 0.194700 ms CreateObjectMapping: 0.032100 ms MarkObjects: 1.703900 ms  DeleteObjects: 0.253100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001277 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.652 seconds
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1541 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.3 MB.
+System memory in use after: 155.1 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2299.
+Total: 1.669900 ms (FindLiveObjects: 0.143200 ms CreateObjectMapping: 0.028700 ms MarkObjects: 1.303900 ms  DeleteObjects: 0.193400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001407 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.47 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.638 seconds
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1541 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.3 MB.
+System memory in use after: 155.1 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2303.
+Total: 1.690100 ms (FindLiveObjects: 0.142100 ms CreateObjectMapping: 0.031400 ms MarkObjects: 1.325200 ms  DeleteObjects: 0.190800 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001305 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.619 seconds
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1541 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.3 MB.
+System memory in use after: 155.1 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2307.
+Total: 1.667200 ms (FindLiveObjects: 0.197800 ms CreateObjectMapping: 0.030000 ms MarkObjects: 1.248400 ms  DeleteObjects: 0.190200 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001714 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.619 seconds
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.57 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1541 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.3 MB.
+System memory in use after: 155.1 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2311.
+Total: 2.742000 ms (FindLiveObjects: 0.188400 ms CreateObjectMapping: 0.034600 ms MarkObjects: 2.147200 ms  DeleteObjects: 0.370400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001393 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.98 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.665 seconds
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1541 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.3 MB.
+System memory in use after: 155.1 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2315.
+Total: 1.814600 ms (FindLiveObjects: 0.206900 ms CreateObjectMapping: 0.034000 ms MarkObjects: 1.343100 ms  DeleteObjects: 0.229700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001360 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.609 seconds
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1541 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.3 MB.
+System memory in use after: 155.1 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2319.
+Total: 1.933100 ms (FindLiveObjects: 0.160300 ms CreateObjectMapping: 0.031700 ms MarkObjects: 1.527900 ms  DeleteObjects: 0.212000 ms)
+

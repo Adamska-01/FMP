@@ -142,6 +142,9 @@ public class PlayerController : MonoBehaviour
         //Change left arm target
         ik.StartCoroutine(ik.ChangeLeftArmTarget(((GunInfo)items[itemIndex].itemInfo).leftHandTarget));
 
+        //Update UI
+        HUDController.instance.SelectWeapon(itemIndex);
+
         //if (pv.IsMine)
         //{
         //    Hashtable hash = new Hashtable();

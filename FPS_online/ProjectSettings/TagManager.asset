@@ -11,6 +11,7 @@ TagManager:
   - Metal
   - Sand
   - Wood
+  - Body
   layers:
   - Default
   - TransparentFX
