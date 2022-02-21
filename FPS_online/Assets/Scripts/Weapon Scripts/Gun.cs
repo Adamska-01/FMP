@@ -61,9 +61,7 @@ public abstract class Gun : Item
     {
         canShootNextBullet = false;
 
-        player.isFiringSingleShot = true;
         yield return new WaitForSeconds(((GunInfo)itemInfo).fireRate);
-        player.isFiringSingleShot = false;
         
         canShootNextBullet = true;
     } 

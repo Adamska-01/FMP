@@ -106,7 +106,10 @@ public class ShootingRange : MonoBehaviour
                         StartCoroutine(SpawnDummy()); 
 
                     timeRemaining -= Time.deltaTime;
+                    
                     ShootingRangeUI.instance.timeText.text = GetFormattedTime(timeRemaining);
+                    if (timeRemaining < 10) ShootingRangeUI.instance.panelImage.color = new Color ( 1.0f, 0.0f, 0.0f, 0.5f );
+
                     yield return null; //Test is over
                 } 
             } 
@@ -119,6 +122,8 @@ public class ShootingRange : MonoBehaviour
         //Set the start button again
         startButton.SetActive(true);
         stopButton.SetActive(false);
+
+        ShootingRangeUI.instance.panelImage.color = ShootingRangeUI.instance.initialColor;
     }
 
     private IEnumerator SpawnDummy()

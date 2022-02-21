@@ -13,5 +13,12 @@ public class ShootingRangeUI : MonoBehaviour
     }
 
     public TMP_Text scoreText;
-    public TMP_Text timeText; 
+    public TMP_Text timeText;
+    public Image panelImage;
+    public Color initialColor;
+
+    private void Start()
+    {
+        initialColor = panelImage.color;
+    } 
 }

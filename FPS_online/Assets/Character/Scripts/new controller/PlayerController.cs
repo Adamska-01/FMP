@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
         isAiming = inputManager.IsAiming;
         if (!isReloading)
         {
+            //Switch guns with numbers
             for (int i = 0; i < items.Length; i++)
             {
                 if (Input.GetKeyDown((i + 1).ToString()))
@@ -99,7 +100,6 @@ public class PlayerController : MonoBehaviour
                 else
                     EquipItem(itemIndex + 1);
             }
-            //Switch guns with numbers
             if (inputManager.SwitchWeaponDown)
             {
                 if (itemIndex <= 0)
