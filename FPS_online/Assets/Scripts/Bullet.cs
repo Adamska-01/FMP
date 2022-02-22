@@ -13,7 +13,6 @@ public class Bullet : MonoBehaviour
     {
         velocity = 80.0f;
         StartCoroutine("DestroySelf");
-
         impactsAndHoles = FindObjectOfType<ImpactsAndHoles>();
     }
      
