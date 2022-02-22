@@ -28,11 +28,16 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
     void Start()
     {
+        MenuManager.Instance.OpenMenu("mode");
+    }
+
+
+    public void ConnectToServer()
+    {
         Debug.Log("Connecting to Master");
         PhotonNetwork.ConnectUsingSettings(); //Connect to the fixed region
         MenuManager.Instance.OpenMenu("loading");
     }
-
 
     public void CreateRoom()
     {
@@ -59,12 +64,32 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
     public void StartGame()
     {
+        PhotonNetwork.LoadLevel(2);
+    }
+
+    public void StartSinglePlayerGame()
+    {
+        RoomManager.Instance.gameObject.SetActive(false);
         PhotonNetwork.LoadLevel(1);
     }
 
-    public void QuitGame()
+    public void DisconnetFromServer()
     {
-        Application.Quit();
+        if (PhotonNetwork.IsConnected)
+        { 
+            PhotonNetwork.Disconnect();
+            MenuManager.Instance.OpenMenu("loading");
+        }
+        else
+        { 
+            ConnectToServer();
+        }
+    }
+    
+
+    public void QuitGame()
+    { 
+        Application.Quit(); 
     }
 
 
@@ -76,6 +101,11 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
         //Automatically load the scene for all clients (when host switches scene)
         PhotonNetwork.AutomaticallySyncScene = true;
+    }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        MenuManager.Instance.OpenMenu("mode");
     }
 
     public override void OnJoinedLobby()
