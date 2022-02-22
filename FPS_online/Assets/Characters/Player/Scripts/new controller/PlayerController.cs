@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private InputManager inputManager;
+    private InputManager inputManager;
     [SerializeField] private GameObject cameraHolder;
     [SerializeField] private Animator animator;
     [SerializeField] private AnimationController animController;
@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         isReloading = false;
         EquipItem(0); 
+        inputManager = FindObjectOfType<InputManager>();
     }
 
     void Update()

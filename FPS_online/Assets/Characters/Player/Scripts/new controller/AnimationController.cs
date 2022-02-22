@@ -38,8 +38,7 @@ public class AnimationController : MonoBehaviour
     [SerializeField] private float adsOffFov = 60.0f;
     [SerializeField] private float adsOnFov = 40.0f;
 
-    [Header("Input")]
-    [SerializeField] private InputManager inputManager;
+    private InputManager inputManager;
 
     void Start()
     {
@@ -51,6 +50,8 @@ public class AnimationController : MonoBehaviour
         jumpHash = Animator.StringToHash("Jump");
         reloadHash = Animator.StringToHash("Reloading");
         fireHash = Animator.StringToHash("Fire");
+
+        inputManager = FindObjectOfType<InputManager>();
     }
 
 

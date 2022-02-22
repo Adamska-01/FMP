@@ -10,9 +10,7 @@ public class UpperBodyIK : MonoBehaviour
     [SerializeField] private ArmIK rightArmIK;
     [SerializeField] private FullBodyBipedIK fbbIK;
     [SerializeField] private Transform leftHandTarget;
-
-    [Header("Input")] 
-    [SerializeField] private InputManager inputManager;
+     
 
     private bool isIKActive = true;
      
