@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    public enum MenuType
+    {
+        LOADING,
+        TITLE,
+        MULTIPLAYER,
+        CREATE_ROOM,
+        FIND_ROOM,
+        ROOM_LIST,
+        ROOM,
+        ERROR
+    }
+
     public static MenuManager Instance;
     [SerializeField] private Menu[] menus;
 
@@ -12,14 +24,17 @@ public class MenuManager : MonoBehaviour
         Instance = this;    
     }
 
-    public void OpenMenu(string _menuName)
+    public void OpenMenu(MenuType _menuName)
     {
         for (int i = 0; i < menus.Length; i++)
         {
-            if (menus[i].menuName == _menuName)
-                menus[i].Open();
-            else if (menus[i].isOpen)
-                CloseMenu(menus[i]);
+            if(menus[i] != null)
+            {
+                if (menus[i].type == _menuName)
+                    menus[i].Open();
+                else if (menus[i].isOpen)
+                    CloseMenu(menus[i]);
+            }
         }
     }
 
@@ -29,12 +44,15 @@ public class MenuManager : MonoBehaviour
         //Close the menus we currently have open first 
         for (int i = 0; i < menus.Length; i++)
         {
-            if (menus[i].isOpen)
-                CloseMenu(menus[i]);
+            if (menus[i] != null)
+            {
+                if (menus[i].isOpen)
+                    CloseMenu(menus[i]);
+            }
         }
 
         //Open current menu
-        _menu.Open();
+        _menu?.Open();
     } 
 
     public void CloseMenu(Menu _menu)

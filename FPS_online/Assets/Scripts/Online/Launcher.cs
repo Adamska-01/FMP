@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room creation, errrors, joining lobbies etc.
 {
@@ -24,11 +25,11 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     [SerializeField] GameObject playerListItemPrefab;
 
     [SerializeField] GameObject startGameButton;
-
+    List<RoomInfo> currentRoomList;
 
     void Start()
     {
-        MenuManager.Instance.OpenMenu("mode");
+        MenuManager.Instance.OpenMenu(MenuManager.MenuType.TITLE);
     }
 
 
@@ -36,30 +37,59 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     {
         Debug.Log("Connecting to Master");
         PhotonNetwork.ConnectUsingSettings(); //Connect to the fixed region
-        MenuManager.Instance.OpenMenu("loading");
+        MenuManager.Instance.OpenMenu(MenuManager.MenuType.LOADING);
     }
 
-    public void CreateRoom()
+    public void CreateRoom(TMP_Text _text)
     {
         if (string.IsNullOrEmpty(roomNameInputField.text))
-            return;
+            return; 
 
-        PhotonNetwork.CreateRoom(roomNameInputField.text);
+        //Set room's properties
+        RoomOptions ro = new RoomOptions();
+        ro.MaxPlayers = 8;
+        ro.CustomRoomPropertiesForLobby = new string[1] { "matchType" }; 
+        ro.CustomRoomProperties = new Hashtable() { { "matchType", _text.text } }; 
 
-        MenuManager.Instance.OpenMenu("loading");
+        PhotonNetwork.CreateRoom(roomNameInputField.text, ro);
+
+        MenuManager.Instance.OpenMenu(MenuManager.MenuType.LOADING);
+    }
+
+    public void FindRooms(TMP_Text _matchType)
+    { 
+        //Clear the list every time you get an update
+        foreach (Transform trans in roomListContent)
+        {
+            Destroy(trans.gameObject);
+        }
+
+        //Instantiate room button and set it up
+        for (int i = 0; i < currentRoomList.Count; i++)
+        {
+            //Photon doesn't remove rooms that have been removed from the list
+            //instead it set a bool that flags it as "removed", thus skip the iteration
+            if (currentRoomList[i].RemovedFromList ||
+                currentRoomList[i].PlayerCount >= currentRoomList[i].MaxPlayers ||
+                (currentRoomList[i].CustomProperties["matchType"].ToString() != _matchType.text &&
+                !_matchType.text.Contains("All")))
+                continue;
+
+            Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(currentRoomList[i]);
+        }
     }
 
     public void LeaveRoom()
     { 
         PhotonNetwork.LeaveRoom();
 
-        MenuManager.Instance.OpenMenu("loading");
+        MenuManager.Instance.OpenMenu(MenuManager.MenuType.LOADING);
     }
 
     public void JoinRoom(RoomInfo _info)
     {
         PhotonNetwork.JoinRoom(_info.Name);
-        MenuManager.Instance.OpenMenu("loading"); 
+        MenuManager.Instance.OpenMenu(MenuManager.MenuType.LOADING); 
     }
 
     public void StartGame()
@@ -78,7 +108,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         if (PhotonNetwork.IsConnected)
         { 
             PhotonNetwork.Disconnect();
-            MenuManager.Instance.OpenMenu("loading");
+            MenuManager.Instance.OpenMenu(MenuManager.MenuType.LOADING);
         }
         else
         { 
@@ -105,19 +135,19 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        MenuManager.Instance.OpenMenu("mode");
+        MenuManager.Instance.OpenMenu(MenuManager.MenuType.TITLE);
     }
 
     public override void OnJoinedLobby()
     {
         Debug.Log("Joined lobby");
-        MenuManager.Instance.OpenMenu("title");
+        MenuManager.Instance.OpenMenu(MenuManager.MenuType.MULTIPLAYER);
         PhotonNetwork.NickName = "Player" + Random.Range(0, 1000).ToString("0000");
     }
 
     public override void OnJoinedRoom()
     {
-        MenuManager.Instance.OpenMenu("room");
+        MenuManager.Instance.OpenMenu(MenuManager.MenuType.ROOM);
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 
         //Clear the list before instantiating a new one
@@ -138,7 +168,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         errorText.text = "Room Creation Failed: " + message;
-        MenuManager.Instance.OpenMenu("error"); 
+        MenuManager.Instance.OpenMenu(MenuManager.MenuType.ERROR); 
     }
 
     public override void OnMasterClientSwitched(Player newMasterClient)
@@ -149,7 +179,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
     public override void OnLeftRoom()
     {
-        MenuManager.Instance.OpenMenu("title");
+        MenuManager.Instance.OpenMenu(MenuManager.MenuType.MULTIPLAYER);
 
         //Clear the list of players when leaving the room
         foreach (Transform trans in roomListContent)
@@ -160,22 +190,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        //Clear the list every time you get an update
-        foreach (Transform trans in roomListContent)
-        {
-            Destroy(trans.gameObject);
-        }
-
-        //Instantiate room button and set it up
-        for (int i = 0; i < roomList.Count; i++)
-        {
-            //Photon doesn't remove rooms that have been removed from the list
-            //instead it set a bool that flags it as "removed", thus skip the iteration
-            if (roomList[i].RemovedFromList) 
-                continue;
-
-            Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
-        }
+        currentRoomList = new List<RoomInfo>(roomList); 
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer) //When a player enters he room (NOT US)

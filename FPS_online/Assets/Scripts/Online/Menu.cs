@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-    public string menuName;
+    public MenuManager.MenuType type;
     [HideInInspector] public bool isOpen;
 
-    private void Start()
+    void Awake()
     {
         //Set isOpen info at the start
         isOpen = gameObject.activeSelf;
     }
 
     public void Open()
-    {
+    { 
         isOpen = true;
-        gameObject.SetActive(true);
+        gameObject.SetActive(true); 
     }
 
     public void Close()
-    {
+    { 
         isOpen = false;
-        gameObject.SetActive(false);
+        gameObject?.SetActive(false); 
     }
 }
