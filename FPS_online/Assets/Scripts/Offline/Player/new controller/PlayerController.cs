@@ -31,11 +31,11 @@ public class PlayerController : MonoBehaviour
     private bool setTarget = false;
 
     //States 
-    public bool isFiring;
-    public bool isFiringSingleShot;
-    public bool isReloading;
-    public bool isAiming;
-    public bool canReload;
+    [HideInInspector] public bool isFiring;
+    [HideInInspector] public bool isFiringSingleShot;
+    [HideInInspector] public bool isReloading;
+    [HideInInspector] public bool isAiming;
+    [HideInInspector] public bool canReload;
 
     [SerializeField] private UpperBodyIK ik;
 
@@ -153,14 +153,7 @@ public class PlayerController : MonoBehaviour
         ik.StartCoroutine(ik.ChangeLeftArmTarget(((GunInfo)items[itemIndex].itemInfo).leftHandTarget));
 
         //Update UI
-        HUDController.instance.SelectWeapon(itemIndex);
-
-        //if (pv.IsMine)
-        //{
-        //    Hashtable hash = new Hashtable();
-        //    hash.Add("itemIndex", itemIndex);
-        //    PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
-        //}
+        HUDController.instance.SelectWeapon(itemIndex); 
     }
 
     private void FireWeapon()
