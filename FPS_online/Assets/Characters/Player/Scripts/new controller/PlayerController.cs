@@ -172,7 +172,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (inputManager.AutomaticShot && items[itemIndex].TryGetComponent<AutomaticGun>(out var ag))
         {
-            
             if(items[itemIndex].Use())
                 animator.SetTrigger(animController.FireHash);
         }

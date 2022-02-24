@@ -5,6 +5,7 @@ using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+using System.Linq;
 
 public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room creation, errrors, joining lobbies etc.
 {
@@ -25,7 +26,10 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     [SerializeField] GameObject playerListItemPrefab;
 
     [SerializeField] GameObject startGameButton;
-    List<RoomInfo> currentRoomList;
+
+    [SerializeField] TMP_Dropdown findDropDown;
+
+    List<RoomInfo> currentRoomList = new List<RoomInfo>();
 
     void Start()
     {
@@ -40,7 +44,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         MenuManager.Instance.OpenMenu(MenuManager.MenuType.LOADING);
     }
 
-    public void CreateRoom(TMP_Text _text)
+    public void CreateRoom(TMP_Dropdown _dropD)
     {
         if (string.IsNullOrEmpty(roomNameInputField.text))
             return; 
@@ -48,15 +52,16 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         //Set room's properties
         RoomOptions ro = new RoomOptions();
         ro.MaxPlayers = 8;
+        ro.IsVisible = true;
         ro.CustomRoomPropertiesForLobby = new string[1] { "matchType" }; 
-        ro.CustomRoomProperties = new Hashtable() { { "matchType", _text.text } }; 
+        ro.CustomRoomProperties = new Hashtable() { { "matchType", _dropD.options[_dropD.value].text } }; 
 
         PhotonNetwork.CreateRoom(roomNameInputField.text, ro);
 
         MenuManager.Instance.OpenMenu(MenuManager.MenuType.LOADING);
     }
 
-    public void FindRooms(TMP_Text _matchType)
+    public void FindRooms(TMP_Dropdown _dropD)
     { 
         //Clear the list every time you get an update
         foreach (Transform trans in roomListContent)
@@ -71,11 +76,18 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
             //instead it set a bool that flags it as "removed", thus skip the iteration
             if (currentRoomList[i].RemovedFromList ||
                 currentRoomList[i].PlayerCount >= currentRoomList[i].MaxPlayers ||
-                (currentRoomList[i].CustomProperties["matchType"].ToString() != _matchType.text &&
-                !_matchType.text.Contains("All")))
+                (currentRoomList[i].CustomProperties["matchType"].ToString() != _dropD.options[_dropD.value].text &&
+                !_dropD.options[_dropD.value].text.Contains("All")))
                 continue;
+             
+            Sprite sprite = default;
+            string matchType = currentRoomList[i].CustomProperties["matchType"].ToString();
+            if (matchType.Contains("Deathmatch"))
+                sprite = _dropD.options[0].image;
+            else if(matchType.Contains("Conquest"))
+                sprite = _dropD.options[1].image;
 
-            Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(currentRoomList[i]);
+            Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(currentRoomList[i], sprite);
         }
     }
 
@@ -170,6 +182,11 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         errorText.text = "Room Creation Failed: " + message;
         MenuManager.Instance.OpenMenu(MenuManager.MenuType.ERROR); 
     }
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        errorText.text = "Failed to join the room: " + message;
+        MenuManager.Instance.OpenMenu(MenuManager.MenuType.ERROR);
+    }
 
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
@@ -190,7 +207,20 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        currentRoomList = new List<RoomInfo>(roomList); 
+        foreach (var item in roomList)
+        {
+            int index = currentRoomList.FindIndex(x => x.Name == item.Name);
+            if(index == -1) 
+                currentRoomList.Add(item);
+            else
+            {
+                currentRoomList.RemoveAt(index);
+                currentRoomList.Add(item);
+            }    
+        }
+        currentRoomList.RemoveAll(x => x.RemovedFromList);
+
+        FindRooms(findDropDown);
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer) //When a player enters he room (NOT US)
