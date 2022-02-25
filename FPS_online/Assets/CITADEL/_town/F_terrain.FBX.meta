@@ -1,0 +1,211 @@
+fileFormatVersion: 2
+guid: 3019f49ca76c57f4c959834de69f5359
+timeCreated: 1502450300
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: f_sideroads
+    100002: //RootNode
+    100004: F_terrain
+    100006: F_terrain_MeshPart0
+    100008: F_terrain_MeshPart1
+    100010: F_terrain_MeshPart10
+    100012: F_terrain_MeshPart11
+    100014: F_terrain_MeshPart12
+    100016: F_terrain_MeshPart13
+    100018: F_terrain_MeshPart14
+    100020: F_terrain_MeshPart15
+    100022: F_terrain_MeshPart16
+    100024: F_terrain_MeshPart17
+    100026: F_terrain_MeshPart18
+    100028: F_terrain_MeshPart19
+    100030: F_terrain_MeshPart2
+    100032: F_terrain_MeshPart20
+    100034: F_terrain_MeshPart21
+    100036: F_terrain_MeshPart22
+    100038: F_terrain_MeshPart3
+    100040: F_terrain_MeshPart4
+    100042: F_terrain_MeshPart5
+    100044: F_terrain_MeshPart6
+    100046: F_terrain_MeshPart7
+    100048: F_terrain_MeshPart8
+    100050: F_terrain_MeshPart9
+    100052: F_terrain_stairs
+    100054: F_terrainWalls
+    400000: f_sideroads
+    400002: //RootNode
+    400004: F_terrain
+    400006: F_terrain_MeshPart0
+    400008: F_terrain_MeshPart1
+    400010: F_terrain_MeshPart10
+    400012: F_terrain_MeshPart11
+    400014: F_terrain_MeshPart12
+    400016: F_terrain_MeshPart13
+    400018: F_terrain_MeshPart14
+    400020: F_terrain_MeshPart15
+    400022: F_terrain_MeshPart16
+    400024: F_terrain_MeshPart17
+    400026: F_terrain_MeshPart18
+    400028: F_terrain_MeshPart19
+    400030: F_terrain_MeshPart2
+    400032: F_terrain_MeshPart20
+    400034: F_terrain_MeshPart21
+    400036: F_terrain_MeshPart22
+    400038: F_terrain_MeshPart3
+    400040: F_terrain_MeshPart4
+    400042: F_terrain_MeshPart5
+    400044: F_terrain_MeshPart6
+    400046: F_terrain_MeshPart7
+    400048: F_terrain_MeshPart8
+    400050: F_terrain_MeshPart9
+    400052: F_terrain_stairs
+    400054: F_terrainWalls
+    2300000: f_sideroads
+    2300002: F_terrain_MeshPart0
+    2300004: F_terrain_MeshPart1
+    2300006: F_terrain_MeshPart10
+    2300008: F_terrain_MeshPart11
+    2300010: F_terrain_MeshPart12
+    2300012: F_terrain_MeshPart13
+    2300014: F_terrain_MeshPart14
+    2300016: F_terrain_MeshPart15
+    2300018: F_terrain_MeshPart16
+    2300020: F_terrain_MeshPart17
+    2300022: F_terrain_MeshPart18
+    2300024: F_terrain_MeshPart19
+    2300026: F_terrain_MeshPart2
+    2300028: F_terrain_MeshPart20
+    2300030: F_terrain_MeshPart21
+    2300032: F_terrain_MeshPart22
+    2300034: F_terrain_MeshPart3
+    2300036: F_terrain_MeshPart4
+    2300038: F_terrain_MeshPart5
+    2300040: F_terrain_MeshPart6
+    2300042: F_terrain_MeshPart7
+    2300044: F_terrain_MeshPart8
+    2300046: F_terrain_MeshPart9
+    2300048: F_terrain_stairs
+    2300050: F_terrainWalls
+    3300000: f_sideroads
+    3300002: F_terrain_MeshPart0
+    3300004: F_terrain_MeshPart1
+    3300006: F_terrain_MeshPart10
+    3300008: F_terrain_MeshPart11
+    3300010: F_terrain_MeshPart12
+    3300012: F_terrain_MeshPart13
+    3300014: F_terrain_MeshPart14
+    3300016: F_terrain_MeshPart15
+    3300018: F_terrain_MeshPart16
+    3300020: F_terrain_MeshPart17
+    3300022: F_terrain_MeshPart18
+    3300024: F_terrain_MeshPart19
+    3300026: F_terrain_MeshPart2
+    3300028: F_terrain_MeshPart20
+    3300030: F_terrain_MeshPart21
+    3300032: F_terrain_MeshPart22
+    3300034: F_terrain_MeshPart3
+    3300036: F_terrain_MeshPart4
+    3300038: F_terrain_MeshPart5
+    3300040: F_terrain_MeshPart6
+    3300042: F_terrain_MeshPart7
+    3300044: F_terrain_MeshPart8
+    3300046: F_terrain_MeshPart9
+    3300048: F_terrain_stairs
+    3300050: F_terrainWalls
+    4300000: F_terrain_MeshPart0
+    4300002: F_terrain_MeshPart1
+    4300004: F_terrain_MeshPart2
+    4300006: F_terrain_MeshPart3
+    4300008: F_terrain_MeshPart4
+    4300010: F_terrain_MeshPart5
+    4300012: F_terrain_MeshPart6
+    4300014: F_terrain_MeshPart7
+    4300016: F_terrain_MeshPart8
+    4300018: F_terrain_MeshPart9
+    4300020: F_terrain_MeshPart10
+    4300022: F_terrain_MeshPart11
+    4300024: F_terrain_MeshPart12
+    4300026: F_terrain_MeshPart13
+    4300028: F_terrain_MeshPart14
+    4300030: F_terrain_MeshPart15
+    4300032: F_terrain_MeshPart16
+    4300034: F_terrain_MeshPart17
+    4300036: F_terrain_MeshPart18
+    4300038: F_terrain_MeshPart19
+    4300040: F_terrain_MeshPart20
+    4300042: F_terrain_MeshPart21
+    4300044: F_terrain_MeshPart22
+    4300046: f_sideroads
+    4300048: F_terrain_stairs
+    4300050: F_terrainWalls
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
