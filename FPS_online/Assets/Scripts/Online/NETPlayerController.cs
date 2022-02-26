@@ -46,7 +46,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     //Guns
     [SerializeField] Item[] items;
     int itemIndex;
-    int previousItemIndex = -1;
+    int previousItemIndex;
 
     private PhotonView pv;
 
@@ -54,13 +54,13 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     { 
         pv = GetComponent<PhotonView>();
         animator = GetComponent<Animator>();
-        inputManager = FindObjectOfType<NETInputManager>();
-        inputManager.SetPhotonView(pv);
+        inputManager = FindObjectOfType<NETInputManager>(); 
 
         isReloading = false;
 
         if (pv.IsMine)
         {
+            previousItemIndex = -1;
             EquipItem(0);
         }
         else
@@ -255,14 +255,19 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
 
         if (!setTarget)
         {
-            cameraHolder.transform.rotation = Quaternion.Euler(Vector3.zero);
-            gunTarget.SetParent(cameraHolder.transform); 
-            setTarget = true;
+            pv.RPC("ChildRightArm", RpcTarget.All); 
         }
+    }
+    [PunRPC] public void ChildRightArm() 
+    {
+        cameraHolder.transform.rotation = Quaternion.Euler(Vector3.zero);
+        gunTarget.SetParent(cameraHolder.transform);
+        setTarget = true;
     }
 
     public void SetGrounded(bool _grnd)
     {
         isGrounded = _grnd;
     } 
+     
 }

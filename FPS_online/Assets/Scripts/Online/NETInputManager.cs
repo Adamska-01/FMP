@@ -57,7 +57,7 @@ public class NETInputManager : MonoBehaviour
      
 
     private void Update()
-    { 
+    {  
         HandleInput(); 
     }
 
@@ -87,10 +87,5 @@ public class NETInputManager : MonoBehaviour
         //Camera rotate
         xAxis = Input.GetAxisRaw(horizontalLookAxis);
         yAxis = Input.GetAxisRaw(verticalLookAxis);
-    }
-
-    public void SetPhotonView(PhotonView _pv)
-    {
-        pv = _pv;
-    }
+    } 
 }
