@@ -53,7 +53,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         RoomOptions ro = new RoomOptions();
         ro.MaxPlayers = 8;
         ro.IsVisible = true;
-        ro.CustomRoomPropertiesForLobby = new string[1] { "matchType" }; 
+        ro.CustomRoomPropertiesForLobby = new string[1] { "matchType" }; //makes sure that other clients on the lobby can see it
         ro.CustomRoomProperties = new Hashtable() { { "matchType", _dropD.options[_dropD.value].text } }; 
 
         PhotonNetwork.CreateRoom(roomNameInputField.text, ro);

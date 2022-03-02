@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 1776943361427710360}
   - component: {fileID: 1776943361427710367}
   - component: {fileID: 1470866470794038987}
-  - component: {fileID: 1470866470794038986}
+  - component: {fileID: 2933613696771325605}
   - component: {fileID: 475575661187690423}
   - component: {fileID: 3846199712660598207}
   - component: {fileID: 8660553480462827932}
@@ -442,6 +442,7 @@ MonoBehaviour:
   - {fileID: 3232651619509457459}
   - {fileID: 5919796146297964430}
   - {fileID: 7874309683560667680}
+  groundCheck: {fileID: 1776943363028633951}
 --- !u!114 &1776943361427710361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,7 +1132,7 @@ MonoBehaviour:
     spineStiffness: 0.5
     pullBodyVertical: 0.5
     pullBodyHorizontal: 0
---- !u!114 &1470866470794038986
+--- !u!114 &2933613696771325605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1140,7 +1141,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1470866470794038996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9ba4345fe5cb6e4fb4de376eb162a7d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c0d42274347d784dbcce1b0319d3557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MAX_HEALTH_VALUE: 100

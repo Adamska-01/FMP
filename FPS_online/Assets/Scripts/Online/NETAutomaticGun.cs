@@ -10,6 +10,7 @@ public class NETAutomaticGun : NETGun
 
     public override bool Use()
     {
+            Debug.Log("I am instantiating the bullet");
         return Shoot();
     }
 
@@ -43,7 +44,6 @@ public class NETAutomaticGun : NETGun
 
             //Assign damages
             bullet.GetComponent<Bullet>().SetDamages(((GunInfo)itemInfo).damageHead, ((GunInfo)itemInfo).damageBody, ((GunInfo)itemInfo).damageLeg);
-
             return true;
         }
 

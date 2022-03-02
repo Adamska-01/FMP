@@ -31,8 +31,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
 
     private float verticalLookRotation = 0.0f;
     [SerializeField] private Transform gunTarget;
-    [SerializeField] private Transform cameraTarget;
-    private bool setTarget = false;
+    [SerializeField] private Transform cameraTarget; 
 
     //States 
     [HideInInspector] public bool isFiring;
@@ -46,7 +45,9 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     //Guns
     [SerializeField] Item[] items;
     int itemIndex;
-    int previousItemIndex;
+    int previousItemIndex = -1;
+
+    public GameObject groundCheck;
 
     private PhotonView pv;
 
@@ -59,8 +60,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
         isReloading = false;
 
         if (pv.IsMine)
-        {
-            previousItemIndex = -1;
+        { 
             EquipItem(0);
         }
         else
@@ -68,6 +68,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
             Destroy(cameraHolder.GetComponentInChildren<Camera>().gameObject);
             Destroy(rb);
             Destroy(GetComponent<NETAnimationController>());
+            Destroy(groundCheck);
         }
     }
 
@@ -199,13 +200,15 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
 
     private void FireWeapon()
     {
-        if(inputManager.FireSingleShot && (items[itemIndex].TryGetComponent<SingleShotGun>(out var ssg) || items[itemIndex].TryGetComponent<MeleeWeapon>(out var melee)))
+        Debug.Log(inputManager.AutomaticShot);
+        if (inputManager.FireSingleShot && (items[itemIndex].TryGetComponent<NETSingleShotGun>(out var ssg) || items[itemIndex].TryGetComponent<NETMeleeWeapon>(out var melee)))
         {
             if (items[itemIndex].Use())  
                 animator.SetTrigger(animController.FireHash);
         }
-        else if (inputManager.AutomaticShot && items[itemIndex].TryGetComponent<AutomaticGun>(out var ag))
+        else if (inputManager.AutomaticShot && items[itemIndex].TryGetComponent<NETAutomaticGun>(out var ag))
         {
+        
             if(items[itemIndex].Use())
                 animator.SetTrigger(animController.FireHash);
         }
@@ -251,23 +254,11 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
         verticalLookRotation += inputManager.YLookAxis * yAxisSensitivity;
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -70.0f, 70f);
 
-        cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation;
-
-        if (!setTarget)
-        {
-            pv.RPC("ChildRightArm", RpcTarget.All); 
-        }
-    }
-    [PunRPC] public void ChildRightArm() 
-    {
-        cameraHolder.transform.rotation = Quaternion.Euler(Vector3.zero);
-        gunTarget.SetParent(cameraHolder.transform);
-        setTarget = true;
-    }
+        cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation; 
+    } 
 
     public void SetGrounded(bool _grnd)
     {
         isGrounded = _grnd;
-    } 
-     
+    }  
 }

@@ -27,8 +27,7 @@ public class PlayerController : MonoBehaviour
 
     private float verticalLookRotation = 0.0f;
     [SerializeField] private Transform gunTarget;
-    [SerializeField] private Transform cameraTarget;
-    private bool setTarget = false;
+    [SerializeField] private Transform cameraTarget; 
 
     //States 
     [HideInInspector] public bool isFiring;
@@ -210,14 +209,7 @@ public class PlayerController : MonoBehaviour
         verticalLookRotation += inputManager.YLookAxis * yAxisSensitivity;
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -70.0f, 70f);
 
-        cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation;
-
-        if (!setTarget)
-        {
-            cameraHolder.transform.rotation = Quaternion.Euler(Vector3.zero);
-            gunTarget.SetParent(cameraHolder.transform); 
-            setTarget = true;
-        }
+        cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation; 
     }
 
     public void SetGrounded(bool _grnd)

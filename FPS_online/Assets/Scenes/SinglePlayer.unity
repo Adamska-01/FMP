@@ -3362,7 +3362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 16.6, y: 0.8, z: 15}
   objectToSpawn: {fileID: 4745140637974601353, guid: 03ebce46a3e70d84aa5bc7d5fb626959, type: 3}
-  player: {fileID: 0}
+  player: {fileID: 2243428061368702062, guid: c480a373f1c56dd4781ce965d7c50c5f, type: 3}
 --- !u!4 &1722307001
 Transform:
   m_ObjectHideFlags: 0
