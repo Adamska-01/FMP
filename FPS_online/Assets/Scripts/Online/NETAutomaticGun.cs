@@ -1,16 +1,17 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class NETAutomaticGun : NETGun
 {
-    [SerializeField] Camera cam;
     public Transform bulletStart;
 
 
     public override bool Use()
     {
-            Debug.Log("I am instantiating the bullet");
+        Debug.Log("I am instantiating the bullet");
         return Shoot();
     }
 
@@ -29,25 +30,32 @@ public class NETAutomaticGun : NETGun
             Vector2 recoil = player.isAiming ? Vector2.zero : Recoil();
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f + recoil.x, 0.5f + recoil.y));
             ray.origin = cam.transform.position;
-
-            GameObject bullet = null;
+             
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                bullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.LookRotation(hit.point - bulletStart.transform.position));
+                GetComponent<PhotonView>().RPC("RPC_ShootBullet", RpcTarget.All, bulletStart.position, Quaternion.LookRotation(hit.point - bulletStart.transform.position));
             }
             else
             {
-                bullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.LookRotation(cam.transform.forward));
-            }
+                GetComponent<PhotonView>().RPC("RPC_ShootBullet", RpcTarget.All, bulletStart.position, Quaternion.LookRotation(cam.transform.forward)); 
+            } 
 
-            Instantiate(effectPrefab, bulletStart.position, Quaternion.LookRotation(cam.transform.forward));
-
-            //Assign damages
-            bullet.GetComponent<Bullet>().SetDamages(((GunInfo)itemInfo).damageHead, ((GunInfo)itemInfo).damageBody, ((GunInfo)itemInfo).damageLeg);
             return true;
         }
 
         return false;
+    }
+
+    [PunRPC]
+    private void RPC_ShootBullet(Vector3 _pos, Quaternion _rot)
+    {
+        GameObject projectile = Instantiate(bulletPrefab, _pos, _rot);
+        //Assign damages
+        projectile.GetComponent<NETBullet>().SetDamages(((GunInfo)itemInfo).damageHead, ((GunInfo)itemInfo).damageBody, ((GunInfo)itemInfo).damageLeg);
+        projectile.GetComponent<NETBullet>().pv = GetComponent<PhotonView>();
+
+        //Effect
+        Instantiate(effectPrefab, _pos, Quaternion.LookRotation(cam.transform.forward));
     }
 
     private void AmmoConsumption()

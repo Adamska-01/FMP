@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class NETBullet : MonoBehaviour
 {
     private float velocity;
     private float damageHead, damageBody, damageLeg;
-    private ImpactsAndHoles impactsAndHoles; 
+    private ImpactsAndHoles impactsAndHoles;
+    [HideInInspector] public PhotonView pv;
 
 
     void Start()
@@ -16,53 +17,56 @@ public class Bullet : MonoBehaviour
         StartCoroutine("DestroySelf");
         impactsAndHoles = FindObjectOfType<ImpactsAndHoles>();
     }
-     
+
     void Update()
     {
         Vector3 movement = transform.forward * velocity * Time.deltaTime;
         float distance = movement.magnitude;
 
-        if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, distance))
-        { 
-            //Deal damage if is a player
-            if (hit.collider.gameObject.TryGetComponent<HitboxPlayer>(out var hitbox))
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, distance))
+        {
+            if (pv.IsMine)
             {
-                switch (hitbox.colType)
+                //Deal damage if is a player
+                if (hit.collider.gameObject.TryGetComponent<HitboxPlayer>(out var hitbox))
                 {
-                    case HitboxPlayer.CollisionType.BODY:
-                        hitbox.TakeDamage(damageBody);
-                        break;
-                    case HitboxPlayer.CollisionType.HEAD:
-                        hitbox.TakeDamage(damageHead);
-                        break;
-                    case HitboxPlayer.CollisionType.LEG:
-                        hitbox.TakeDamage(damageLeg);
-                        break;
+                    switch (hitbox.colType)
+                    {
+                        case HitboxPlayer.CollisionType.BODY:
+                            hitbox.TakeDamage(damageBody);
+                            break;
+                        case HitboxPlayer.CollisionType.HEAD:
+                            hitbox.TakeDamage(damageHead);
+                            break;
+                        case HitboxPlayer.CollisionType.LEG:
+                            hitbox.TakeDamage(damageLeg);
+                            break;
+                    }
+                }
+                //Single player shooting range difficulty select
+                if (hit.collider.gameObject.TryGetComponent<DifficultyButton>(out var diffButton))
+                {
+                    diffButton.SelectDifficulty(diffButton.diff);
+                }
+                //Single player start test buton
+                if (hit.collider.gameObject.TryGetComponent<StartAndStopTest>(out var testButton))
+                {
+                    testButton.StartOrStopTest();
                 }
             }
-            //Single player shooting range difficulty select
-            if(hit.collider.gameObject.TryGetComponent<DifficultyButton>(out var diffButton))
-            {
-                diffButton.SelectDifficulty(diffButton.diff);
-            }
-            //Single player start test buton
-            if (hit.collider.gameObject.TryGetComponent<StartAndStopTest>(out var testButton))
-            {
-                testButton.StartOrStopTest();
-            } 
-             
+
             InstantiateImpactAndHole(hit);
-             
+
             Destroy(this.gameObject, Time.deltaTime);
         }
-        
-        transform.position += movement; 
+
+        transform.position += movement;
     }
 
     private IEnumerator DestroySelf()
-    { 
+    {
         yield return new WaitForSeconds(3.0f);
-        Destroy(gameObject); 
+        Destroy(gameObject);
     }
 
     public void SetDamages(float _head, float _body, float _leg)
@@ -74,7 +78,7 @@ public class Bullet : MonoBehaviour
 
     private void InstantiateImpactAndHole(RaycastHit _hit)
     {
-        switch(_hit.collider.tag)
+        switch (_hit.collider.tag)
         {
             case "Concrete":
                 Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.CONCRETE].impact, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up));
@@ -97,10 +101,10 @@ public class Bullet : MonoBehaviour
                 Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.WOOD].hole, _hit.point + (_hit.normal * 0.001f), Quaternion.LookRotation(_hit.normal, Vector3.up));
                 break;
             case "Body":
-                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.BODY].impact, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up)); 
+                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.BODY].impact, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up));
                 break;
             default:
-                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.CONCRETE].impact, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up)); 
+                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.CONCRETE].impact, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up));
                 break;
         }
     }

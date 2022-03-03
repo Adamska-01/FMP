@@ -1640,13 +1640,13 @@ MonoBehaviour:
   - {fileID: 8546667793773545630}
   player: {fileID: 2890544070135524298}
   recoil: {fileID: 0}
+  cam: {fileID: 1776943363080127971}
   bulletPrefab: {fileID: 0}
   effectPrefab: {fileID: 0}
   ammoAvailable: 0
   currentAmmoInMagazine: 0
   maxAmmoInMagazine: 0
   canShootNextBullet: 0
-  cam: {fileID: 1776943363080127971}
 --- !u!1 &1776943361647814488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2196,7 @@ GameObject:
   - component: {fileID: 1776943362364829257}
   - component: {fileID: 3232651619509457459}
   - component: {fileID: 9154958282819890622}
+  - component: {fileID: 4943813526019902717}
   m_Layer: 0
   m_Name: rifle
   m_TagString: Untagged
@@ -2237,13 +2238,13 @@ MonoBehaviour:
   - {fileID: 1776943362364535405}
   player: {fileID: 2890544070135524298}
   recoil: {fileID: 9154958282819890622}
-  bulletPrefab: {fileID: 6497936358320960965, guid: ceea856c5647867459518eb829060766, type: 3}
+  cam: {fileID: 1776943363080127971}
+  bulletPrefab: {fileID: 6497936358320960965, guid: eb384334d46e04941b8519cc63371656, type: 3}
   effectPrefab: {fileID: 1569246640813692, guid: 43ab0ca5d42daf04a99c67697d0e9414, type: 3}
   ammoAvailable: 120
   currentAmmoInMagazine: 0
   maxAmmoInMagazine: 30
   canShootNextBullet: 0
-  cam: {fileID: 1776943363080127971}
   bulletStart: {fileID: 1183300543}
 --- !u!114 &9154958282819890622
 MonoBehaviour:
@@ -2262,6 +2263,28 @@ MonoBehaviour:
   recoilMaxIntensity: 0.05
   increaseRate: 0.005
   decreaseRate: 0.01
+--- !u!114 &4943813526019902717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776943362364535401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1776943362364535405
 GameObject:
   m_ObjectHideFlags: 0
@@ -3468,6 +3491,7 @@ GameObject:
   - component: {fileID: 4715897457237649852}
   - component: {fileID: 5919796146297964430}
   - component: {fileID: 8773008683864795519}
+  - component: {fileID: 2701914206959009122}
   m_Layer: 0
   m_Name: HandGun
   m_TagString: Untagged
@@ -3515,13 +3539,13 @@ MonoBehaviour:
   - {fileID: 6318051256033078883}
   player: {fileID: 2890544070135524298}
   recoil: {fileID: 8773008683864795519}
-  bulletPrefab: {fileID: 6497936358320960965, guid: ceea856c5647867459518eb829060766, type: 3}
+  cam: {fileID: 1776943363080127971}
+  bulletPrefab: {fileID: 6497936358320960965, guid: eb384334d46e04941b8519cc63371656, type: 3}
   effectPrefab: {fileID: 1523098076475304, guid: 49aa1d4c5624e66418cbfbe9784d6f23, type: 3}
   ammoAvailable: 40
   currentAmmoInMagazine: 0
   maxAmmoInMagazine: 7
   canShootNextBullet: 0
-  cam: {fileID: 1776943363080127971}
   bulletStart: {fileID: 1259339319}
 --- !u!114 &8773008683864795519
 MonoBehaviour:
@@ -3540,6 +3564,28 @@ MonoBehaviour:
   recoilMaxIntensity: 0.05
   increaseRate: 0.005
   decreaseRate: 0.001
+--- !u!114 &2701914206959009122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3201088448990064186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3263560986089916598
 GameObject:
   m_ObjectHideFlags: 0

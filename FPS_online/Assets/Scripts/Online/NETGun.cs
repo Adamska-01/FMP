@@ -1,11 +1,13 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class NETGun : Item
+public abstract class NETGun : NETItem
 {
     [SerializeField] protected NETPlayerController player;
     [SerializeField] protected NETRecoil recoil;
+    public Camera cam;
     public GameObject bulletPrefab;
     public GameObject effectPrefab;
     //Clip info
@@ -27,6 +29,7 @@ public abstract class NETGun : Item
 
     public abstract override bool Use();
 
+     
     public override bool CanReload()
     {
         if (currentAmmoInMagazine < maxAmmoInMagazine && ammoAvailable > 0)

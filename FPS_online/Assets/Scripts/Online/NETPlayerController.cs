@@ -43,7 +43,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     [SerializeField] private UpperBodyIK ik;
 
     //Guns
-    [SerializeField] Item[] items;
+    [SerializeField] NETItem[] items;
     int itemIndex;
     int previousItemIndex = -1;
 
@@ -61,16 +61,14 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     }
 
     private void Start()
-    { 
-
-
+    {  
         if (pv.IsMine)
         { 
             EquipItem(0);
         }
         else
         {
-            Destroy(cameraHolder.GetComponentInChildren<Camera>().gameObject);
+            cameraHolder.GetComponentInChildren<Camera>().gameObject.SetActive(false);
             Destroy(rb);
             Destroy(GetComponent<NETAnimationController>());
             Destroy(groundCheck);

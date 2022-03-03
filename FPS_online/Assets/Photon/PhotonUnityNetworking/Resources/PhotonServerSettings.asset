@@ -36,7 +36,7 @@ MonoBehaviour:
   RpcList:
   - ClickRpc
   - DestroyRpc
-  - ChildRightArm
+  - RPC_ShootBullet
   - RPC_TakeDamage
   DisableAutoOpenWizard: 1
   ShowSettings: 1
