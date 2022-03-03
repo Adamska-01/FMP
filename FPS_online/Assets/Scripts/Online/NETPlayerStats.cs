@@ -17,7 +17,14 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
     private bool isDead;
 
     private PhotonView pv;
+    private PlayerManager playerManager;
 
+    private void Awake()
+    {
+        pv = GetComponent<PhotonView>();  
+
+        playerManager = PhotonView.Find((int)pv.InstantiationData[0]).GetComponent<PlayerManager>();
+    }
 
     void Start()
     {
@@ -76,6 +83,7 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
             {
                 //TODO: Die
                 Debug.Log("Dead");
+                playerManager.Die();
             }
 
             //TODO: Update UI

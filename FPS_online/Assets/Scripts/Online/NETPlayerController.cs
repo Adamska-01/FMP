@@ -49,15 +49,20 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
 
     public GameObject groundCheck;
 
-    private PhotonView pv;
+    private PhotonView pv; 
 
-    private void Start()
-    { 
+    private void Awake()
+    {
         pv = GetComponent<PhotonView>();
         animator = GetComponent<Animator>();
         inputManager = FindObjectOfType<NETInputManager>(); 
+        
+        isReloading = false; 
+    }
 
-        isReloading = false;
+    private void Start()
+    { 
+
 
         if (pv.IsMine)
         { 
