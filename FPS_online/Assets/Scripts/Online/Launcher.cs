@@ -16,6 +16,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     }
 
     [SerializeField] TMP_InputField roomNameInputField;
+    [SerializeField] TMP_InputField nicknameInputField; private bool hasSetNick = false;
     [SerializeField] TMP_Text errorText;
     [SerializeField] TMP_Text roomNameText;
     //Rooms
@@ -59,6 +60,21 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         PhotonNetwork.CreateRoom(roomNameInputField.text, ro);
 
         MenuManager.Instance.OpenMenu(MenuManager.MenuType.LOADING);
+    } 
+
+    public void SetNickname()
+    {
+        if(!string.IsNullOrEmpty(nicknameInputField.text))
+        {
+            PhotonNetwork.NickName = nicknameInputField.text;
+
+            //Store name 
+            PlayerPrefs.SetString("playerName", nicknameInputField.text);
+
+            hasSetNick = true;
+
+            MenuManager.Instance.OpenMenu(MenuManager.MenuType.MULTIPLAYER);
+        }
     }
 
     public void FindRooms(TMP_Dropdown _dropD)
@@ -153,8 +169,22 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     public override void OnJoinedLobby()
     {
         Debug.Log("Joined lobby");
-        MenuManager.Instance.OpenMenu(MenuManager.MenuType.MULTIPLAYER);
-        PhotonNetwork.NickName = "Player" + Random.Range(0, 1000).ToString("0000");
+
+        //Set Nickname
+        if(!hasSetNick)
+        {
+            MenuManager.Instance.OpenMenu(MenuManager.MenuType.NICKNAME);
+
+            if(PlayerPrefs.HasKey("playerName"))
+            {
+                nicknameInputField.text = PlayerPrefs.GetString("playerName");
+            }
+        }
+        else
+        {
+            PhotonNetwork.NickName = PlayerPrefs.GetString("playerName");
+            MenuManager.Instance.OpenMenu(MenuManager.MenuType.MULTIPLAYER);
+        } 
     }
 
     public override void OnJoinedRoom()
@@ -199,9 +229,12 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         MenuManager.Instance.OpenMenu(MenuManager.MenuType.MULTIPLAYER);
 
         //Clear the list of players when leaving the room
-        foreach (Transform trans in roomListContent)
+        if (roomListContent)
         {
-            Destroy(trans.gameObject);
+            foreach (Transform trans in roomListContent)
+            {
+                if(trans) Destroy(trans.gameObject);
+            }
         }
     }
 

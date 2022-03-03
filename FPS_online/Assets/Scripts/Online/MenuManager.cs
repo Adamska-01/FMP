@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
         LOADING,
         TITLE,
         MULTIPLAYER,
+        NICKNAME,
         CREATE_ROOM,
         FIND_ROOM,
         ROOM_LIST,
