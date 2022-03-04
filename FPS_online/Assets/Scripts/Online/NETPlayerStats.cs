@@ -81,8 +81,8 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
 
             if (HealthValue <= 0)
             {
-                //TODO: Die
                 Debug.Log("Dead");
+                isDead = true;
                 playerManager.Die();
             }
 

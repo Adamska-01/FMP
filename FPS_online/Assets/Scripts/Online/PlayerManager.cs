@@ -7,7 +7,7 @@ using System.IO;
 public class PlayerManager : MonoBehaviour
 {
     private PhotonView pv;
-    private GameObject controller;
+    private GameObject controller; 
 
     private void Awake()
     {
@@ -31,6 +31,9 @@ public class PlayerManager : MonoBehaviour
 
     public void Die()
     {
+        //Death particle 
+        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "DeathEffect"), controller.transform.position + new Vector3(0.0f, 1.2f, 0.0f), Quaternion.identity);
+        
         PhotonNetwork.Destroy(controller);
         CreateController();
     }
