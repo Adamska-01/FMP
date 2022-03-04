@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        if(pv.IsMine) //if pv is owned by the local player
+        if (pv.IsMine) //if pv is owned by the local player
         {
             CreateController();
             deathCamera.SetActive(false);
@@ -36,7 +36,7 @@ public class PlayerManager : MonoBehaviour
     {
         NETUIController.instance.deathText.text = "You were killed by <color=red>" + _damager + "</color>";
 
-        if(controller != null)
+        if (controller != null)
         {
             StartCoroutine(DieCo());
         }
@@ -55,7 +55,7 @@ public class PlayerManager : MonoBehaviour
         NETUIController.instance.OpenPanel(NETUIController.PanelType.DEATH);
 
         yield return new WaitForSeconds(5.0f);
-        
+
         //Open HUD and close death
         NETUIController.instance.OpenPanel(NETUIController.PanelType.HUD);
 

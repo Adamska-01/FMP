@@ -4874,7 +4874,7 @@ GameObject:
   - component: {fileID: 2400440798665955847}
   - component: {fileID: -634378605652665299}
   - component: {fileID: 7419985187890970030}
-  - component: {fileID: 2364455634815167174}
+  - component: {fileID: -1295423157543944006}
   m_Layer: 0
   m_Name: DeathEffect
   m_TagString: Untagged
@@ -9750,7 +9750,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &2364455634815167174
+--- !u!114 &-1295423157543944006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9759,7 +9759,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2308122633945573844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
+  m_Script: {fileID: 11500000, guid: 04c86db39754cbe4aa7fb127dbbdcd2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnlyDeactivate: 0

@@ -9,7 +9,7 @@ public class NETBullet : MonoBehaviour
     private float damageHead, damageBody, damageLeg;
     private ImpactsAndHoles impactsAndHoles;
     [HideInInspector] public PhotonView pv;
-    public string bulletOwner;
+    [HideInInspector] public string bulletOwner;
 
 
     void Start()
