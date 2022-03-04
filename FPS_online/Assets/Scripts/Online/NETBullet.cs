@@ -9,6 +9,7 @@ public class NETBullet : MonoBehaviour
     private float damageHead, damageBody, damageLeg;
     private ImpactsAndHoles impactsAndHoles;
     [HideInInspector] public PhotonView pv;
+    public string bulletOwner;
 
 
     void Start()
@@ -16,6 +17,7 @@ public class NETBullet : MonoBehaviour
         velocity = 80.0f;
         StartCoroutine("DestroySelf");
         impactsAndHoles = FindObjectOfType<ImpactsAndHoles>();
+        Debug.Log(bulletOwner);
     }
 
     void Update()
@@ -33,13 +35,13 @@ public class NETBullet : MonoBehaviour
                     switch (hitbox.colType)
                     {
                         case HitboxPlayer.CollisionType.BODY:
-                            hitbox.TakeDamage(damageBody);
+                            hitbox.TakeDamage(damageBody, bulletOwner);
                             break;
                         case HitboxPlayer.CollisionType.HEAD:
-                            hitbox.TakeDamage(damageHead);
+                            hitbox.TakeDamage(damageHead, bulletOwner);
                             break;
                         case HitboxPlayer.CollisionType.LEG:
-                            hitbox.TakeDamage(damageLeg);
+                            hitbox.TakeDamage(damageLeg, bulletOwner);
                             break;
                     }
                 }

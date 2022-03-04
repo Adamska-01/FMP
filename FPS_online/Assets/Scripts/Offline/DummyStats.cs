@@ -42,7 +42,7 @@ public class DummyStats : MonoBehaviour, IDamageable
     public void Heal(float value)
     { }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, string _damager)
     {
         if (!isDead)
         {

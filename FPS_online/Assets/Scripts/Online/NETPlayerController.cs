@@ -148,9 +148,9 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
         string ammoInMagazine = gun.currentAmmoInMagazine.ToString();
         string ammoAvailable = gun.ammoAvailable > 999 ? "\u221E" : gun.ammoAvailable.ToString();
         if(itemIndex == 2)
-            HUDController.instance.ammunitionText.text = string.Empty;
+            NETUIController.instance.ammunitionText.text = string.Empty;
         else
-            HUDController.instance.ammunitionText.text = ammoInMagazine + "/" + ammoAvailable;
+            NETUIController.instance.ammunitionText.text = ammoInMagazine + "/" + ammoAvailable;
     }
 
 
@@ -184,7 +184,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
         if (pv.IsMine)
         { 
             //Update UI
-            HUDController.instance.SelectWeapon(itemIndex);
+            NETUIController.instance.SelectWeapon(itemIndex);
 
             Hashtable hash = new Hashtable();
             hash.Add("itemIndex", itemIndex);

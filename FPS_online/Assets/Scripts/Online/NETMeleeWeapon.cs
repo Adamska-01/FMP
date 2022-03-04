@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,13 +37,13 @@ public class NETMeleeWeapon : NETGun
                     switch (hitbox.colType)
                     {
                         case HitboxPlayer.CollisionType.BODY:
-                            hitbox.TakeDamage(((GunInfo)itemInfo).damageBody);
+                            hitbox.TakeDamage(((GunInfo)itemInfo).damageBody, transform.root.GetComponent<PhotonView>().Owner.NickName);
                             break;
                         case HitboxPlayer.CollisionType.HEAD:
-                            hitbox.TakeDamage(((GunInfo)itemInfo).damageHead);
+                            hitbox.TakeDamage(((GunInfo)itemInfo).damageHead, transform.root.GetComponent<PhotonView>().Owner.NickName);
                             break;
                         case HitboxPlayer.CollisionType.LEG:
-                            hitbox.TakeDamage(((GunInfo)itemInfo).damageLeg);
+                            hitbox.TakeDamage(((GunInfo)itemInfo).damageLeg, transform.root.GetComponent<PhotonView>().Owner.NickName);
                             break;
                     }
                 }

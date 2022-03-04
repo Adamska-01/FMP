@@ -12,8 +12,8 @@ public class HitboxPlayer : MonoBehaviour
     }
     public CollisionType colType; 
 
-    public void TakeDamage(float _dmg)
+    public void TakeDamage(float _dmg, string _damager = "")
     {
-        transform.root.GetComponent<IDamageable>()?.TakeDamage(_dmg);
+        transform.root.GetComponent<IDamageable>()?.TakeDamage(_dmg, _damager);
     }
 }

@@ -41,7 +41,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         HUDController.instance.armourText.text = ArmourValue.ToString(); 
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, string _damager)
     {
         if (!isDead)
         {

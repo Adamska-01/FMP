@@ -33,8 +33,8 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
         HealthValue = MAX_HEALTH_VALUE;
         ArmourValue = MAX_ARMOUR_VALUE;
 
-        HUDController.instance.healthText.text = HealthValue.ToString();
-        HUDController.instance.armourText.text = ArmourValue.ToString();
+        NETUIController.instance.healthText.text = HealthValue.ToString();
+        NETUIController.instance.armourText.text = ArmourValue.ToString();
     }
 
     //Changed by Mattie to FixedUpdate
@@ -52,16 +52,16 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
         HealthValue = Mathf.Clamp(HealthValue, 0, MAX_HEALTH_VALUE);
         ArmourValue = Mathf.Clamp(ArmourValue, 0, MAX_ARMOUR_VALUE);
 
-        HUDController.instance.healthText.text = HealthValue.ToString();
-        HUDController.instance.armourText.text = ArmourValue.ToString();
+        NETUIController.instance.healthText.text = HealthValue.ToString();
+        NETUIController.instance.armourText.text = ArmourValue.ToString();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, string _damager)
     {
-        pv.RPC("RPC_TakeDamage", RpcTarget.All, damage);
+        pv.RPC("RPC_TakeDamage", RpcTarget.All, damage, _damager);
     }
 
-    [PunRPC] private void RPC_TakeDamage(float damage)
+    [PunRPC] private void RPC_TakeDamage(float damage, string _damager)
     {
         //Make sure this runs only on the victim's client
         if (!pv.IsMine)
@@ -83,7 +83,7 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
             {
                 Debug.Log("Dead");
                 isDead = true;
-                playerManager.Die();
+                playerManager.Die(_damager);
             }
 
             //TODO: Update UI
