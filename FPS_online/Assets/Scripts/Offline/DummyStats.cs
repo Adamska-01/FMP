@@ -42,11 +42,10 @@ public class DummyStats : MonoBehaviour, IDamageable
     public void Heal(float value)
     { }
 
-    public void TakeDamage(float damage, string _damager)
+    public void TakeDamage(float damage, string _damager, int _actor)
     {
         if (!isDead)
-        {
-            Debug.Log("Took Damage: " + damage);
+        { 
             if (ArmourValue > 0.0f)
             {
                 ArmourValue -= damage;
@@ -58,8 +57,7 @@ public class DummyStats : MonoBehaviour, IDamageable
 
             if (HealthValue <= 0)
             {
-                Destroy(gameObject);
-                Debug.Log("Dead");
+                Destroy(gameObject); 
             }
 
             //TODO: Update UI

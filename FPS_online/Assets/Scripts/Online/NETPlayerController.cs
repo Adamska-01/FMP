@@ -202,8 +202,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     } 
 
     private void FireWeapon()
-    {
-        Debug.Log(inputManager.AutomaticShot);
+    { 
         if (inputManager.FireSingleShot && (items[itemIndex].TryGetComponent<NETSingleShotGun>(out var ssg) || items[itemIndex].TryGetComponent<NETMeleeWeapon>(out var melee)))
         {
             if (items[itemIndex].Use())  

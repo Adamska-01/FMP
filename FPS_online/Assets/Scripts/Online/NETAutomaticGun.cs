@@ -33,11 +33,11 @@ public class NETAutomaticGun : NETGun
              
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                GetComponent<PhotonView>().RPC("RPC_ShootBullet", RpcTarget.All, bulletStart.position, Quaternion.LookRotation(hit.point - bulletStart.transform.position), GetComponent<PhotonView>().Owner.NickName);
+                GetComponent<PhotonView>().RPC("RPC_ShootBullet", RpcTarget.All, bulletStart.position, Quaternion.LookRotation(hit.point - bulletStart.transform.position), GetComponent<PhotonView>().Owner.NickName, PhotonNetwork.LocalPlayer.ActorNumber);
             }
             else
             {
-                GetComponent<PhotonView>().RPC("RPC_ShootBullet", RpcTarget.All, bulletStart.position, Quaternion.LookRotation(cam.transform.forward), GetComponent<PhotonView>().Owner.NickName); 
+                GetComponent<PhotonView>().RPC("RPC_ShootBullet", RpcTarget.All, bulletStart.position, Quaternion.LookRotation(cam.transform.forward), GetComponent<PhotonView>().Owner.NickName, PhotonNetwork.LocalPlayer.ActorNumber); 
             } 
 
             return true;
@@ -47,13 +47,14 @@ public class NETAutomaticGun : NETGun
     }
 
     [PunRPC]
-    private void RPC_ShootBullet(Vector3 _pos, Quaternion _rot, string _damager)
+    private void RPC_ShootBullet(Vector3 _pos, Quaternion _rot, string _damager, int _actor)
     {
         NETBullet projectile = Instantiate(bulletPrefab, _pos, _rot).GetComponent<NETBullet>();
         //Assign damages and other stuff
         projectile.SetDamages(((GunInfo)itemInfo).damageHead, ((GunInfo)itemInfo).damageBody, ((GunInfo)itemInfo).damageLeg);
         projectile.pv = GetComponent<PhotonView>();
         projectile.bulletOwner = _damager;
+        projectile.actorNumber = _actor;
 
         //Effect
         Instantiate(effectPrefab, _pos, Quaternion.LookRotation(cam.transform.forward));

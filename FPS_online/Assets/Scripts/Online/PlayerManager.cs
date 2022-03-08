@@ -6,12 +6,14 @@ using System.IO;
 
 public class PlayerManager : MonoBehaviour
 {
+    public static PlayerManager instance;
     private PhotonView pv;
     private GameObject controller;
     private GameObject deathCamera;
 
     private void Awake()
     {
+        instance = this;
         pv = GetComponent<PhotonView>();
         deathCamera = GameObject.Find("DeathCamera");
     }
@@ -25,7 +27,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void CreateController()
+    public void CreateController()
     {
         //Instantiate player controller
         Transform spawnpoint = NETSpawner.instance.GetSpawnPoint();
@@ -35,6 +37,9 @@ public class PlayerManager : MonoBehaviour
     public void Die(string _damager)
     {
         NETUIController.instance.deathText.text = "You were killed by <color=red>" + _damager + "</color>";
+
+        //Update stats
+        MatchManager.instance.UpdateStatsSend(PhotonNetwork.LocalPlayer.ActorNumber , 1, 1);
 
         if (controller != null)
         {
@@ -49,6 +54,8 @@ public class PlayerManager : MonoBehaviour
 
         //Destroy player 
         PhotonNetwork.Destroy(controller);
+        controller = null;
+
         deathCamera.SetActive(true);
 
         //Open death panel
@@ -60,7 +67,9 @@ public class PlayerManager : MonoBehaviour
         NETUIController.instance.OpenPanel(NETUIController.PanelType.HUD);
 
         deathCamera.SetActive(false);
+
         //Respawn
-        CreateController();
+        if(MatchManager.instance.state == MatchManager.GameStates.Playing && controller == null)
+            CreateController();
     }
 }

@@ -16,7 +16,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     }
 
     [SerializeField] TMP_InputField roomNameInputField;
-    [SerializeField] TMP_InputField nicknameInputField; private bool hasSetNick = false;
+    [SerializeField] TMP_InputField nicknameInputField; private static bool hasSetNick = false;
     [SerializeField] TMP_Text errorText;
     [SerializeField] TMP_Text roomNameText;
     //Rooms

@@ -56,12 +56,12 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
         NETUIController.instance.armourText.text = ArmourValue.ToString();
     }
 
-    public void TakeDamage(float damage, string _damager)
+    public void TakeDamage(float damage, string _damager, int _actor)
     {
-        pv.RPC("RPC_TakeDamage", RpcTarget.All, damage, _damager);
+        pv.RPC("RPC_TakeDamage", RpcTarget.All, damage, _damager, _actor);
     }
 
-    [PunRPC] private void RPC_TakeDamage(float damage, string _damager)
+    [PunRPC] private void RPC_TakeDamage(float damage, string _damager, int _actor)
     {
         //Make sure this runs only on the victim's client
         if (!pv.IsMine)
@@ -80,13 +80,13 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
                 HealthValue -= damage;
 
             if (HealthValue <= 0)
-            {
-                Debug.Log("Dead");
+            { 
                 isDead = true;
-                playerManager.Die(_damager);
-            }
 
-            //TODO: Update UI
+                playerManager.Die(_damager);
+
+                MatchManager.instance.UpdateStatsSend(_actor, 0, 1);
+            }
         }
     }
 

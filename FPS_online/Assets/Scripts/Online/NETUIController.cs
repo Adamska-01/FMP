@@ -23,7 +23,9 @@ public class NETUIController : MonoBehaviour
     public enum PanelType
     {
         HUD,
-        DEATH
+        DEATH,
+        LEADERBOARD,
+        END
     }
 
     [System.Serializable]
@@ -38,6 +40,9 @@ public class NETUIController : MonoBehaviour
     public TMP_Text armourText;
     public TMP_Text deathText;
     public WeaponIcons[] weapons;
+    public GameObject leaderboard;
+    public Leaderboard leaderboardPlayerDisplay;
+    public GameObject endScreen;
 
     [SerializeField] private Panel[] panels;
 
@@ -97,8 +102,28 @@ public class NETUIController : MonoBehaviour
         }
     }
 
+    public void OpenPanelWithoutClosing(PanelType _panelName)
+    {
+        for (int i = 0; i < panels.Length; i++)
+        {
+            if (panels[i] != null)
+            {
+                if (panels[i].type == _panelName)
+                    panels[i].Open(); 
+            }
+        }
+    }
+
     public void ClosePanel(Panel _panel)
     {
         _panel.Close();
+    }
+
+    public void CloseAllPanels()
+    {
+        for (int i = 0; i < panels.Length; i++)
+        {
+            ClosePanel(panels[i]);
+        }
     }
 }

@@ -41,6 +41,8 @@ public class NETInputManager : MonoBehaviour
     public bool SecondWeapoon { get { return secondWeapon; } }
     protected bool thirdWeapoon;
     public bool ThirdWeapoon { get { return thirdWeapoon; } }
+    protected bool showLeaderboard;
+    public bool ShowLeaderboard { get { return showLeaderboard; } }
 
 
     //Camera Axis
@@ -83,6 +85,8 @@ public class NETInputManager : MonoBehaviour
         thirdWeapoon = Input.GetKeyDown(KeyCode.Alpha3);
         fireSingleShot = Input.GetMouseButtonDown(0);
         automaticShot = Input.GetMouseButton(0);
+
+        showLeaderboard = Input.GetKey(KeyCode.Tab);
 
         //Camera rotate
         xAxis = Input.GetAxisRaw(horizontalLookAxis);

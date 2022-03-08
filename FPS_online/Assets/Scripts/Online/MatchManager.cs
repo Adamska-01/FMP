@@ -3,11 +3,15 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MatchManager : MonoBehaviour, IOnEventCallback
+public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 {
+    private NETInputManager inputManger;
+    public GameObject deathCamera;
+
     public static MatchManager instance;
     private void Awake()
     {
@@ -25,10 +29,9 @@ public class MatchManager : MonoBehaviour, IOnEventCallback
     }
 
 
-    public List<PlayerInfo> Players = new List<PlayerInfo>();
-    public int index { get; private set; }
-
-    //private List<LeaderboardPlayer> lboardPlayers = new List<LeaderboardPlayer>();
+    public List<PlayerInfo> players = new List<PlayerInfo>();
+    private List<Leaderboard> lboardPlayers = new List<Leaderboard>();
+    public int index { get; private set; } 
 
     //Game ending 
     public enum GameStates
@@ -38,8 +41,7 @@ public class MatchManager : MonoBehaviour, IOnEventCallback
         Ending
     }
 
-    public int killsToWin = 3;
-    public Transform mapCamPoint;
+    public int killsToWin = 3; 
     public GameStates state = GameStates.Waiting;
     public float waitAfterEnding = 5f;
 
@@ -56,12 +58,37 @@ public class MatchManager : MonoBehaviour, IOnEventCallback
         if (!PhotonNetwork.IsConnected)
             SceneManager.LoadScene(0);
         else
-        {
-            NewPlayerSend(PhotonNetwork.NickName);
-
-            state = GameStates.Playing;
-
+        { 
+            NewPlayerSend(PhotonNetwork.NickName); 
+            state = GameStates.Playing; 
         }
+
+        inputManger = FindObjectOfType<NETInputManager>();
+    }
+
+
+    void Update()
+    {
+        Debug.Log(inputManger.ShowLeaderboard);
+        if (inputManger.ShowLeaderboard && !NETUIController.instance.leaderboard.gameObject.activeInHierarchy && state != GameStates.Ending)
+            ShowLeaderboard();
+        else if (!inputManger.ShowLeaderboard && NETUIController.instance.leaderboard.gameObject.activeInHierarchy && state != GameStates.Ending)
+        {
+            NETUIController.instance.leaderboard.SetActive(false); 
+            state = GameStates.Playing;
+        }
+    }
+
+
+    public override void OnEnable()
+    {
+        PhotonNetwork.AddCallbackTarget(this);
+    }
+
+    public override void OnDisable()
+    {
+        //Avoid Errors
+        PhotonNetwork.RemoveCallbackTarget(this);
     }
 
     public void OnEvent(EventData photonEvent)
@@ -81,18 +108,18 @@ public class MatchManager : MonoBehaviour, IOnEventCallback
                 case EventCodes.NewPlayer:
                     NewPlayerReceive(data);
                     break;
-                //case EventCodes.ListPlayer:
-                //    ListPlayerReceive(data);
-                //    break;
-                //case EventCodes.UpdateStat:
-                //    UpdateStatsReceive(data);
-                //    break;
-                //case EventCodes.NextMatch:
-                //    NextMatchReceive();
-                //    break;
-                //case EventCodes.TimerSync:
-                //    TimerReceive(data);
-                //    break;
+                case EventCodes.ListPlayer:
+                    ListPlayerReceive(data);
+                    break;
+                case EventCodes.UpdateStat:
+                    UpdateStatsReceive(data);
+                    break;
+                case EventCodes.NextMatch:
+                    NextMatchReceive();
+                    break;
+                    //case EventCodes.TimerSync:
+                    //    TimerReceive(data);
+                    //    break;
             }
         }
     }
@@ -117,11 +144,280 @@ public class MatchManager : MonoBehaviour, IOnEventCallback
     public void NewPlayerReceive(object[] dataReceived)
     {
         PlayerInfo player = new PlayerInfo((string)dataReceived[0], (int)dataReceived[1], (int)dataReceived[2], (int)dataReceived[3]);
-        Players.Add(player);
+        players.Add(player);
 
         //Update list 
-        //ListPlayersSend();
+        ListPlayersSend();
+    }
+
+    public void ListPlayersSend()
+    {
+        //Construct the list
+        object[] package = new object[players.Count + 1]; //+1 for sending game state
+        package[0] = state;
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            object[] piece = new object[4];
+            piece[0] = players[i].name;
+            piece[1] = players[i].actor;
+            piece[2] = players[i].kills;
+            piece[3] = players[i].deaths;
+
+            package[i + 1] = piece; //+1 cause state is at index 0
+        }
+
+
+        //Send package (list)
+        PhotonNetwork.RaiseEvent(
+            (byte)EventCodes.ListPlayer,
+            package,
+            new RaiseEventOptions { Receivers = ReceiverGroup.All }, //Send to all clients
+            new SendOptions { Reliability = true } //TCP is always reliable by design
+            );
+    }
+
+    public void ListPlayerReceive(object[] dataReceived)
+    {
+        players.Clear(); //all players cleared
+
+        state = (GameStates)dataReceived[0]; //Update state
+
+        //recreating the list
+        for (int i = 1; i < dataReceived.Length; i++) //i=1 cause state was at 0
+        {
+            object[] pieceOfPlayer = (object[])dataReceived[i]; //player piece is being stored
+            PlayerInfo player = new PlayerInfo(
+                (string)pieceOfPlayer[0],
+                (int)pieceOfPlayer[1],
+                (int)pieceOfPlayer[2],
+                (int)pieceOfPlayer[3]);
+
+            players.Add(player);
+
+            if (PhotonNetwork.LocalPlayer.ActorNumber == player.actor)   //assigning our index
+                index = i - 1; //-1 cause of the state...
+        }
+
+        StateCheck();
+    }
+
+    public void UpdateStatsSend(int actorSending, int statToUpdate, int amountToChange)
+    {
+        object[] package = new object[] { actorSending, statToUpdate, amountToChange };
+
+        //Send package (list)
+        PhotonNetwork.RaiseEvent(
+            (byte)EventCodes.UpdateStat,
+            package,
+            new RaiseEventOptions { Receivers = ReceiverGroup.All }, //Send to all clients
+            new SendOptions { Reliability = true } //TCP is always reliable by design
+            );
+    }
+
+    public void UpdateStatsReceive(object[] dataReceived)
+    {
+        int actor = (int)dataReceived[0];
+        int statType = (int)dataReceived[1];
+        int amount = (int)dataReceived[2];
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (players[i].actor == actor)
+            {
+                switch (statType)
+                {
+                    case 0: //kills
+                        players[i].kills += amount;
+                        break;
+                    case 1: //deaths
+                        players[i].deaths += amount;
+                        break;
+                }
+                //if that player is us, update stats
+                if (i == index)
+                {
+                    //UpdateStatsDisplay();
+                }
+
+                //Update leaderboard while active
+                //if (UIController.instance.leaderboard.activeInHierarchy)
+                //    ShowLeaderboard();
+
+                break;
+            }
+        }
+
+        ScoreCheck();
+    }
+
+    public void NextMatchSend()
+    {
+        //Send package
+        PhotonNetwork.RaiseEvent(
+            (byte)EventCodes.NextMatch,
+            null,
+            new RaiseEventOptions { Receivers = ReceiverGroup.All }, //Send to all
+            new SendOptions { Reliability = true } //TCP is always reliable by design
+            );
+    }
+
+    public void NextMatchReceive()
+    {
+        state = GameStates.Playing;
+
+        NETUIController.instance.endScreen.SetActive(false);
+        NETUIController.instance.leaderboard.SetActive(false);
+        deathCamera.SetActive(false);
+
+        foreach (PlayerInfo player in players)
+        {
+            player.kills = 0;
+            player.deaths = 0;
+        }
+
+        FindObjectOfType<PlayerManager>().CreateController();
+
+        //SetupTimer();
+    }
+
+    private void ShowLeaderboard()
+    {
+        //Show leaderboard
+        NETUIController.instance.leaderboard.SetActive(true);
+
+        //Clear previous leaderboard list 
+        foreach (Leaderboard lp in lboardPlayers)
+        {
+            Destroy(lp.gameObject);
+        }
+        lboardPlayers.Clear(); 
+
+        //Sort list by the highest kills
+        List<PlayerInfo> sortedPlayerList = players.OrderByDescending(x => x.kills).ToList();
+
+        //Create new leaderboard
+        foreach (PlayerInfo player in sortedPlayerList)
+        {
+            Leaderboard newPlayerDisplay = Instantiate(NETUIController.instance.leaderboardPlayerDisplay, NETUIController.instance.leaderboard.transform);
+
+            newPlayerDisplay.SetDetails(player.name, player.kills, player.deaths, PhotonNetwork.LocalPlayer.NickName == player.name);
+
+            newPlayerDisplay.gameObject.SetActive(true);
+
+            lboardPlayers.Add(newPlayerDisplay);
+        }
     } 
+
+
+    //-----------------------------Photon Callbacks-----------------------------
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        int index = players.FindIndex(x => x.name == otherPlayer.NickName);
+        if (index != -1)
+            players.RemoveAt(index);
+        else //no need for all clients to execute the rest
+            return;
+
+        ListPlayersSend();
+        //PhotonNetwork.SendAllOutgoingCommands(); //Send this immediately
+    }
+
+    public override void OnLeftRoom()
+    {
+        base.OnLeftRoom(); 
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.Disconnect();
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    private void ScoreCheck()
+    {
+        bool winnerFound = false;
+
+        foreach (PlayerInfo player in players)
+        {
+            if (player.kills >= killsToWin && killsToWin > 0) //0 == no kill limit
+            {
+                winnerFound = true;
+                break;
+            }
+        }
+
+        if (winnerFound)
+        {
+            if (PhotonNetwork.IsMasterClient && state != GameStates.Ending)
+            {
+                state = GameStates.Ending;
+                ListPlayersSend();
+            }
+        }
+    }
+
+    private void StateCheck()
+    {
+        if (state == GameStates.Ending)
+        {
+            EndGame();
+        }
+    }
+
+    private void EndGame()
+    {
+        state = GameStates.Ending; //makes sure
+         
+        if (PhotonNetwork.IsMasterClient)
+        {
+            var players = FindObjectsOfType<PlayerController>();
+            foreach (var item in players)
+            {
+                PhotonNetwork.Destroy(item.GetComponent<PhotonView>());
+            } 
+        }
+        NETUIController.instance.endScreen.SetActive(true);
+        ShowLeaderboard();
+
+        //Activate cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+         
+        //Death camera
+        deathCamera.SetActive(true); 
+
+        StartCoroutine(EndCO());
+    }
+
+    private IEnumerator EndCO()
+    {
+        yield return new WaitForSeconds(waitAfterEnding);
+         
+        if (!perpetual) //Back to the main menu
+        {
+            Destroy(FindObjectOfType<RoomManager>().gameObject);
+            PhotonNetwork.AutomaticallySyncScene = false;
+            PhotonNetwork.LeaveRoom(); //leave room and return to menu
+        }
+        else //Start new match
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                NextMatchSend();
+                //if (!Launcher.instance.changeMapBetweenRounds)
+                //    NextMatchSend();
+                //else
+                //{
+                //    int newLevel = Random.Range(0, Launcher.instance.Maps.Length);
+
+                //    if (Launcher.instance.Maps[newLevel] == SceneManager.GetActiveScene().name)
+                //        NextMatchSend();
+                //    else
+                //        PhotonNetwork.LoadLevel(Launcher.instance.Maps[newLevel]);
+                //}
+            }
+        }
+    }
 }
 
 [System.Serializable]
