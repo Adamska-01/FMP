@@ -5,24 +5,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [HideInInspector] public CharacterController characterController;
     private InputManager inputManager;
     [SerializeField] private GameObject cameraHolder;
     [SerializeField] private Animator animator;
     [SerializeField] private AnimationController animController;
     private Vector3 movementDir;
-
-    [SerializeField] private Rigidbody rb;
-    [SerializeField] private CapsuleCollider col;
+      
     [SerializeField] private float offsetFloorY = 0.4f;
     [SerializeField] private float movementSpeed = 3f;
-    [SerializeField] private float speedMultiplier = 1.6f;
+    [SerializeField] private float speedMultiplier = 1.8f;
     [SerializeField] private float xAxisSensitivity = 0.2f;
-    [SerializeField] private float yAxisSensitivity = 0.2f;
-    private bool isGrounded;
-    public bool IsGrounded { get { return isGrounded; } }
+    [SerializeField] private float yAxisSensitivity = 0.2f;  
     [SerializeField] private float jumpForce = 200.0f;
-    public float fallMultiplier;
-    private Vector3 gravity;
+    public float fallMultiplier; 
+    private float ySpeed;
     public bool IsRunning { get { return (!inputManager.Crouch && !inputManager.Back && inputManager.Run); } }
 
     private float verticalLookRotation = 0.0f;
@@ -45,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         isReloading = false;
         EquipItem(0); 
@@ -54,14 +52,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         UpdateMovementInput();
-        UpdateWeapon(); 
-    }
-     
-    void FixedUpdate()
-    { 
         UpdatePhysics();        
-    }
-     
+        UpdateWeapon(); 
+    } 
 
     private void UpdateMovementInput()
     {
@@ -70,12 +63,20 @@ public class PlayerController : MonoBehaviour
         Vector3 combinedInput = (forward + sideway).normalized;
          
         movementDir = new Vector3(combinedInput.x, 0f, combinedInput.z);
+        ySpeed += Physics.gravity.y * Time.deltaTime;
 
         Look();
-        if (inputManager.Jump && !inputManager.Crouch && isGrounded)
+
+        if(characterController.isGrounded)
         {
-            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            ySpeed = -0.5f;
+            if (inputManager.Jump && !inputManager.Crouch)
+            {
+                ySpeed = jumpForce;
+                animator.SetTrigger(animController.JumpHash);
+            }
         }
+        movementDir.y = ySpeed;
     }
 
     private void UpdateWeapon()
@@ -108,7 +109,7 @@ public class PlayerController : MonoBehaviour
                     EquipItem(itemIndex - 1);
             }
         }
-
+        
         //Fire
         FireWeapon();
         TryToReloadWeapon();
@@ -190,14 +191,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private void UpdatePhysics()
-    {  
-        if(rb.velocity.y < 0.0f) 
-            gravity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime; 
-        else 
-            gravity = Vector3.zero; 
-
+    {    
         //Update velocity
-        rb.velocity = (movementDir * (IsRunning ? movementSpeed * speedMultiplier : movementSpeed )) + gravity; 
+        characterController.Move((movementDir * (IsRunning ? movementSpeed * speedMultiplier : movementSpeed) * Time.deltaTime)); 
     }
 
     private void Look()
@@ -210,10 +206,5 @@ public class PlayerController : MonoBehaviour
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -70.0f, 70f);
 
         cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation; 
-    }
-
-    public void SetGrounded(bool _grnd)
-    {
-        isGrounded = _grnd;
     } 
 }

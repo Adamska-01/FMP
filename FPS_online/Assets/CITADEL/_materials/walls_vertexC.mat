@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: walls_vertexC
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _DISPLACEMENT_LOCK_TILING_SCALE _HEIGHTMAP _HEIGHTMAP0 _HEIGHTMAP1
     _HEIGHTMAP2 _HEIGHT_BASED_BLEND _LAYEREDLIT_3_LAYERS _LAYER_MASK_VERTEX_COLOR_ADD
     _MASKMAP _MASKMAP0 _MASKMAP1 _MASKMAP2 _MATERIAL_FEATURE_SPECULAR_COLOR _NORMALMAP
     _NORMALMAP0 _NORMALMAP1 _NORMALMAP2 _NORMALMAP_TANGENT_SPACE _NORMALMAP_TANGENT_SPACE0
     _NORMALMAP_TANGENT_SPACE1 _NORMALMAP_TANGENT_SPACE2 _NORMALMAP_TANGENT_SPACE3
-    _SPECULARCOLORMAP _VERTEX_DISPLACEMENT _VERTEX_DISPLACEMENT_LOCK_OBJECT_SCALE
-  m_LightmapFlags: 1
+    _PARALLAXMAP _SPECGLOSSMAP _SPECULARCOLORMAP _VERTEX_DISPLACEMENT _VERTEX_DISPLACEMENT_LOCK_OBJECT_SCALE
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -94,7 +94,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 16a5fc0117e5c6d46b5f27139eb04d2e, type: 3}
         m_Scale: {x: 1.2, y: 1.2}
         m_Offset: {x: 12, y: 12}
     - _BumpMap2:
@@ -159,8 +159,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1.5, y: 1.5}
-        m_Offset: {x: 0, y: 0}
+        m_Scale: {x: 1, y: 2}
+        m_Offset: {x: 0, y: 1.6}
     - _EmissiveColorMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1.5, y: 1.5}
@@ -202,9 +202,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1.5, y: 1.5}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: 56c3dff00a7861f42a6206e4a353fe62, type: 3}
+        m_Scale: {x: 1, y: 2}
+        m_Offset: {x: 0, y: 1.6}
     - _MainTex2:
         m_Texture: {fileID: 2800000, guid: ac36e039adcebe6448a67a4f27fd4f53, type: 3}
         m_Scale: {x: 1.5, y: 1.5}
@@ -282,11 +282,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4cf7a75699342594598820c508fb22eb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: 961b9a81790506e42b0a96654729cee4, type: 3}
+        m_Texture: {fileID: 2800000, guid: fda70fe77bf8bd34ca9dfb224270a2b1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
@@ -678,7 +678,7 @@ Material:
     - _BaseColor3: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap0_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DiffusionProfileAsset0: {r: 0, g: 0, b: 0, a: 0}
     - _DiffusionProfileAsset1: {r: 0, g: 0, b: 0, a: 0}

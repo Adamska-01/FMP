@@ -36,9 +36,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Leaves_3
-  m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHATEST_ON _DOUBLESIDED_ON _MASKMAP _MATERIAL_FEATURE_TRANSMISSION
-    _NORMALMAP_TANGENT_SPACE _SPECULARCOLORMAP
+    _METALLICGLOSSMAP _NORMALMAP _NORMALMAP_TANGENT_SPACE _SPECGLOSSMAP _SPECULARCOLORMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
@@ -198,7 +198,7 @@ Material:
     - _Cull: 0
     - _CullMode: 0
     - _CullModeForward: 0
-    - _Cutoff: 0.203
+    - _Cutoff: 0.235
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
     - _DetailNormalMapScale: 1
@@ -254,7 +254,7 @@ Material:
     - _LinkDetailsWithBase: 0
     - _MaterialID: 5
     - _Metallic: 0
-    - _Mode: 2
+    - _Mode: 1
     - _NormalMapSpace: 0
     - _NormalScale: 1
     - _OcclusionStrength: 1

@@ -16,6 +16,7 @@ public class AnimationController : MonoBehaviour
     private int ZvelocityHash;
     private int crouchHash;
     private int jumpHash;
+    public int JumpHash { get { return jumpHash; } }
     private int reloadHash;
     public int ReloadHash { get { return reloadHash; } }
     private int fireHash;
@@ -97,8 +98,7 @@ public class AnimationController : MonoBehaviour
         //Update animation
         animator.SetFloat(XvelocityHash, velocityX);
         animator.SetFloat(ZvelocityHash, velocityZ);
-        animator.SetBool(crouchHash, inputManager.Crouch);
-        if (inputManager.Jump && player.IsGrounded) animator.SetTrigger(jumpHash);  
+        animator.SetBool(crouchHash, inputManager.Crouch); 
     }
 
     //Check for input and assign velocities 
