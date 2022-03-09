@@ -8,17 +8,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: walls_vertex
-  m_Shader: {fileID: 4800000, guid: 81d02e8644315b742b154842a3a2f98c, type: 3}
-  m_ShaderKeywords: _DISPLACEMENT_LOCK_TILING_SCALE _HEIGHTMAP _HEIGHTMAP0 _HEIGHTMAP1
-    _HEIGHTMAP2 _HEIGHT_BASED_BLEND _LAYEREDLIT_3_LAYERS _LAYER_MASK_VERTEX_COLOR_ADD
-    _MASKMAP _MASKMAP0 _MASKMAP1 _MASKMAP2 _MATERIAL_FEATURE_SPECULAR_COLOR _NORMALMAP
-    _NORMALMAP0 _NORMALMAP1 _NORMALMAP2 _NORMALMAP_TANGENT_SPACE _NORMALMAP_TANGENT_SPACE0
-    _NORMALMAP_TANGENT_SPACE1 _NORMALMAP_TANGENT_SPACE2 _NORMALMAP_TANGENT_SPACE3
-    _SPECULARCOLORMAP _VERTEX_DISPLACEMENT _VERTEX_DISPLACEMENT_LOCK_OBJECT_SCALE
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _DISPLACEMENT_LOCK_TILING_SCALE _EMISSION _HEIGHTMAP _HEIGHTMAP0
+    _HEIGHTMAP1 _HEIGHTMAP2 _HEIGHT_BASED_BLEND _LAYEREDLIT_3_LAYERS _LAYER_MASK_VERTEX_COLOR_ADD
+    _MASKMAP _MASKMAP0 _MASKMAP1 _MASKMAP2 _MATERIAL_FEATURE_SPECULAR_COLOR _NORMALMAP0
+    _NORMALMAP1 _NORMALMAP2 _NORMALMAP_TANGENT_SPACE _NORMALMAP_TANGENT_SPACE0 _NORMALMAP_TANGENT_SPACE1
+    _NORMALMAP_TANGENT_SPACE2 _NORMALMAP_TANGENT_SPACE3 _SPECULARCOLORMAP _VERTEX_DISPLACEMENT
+    _VERTEX_DISPLACEMENT_LOCK_OBJECT_SCALE
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses:
   - DistortionVectors
@@ -94,7 +94,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 7c2ef61287ada9343bf3768dd47e8fcd, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1.2, y: 1.2}
         m_Offset: {x: 12, y: 12}
     - _BumpMap2:
@@ -282,7 +282,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: ef4bd390fe8e01f4088625514f4f8afb, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
