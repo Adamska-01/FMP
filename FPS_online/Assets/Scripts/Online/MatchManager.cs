@@ -82,12 +82,10 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
         //Timer
         if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.Log(currentMatchTime);
+        { 
             if (currentMatchTime >= 0.0f && state == GameStates.Playing)
             {
-                currentMatchTime -= Time.deltaTime;
-            Debug.Log(currentMatchTime);
+                currentMatchTime -= Time.deltaTime; 
                 if (currentMatchTime <= 0.0f)
                 {
                     currentMatchTime = 0.0f;
