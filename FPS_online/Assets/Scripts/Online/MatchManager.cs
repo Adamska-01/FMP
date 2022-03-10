@@ -60,7 +60,9 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         else
         { 
             NewPlayerSend(PhotonNetwork.NickName); 
-            state = GameStates.Playing; 
+            state = GameStates.Playing;
+
+            SetupTimer();
         }
 
         inputManger = FindObjectOfType<NETInputManager>();
@@ -76,6 +78,36 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         {
             NETUIController.instance.leaderboard.SetActive(false); 
             state = GameStates.Playing;
+        }
+
+        //Timer
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log(currentMatchTime);
+            if (currentMatchTime >= 0.0f && state == GameStates.Playing)
+            {
+                currentMatchTime -= Time.deltaTime;
+            Debug.Log(currentMatchTime);
+                if (currentMatchTime <= 0.0f)
+                {
+                    currentMatchTime = 0.0f;
+
+                    state = GameStates.Ending;
+
+                    ListPlayersSend(); //Keeps state up to date and checks state 
+                }
+
+                UpdateTimerDisplay();
+
+                //Send current time every second 
+                sendTimer -= Time.deltaTime;
+                if (sendTimer <= 0.0f)
+                {
+                    sendTimer += 1.0f;
+
+                    TimerSend();
+                }
+            }
         }
     }
 
@@ -117,13 +149,15 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
                 case EventCodes.NextMatch:
                     NextMatchReceive();
                     break;
-                    //case EventCodes.TimerSync:
-                    //    TimerReceive(data);
-                    //    break;
+                case EventCodes.TimerSync:
+                    TimerReceive(data);
+                    break;
             }
         }
     }
 
+
+    //-------------------------Events <Send/Receive>-------------------------
     public void NewPlayerSend(string username)
     {
         object[] package = new object[4]; //4: name, actor, kills, deaths;
@@ -144,7 +178,11 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     public void NewPlayerReceive(object[] dataReceived)
     {
         PlayerInfo player = new PlayerInfo((string)dataReceived[0], (int)dataReceived[1], (int)dataReceived[2], (int)dataReceived[3]);
-        players.Add(player);
+        
+        //Sometimes a bug occours and I have two instances of the same player in the leaderboard
+        int index = players.FindIndex(x => x.actor == player.actor);
+        if (index == -1) 
+            players.Add(player);
 
         //Update list 
         ListPlayersSend();
@@ -166,8 +204,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
             package[i + 1] = piece; //+1 cause state is at index 0
         }
-
-
+        
         //Send package (list)
         PhotonNetwork.RaiseEvent(
             (byte)EventCodes.ListPlayer,
@@ -278,7 +315,51 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
         FindObjectOfType<PlayerManager>().CreateController();
 
-        //SetupTimer();
+        //Reset timer
+        SetupTimer();
+    }
+
+    public void TimerSend()
+    {
+        object[] package = new object[] { (int)currentMatchTime, state };
+
+        //Send package
+        PhotonNetwork.RaiseEvent(
+            (byte)EventCodes.TimerSync,
+            package,
+            new RaiseEventOptions { Receivers = ReceiverGroup.All }, //Send to all
+            new SendOptions { Reliability = true } //TCP is always reliable by design
+            );
+    }
+
+    public void TimerReceive(object[] dataReceived)
+    {
+        currentMatchTime = (int)dataReceived[0];
+        state = (GameStates)dataReceived[1];
+
+        UpdateTimerDisplay();
+         
+    }
+
+
+    //-------------------------Helper Functions-------------------------
+    public void SetupTimer()
+    {
+        if (matchLength > 0)
+        {
+            currentMatchTime = matchLength;
+            UpdateTimerDisplay();
+        }
+    }
+
+    public void UpdateTimerDisplay()
+    {
+        var timeToDisplay = System.TimeSpan.FromSeconds(currentMatchTime);
+
+        NETUIController.instance.timerText.text = timeToDisplay.Minutes.ToString("0") + ":" + timeToDisplay.Seconds.ToString("00");
+
+        if (currentMatchTime <= 30)
+            NETUIController.instance.timerText.text = $"<color=red>{NETUIController.instance.timerText.text}</color>";
     }
 
     private void ShowLeaderboard()
@@ -306,30 +387,6 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
             newPlayerDisplay.gameObject.SetActive(true);
 
             lboardPlayers.Add(newPlayerDisplay);
-        }
-    } 
-
-
-    //-----------------------------Photon Callbacks-----------------------------
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        int index = players.FindIndex(x => x.name == otherPlayer.NickName);
-        if (index != -1)
-            players.RemoveAt(index);
-        else //no need for all clients to execute the rest
-            return;
-
-        ListPlayersSend();
-        //PhotonNetwork.SendAllOutgoingCommands(); //Send this immediately
-    }
-
-    public override void OnLeftRoom()
-    {
-        base.OnLeftRoom(); 
-        if (PhotonNetwork.IsConnected)
-        {
-            PhotonNetwork.Disconnect();
-            SceneManager.LoadScene(0);
         }
     }
 
@@ -367,14 +424,14 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     private void EndGame()
     {
         state = GameStates.Ending; //makes sure
-         
+
         if (PhotonNetwork.IsMasterClient)
         {
             var players = FindObjectsOfType<PlayerController>();
             foreach (var item in players)
             {
-                PhotonNetwork.Destroy(item.GetComponent<PhotonView>());
-            } 
+                PhotonNetwork.Destroy(item.gameObject.GetComponent<PhotonView>());
+            }
         }
         NETUIController.instance.endScreen.SetActive(true);
         ShowLeaderboard();
@@ -382,9 +439,9 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         //Activate cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-         
+
         //Death camera
-        deathCamera.SetActive(true); 
+        deathCamera.SetActive(true);
 
         StartCoroutine(EndCO());
     }
@@ -392,7 +449,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     private IEnumerator EndCO()
     {
         yield return new WaitForSeconds(waitAfterEnding);
-         
+
         if (!perpetual) //Back to the main menu
         {
             Destroy(FindObjectOfType<RoomManager>().gameObject);
@@ -401,9 +458,9 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         }
         else //Start new match
         {
+            PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().buildIndex);
             if (PhotonNetwork.IsMasterClient)
             {
-                NextMatchSend();
                 //if (!Launcher.instance.changeMapBetweenRounds)
                 //    NextMatchSend();
                 //else
@@ -418,6 +475,30 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
             }
         }
     }
+
+
+    //-----------------------------Photon Callbacks-----------------------------
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        int index = players.FindIndex(x => x.name == otherPlayer.NickName);
+        if (index != -1)
+            players.RemoveAt(index);
+        else //no need for all clients to execute the rest
+            return;
+
+        ListPlayersSend();
+        //PhotonNetwork.SendAllOutgoingCommands(); //Send this immediately
+    }
+
+    public override void OnLeftRoom()
+    {
+        base.OnLeftRoom(); 
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.Disconnect();
+            SceneManager.LoadScene(0);
+        }
+    }  
 }
 
 [System.Serializable]

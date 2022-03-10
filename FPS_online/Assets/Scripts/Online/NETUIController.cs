@@ -43,6 +43,7 @@ public class NETUIController : MonoBehaviour
     public GameObject leaderboard;
     public Leaderboard leaderboardPlayerDisplay;
     public GameObject endScreen;
+    public TMP_Text timerText;
 
     [SerializeField] private Panel[] panels;
 
