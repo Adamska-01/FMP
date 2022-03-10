@@ -408,7 +408,6 @@ MonoBehaviour:
   cameraHolder: {fileID: 1776943362476072478}
   animator: {fileID: 1776943361427710438}
   animController: {fileID: 3572392640253649042}
-  col: {fileID: 0}
   offsetFloorY: 0.4
   movementSpeed: 3
   speedMultiplier: 1.6

@@ -387,7 +387,6 @@ MonoBehaviour:
   cameraHolder: {fileID: 1776943362476072478}
   animator: {fileID: 1776943361427710438}
   animController: {fileID: 1776943361427710439}
-  col: {fileID: 0}
   offsetFloorY: 0.4
   movementSpeed: 3
   speedMultiplier: 1.6
@@ -1127,7 +1126,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.84, z: 0}
+  m_Center: {x: 0, y: 1.06, z: 0}
 --- !u!1 &1564427668378272213
 GameObject:
   m_ObjectHideFlags: 0
