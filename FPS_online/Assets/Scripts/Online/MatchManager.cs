@@ -71,7 +71,6 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
     void Update()
     {
-        Debug.Log(inputManger.ShowLeaderboard);
         if (inputManger.ShowLeaderboard && !NETUIController.instance.leaderboard.gameObject.activeInHierarchy && state != GameStates.Ending)
             ShowLeaderboard();
         else if (!inputManger.ShowLeaderboard && NETUIController.instance.leaderboard.gameObject.activeInHierarchy && state != GameStates.Ending)

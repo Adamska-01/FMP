@@ -9893,7 +9893,7 @@ MonoBehaviour:
   state: 0
   waitAfterEnding: 5
   perpetual: 1
-  matchLength: 3
+  matchLength: 180
 --- !u!1 &1834252855
 GameObject:
   m_ObjectHideFlags: 0
