@@ -9725,6 +9725,10 @@ MonoBehaviour:
   roomListItemPrefab: {fileID: 7578368763792285662, guid: 48d8f1ef5eedb7847889bd4a22e7abd1, type: 3}
   voteListContent: {fileID: 1585249337}
   mapVotePrefab: {fileID: 5058029986940111792, guid: 6388d79c39b2e4b4b9763c37afd4a9a8, type: 3}
+  mapDropdowns:
+  - {fileID: 1006217789}
+  - {fileID: 1238018712}
+  - {fileID: 491251509}
   playerListContent: {fileID: 146324238}
   playerListItemPrefab: {fileID: 4854531495893198382, guid: b36e149fcaf8a1c4da2d494d08bae169, type: 3}
   startGameButton: {fileID: 152066161}

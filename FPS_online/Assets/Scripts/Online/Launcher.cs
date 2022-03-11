@@ -6,6 +6,7 @@ using TMPro;
 using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room creation, errrors, joining lobbies etc.
 {
@@ -25,6 +26,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     //Map vote
     [SerializeField] Transform voteListContent;
     [SerializeField] GameObject mapVotePrefab;
+    [SerializeField] List<TMP_Dropdown> mapDropdowns = new List<TMP_Dropdown>();
     //Players 
     [SerializeField] Transform playerListContent;
     [SerializeField] GameObject playerListItemPrefab;
@@ -109,11 +111,30 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
             } while (mapsarrIndex[0] == mapsarrIndex[1]);
         }
 
+        //Select map
+        int map = -1;
+        for (int i = 0; i < mapDropdowns.Count; i++)
+        {
+            if(mapDropdowns[i].gameObject.activeSelf)
+            {
+                switch(mapDropdowns[i].options[mapDropdowns[i].value].text)
+                { 
+                    case "Test":
+                        map = mapsPerMode[(GameMode)i].indexes[0];
+                        break;
+                    case "Desert":
+                        map = mapsPerMode[(GameMode)i].indexes[1];
+                        break;
+                }
+            }
+        }
+
         ro.MaxPlayers = 8;
         ro.IsVisible = true;
-        ro.CustomRoomPropertiesForLobby = new string[4] { "matchType", "mode", "mapsIndexes", "mapVotes" }; //makes sure that other clients on the lobby can see it
+        ro.CustomRoomPropertiesForLobby = new string[5] { "matchType", "mapToPlay", "mode", "mapsIndexes", "mapVotes" }; //makes sure that other clients on the lobby can see it
         ro.CustomRoomProperties = new Hashtable() { 
             { "matchType", _dropD.options[_dropD.value].text },
+            { "mapToPlay", map },
             { "mode", mode },
             { "mapsIndexes", mapsarrIndex }, 
             { "mapVotes",  roomVotes }
@@ -193,20 +214,29 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
     public void StartGame()
     {
-        //Get Room custom properties 
-        GameMode mode = (GameMode)PhotonNetwork.CurrentRoom.CustomProperties["mode"];
-        int[] votes = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapVotes"];
-        int[] mapsIndexes = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapsIndexes"];
+        int map = (int)PhotonNetwork.CurrentRoom.CustomProperties["mapToPlay"]; 
+        if (map == -1)
+        {
+            //Get Room custom properties 
+            GameMode mode = (GameMode)PhotonNetwork.CurrentRoom.CustomProperties["mode"];
+            int[] votes = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapVotes"];
+            int[] mapsIndexes = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapsIndexes"];
 
-        //Get map index
-        int bestVote = 0;
-        if (votes[0] == votes[1])
-            bestVote = Random.Range(0, mapsPerMode[mode].indexes.Length);
+            //Get map index
+            int bestVote = 0;
+            if (votes[0] == votes[1])
+                bestVote = Random.Range(0, mapsPerMode[mode].indexes.Length);
+            else
+                bestVote = votes.ToList().IndexOf(votes.Max());
+             
+            //Load level
+            PhotonNetwork.LoadLevel(mapsPerMode[mode].indexes[mapsIndexes[bestVote]]);
+        }
         else
-            bestVote = votes.ToList().IndexOf(votes.Max());
-         
-        //Load level
-        PhotonNetwork.LoadLevel(mapsPerMode[mode].indexes[mapsIndexes[bestVote]]);
+        {
+            //Load level
+            PhotonNetwork.LoadLevel(map);
+        }
     }
 
     public void StartSinglePlayerGame()
