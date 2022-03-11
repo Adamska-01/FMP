@@ -22,6 +22,9 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     //Rooms
     [SerializeField] Transform roomListContent;
     [SerializeField] GameObject roomListItemPrefab;
+    //Map vote
+    [SerializeField] Transform voteListContent;
+    [SerializeField] GameObject mapVotePrefab;
     //Players 
     [SerializeField] Transform playerListContent;
     [SerializeField] GameObject playerListItemPrefab;
@@ -32,8 +35,31 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
     List<RoomInfo> currentRoomList = new List<RoomInfo>();
 
+    //Maps 
+    public enum GameMode
+    {
+        DEATHMATCH,
+        TEAM_DEATHMATCH,
+        CONQUEST
+    }
+    public List<GameMode> modes = new List<GameMode>();
+    [System.Serializable] public class MapIndexes
+    {
+        public Sprite[] mapImage;
+        public int[] indexes;
+    }
+    public List<MapIndexes> mapIndexes = new List<MapIndexes>();
+
+    public Dictionary<GameMode, MapIndexes> mapsPerMode = new Dictionary<GameMode, MapIndexes>();
+     
     void Start()
     {
+        //Init maps 
+        for (int i = 0; i < modes.Count; i++)
+        {
+            mapsPerMode.Add(modes[i], mapIndexes[i]);
+        }
+
         MenuManager.Instance.OpenMenu(MenuManager.MenuType.TITLE);
     }
 
@@ -52,10 +78,46 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
         //Set room's properties
         RoomOptions ro = new RoomOptions();
+        int[] roomVotes = new int[2];
+        int[] mapsarrIndex = new int[2];
+        GameMode mode = new GameMode();
+        if(_dropD.options[_dropD.value].text.Contains("Deathmatch"))
+        {
+            mode = GameMode.DEATHMATCH;
+            mapsarrIndex[0] = Random.Range(0, mapsPerMode[GameMode.DEATHMATCH].indexes.Length);
+            do
+            {
+                mapsarrIndex[1] = Random.Range(0, mapsPerMode[GameMode.DEATHMATCH].indexes.Length);
+            } while (mapsarrIndex[0] == mapsarrIndex[1]); 
+        }
+        else if (_dropD.options[_dropD.value].text.Contains("Team Deathmatch"))
+        {
+            mode = GameMode.TEAM_DEATHMATCH;
+            mapsarrIndex[0] = Random.Range(0, mapsPerMode[GameMode.TEAM_DEATHMATCH].indexes.Length);
+            do
+            {
+                mapsarrIndex[1] = Random.Range(0, mapsPerMode[GameMode.TEAM_DEATHMATCH].indexes.Length);
+            } while (mapsarrIndex[0] == mapsarrIndex[1]);
+        }
+        else if (_dropD.options[_dropD.value].text.Contains("Conquest"))
+        {
+            mode = GameMode.CONQUEST;
+            mapsarrIndex[0] = Random.Range(0, mapsPerMode[GameMode.CONQUEST].indexes.Length);
+            do
+            {
+                mapsarrIndex[1] = Random.Range(0, mapsPerMode[GameMode.CONQUEST].indexes.Length);
+            } while (mapsarrIndex[0] == mapsarrIndex[1]);
+        }
+
         ro.MaxPlayers = 8;
         ro.IsVisible = true;
-        ro.CustomRoomPropertiesForLobby = new string[1] { "matchType" }; //makes sure that other clients on the lobby can see it
-        ro.CustomRoomProperties = new Hashtable() { { "matchType", _dropD.options[_dropD.value].text } }; 
+        ro.CustomRoomPropertiesForLobby = new string[4] { "matchType", "mode", "mapsIndexes", "mapVotes" }; //makes sure that other clients on the lobby can see it
+        ro.CustomRoomProperties = new Hashtable() { 
+            { "matchType", _dropD.options[_dropD.value].text },
+            { "mode", mode },
+            { "mapsIndexes", mapsarrIndex }, 
+            { "mapVotes",  roomVotes }
+        }; 
 
         PhotonNetwork.CreateRoom(roomNameInputField.text, ro);
 
@@ -108,7 +170,16 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     }
 
     public void LeaveRoom()
-    { 
+    {
+        //Clear the list of votes when leaving the room
+        if (voteListContent)
+        {
+            foreach (Transform trans in voteListContent)
+            {
+                trans.GetComponent<MapVote>().LeaveRoom();
+            }
+        }
+
         PhotonNetwork.LeaveRoom();
 
         MenuManager.Instance.OpenMenu(MenuManager.MenuType.LOADING);
@@ -122,7 +193,20 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
     public void StartGame()
     {
-        PhotonNetwork.LoadLevel(2);
+        //Get Room custom properties 
+        GameMode mode = (GameMode)PhotonNetwork.CurrentRoom.CustomProperties["mode"];
+        int[] votes = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapVotes"];
+        int[] mapsIndexes = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapsIndexes"];
+
+        //Get map index
+        int bestVote = 0;
+        if (votes[0] == votes[1])
+            bestVote = Random.Range(0, mapsPerMode[mode].indexes.Length);
+        else
+            bestVote = votes.ToList().IndexOf(votes.Max());
+         
+        //Load level
+        PhotonNetwork.LoadLevel(mapsPerMode[mode].indexes[mapsIndexes[bestVote]]);
     }
 
     public void StartSinglePlayerGame()
@@ -192,7 +276,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         MenuManager.Instance.OpenMenu(MenuManager.MenuType.ROOM);
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 
-        //Clear the list before instantiating a new one
+        //Clear the list of players before instantiating a new one
         foreach (Transform trans in playerListContent)
         {
             Destroy(trans.gameObject);
@@ -203,6 +287,18 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         {
             Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
         }
+         
+        //Clear the list of votes before instantiating a new one
+        foreach (Transform trans in voteListContent)
+        {
+            Destroy(trans.gameObject);
+        }
+        //Create list of map vote
+        int[] mapsarrIndex = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapsIndexes"]; 
+        int[] voteMaps = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapVotes"];
+        GameMode mode = (GameMode)PhotonNetwork.CurrentRoom.CustomProperties["mode"];
+        Instantiate(mapVotePrefab, voteListContent).GetComponent<MapVote>().SetUp(voteMaps[0], mapsPerMode[mode].mapImage[mapsarrIndex[0]]);
+        Instantiate(mapVotePrefab, voteListContent).GetComponent<MapVote>().SetUp(voteMaps[1], mapsPerMode[mode].mapImage[mapsarrIndex[1]]);
 
         startGameButton.SetActive(PhotonNetwork.IsMasterClient);
     }
@@ -235,7 +331,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
             {
                 if(trans) Destroy(trans.gameObject);
             }
-        }
+        }  
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -254,6 +350,23 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         currentRoomList.RemoveAll(x => x.RemovedFromList);
 
         FindRooms(findDropDown);
+    }
+
+    public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
+    {
+        base.OnRoomPropertiesUpdate(propertiesThatChanged);
+
+        if(propertiesThatChanged.ContainsKey("mapVotes"))
+        {
+            int[] votes = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapVotes"]; 
+            if(votes != null)
+            {
+                for (int i = 0; i < votes.Length; i++)
+                {
+                    voteListContent.GetChild(i).GetComponent<MapVote>().SetVote(votes[i]);
+                }
+            }
+        }
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer) //When a player enters he room (NOT US)
