@@ -37,6 +37,8 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
     List<RoomInfo> currentRoomList = new List<RoomInfo>();
 
+    private bool hasStartedTheGame = false;
+
     //Maps 
     public enum GameMode
     {
@@ -214,28 +216,34 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
     public void StartGame()
     {
-        int map = (int)PhotonNetwork.CurrentRoom.CustomProperties["mapToPlay"]; 
-        if (map == -1)
+        if(!hasStartedTheGame)
         {
-            //Get Room custom properties 
-            GameMode mode = (GameMode)PhotonNetwork.CurrentRoom.CustomProperties["mode"];
-            int[] votes = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapVotes"];
-            int[] mapsIndexes = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapsIndexes"];
+            int map = (int)PhotonNetwork.CurrentRoom.CustomProperties["mapToPlay"]; 
+            if (map == -1)
+            {
+                //Get Room custom properties 
+                GameMode mode = (GameMode)PhotonNetwork.CurrentRoom.CustomProperties["mode"];
+                int[] votes = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapVotes"];
+                int[] mapsIndexes = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapsIndexes"];
 
-            //Get map index
-            int bestVote = 0;
-            if (votes[0] == votes[1])
-                bestVote = Random.Range(0, mapsPerMode[mode].indexes.Length);
+                //Get map index
+                int bestVote = 0;
+                if (votes[0] == votes[1])
+                    bestVote = Random.Range(0, mapsPerMode[mode].indexes.Length);
+                else
+                    bestVote = votes.ToList().IndexOf(votes.Max());
+                 
+                //Load level
+                PhotonNetwork.LoadLevel(mapsPerMode[mode].indexes[mapsIndexes[bestVote]]);
+
+                hasStartedTheGame = true;
+            }
             else
-                bestVote = votes.ToList().IndexOf(votes.Max());
-             
-            //Load level
-            PhotonNetwork.LoadLevel(mapsPerMode[mode].indexes[mapsIndexes[bestVote]]);
-        }
-        else
-        {
-            //Load level
-            PhotonNetwork.LoadLevel(map);
+            {
+                //Load level
+                PhotonNetwork.LoadLevel(map);
+                hasStartedTheGame = true;
+            }
         }
     }
 
