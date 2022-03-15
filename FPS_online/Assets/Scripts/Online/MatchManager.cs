@@ -379,7 +379,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         {
             Leaderboard newPlayerDisplay = Instantiate(NETUIController.instance.leaderboardPlayerDisplay, NETUIController.instance.leaderboard.transform);
 
-            newPlayerDisplay.SetDetails(player.name, player.kills, player.deaths, PhotonNetwork.LocalPlayer.NickName == player.name);
+            newPlayerDisplay.SetDetails(player.name, player.kills, player.deaths, (PhotonNetwork.LocalPlayer.NickName == player.name && PhotonNetwork.LocalPlayer.ActorNumber == player.actor));
 
             newPlayerDisplay.gameObject.SetActive(true);
 
