@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,8 @@ public class NETAnimationController : MonoBehaviour
     public int ReloadHash { get { return reloadHash; } }
     private int fireHash;
     public int FireHash { get { return fireHash; } }
+    private int deathHash;
+    public int DeathHash { get { return deathHash; } }
 
     //Crouch lerp
     [SerializeField] private Transform cameraTansf;
@@ -40,10 +43,14 @@ public class NETAnimationController : MonoBehaviour
     [SerializeField] private float adsOnFov = 40.0f;
 
     private NETInputManager inputManager;
+    private NETPlayerStats stats;
+    private PhotonView pv;
 
     void Start()
     {
+        stats = GetComponent<NETPlayerStats>();
         animator = GetComponent<Animator>();
+        pv = GetComponent<PhotonView>();
 
         XvelocityHash = Animator.StringToHash("VelocityX");
         ZvelocityHash = Animator.StringToHash("VelocityZ");
@@ -51,6 +58,7 @@ public class NETAnimationController : MonoBehaviour
         jumpHash = Animator.StringToHash("Jump");
         reloadHash = Animator.StringToHash("Reloading");
         fireHash = Animator.StringToHash("Fire");
+        deathHash = Animator.StringToHash("IsDead");
 
         inputManager = FindObjectOfType<NETInputManager>();
     }
@@ -58,6 +66,12 @@ public class NETAnimationController : MonoBehaviour
 
     void Update()
     {
+        if (!pv.IsMine)
+            return;
+
+        if (stats.IsDead())
+            return;
+
         //Get key input from player
         bool forwardPressed = inputManager.Forward;
         bool leftPressed = inputManager.Left;
@@ -235,5 +249,76 @@ public class NETAnimationController : MonoBehaviour
     public bool IsReloadComplete()
     {
         return animator.GetCurrentAnimatorStateInfo(3).IsName("Reloading");
+    }
+
+    /// <summary>
+    /// Footstep sounds
+    /// </summary>
+    
+    //Normal footsteps
+    public void PlayLeftFootstep()
+    {
+        SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position);
+    }
+
+    public void PlayRightFootstep()
+    {
+        SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position);
+    }
+
+    public void PlayLeftFootstepRun()
+    {
+        SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position);
+    }
+
+    public void PlayRightFootstepRun()
+    {
+        SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position);
+    }
+
+    //walk strafe
+    public void PlayStrafeRightFootstepLeft()
+    {
+        if (velocityX >= 0.49f && velocityZ == 0.0f)
+            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position);
+    }
+    public void PlayStrafeRightFootstepRight()
+    {
+        if (velocityX >= 0.49f && velocityZ == 0.0f)
+            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position);
+    }
+
+    public void PlayStrafeLeftFootstepLeft()
+    {
+        if (velocityX <= -0.49f && velocityZ == 0.0f)
+            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position);
+    } 
+    public void PlayStrafeLeftFootstepRight()
+    {
+        if (velocityX <= -0.49f && velocityZ == 0.0f)
+            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position);
+    }
+
+    //run strafe
+    public void PlayStrafeRightFootstepLeftRun()
+    {
+        if (velocityX >= 0.49f && velocityZ == 0.0f)
+            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position);
+    }
+    public void PlayStrafeRightFootstepRightRun()
+    {
+        if (velocityX >= 0.49f && velocityZ == 0.0f)
+            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position);
+    }
+
+    public void PlayStrafeLeftFootstepLeftRun()
+    {
+        if (velocityX <= -0.49f && velocityZ == 0.0f)
+            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position);
+    }
+    public void PlayStrafeLeftFootstepRightRun()
+    {
+        if (velocityX <= -0.49f && velocityZ == 0.0f)
+            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position);
     }
 }

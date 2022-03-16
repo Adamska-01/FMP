@@ -10,6 +10,7 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 public class NETPlayerController : MonoBehaviourPunCallbacks
 {
     [HideInInspector] public CharacterController characterController;
+    private NETPlayerStats stats;
     private NETInputManager inputManager;
     [SerializeField] private GameObject cameraHolder;
     [SerializeField] private Animator animator;
@@ -48,6 +49,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        stats = GetComponent<NETPlayerStats>();
         characterController = GetComponent<CharacterController>();
         pv = GetComponent<PhotonView>();
         animator = GetComponent<Animator>();
@@ -64,8 +66,9 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
         }
         else
         {
-            cameraHolder.GetComponentInChildren<Camera>().gameObject.SetActive(false); 
-            Destroy(GetComponent<NETAnimationController>()); 
+            cameraHolder.GetComponentInChildren<Camera>().gameObject.SetActive(false);
+            Destroy(characterController);
+            //Destroy(GetComponent<NETAnimationController>()); 
         }
     }
 
@@ -74,9 +77,12 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
         if (!pv.IsMine) //Return if this is not the local user 
             return;
 
-        UpdateMovementInput();
-        UpdatePhysics();
-        UpdateWeapon();
+        if(!stats.IsDead())
+        {
+            UpdateMovementInput();
+            UpdatePhysics();
+            UpdateWeapon();
+        }
     }
        
     private void UpdateMovementInput()

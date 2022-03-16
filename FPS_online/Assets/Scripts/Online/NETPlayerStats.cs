@@ -27,7 +27,7 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
     }
 
     void Start()
-    {
+    { 
         pv = GetComponent<PhotonView>();
 
         HealthValue = MAX_HEALTH_VALUE;
@@ -84,6 +84,8 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
                 isDead = true;
 
                 playerManager.Die(_damager);
+
+                GetComponent<Animator>().SetBool(GetComponent<NETAnimationController>().DeathHash, true);
 
                 MatchManager.instance.UpdateStatsSend(_actor, 0, 1);
             }
