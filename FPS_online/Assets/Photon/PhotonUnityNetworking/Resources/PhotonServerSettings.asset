@@ -39,6 +39,7 @@ MonoBehaviour:
   - RPC_ShootBullet
   - RPC_TakeDamage
   - InstantiateEffect
+  - RPC_KnifeSound
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

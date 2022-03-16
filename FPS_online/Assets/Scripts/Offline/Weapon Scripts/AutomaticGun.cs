@@ -41,6 +41,10 @@ public class AutomaticGun : Gun
 
             Instantiate(effectPrefab, bulletStart.position, Quaternion.LookRotation(cam.transform.forward));
 
+            //Sound
+            AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.RIFLE_SHOOT, SoundManagerConstants.AudioOutput.SFX, bulletStart.position, 0.8f);
+            audioSource.maxDistance = 30.0f;
+
             //Assign damages
             bullet.GetComponent<Bullet>().SetDamages(((GunInfo)itemInfo).damageHead, ((GunInfo)itemInfo).damageBody, ((GunInfo)itemInfo).damageLeg);
 

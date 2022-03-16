@@ -258,67 +258,92 @@ public class NETAnimationController : MonoBehaviour
     //Normal footsteps
     public void PlayLeftFootstep()
     {
-        SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position, 0.8f);
     }
 
     public void PlayRightFootstep()
     {
-        SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position, 0.8f);
     }
 
     public void PlayLeftFootstepRun()
     {
-        SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position, 0.8f);
     }
 
     public void PlayRightFootstepRun()
     {
-        SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position, 0.8f);
     }
 
     //walk strafe
     public void PlayStrafeRightFootstepLeft()
     {
         if (velocityX >= 0.49f && velocityZ == 0.0f)
-            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        {
+            AudioSource source = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.LEFT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position, 0.8f);
+            source.maxDistance = 6.0f;
+        }
     }
     public void PlayStrafeRightFootstepRight()
     {
         if (velocityX >= 0.49f && velocityZ == 0.0f)
-            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        {
+            AudioSource source = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.RIGHT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position, 0.8f);
+            source.maxDistance = 6.0f;
+        } 
     }
 
     public void PlayStrafeLeftFootstepLeft()
     {
         if (velocityX <= -0.49f && velocityZ == 0.0f)
-            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        {
+            AudioSource source = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.LEFT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position, 0.8f);
+            source.maxDistance = 6.0f;
+        }
+        
     } 
     public void PlayStrafeLeftFootstepRight()
     {
         if (velocityX <= -0.49f && velocityZ == 0.0f)
-            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        {
+            AudioSource source = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.RIGHT_FOOTSTEP, SoundManagerConstants.AudioOutput.SFX, transform.position, 0.8f);
+            source.maxDistance = 6.0f;
+        } 
     }
 
     //run strafe
     public void PlayStrafeRightFootstepLeftRun()
     {
         if (velocityX >= 0.49f && velocityZ == 0.0f)
-            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        {
+            AudioSource source = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.LEFT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position, 0.8f);
+            source.maxDistance = 6.0f;
+        } 
     }
     public void PlayStrafeRightFootstepRightRun()
     {
         if (velocityX >= 0.49f && velocityZ == 0.0f)
-            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        {
+            AudioSource source = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.RIGHT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position, 0.8f);
+            source.maxDistance = 6.0f;
+        } 
     }
 
     public void PlayStrafeLeftFootstepLeftRun()
     {
         if (velocityX <= -0.49f && velocityZ == 0.0f)
-            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.LEFT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        {
+            AudioSource source = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.LEFT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position, 0.8f);
+            source.maxDistance = 6.0f;
+        } 
     }
     public void PlayStrafeLeftFootstepRightRun()
     {
         if (velocityX <= -0.49f && velocityZ == 0.0f)
-            SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RIGHT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        {
+            AudioSource source = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.RIGHT_FOOTSTEP_RUN, SoundManagerConstants.AudioOutput.SFX, transform.position, 0.8f);
+            source.maxDistance = 6.0f;
+        } 
     }
 }

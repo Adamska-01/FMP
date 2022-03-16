@@ -16,7 +16,7 @@ public class NETBullet : MonoBehaviour
 
     void Start()
     {
-        velocity = 120.0f;
+        velocity = 150.0f;
         StartCoroutine("DestroySelf");
         impactsAndHoles = FindObjectOfType<ImpactsAndHoles>(); 
     }

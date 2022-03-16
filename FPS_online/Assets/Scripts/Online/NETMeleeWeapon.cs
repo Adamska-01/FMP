@@ -29,9 +29,10 @@ public class NETMeleeWeapon : NETGun
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
             ray.origin = cam.transform.position;
 
+            GetComponent<PhotonView>().RPC("RPC_KnifeSound", RpcTarget.All, ray.origin);
+
             if (Physics.Raycast(ray, out RaycastHit hit, 0.9f))
-            {
-                Debug.DrawLine(cam.transform.position, hit.point);
+            { 
                 if (hit.collider.gameObject.TryGetComponent<HitboxPlayer>(out var hitbox))
                 {
                     switch (hitbox.colType)
@@ -47,7 +48,7 @@ public class NETMeleeWeapon : NETGun
                             break;
                     }
                 }
-
+                 
                 ImpactsAndHoles impactsAndHoles = FindObjectOfType<ImpactsAndHoles>();
                 switch (hit.collider.tag)
                 {
@@ -84,5 +85,13 @@ public class NETMeleeWeapon : NETGun
         }
 
         return false;
+    }
+
+    [PunRPC]
+    private void RPC_KnifeSound(Vector3 _pos)
+    {
+        //Sound
+        AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.KNIFE_SWING, SoundManagerConstants.AudioOutput.SFX, cam.transform.position, 0.15f);
+        audioSource.maxDistance = 4.0f;
     }
 }

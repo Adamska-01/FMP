@@ -65,6 +65,28 @@ public class SoundManager : MonoBehaviour
         StartCoroutine(BackToPool(prefab, clipLib[clip].length));
     }
 
+    public AudioSource PlaySoundAndReturn(SoundManagerConstants.Clips clip, SoundManagerConstants.AudioOutput group, Vector3 position, float volume = 1)
+    {
+        GameObject prefab = GetPoolObject();
+
+        if (prefab == null)
+            return null;
+
+        prefab.transform.position = position;
+        prefab.SetActive(true);
+
+        AudioSource prefabAudioSource = prefab.GetComponent<AudioSource>();
+
+        prefabAudioSource.clip = clipLib[clip];
+        prefabAudioSource.volume = volume;
+        prefabAudioSource.outputAudioMixerGroup = group == SoundManagerConstants.AudioOutput.SFX ? sfxGroup : musicGroup;
+        prefabAudioSource.Play();
+
+        StartCoroutine(BackToPool(prefab, clipLib[clip].length));
+
+        return prefabAudioSource;
+    }
+
     public void PlaySound(AudioClip clip, SoundManagerConstants.AudioOutput group, Vector3 position, out float duration, float volume = 1)
     {
         GameObject prefab = GetPoolObject();
@@ -131,6 +153,33 @@ public class SoundManager : MonoBehaviour
         #endregion
 
         StartCoroutine(BackToPool(prefab, clipLib[clip].length, true));
+    }
+
+    public AudioSource PlaySoundAndReturn(SoundManagerConstants.Clips clip, SoundManagerConstants.AudioOutput group, GameObject parent, float volume = 1)
+    {
+        GameObject prefab = GetPoolObject();
+
+        if (prefab == null) 
+            return null;
+
+        #region Configure Prefab
+        prefab.transform.position = parent.transform.position;
+        prefab.transform.parent = parent.transform;
+        prefab.SetActive(true);
+        #endregion
+
+        #region Configure AudioSource
+        AudioSource prefabAudioSource = prefab.GetComponent<AudioSource>();
+
+        prefabAudioSource.clip = clipLib[clip];
+        prefabAudioSource.volume = volume;
+        prefabAudioSource.outputAudioMixerGroup = group == SoundManagerConstants.AudioOutput.SFX ? sfxGroup : musicGroup;
+        prefabAudioSource.Play();
+        #endregion
+
+        StartCoroutine(BackToPool(prefab, clipLib[clip].length, true));
+
+        return prefabAudioSource;
     }
 
     private void CreateInstances()
@@ -207,6 +256,7 @@ public class SoundManagerConstants
         RIGHT_FOOTSTEP_RUN,
         LEFT_FOOTSTEP,
         LEFT_FOOTSTEP_RUN,
-        LANDING
+        LANDING,
+        DEATH
     }
 }

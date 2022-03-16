@@ -158,12 +158,12 @@ public class PlayerController : MonoBehaviour
 
     private void FireWeapon()
     {
-        if(inputManager.FireSingleShot && (items[itemIndex].TryGetComponent<SingleShotGun>(out var ssg) || items[itemIndex].TryGetComponent<MeleeWeapon>(out var melee)))
+        if(inputManager.FireSingleShot && !isReloading && (items[itemIndex].TryGetComponent<SingleShotGun>(out var ssg) || items[itemIndex].TryGetComponent<MeleeWeapon>(out var melee)))
         {
             if (items[itemIndex].Use())  
                 animator.SetTrigger(animController.FireHash);
         }
-        else if (inputManager.AutomaticShot && items[itemIndex].TryGetComponent<AutomaticGun>(out var ag))
+        else if (inputManager.AutomaticShot && !isReloading && items[itemIndex].TryGetComponent<AutomaticGun>(out var ag))
         {
             if(items[itemIndex].Use())
                 animator.SetTrigger(animController.FireHash);

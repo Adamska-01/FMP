@@ -5,8 +5,7 @@ using UnityEngine;
 public class MeleeWeapon : Gun
 {
     [SerializeField] Camera cam; 
-
-
+     
     public override bool Use()
     {
         return Hit();
@@ -30,7 +29,11 @@ public class MeleeWeapon : Gun
             //Start ray from center of screen
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
             ray.origin = cam.transform.position;
-             
+
+            //Sound
+            AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.KNIFE_SWING, SoundManagerConstants.AudioOutput.SFX, cam.transform.position, 0.15f);
+            audioSource.maxDistance = 4.0f;
+
             if (Physics.Raycast(ray, out RaycastHit hit, 0.9f))
             {
                 Debug.DrawLine(cam.transform.position, hit.point);
@@ -48,6 +51,38 @@ public class MeleeWeapon : Gun
                             hitbox.TakeDamage(((GunInfo)itemInfo).damageLeg);
                             break;
                     }
+                }
+                 
+
+                ImpactsAndHoles impactsAndHoles = FindObjectOfType<ImpactsAndHoles>();
+                switch (hit.collider.tag)
+                {
+                    case "Concrete":
+                        Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.CONCRETE].impact, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
+                        Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.CONCRETE].hole, hit.point + (hit.normal * 0.001f), Quaternion.LookRotation(hit.normal, Vector3.up));
+                        break;
+                    case "Dirt":
+                        Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.DIRT].impact, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
+                        Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.DIRT].hole, hit.point + (hit.normal * 0.001f), Quaternion.LookRotation(hit.normal, Vector3.up));
+                        break;
+                    case "Metal":
+                        Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.METAL].impact, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
+                        Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.METAL].hole, hit.point + (hit.normal * 0.001f), Quaternion.LookRotation(hit.normal, Vector3.up));
+                        break;
+                    case "Sand":
+                        Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.SAND].impact, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
+                        Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.SAND].hole, hit.point + (hit.normal * 0.001f), Quaternion.LookRotation(hit.normal, Vector3.up));
+                        break;
+                    case "Wood":
+                        Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.WOOD].impact, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
+                        Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.WOOD].hole, hit.point + (hit.normal * 0.001f), Quaternion.LookRotation(hit.normal, Vector3.up));
+                        break;
+                    case "Body":
+                        Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.BODY].impact, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
+                        break;
+                    default:
+                        Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.CONCRETE].impact, hit.point, Quaternion.LookRotation(hit.normal, Vector3.up));
+                        break;
                 }
             }
 

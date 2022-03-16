@@ -57,11 +57,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
             if (HealthValue <= 0)
             {
-                //TODO: Die
-                Debug.Log("Dead");
-            } 
-
-            //TODO: Update UI
+                //No need to do anything as dying is not an option
+            }  
         }
     }
 
