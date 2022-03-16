@@ -257,6 +257,8 @@ public class SoundManagerConstants
         LEFT_FOOTSTEP,
         LEFT_FOOTSTEP_RUN,
         LANDING,
-        DEATH
+        DEATH,
+        RELOAD_RIFLE,
+        RELOAD_HANDGUN
     }
 }
