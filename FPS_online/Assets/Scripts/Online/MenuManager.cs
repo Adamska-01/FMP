@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
@@ -14,7 +15,11 @@ public class MenuManager : MonoBehaviour
         FIND_ROOM,
         ROOM_LIST,
         ROOM,
-        ERROR
+        ERROR,
+        SETTINGS,
+        GENERAL_SETTINGS,
+        GRAPHICS_SETTINGS,
+        AUDIO_SETTINGS
     }
 
     public static MenuManager Instance;
@@ -36,7 +41,7 @@ public class MenuManager : MonoBehaviour
                 else if (menus[i].isOpen)
                     CloseMenu(menus[i]);
             }
-        }
+        } 
     }
 
     //Used by buttons

@@ -15,21 +15,21 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject cameraHolder;
     [SerializeField] private Animator animator;
     [SerializeField] private NETAnimationController animController;
-    private Vector3 movementDir; 
-     
+    private Vector3 movementDir;
+
     [SerializeField] private float offsetFloorY = 0.4f;
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private float speedMultiplier = 1.8f;
-    [SerializeField] private float xAxisSensitivity = 0.2f;
-    [SerializeField] private float yAxisSensitivity = 0.2f;  
-    [SerializeField] private float jumpForce = 200.0f;
-    public float fallMultiplier;
+    private float aimSensitivity = 0.4f;
+    public float sensitivityMultiplier = 1.0f;
+    private float ADSsensitivityMultiplier = 0.11f;
+    [SerializeField] private float jumpForce = 200.0f; 
     private float ySpeed;
     public bool IsRunning { get { return (!inputManager.Crouch && !inputManager.Back && inputManager.Run); } }
 
     private float verticalLookRotation = 0.0f;
     [SerializeField] private Transform gunTarget;
-    [SerializeField] private Transform cameraTarget; 
+    [SerializeField] private Transform cameraTarget;
 
     //States 
     [HideInInspector] public bool isFiring;
@@ -44,8 +44,9 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     [SerializeField] NETItem[] items;
     int itemIndex;
     int previousItemIndex = -1;
-      
-    private PhotonView pv; 
+
+    private PhotonView pv;
+    public PhotonView PV { get { return pv; } }
 
     private void Awake()
     {
@@ -53,8 +54,11 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
         characterController = GetComponent<CharacterController>();
         pv = GetComponent<PhotonView>();
         animator = GetComponent<Animator>();
-        inputManager = FindObjectOfType<NETInputManager>(); 
-        
+        inputManager = FindObjectOfType<NETInputManager>();
+
+        if (PlayerPrefs.HasKey("Settings->General->Sensitivity"))
+            sensitivityMultiplier = PlayerPrefs.GetFloat("Settings->General->Sensitivity");
+
         isReloading = false; 
     }
 
@@ -249,13 +253,14 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
 
     private void Look()
     {
+        float sensitivity = isAiming ? ADSsensitivityMultiplier : (aimSensitivity * sensitivityMultiplier);
+
         //Rotate player 
-        transform.Rotate(Vector3.up * inputManager.XLookAxis);
+        transform.Rotate(Vector3.up * inputManager.XLookAxis * sensitivity);
 
         //Rotate camera
-        verticalLookRotation += inputManager.YLookAxis * yAxisSensitivity;
-        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -70.0f, 70f);
-
+        verticalLookRotation += inputManager.YLookAxis * sensitivity;
+        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -70.0f, 70f); 
         cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation; 
     }  
 }

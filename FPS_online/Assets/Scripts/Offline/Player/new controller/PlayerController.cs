@@ -11,14 +11,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private AnimationController animController;
     private Vector3 movementDir;
-      
+
     [SerializeField] private float offsetFloorY = 0.4f;
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private float speedMultiplier = 1.8f;
-    [SerializeField] private float xAxisSensitivity = 0.2f;
-    [SerializeField] private float yAxisSensitivity = 0.2f;  
-    [SerializeField] private float jumpForce = 200.0f;
-    public float fallMultiplier; 
+    private float aimSensitivity = 0.4f;
+    public float sensitivityMultiplier = 1.0f; 
+    private float ADSsensitivityMultiplier = 0.11f;
+    [SerializeField] private float jumpForce = 200.0f; 
     private float ySpeed;
     public bool IsRunning { get { return (!inputManager.Crouch && !inputManager.Back && inputManager.Run); } }
 
@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
         isReloading = false;
         EquipItem(0); 
         inputManager = FindObjectOfType<InputManager>();
+
+        if (PlayerPrefs.HasKey("Settings->General->Sensitivity"))
+            sensitivityMultiplier = PlayerPrefs.GetFloat("Settings->General->Sensitivity");
     }
 
     void Update()
@@ -198,13 +201,14 @@ public class PlayerController : MonoBehaviour
 
     private void Look()
     {
+        float sensitivity = isAiming ? ADSsensitivityMultiplier : (aimSensitivity * sensitivityMultiplier);
+
         //Rotate player 
-        transform.Rotate(Vector3.up * inputManager.XLookAxis);
+        transform.Rotate(Vector3.up * inputManager.XLookAxis * sensitivity);
 
         //Rotate camera
-        verticalLookRotation += inputManager.YLookAxis * yAxisSensitivity;
+        verticalLookRotation += inputManager.YLookAxis * sensitivity;
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -70.0f, 70f);
-
-        cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation; 
-    } 
+        cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation;
+    }
 }
