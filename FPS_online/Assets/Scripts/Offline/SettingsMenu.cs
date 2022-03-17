@@ -17,6 +17,7 @@ public class SettingsMenu : MonoBehaviour
     public Slider masterVolSlider;
     public Slider sfxVolSlider;
     public Slider MusicVolSlider;
+    public Toggle fullScreenToggle;
     public Toggle fpsToggle;
     public Toggle latencyToggle;
     public TMP_Dropdown resolutionDropdown;
@@ -105,7 +106,9 @@ public class SettingsMenu : MonoBehaviour
         //Set counters
         fpsDisplay.SetActive(fpsToggle.isOn);
         pingDisplay.SetActive(latencyToggle.isOn);
-        
+
+        fullScreenToggle.isOn = Screen.fullScreen;
+
         //Set sensitivity
         if (PhotonNetwork.IsConnected)
         {
