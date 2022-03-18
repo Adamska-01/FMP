@@ -66,6 +66,10 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         }
 
         MenuManager.Instance.OpenMenu(MenuManager.MenuType.TITLE);
+
+        //Set ability to vote
+        Hashtable hasVotedGeneral = new Hashtable { { "hasVotedGeneral", false } };
+        PhotonNetwork.LocalPlayer.SetCustomProperties(hasVotedGeneral);
     }
 
 

@@ -412,10 +412,8 @@ MonoBehaviour:
   offsetFloorY: 0.4
   movementSpeed: 3
   speedMultiplier: 1.6
-  xAxisSensitivity: 3.5
-  yAxisSensitivity: 3.5
+  sensitivityMultiplier: 1
   jumpForce: 3
-  fallMultiplier: 1.3
   gunTarget: {fileID: 1776943362171896212}
   cameraTarget: {fileID: 1776943361665775460}
   isFiring: 0

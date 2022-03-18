@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,10 +8,14 @@ using UnityEngine.UI;
 public class NETUIController : MonoBehaviour
 {
     private IEnumerator co;
+
+    private NETInputManager inputManager; 
+    
     public static NETUIController instance;
-    private void Awake()
+    void Awake()
     {
         instance = this;
+        inputManager = FindObjectOfType<NETInputManager>();
     }
 
     public enum WeaponSelected
@@ -25,7 +30,12 @@ public class NETUIController : MonoBehaviour
         HUD,
         DEATH,
         LEADERBOARD,
-        END
+        END,
+        PAUSE,
+        SETTINGS,
+        SETTINGS_GENERAL,
+        SETTINGS_AUDIO,
+        SETTINGS_GRAPHICS,
     }
 
     [System.Serializable]
@@ -47,9 +57,21 @@ public class NETUIController : MonoBehaviour
 
     [SerializeField] private Panel[] panels;
 
-    private void Start()
+    public bool isPaused;
+
+    void Start()
     {
+        isPaused = false;
         OpenPanel(PanelType.HUD);
+    }
+
+
+    void Update()
+    {
+        if(inputManager.Pause)
+        {
+            OpenClosePause();
+        }
     }
 
 
@@ -89,6 +111,40 @@ public class NETUIController : MonoBehaviour
         }
     }
 
+    public void OpenClosePause()
+    {
+        if (!isPaused)
+        {
+            OpenPanel(PanelType.PAUSE);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            isPaused = true;
+        }
+        else
+        {
+            OpenPanel(PanelType.HUD);
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            isPaused = false;
+        } 
+    }
+
+    public void ReturnToMenu()
+    {
+        Destroy(FindObjectOfType<RoomManager>().gameObject);
+        PhotonNetwork.AutomaticallySyncScene = false;
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void OpenPanel(PanelType _panelName)
     {
         for (int i = 0; i < panels.Length; i++)
@@ -101,6 +157,23 @@ public class NETUIController : MonoBehaviour
                     ClosePanel(panels[i]);
             }
         }
+    }
+
+    //Used by buttons
+    public void OpenPanel(Panel _panel)
+    {
+        //Close the menus we currently have open first 
+        for (int i = 0; i < panels.Length; i++)
+        {
+            if (panels[i] != null)
+            {
+                if (panels[i].isOpen)
+                    ClosePanel(panels[i]);
+            }
+        }
+
+        //Open current menu
+        _panel?.Open();
     }
 
     public void OpenPanelWithoutClosing(PanelType _panelName)

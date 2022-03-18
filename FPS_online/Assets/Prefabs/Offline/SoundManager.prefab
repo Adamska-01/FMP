@@ -43,7 +43,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ef9fcf09866544b8f22361cba28f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clipName: []
-  clipList: []
-  prefabToPool: {fileID: 0}
-  amountToPool: 0
+  mixer: {fileID: 24100000, guid: 916fcbdcc571cdf44a66734d0e79fd9d, type: 2}
+  sfxGroup: {fileID: -481583758512016266, guid: 916fcbdcc571cdf44a66734d0e79fd9d, type: 2}
+  musicGroup: {fileID: 1097087962637139923, guid: 916fcbdcc571cdf44a66734d0e79fd9d, type: 2}
+  clipName: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a000000
+  clipList:
+  - {fileID: 8300000, guid: 8f04b3ff514c3254898fc3754113a032, type: 3}
+  - {fileID: 8300000, guid: ada807241eefef54681c5e9f2e838300, type: 3}
+  - {fileID: 8300000, guid: 301b1a6d792de4b46bad9cf8f893d773, type: 3}
+  - {fileID: 8300000, guid: 0ccafbbd429997046b835cd347038c86, type: 3}
+  - {fileID: 8300000, guid: 7af80c1f3e53d69418755e31a09a45e2, type: 3}
+  - {fileID: 8300000, guid: 43d7f2b11b5c26548be307abc62b0818, type: 3}
+  - {fileID: 8300000, guid: fbd0ad991e9f6664aa9e43766e6e7471, type: 3}
+  - {fileID: 8300000, guid: 5b551f26ea3d9dd4399b0e2fc9777afb, type: 3}
+  - {fileID: 8300000, guid: c4633fc4b68df6c40abb6aec6d73b651, type: 3}
+  - {fileID: 8300000, guid: 7765ddd7e2fd1b34883d9838d82f45fa, type: 3}
+  - {fileID: 8300000, guid: 5352c7bdf44b11141ba87d35e6e5a45a, type: 3}
+  prefabToPool: {fileID: 1370848306585501843, guid: df38e8f6b7cbf824398985d03afdc2ba, type: 3}
+  amountToPool: 50

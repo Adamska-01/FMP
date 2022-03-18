@@ -6,18 +6,16 @@ using UnityEngine.Audio;
  
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance;
-    void Awake()
+    public static SoundManager instance; 
+    private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
+        if (instance)
         {
             Destroy(gameObject);
             return;
         }
+        DontDestroyOnLoad(gameObject);
+        instance = this;
     }
 
     public AudioMixer mixer;
