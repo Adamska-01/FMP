@@ -54,9 +54,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        UpdateMovementInput();
-        UpdatePhysics();        
-        UpdateWeapon(); 
+        if(!HUDController.instance.isPaused)
+        {
+            UpdateMovementInput();
+            UpdatePhysics();        
+            UpdateWeapon(); 
+        }
     } 
 
     private void UpdateMovementInput()

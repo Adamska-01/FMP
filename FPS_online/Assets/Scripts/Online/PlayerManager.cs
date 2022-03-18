@@ -59,12 +59,12 @@ public class PlayerManager : MonoBehaviour
         deathCamera.SetActive(true);
 
         //Open death panel
-        NETUIController.instance.OpenPanel(NETUIController.PanelType.DEATH);
+        NETUIController.instance.OpenPanel(PanelType.DEATH);
 
         yield return new WaitForSeconds(5.0f);
 
         //Open HUD and close death
-        NETUIController.instance.OpenPanel(NETUIController.PanelType.HUD);
+        NETUIController.instance.OpenPanel(PanelType.HUD);
 
         deathCamera.SetActive(false);
 

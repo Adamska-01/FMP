@@ -5,6 +5,19 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum PanelType
+{
+    HUD,
+    DEATH,
+    LEADERBOARD,
+    END,
+    PAUSE,
+    SETTINGS,
+    SETTINGS_GENERAL,
+    SETTINGS_AUDIO,
+    SETTINGS_GRAPHICS,
+}
+
 public class NETUIController : MonoBehaviour
 {
     private IEnumerator co;
@@ -23,20 +36,7 @@ public class NETUIController : MonoBehaviour
         PRIMARY,
         SECONDARY,
         KNIFE
-    }
-
-    public enum PanelType
-    {
-        HUD,
-        DEATH,
-        LEADERBOARD,
-        END,
-        PAUSE,
-        SETTINGS,
-        SETTINGS_GENERAL,
-        SETTINGS_AUDIO,
-        SETTINGS_GRAPHICS,
-    }
+    } 
 
     [System.Serializable]
     public class WeaponIcons
@@ -57,7 +57,7 @@ public class NETUIController : MonoBehaviour
 
     [SerializeField] private Panel[] panels;
 
-    public bool isPaused;
+    [HideInInspector] public bool isPaused;
 
     void Start()
     {

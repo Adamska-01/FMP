@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6497936358320960967}
   - component: {fileID: 6497936358320960966}
   - component: {fileID: -4135208446200739197}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NETBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,3 +203,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: {fileID: 0}
+  bulletOwner: 
+  actorNumber: 0

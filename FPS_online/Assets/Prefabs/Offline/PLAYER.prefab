@@ -390,10 +390,8 @@ MonoBehaviour:
   offsetFloorY: 0.4
   movementSpeed: 3
   speedMultiplier: 1.6
-  xAxisSensitivity: 3.5
-  yAxisSensitivity: 3.5
+  sensitivityMultiplier: 1
   jumpForce: 3
-  fallMultiplier: 1.2
   gunTarget: {fileID: 1776943362171896212}
   cameraTarget: {fileID: 1776943361665775460}
   isFiring: 0
@@ -4439,10 +4437,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 80313108296420429}
     m_Modifications:
+    - target: {fileID: 1200023148318117142, guid: b41d3235754f0264c9f4c139d5ed1705, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200023148318117142, guid: b41d3235754f0264c9f4c139d5ed1705, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1534
+      objectReference: {fileID: 0}
     - target: {fileID: 2043494410632277304, guid: b41d3235754f0264c9f4c139d5ed1705, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 42fbc6d8799ed9241b0a49f707de4bc7, type: 2}
+    - target: {fileID: 3524609858813792186, guid: b41d3235754f0264c9f4c139d5ed1705, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524609858813792186, guid: b41d3235754f0264c9f4c139d5ed1705, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1534
+      objectReference: {fileID: 0}
     - target: {fileID: 3802291981134455730, guid: b41d3235754f0264c9f4c139d5ed1705, type: 3}
       propertyPath: m_Name
       value: HandGun

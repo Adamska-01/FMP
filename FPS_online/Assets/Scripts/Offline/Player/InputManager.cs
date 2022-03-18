@@ -41,6 +41,10 @@ public class InputManager : MonoBehaviour
     protected bool thirdWeapoon;
     public bool ThirdWeapoon { get { return thirdWeapoon; } }
 
+    //UI keys 
+    protected bool pause;
+    public bool Pause { get { return pause; } }
+
 
     [Header("Camera Axis")]
     private string verticalLookAxis = "Mouse Y";
@@ -79,6 +83,8 @@ public class InputManager : MonoBehaviour
         thirdWeapoon = Input.GetKeyDown(KeyCode.Alpha3);
         fireSingleShot = Input.GetMouseButtonDown(0);
         automaticShot = Input.GetMouseButton(0);
+
+        pause = Input.GetKeyDown(KeyCode.Escape);
 
         //Camera rotate
         xAxis = Input.GetAxisRaw(horizontalLookAxis);

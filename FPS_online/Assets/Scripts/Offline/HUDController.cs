@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
     private IEnumerator co;
     public static HUDController instance;
+    private InputManager inputManager;
     private void Awake()
     {
         instance = this;
+        inputManager = FindObjectOfType<InputManager>();
     }
 
     public enum WeaponSelected
@@ -29,8 +32,26 @@ public class HUDController : MonoBehaviour
     public TMP_Text ammunitionText;
     public TMP_Text healthText;
     public TMP_Text armourText; 
-    public WeaponIcons[] weapons; 
-     
+    public WeaponIcons[] weapons;
+
+    [SerializeField] private Panel[] panels;
+
+    [HideInInspector] public bool isPaused;
+
+    void Start()
+    {
+        isPaused = false;
+        OpenPanel(PanelType.HUD);
+    }
+
+    void Update()
+    {
+        if (inputManager.Pause)
+        {
+            OpenClosePause();
+        }
+    }
+
 
     public void SelectWeapon(int _index)
     {
@@ -66,5 +87,97 @@ public class HUDController : MonoBehaviour
             }
             yield return null;
         } 
+    }
+
+    public void OpenClosePause()
+    {
+        if (!isPaused)
+        {
+            OpenPanel(PanelType.PAUSE);
+
+            Time.timeScale = 0;
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            isPaused = true;
+        }
+        else
+        {
+            OpenPanel(PanelType.HUD);
+
+            Time.timeScale = 1;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            isPaused = false;
+        }
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void OpenPanel(PanelType _panelName)
+    {
+        for (int i = 0; i < panels.Length; i++)
+        {
+            if (panels[i] != null)
+            {
+                if (panels[i].type == _panelName)
+                    panels[i].Open();
+                else if (panels[i].isOpen)
+                    ClosePanel(panels[i]);
+            }
+        }
+    }
+
+    //Used by buttons
+    public void OpenPanel(Panel _panel)
+    {
+        //Close the menus we currently have open first 
+        for (int i = 0; i < panels.Length; i++)
+        {
+            if (panels[i] != null)
+            {
+                if (panels[i].isOpen)
+                    ClosePanel(panels[i]);
+            }
+        }
+
+        //Open current menu
+        _panel?.Open();
+    }
+
+    public void OpenPanelWithoutClosing(PanelType _panelName)
+    {
+        for (int i = 0; i < panels.Length; i++)
+        {
+            if (panels[i] != null)
+            {
+                if (panels[i].type == _panelName)
+                    panels[i].Open();
+            }
+        }
+    }
+
+    public void ClosePanel(Panel _panel)
+    {
+        _panel.Close();
+    }
+
+    public void CloseAllPanels()
+    {
+        for (int i = 0; i < panels.Length; i++)
+        {
+            ClosePanel(panels[i]);
+        }
     }
 }

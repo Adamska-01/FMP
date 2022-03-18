@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Panel : MonoBehaviour
 {
-    public NETUIController.PanelType type;
+    public PanelType type;
     [HideInInspector] public bool isOpen;
 
     void Awake()
