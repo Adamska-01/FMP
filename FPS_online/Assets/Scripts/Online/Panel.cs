@@ -5,6 +5,7 @@ using UnityEngine;
 public class Panel : MonoBehaviour
 {
     public PanelType type;
+    public GameObject firstselected;
     [HideInInspector] public bool isOpen;
 
     void Awake()

@@ -44,6 +44,10 @@ public class InputManager : MonoBehaviour
     //UI keys 
     protected bool pause;
     public bool Pause { get { return pause; } }
+    protected float horizontalUI;
+    public float HorizontalUI { get { return horizontalUI; } }
+    protected float verticalUI;
+    public float VerticalUI { get { return verticalUI; } }
 
 
     [Header("Camera Axis")]
@@ -85,6 +89,8 @@ public class InputManager : MonoBehaviour
         automaticShot = Input.GetMouseButton(0);
 
         pause = Input.GetKeyDown(KeyCode.Escape);
+        horizontalUI = Input.GetAxis("HorizontalUI");
+        verticalUI = Input.GetAxis("VerticalUI");
 
         //Camera rotate
         xAxis = Input.GetAxisRaw(horizontalLookAxis);

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public enum PanelType
@@ -20,7 +21,7 @@ public enum PanelType
 
 public class NETUIController : MonoBehaviour
 {
-    private IEnumerator co;
+    private IEnumerator co; 
 
     private NETInputManager inputManager; 
     
@@ -119,7 +120,7 @@ public class NETUIController : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-
+             
             isPaused = true;
         }
         else
@@ -200,4 +201,16 @@ public class NETUIController : MonoBehaviour
             ClosePanel(panels[i]);
         }
     }
+
+    public Panel GetPannel(PanelType _type)
+    {
+        for (int i = 0; i < panels.Length; i++)
+        {
+            if (panels[i].type == _type)
+            {
+                return panels[i];
+            }
+        }
+        return null;
+    } 
 }

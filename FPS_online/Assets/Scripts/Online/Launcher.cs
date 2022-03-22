@@ -253,8 +253,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     }
 
     public void StartSinglePlayerGame()
-    {
-        RoomManager.Instance.gameObject.SetActive(false);
+    { 
         PhotonNetwork.LoadLevel(1);
     }
 

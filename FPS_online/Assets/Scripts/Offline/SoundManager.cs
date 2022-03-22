@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         instance = this;
     }
-
+     
     public AudioMixer mixer;
     [SerializeField] private AudioMixerGroup sfxGroup;
     [SerializeField] private AudioMixerGroup musicGroup;

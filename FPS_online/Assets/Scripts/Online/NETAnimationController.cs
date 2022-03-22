@@ -69,7 +69,7 @@ public class NETAnimationController : MonoBehaviour
         if (!pv.IsMine)
             return;
 
-        if (stats.IsDead())
+        if (stats.IsDead() || NETUIController.instance.isPaused)
             return;
 
         //Get key input from player

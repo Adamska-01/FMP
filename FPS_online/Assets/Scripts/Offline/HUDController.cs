@@ -1,7 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -50,6 +52,13 @@ public class HUDController : MonoBehaviour
         {
             OpenClosePause();
         }
+        //Debug.Log(inputManager.VerticalUI);
+        //if ((inputManager.VerticalUI != 0.0f || inputManager.HorizontalUI != 0.0f) && (EventSystem.current.currentSelectedGameObject == null || !EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.activeInHierarchy))
+        //{
+        //    EventSystem.current.SetSelectedGameObject(null);
+        //    EventSystem.current.SetSelectedGameObject(GetActivePannel().firstselected);
+            
+        //}
     }
 
 
@@ -94,11 +103,13 @@ public class HUDController : MonoBehaviour
         if (!isPaused)
         {
             OpenPanel(PanelType.PAUSE);
-
-            Time.timeScale = 0;
-
+             
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            
+
+            Time.timeScale = 0;
 
             isPaused = true;
         }
@@ -117,7 +128,18 @@ public class HUDController : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+        var roomMngr = FindObjectOfType<RoomManager>().gameObject;
+        if(roomMngr != null)
+            Destroy(FindObjectOfType<RoomManager>().gameObject);
+        
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.Disconnect();
+            SceneManager.LoadScene(0);
+        } 
+        else 
+            SceneManager.LoadScene(0);
     }
 
     public void QuitGame()
@@ -148,12 +170,16 @@ public class HUDController : MonoBehaviour
             if (panels[i] != null)
             {
                 if (panels[i].isOpen)
+                {
                     ClosePanel(panels[i]);
+                }
             }
         }
 
         //Open current menu
         _panel?.Open();
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(_panel.firstselected);
     }
 
     public void OpenPanelWithoutClosing(PanelType _panelName)
@@ -179,5 +205,38 @@ public class HUDController : MonoBehaviour
         {
             ClosePanel(panels[i]);
         }
+    }
+
+    public Panel GetPannel(PanelType _type)
+    {
+        for (int i = 0; i < panels.Length; i++)
+        {
+            if (panels[i].type == _type)
+            {
+                return panels[i];
+            }
+        }
+        return null;
+    }
+
+    public Panel GetActivePannel()
+    {
+        for (int i = 0; i < panels.Length; i++)
+        {
+            if (panels[i].gameObject.activeInHierarchy)
+            {
+                return panels[i];
+            }
+        }
+        return null;
+    }
+
+    IEnumerator SetSelected(GameObject _selected)
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+
+        yield return new WaitForSeconds(Time.deltaTime);
+         
+        EventSystem.current.SetSelectedGameObject(_selected);
     }
 }
