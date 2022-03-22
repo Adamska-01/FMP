@@ -310,8 +310,12 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
             player.deaths = 0;
         }
 
-        FindObjectOfType<PlayerManager>().CreateController();
-
+        var playerMngr = FindObjectsOfType<PlayerManager>();
+        foreach (var item in playerMngr)
+        {
+            if (item.PV.IsMine)
+                item.CreateController();
+        }
         //Reset timer
         SetupTimer();
     }
@@ -455,9 +459,10 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         }
         else //Start new match
         {
-            PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().buildIndex);
             if (PhotonNetwork.IsMasterClient)
             {
+                NextMatchSend();
+                //PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().buildIndex);
                 //if (!Launcher.instance.changeMapBetweenRounds)
                 //    NextMatchSend();
                 //else

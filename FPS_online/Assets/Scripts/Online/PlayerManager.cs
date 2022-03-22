@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
     private PhotonView pv;
+    public PhotonView PV { get { return  pv; } }
     private GameObject controller;
     private GameObject deathCamera;
 
@@ -30,6 +31,9 @@ public class PlayerManager : MonoBehaviour
     public void CreateController()
     {
         //Instantiate player controller
+        if(controller != null)
+            PhotonNetwork.Destroy(controller);
+
         Transform spawnpoint = NETSpawner.instance.GetSpawnPoint();
         controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Player"), spawnpoint.position, spawnpoint.rotation, 0, new object[] { pv.ViewID });
     }
