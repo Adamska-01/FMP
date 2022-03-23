@@ -63,21 +63,23 @@ public class PlayerManager : MonoBehaviour
         //Death effect 
         PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "DeathEffect"), controller.transform.position + new Vector3(0.0f, 1.2f, 0.0f), Quaternion.identity);
 
-        //Destroy player 
-        PhotonNetwork.Destroy(controller);
-        controller = null;
-
-        deathCamera.SetActive(true);
+        controller.GetComponentInChildren<CameraLerp>().LerpCamera();
 
         //Open death panel
         NETUIController.instance.OpenPanel(PanelType.DEATH);
 
         yield return new WaitForSeconds(5.0f);
+        
+        //Destroy player 
+        PhotonNetwork.Destroy(controller);
+        controller = null;
+
+        //deathCamera.SetActive(true);
 
         //Open HUD and close death
         NETUIController.instance.OpenPanel(PanelType.HUD);
 
-        deathCamera.SetActive(false);
+        //deathCamera.SetActive(false);
 
         //Respawn
         if(MatchManager.instance.state == MatchManager.GameStates.Playing && controller == null)

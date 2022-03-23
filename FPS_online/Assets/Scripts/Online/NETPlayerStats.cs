@@ -87,9 +87,9 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
                 AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.DEATH, SoundManagerConstants.AudioOutput.SFX, transform.position);
                 audioSource.maxDistance = 4.0f;
 
-                playerManager.Die(_damager); 
-
                 GetComponent<Animator>().SetBool(GetComponent<NETAnimationController>().DeathHash, true);
+
+                playerManager.Die(_damager); 
 
                 MatchManager.instance.UpdateStatsSend(_actor, 0, 1);
             }  
