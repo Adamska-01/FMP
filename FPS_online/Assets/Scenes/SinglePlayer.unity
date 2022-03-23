@@ -2510,6 +2510,7 @@ MonoBehaviour:
   text: {fileID: 422226153}
   slider: {fileID: 1571929029}
   showPercentage: 1
+  showFloats: 0
 --- !u!114 &422226153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8683,6 +8684,7 @@ MonoBehaviour:
   text: {fileID: 1410429256}
   slider: {fileID: 2017813039}
   showPercentage: 0
+  showFloats: 1
 --- !u!114 &1410429256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10315,6 +10317,7 @@ MonoBehaviour:
   text: {fileID: 1558135379}
   slider: {fileID: 589467319}
   showPercentage: 1
+  showFloats: 0
 --- !u!114 &1558135379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12975,6 +12978,7 @@ MonoBehaviour:
   text: {fileID: 1943782466}
   slider: {fileID: 1558268165}
   showPercentage: 1
+  showFloats: 0
 --- !u!114 &1943782466
 MonoBehaviour:
   m_ObjectHideFlags: 0

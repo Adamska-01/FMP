@@ -16,12 +16,13 @@ public enum PanelType
     SETTINGS,
     SETTINGS_GENERAL,
     SETTINGS_AUDIO,
-    SETTINGS_GRAPHICS,
+    SETTINGS_GRAPHICS, 
 }
 
 public class NETUIController : MonoBehaviour
 {
-    private IEnumerator co; 
+    private IEnumerator CO_Weapons; 
+    private IEnumerator CO_StandCrouch; 
 
     private NETInputManager inputManager; 
     
@@ -50,7 +51,8 @@ public class NETUIController : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text armourText;
     public TMP_Text deathText;
-    public WeaponIcons[] weapons;
+    public WeaponIcons[] weapons; 
+    public Image standImage, crouchImage;
     public GameObject leaderboard;
     public Leaderboard leaderboardPlayerDisplay;
     public GameObject endScreen;
@@ -80,15 +82,25 @@ public class NETUIController : MonoBehaviour
     public void SelectWeapon(int _index)
     {
         //Stop previous corutine first
-        if (co != null) StopCoroutine(co);
+        if (CO_Weapons != null) StopCoroutine(CO_Weapons);
 
         //Start corutine
-        co = FadeInAndOutUI(_index);
-        StartCoroutine(co);
+        CO_Weapons = FadeInAndOutWeaponsUI(_index);
+        StartCoroutine(CO_Weapons);
     }
 
-    IEnumerator FadeInAndOutUI(int _index)
+    public void CrouchStand(bool _isCrouched)
     {
+        //Stop previous corutine first
+        if (CO_StandCrouch != null) StopCoroutine(CO_StandCrouch);
+
+        //Start corutine
+        CO_StandCrouch = FadeInAndCrouchStandUI(_isCrouched);
+        StartCoroutine(CO_StandCrouch);
+    }
+
+    IEnumerator FadeInAndOutWeaponsUI(int _index)
+    { 
         for (int i = 0; i < weapons.Length; i++)
         {
             float a = i == _index ? 1.0f : 0.4f;
@@ -109,6 +121,28 @@ public class NETUIController : MonoBehaviour
                 weapons[i].weaponSelected.color = new Color(1.0f, 1.0f, 1.0f, a);
                 weapons[i].keyText.color = new Color(1.0f, 1.0f, 1.0f, a);
             }
+            yield return null;
+        }
+    }
+     
+    IEnumerator FadeInAndCrouchStandUI(bool _isCrouched)
+    {
+        crouchImage.gameObject.SetActive(_isCrouched);
+        crouchImage.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        standImage.gameObject.SetActive(!_isCrouched);
+        standImage.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        
+        yield return new WaitForSeconds(2.0f);
+
+        //Fade
+        float alpha = 1.0f;
+        while (alpha >= 0)
+        {
+            alpha -= Time.deltaTime * 0.3f;  
+            float a = standImage.color.a * alpha;
+            standImage.color = new Color(1.0f, 1.0f, 1.0f, a);
+            crouchImage.color = new Color(1.0f, 1.0f, 1.0f, a); 
+
             yield return null;
         }
     }

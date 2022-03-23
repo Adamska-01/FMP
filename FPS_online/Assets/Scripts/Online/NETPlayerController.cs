@@ -38,6 +38,9 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     [HideInInspector] public bool isAiming;
     [HideInInspector] public bool canReload;
 
+    private bool previousCrouch;
+    private bool currentCrouch;
+
     [SerializeField] private UpperBodyIK ik;
 
     //Guns
@@ -74,6 +77,9 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
             Destroy(characterController);
             //Destroy(GetComponent<NETAnimationController>()); 
         }
+
+        currentCrouch = previousCrouch = inputManager.Crouch;
+        NETUIController.instance.CrouchStand(currentCrouch);
     }
 
     void Update()
@@ -110,6 +116,14 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
             }
         }
         movementDir.y = ySpeed;
+
+        //Crouch/Stand UI
+        currentCrouch = inputManager.Crouch;
+        if(currentCrouch != previousCrouch)
+        {
+            NETUIController.instance.CrouchStand(currentCrouch);
+            previousCrouch = currentCrouch;
+        }
     }
 
     private void UpdateWeapon()
