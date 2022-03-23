@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool isAiming;
     [HideInInspector] public bool canReload;
 
+    private bool previousCrouch;
+    private bool currentCrouch;
+
     [SerializeField] private UpperBodyIK ik;
 
     //Guns
@@ -50,6 +53,9 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerPrefs.HasKey("Settings->General->Sensitivity"))
             sensitivityMultiplier = PlayerPrefs.GetFloat("Settings->General->Sensitivity");
+
+        currentCrouch = previousCrouch = inputManager.Crouch;
+        HUDController.instance.CrouchStand(currentCrouch);
     }
 
     void Update()
@@ -83,6 +89,14 @@ public class PlayerController : MonoBehaviour
             }
         }
         movementDir.y = ySpeed;
+
+        //Crouch/Stand UI
+        currentCrouch = inputManager.Crouch;
+        if (currentCrouch != previousCrouch)
+        {
+            HUDController.instance.CrouchStand(currentCrouch);
+            previousCrouch = currentCrouch;
+        }
     }
 
     private void UpdateWeapon()

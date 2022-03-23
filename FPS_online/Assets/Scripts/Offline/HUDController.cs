@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {
     private IEnumerator co;
+    private IEnumerator CO_StandCrouch;
     public static HUDController instance;
     private InputManager inputManager;
     private void Awake()
@@ -35,6 +36,7 @@ public class HUDController : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text armourText; 
     public WeaponIcons[] weapons;
+    public Image standImage, crouchImage;
 
     [SerializeField] private Panel[] panels;
 
@@ -72,6 +74,16 @@ public class HUDController : MonoBehaviour
         StartCoroutine(co); 
     }
 
+    public void CrouchStand(bool _isCrouched)
+    {
+        //Stop previous corutine first
+        if (CO_StandCrouch != null) StopCoroutine(CO_StandCrouch);
+
+        //Start corutine
+        CO_StandCrouch = FadeInAndCrouchStandUI(_isCrouched);
+        StartCoroutine(CO_StandCrouch);
+    }
+
     IEnumerator FadeInAndOutUI(int _index)
     {
         for (int i = 0; i < weapons.Length; i++)
@@ -96,6 +108,28 @@ public class HUDController : MonoBehaviour
             }
             yield return null;
         } 
+    }
+
+    IEnumerator FadeInAndCrouchStandUI(bool _isCrouched)
+    {
+        crouchImage.gameObject.SetActive(_isCrouched);
+        crouchImage.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        standImage.gameObject.SetActive(!_isCrouched);
+        standImage.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+        yield return new WaitForSeconds(2.0f);
+
+        //Fade
+        float alpha = 1.0f;
+        while (alpha >= 0)
+        {
+            alpha -= Time.deltaTime * 0.3f;
+            float a = standImage.color.a * alpha;
+            standImage.color = new Color(1.0f, 1.0f, 1.0f, a);
+            crouchImage.color = new Color(1.0f, 1.0f, 1.0f, a);
+
+            yield return null;
+        }
     }
 
     public void OpenClosePause()
