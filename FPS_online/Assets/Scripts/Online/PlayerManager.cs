@@ -36,6 +36,13 @@ public class PlayerManager : MonoBehaviour
 
         Transform spawnpoint = NETSpawner.instance.GetSpawnPoint();
         controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Player"), spawnpoint.position, spawnpoint.rotation, 0, new object[] { pv.ViewID });
+
+        if(pv.IsMine)
+        {
+            DI_System indSys = FindObjectOfType<DI_System>();
+            indSys.player = controller.transform;
+            indSys.cam = controller.GetComponentInChildren<Camera>();
+        }
     }
 
     public void Die(string _damager)

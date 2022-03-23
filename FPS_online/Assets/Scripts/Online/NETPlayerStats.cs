@@ -92,7 +92,7 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
                 GetComponent<Animator>().SetBool(GetComponent<NETAnimationController>().DeathHash, true);
 
                 MatchManager.instance.UpdateStatsSend(_actor, 0, 1);
-            }
+            }  
         }
     }
 

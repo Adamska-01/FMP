@@ -10,10 +10,10 @@ public class NETBullet : MonoBehaviour
     private ImpactsAndHoles impactsAndHoles;
     [HideInInspector] public PhotonView pv;
     [HideInInspector] public string bulletOwner;
+    [HideInInspector] public Transform bulletOwnerTransf;
     [HideInInspector] public int actorNumber;
 
-
-
+     
     void Start()
     {
         velocity = 150.0f;
@@ -21,18 +21,22 @@ public class NETBullet : MonoBehaviour
         impactsAndHoles = FindObjectOfType<ImpactsAndHoles>(); 
     }
 
+
     void Update()
     {
         Vector3 movement = transform.forward * velocity * Time.deltaTime;
         float distance = movement.magnitude;
 
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, distance))
-        {
-            if (pv.IsMine)
-            {
-                //Deal damage if is a player
-                if (hit.collider.gameObject.TryGetComponent<HitboxPlayer>(out var hitbox))
+        { 
+            //Deal damage if is a player
+            if (hit.collider.gameObject.TryGetComponent<HitboxPlayer>(out var hitbox))
+            { 
+                if(hitbox.transform.root.GetComponent<PhotonView>().IsMine)
                 {
+                    if (!DI_System.CheckIfObjectInSight(hitbox.transform.root))
+                        DI_System.CreateIndicator(bulletOwnerTransf);
+
                     switch (hitbox.colType)
                     {
                         case HitboxPlayer.CollisionType.BODY:
@@ -44,19 +48,20 @@ public class NETBullet : MonoBehaviour
                         case HitboxPlayer.CollisionType.LEG:
                             hitbox.TakeDamage(damageLeg, bulletOwner, PhotonNetwork.LocalPlayer.ActorNumber);
                             break;
-                    }
-                }
-                //Single player shooting range difficulty select
-                if (hit.collider.gameObject.TryGetComponent<DifficultyButton>(out var diffButton))
-                {
-                    diffButton.SelectDifficulty(diffButton.diff);
-                }
-                //Single player start test buton
-                if (hit.collider.gameObject.TryGetComponent<StartAndStopTest>(out var testButton))
-                {
-                    testButton.StartOrStopTest();
+                    } 
                 }
             }
+
+            //Single player shooting range difficulty select
+            if (hit.collider.gameObject.TryGetComponent<DifficultyButton>(out var diffButton))
+            {
+                diffButton.SelectDifficulty(diffButton.diff);
+            }
+            //Single player start test buton
+            if (hit.collider.gameObject.TryGetComponent<StartAndStopTest>(out var testButton))
+            {
+                testButton.StartOrStopTest();
+            } 
 
             InstantiateImpactAndHole(hit);
 
