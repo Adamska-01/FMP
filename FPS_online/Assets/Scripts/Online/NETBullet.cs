@@ -34,7 +34,7 @@ public class NETBullet : MonoBehaviour
             { 
                 if(hitbox.transform.root.GetComponent<PhotonView>().IsMine)
                 {
-                    if (!DI_System.CheckIfObjectInSight(hitbox.transform.root))
+                    if (!DI_System.CheckIfObjectInSight(bulletOwnerTransf))
                         DI_System.CreateIndicator(bulletOwnerTransf);
 
                     switch (hitbox.colType)

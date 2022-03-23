@@ -50,6 +50,7 @@ public class NETSingleShotGun : NETGun
         //Assign damages
         projectile.SetDamages(((GunInfo)itemInfo).damageHead, ((GunInfo)itemInfo).damageBody, ((GunInfo)itemInfo).damageLeg);
         projectile.pv = GetComponent<PhotonView>();
+        projectile.bulletOwnerTransf = transform.root;
         projectile.bulletOwner = _damager;
         projectile.actorNumber = _actor;
 

@@ -4965,32 +4965,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467340808}
   m_Mesh: {fileID: 4300002, guid: fbc53cb7a4155214bbd1b2fc24f4f5d5, type: 3}
---- !u!1 &488358589 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5673757231116988295, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
-  m_PrefabInstance: {fileID: 1679777766}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &488358590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488358589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44bd7455cd708f6458ecb79cf0966a40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indicatorPrefab: {fileID: 2355949517316790873, guid: 15fb2950ae6ffc9449db8014abab8116, type: 3}
-  holder: {fileID: 614562376}
-  cam: {fileID: 0}
-  player: {fileID: 0}
---- !u!224 &488358595 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5673757231116988291, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
-  m_PrefabInstance: {fileID: 1679777766}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &490548266
 GameObject:
   m_ObjectHideFlags: 0
@@ -6096,41 +6070,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596615147}
   m_Mesh: {fileID: 4300008, guid: c2b6445abd403ac479af7fa0c72132bb, type: 3}
---- !u!1 &614562375
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 614562376}
-  m_Layer: 5
-  m_Name: DamageIndicatorHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &614562376
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614562375}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 488358595}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &622127149
 GameObject:
   m_ObjectHideFlags: 0

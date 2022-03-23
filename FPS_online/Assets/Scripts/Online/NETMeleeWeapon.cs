@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class NETMeleeWeapon : NETGun
@@ -35,6 +36,8 @@ public class NETMeleeWeapon : NETGun
             { 
                 if (hit.collider.gameObject.TryGetComponent<HitboxPlayer>(out var hitbox))
                 {
+                    GetComponent<PhotonView>().RPC("RPC_KnifeHitIndicator", RpcTarget.All, transform.root.GetComponent<PhotonView>().ViewID, hitbox.transform.root.GetComponent<PhotonView>().ViewID);
+                     
                     switch (hitbox.colType)
                     {
                         case HitboxPlayer.CollisionType.BODY:
@@ -93,5 +96,20 @@ public class NETMeleeWeapon : NETGun
         //Sound
         AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.KNIFE_SWING, SoundManagerConstants.AudioOutput.SFX, cam.transform.position, 0.15f);
         audioSource.maxDistance = 4.0f;
+    }
+
+    [PunRPC]
+    private void RPC_KnifeHitIndicator(int _idDamager, int _idDamaged)
+    {
+        PhotonView[] pvs = FindObjectsOfType<PhotonView>();
+        PhotonView pvDamaged = pvs.ToList().Find(x => x.ViewID == _idDamaged);
+
+        PhotonView pvDamager = transform.root.GetComponent<PhotonView>();
+
+        if (pvDamaged.ViewID == _idDamaged && pvDamaged.IsMine)
+        { 
+            if (!DI_System.CheckIfObjectInSight(pvDamager.transform.root))
+                DI_System.CreateIndicator(pvDamager.transform.root);
+        } 
     }
 }
