@@ -271,18 +271,32 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
                 //if that player is us, update stats
                 if (i == index)
                 {
-                    //UpdateStatsDisplay();
+                    UpdateStatsDisplay();
                 }
 
                 //Update leaderboard while active
-                //if (UIController.instance.leaderboard.activeInHierarchy)
-                //    ShowLeaderboard();
+                if (NETUIController.instance.leaderboard.activeInHierarchy)
+                    ShowLeaderboard();
 
                 break;
             }
         }
 
         ScoreCheck();
+    }
+
+    private void UpdateStatsDisplay()
+    {
+        if (players.Count > index)
+        {
+            NETUIController.instance.killsIndicator.text = $"Kills: <b><color=green>{players[index].kills}</color></b>";
+            NETUIController.instance.deathsIndicator.text = $"Deaths: <b><color=red>{players[index].deaths}</color></b>";
+        }
+        else
+        {
+            NETUIController.instance.killsIndicator.text = "Kills: <b><color=green>0</color></b>";
+            NETUIController.instance.deathsIndicator.text = "Deaths: <b><color=red>0</color></b>";
+        }
     }
 
     public void NextMatchSend()

@@ -9,7 +9,7 @@ public class NETBullet : MonoBehaviour
     private float damageHead, damageBody, damageLeg;
     private ImpactsAndHoles impactsAndHoles;
     [HideInInspector] public PhotonView pv;
-    [HideInInspector] public string bulletOwner;
+    [HideInInspector] public string bulletOwner; 
     [HideInInspector] public Transform bulletOwnerTransf;
     [HideInInspector] public int actorNumber;
 
@@ -40,13 +40,13 @@ public class NETBullet : MonoBehaviour
                     switch (hitbox.colType)
                     {
                         case HitboxPlayer.CollisionType.BODY:
-                            hitbox.TakeDamage(damageBody, bulletOwner, PhotonNetwork.LocalPlayer.ActorNumber);
+                            hitbox.TakeDamage(damageBody, bulletOwner, actorNumber);
                             break;
                         case HitboxPlayer.CollisionType.HEAD:
-                            hitbox.TakeDamage(damageHead, bulletOwner, PhotonNetwork.LocalPlayer.ActorNumber);
+                            hitbox.TakeDamage(damageHead, bulletOwner, actorNumber);
                             break;
                         case HitboxPlayer.CollisionType.LEG:
-                            hitbox.TakeDamage(damageLeg, bulletOwner, PhotonNetwork.LocalPlayer.ActorNumber);
+                            hitbox.TakeDamage(damageLeg, bulletOwner, actorNumber);
                             break;
                     } 
                 }

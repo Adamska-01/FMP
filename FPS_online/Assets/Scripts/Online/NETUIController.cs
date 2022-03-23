@@ -55,6 +55,7 @@ public class NETUIController : MonoBehaviour
     public Leaderboard leaderboardPlayerDisplay;
     public GameObject endScreen;
     public TMP_Text timerText;
+    public TMP_Text killsIndicator, deathsIndicator;
 
     [SerializeField] private Panel[] panels;
 

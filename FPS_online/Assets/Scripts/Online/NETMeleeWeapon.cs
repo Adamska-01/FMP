@@ -41,13 +41,13 @@ public class NETMeleeWeapon : NETGun
                     switch (hitbox.colType)
                     {
                         case HitboxPlayer.CollisionType.BODY:
-                            hitbox.TakeDamage(((GunInfo)itemInfo).damageBody, transform.root.GetComponent<PhotonView>().Owner.NickName, PhotonNetwork.LocalPlayer.ActorNumber);
+                            hitbox.TakeDamage(((GunInfo)itemInfo).damageBody, GetComponent<PhotonView>().Owner.NickName, PhotonNetwork.LocalPlayer.ActorNumber);
                             break;
                         case HitboxPlayer.CollisionType.HEAD:
-                            hitbox.TakeDamage(((GunInfo)itemInfo).damageHead, transform.root.GetComponent<PhotonView>().Owner.NickName, PhotonNetwork.LocalPlayer.ActorNumber);
+                            hitbox.TakeDamage(((GunInfo)itemInfo).damageHead, GetComponent<PhotonView>().Owner.NickName, PhotonNetwork.LocalPlayer.ActorNumber);
                             break;
                         case HitboxPlayer.CollisionType.LEG:
-                            hitbox.TakeDamage(((GunInfo)itemInfo).damageLeg, transform.root.GetComponent<PhotonView>().Owner.NickName, PhotonNetwork.LocalPlayer.ActorNumber);
+                            hitbox.TakeDamage(((GunInfo)itemInfo).damageLeg, GetComponent<PhotonView>().Owner.NickName, PhotonNetwork.LocalPlayer.ActorNumber);
                             break;
                     }
                 }
