@@ -91,7 +91,7 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
 
                 playerManager.Die(_damager); 
 
-                MatchManager.instance.UpdateStatsSend(_actor, 0, 1);
+                MatchManager.instance.UpdateStatsSend(_actor, 0, 1, pv.Owner.NickName);
             }  
         }
     }

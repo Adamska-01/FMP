@@ -50,7 +50,7 @@ public class PlayerManager : MonoBehaviour
         NETUIController.instance.deathText.text = "You were killed by <color=red>" + _damager + "</color>";
 
         //Update stats
-        MatchManager.instance.UpdateStatsSend(PhotonNetwork.LocalPlayer.ActorNumber , 1, 1);
+        MatchManager.instance.UpdateStatsSend(PhotonNetwork.LocalPlayer.ActorNumber , 1, 1, _damager);
 
         if (controller != null)
         {

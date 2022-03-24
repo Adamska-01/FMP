@@ -58,6 +58,11 @@ public class NETUIController : MonoBehaviour
     public GameObject endScreen;
     public TMP_Text timerText;
     public TMP_Text killsIndicator, deathsIndicator;
+    public TMP_Text nextMatchtimeText;
+    public TMP_Text currentKillText;
+
+    public GameObject KillsFeed;
+    public GameObject killsFeedPrefab;
 
     [SerializeField] private Panel[] panels;
 

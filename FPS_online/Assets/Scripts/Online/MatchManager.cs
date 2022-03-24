@@ -4,6 +4,7 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 {
     private NETInputManager inputManger;
     public GameObject deathCamera;
+    public IEnumerator CO_kill;
 
     public static MatchManager instance;
     private void Awake()
@@ -43,7 +45,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
     public int killsToWin = 3; 
     public GameStates state = GameStates.Waiting;
-    public float waitAfterEnding = 5f;
+    public float waitAfterEnding = 7.0f;
 
     //Next match
     public bool perpetual;
@@ -236,9 +238,9 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         StateCheck();
     }
 
-    public void UpdateStatsSend(int actorSending, int statToUpdate, int amountToChange)
+    public void UpdateStatsSend(int actorSending, int statToUpdate, int amountToChange, string killerOrKilled)
     {
-        object[] package = new object[] { actorSending, statToUpdate, amountToChange };
+        object[] package = new object[] { actorSending, statToUpdate, amountToChange, killerOrKilled };
 
         //Send package (list)
         PhotonNetwork.RaiseEvent(
@@ -263,9 +265,21 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
                 {
                     case 0: //kills
                         players[i].kills += amount;
+
+                        if (PhotonNetwork.LocalPlayer.ActorNumber == players[i].actor)
+                        {
+                            NETUIController.instance.currentKillText.text = "You Have <color=red>Killed</color> " + "<color=blue>" + (string)dataReceived[3] + "</color>";
+                            if (CO_kill != null)
+                                StopCoroutine(CO_kill); 
+                            CO_kill = KillTextActivation();
+                            StartCoroutine(CO_kill); 
+                        } 
                         break;
                     case 1: //deaths
                         players[i].deaths += amount;
+
+                        TMP_Text killFeed = Instantiate(NETUIController.instance.killsFeedPrefab, NETUIController.instance.KillsFeed.transform).GetComponent<TMP_Text>();
+                        killFeed.text = (string)dataReceived[3] + " <color=red>Killed</color> " + players[i].name; 
                         break;
                 }
                 //if that player is us, update stats
@@ -352,8 +366,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         currentMatchTime = (int)dataReceived[0];
         state = (GameStates)dataReceived[1];
 
-        UpdateTimerDisplay();
-         
+        UpdateTimerDisplay(); 
     }
 
 
@@ -448,17 +461,31 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
                 PhotonNetwork.Destroy(item.gameObject.GetComponent<PhotonView>());
             }
         }
-        NETUIController.instance.endScreen.SetActive(true);
+
+        //Death camera
+        deathCamera.SetActive(true);
+
+        //Show UI
+        NETUIController.instance.OpenPanel(PanelType.END);
         ShowLeaderboard();
 
         //Activate cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        //Death camera
-        deathCamera.SetActive(true);
-
+         
+        StartCoroutine(NextMatchTimer()); 
         StartCoroutine(EndCO());
+    }
+
+    private IEnumerator NextMatchTimer()
+    {
+        float timer = waitAfterEnding;
+        while (timer > 0.0f)
+        {
+            --timer;
+            NETUIController.instance.nextMatchtimeText.text = "Next Round In: <color=red>" + timer.ToString("0") + "</color>";
+            yield return new WaitForSeconds(1);
+        }
     }
 
     private IEnumerator EndCO()
@@ -490,6 +517,22 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
                 //}
             }
         }
+    }
+
+    private IEnumerator KillTextActivation()
+    {
+        NETUIController.instance.currentKillText.CrossFadeAlpha(1.0f, 0.0f, true);
+        NETUIController.instance.currentKillText.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(3.0f);
+
+        NETUIController.instance.currentKillText.CrossFadeAlpha(0.0f, 2.0f, true);
+        while (NETUIController.instance.currentKillText.color.a > 0.0f)
+        { 
+            yield return null;
+        }
+
+        NETUIController.instance.currentKillText.gameObject.SetActive(false);
     }
 
 
