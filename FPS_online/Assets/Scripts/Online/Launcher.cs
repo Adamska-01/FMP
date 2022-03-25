@@ -21,6 +21,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     [SerializeField] TMP_InputField nicknameInputField; private static bool hasSetNick = false;
     [SerializeField] TMP_Text errorText;
     [SerializeField] TMP_Text roomNameText;
+    [SerializeField] Image roomImage;
     //Rooms
     [SerializeField] Transform roomListContent;
     [SerializeField] GameObject roomListItemPrefab;
@@ -317,6 +318,13 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     {
         MenuManager.Instance.OpenMenu(MenuManager.MenuType.ROOM);
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
+        Sprite sprite = default;
+        string matchType = PhotonNetwork.CurrentRoom.CustomProperties["matchType"].ToString();
+        if (matchType.Contains("Deathmatch"))
+            sprite = findDropDown.options[0].image;
+        else if (matchType.Contains("Conquest"))
+            sprite = findDropDown.options[1].image;
+        roomImage.sprite = sprite;
 
         //Clear the list of players before instantiating a new one
         foreach (Transform trans in playerListContent)
