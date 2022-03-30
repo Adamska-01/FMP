@@ -1,10 +1,17 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class NETPlayerStats : MonoBehaviour, IDamageable
 {
+    [SerializeField] private Animator animator = null;
+    private CharacterController characterController;
+    [SerializeField] private Rigidbody[] ragdollBodies;
+    [SerializeField] private Collider[] ragdollColliders;
+    private UpperBodyIK ik;
+
     //max values
     public float MAX_HEALTH_VALUE = 100.0f;
     public float MAX_ARMOUR_VALUE = 50.0f;
@@ -21,7 +28,11 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        pv = GetComponent<PhotonView>();  
+        pv = GetComponent<PhotonView>();
+
+        characterController = GetComponent<CharacterController>();
+        ik = GetComponent<UpperBodyIK>();
+        ToggleRagdoll(false);
 
         playerManager = PhotonView.Find((int)pv.InstantiationData[0]).GetComponent<PlayerManager>();
     }
@@ -29,7 +40,7 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
     void Start()
     { 
         pv = GetComponent<PhotonView>();
-
+         
         HealthValue = MAX_HEALTH_VALUE;
         ArmourValue = MAX_ARMOUR_VALUE;
 
@@ -68,8 +79,7 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
             return;
 
         if (!isDead)
-        {
-            Debug.Log("Took Damage: " + damage);
+        { 
             if (ArmourValue > 0.0f)
             {
                 ArmourValue -= damage;
@@ -83,16 +93,28 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
             { 
                 isDead = true;
 
-                //Sound
-                AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.DEATH, SoundManagerConstants.AudioOutput.SFX, transform.position);
-                audioSource.maxDistance = 4.0f;
-
-                GetComponent<Animator>().SetBool(GetComponent<NETAnimationController>().DeathHash, true);
+                pv.RPC("RPC_Die", RpcTarget.All, _actor); 
 
                 playerManager.Die(_damager); 
 
                 MatchManager.instance.UpdateStatsSend(_actor, 0, 1, pv.Owner.NickName);
             }  
+        }
+    }
+    [PunRPC]
+    private void RPC_Die(int _actor)
+    {
+        //Sound
+        AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.DEATH, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        audioSource.maxDistance = 4.0f;
+
+        //Death ragdoll
+        PhotonView[] pvs = FindObjectsOfType<PhotonView>();
+        PhotonView damagerPv = pvs.ToList().Find(x => x.Owner.ActorNumber == _actor);
+        ToggleRagdoll(true);
+        foreach (Rigidbody item in ragdollBodies)
+        {
+            item.AddExplosionForce(30.0f, damagerPv.transform.position, 5.0f, 0.0f, ForceMode.Impulse);
         }
     }
 
@@ -141,5 +163,23 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
     public bool IsDead()
     {
         return isDead;
+    }
+
+    private void ToggleRagdoll(bool _state)
+    {
+        animator.enabled = !_state;
+
+        foreach (Rigidbody item in ragdollBodies)
+        {
+            item.isKinematic = !_state;
+        }
+
+        foreach (Collider item in ragdollColliders)
+        {
+            item.enabled = _state;
+        }
+
+        ik.SetIK(!_state);
+        if(characterController != null) characterController.enabled = !_state;
     }
 }

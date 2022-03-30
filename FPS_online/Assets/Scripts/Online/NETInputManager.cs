@@ -18,6 +18,7 @@ public class NETInputManager : MonoBehaviour
     public bool Run { get { return run; } }
     protected bool crouch;
     public bool Crouch { get { return crouch; } }
+    private bool wasLastInputC;
     protected bool jump;
     public bool Jump { get { return jump; } }
 
@@ -77,7 +78,18 @@ public class NETInputManager : MonoBehaviour
         back = Input.GetKey(KeyCode.S);
         right = Input.GetKey(KeyCode.D);
         run = Input.GetKey(KeyCode.LeftShift);
-        crouch = Input.GetKeyDown(KeyCode.C) ? !crouch : crouch;
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            crouch = !crouch;
+            wasLastInputC = true;
+        }
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            crouch = true;
+            wasLastInputC = false;
+        }
+        else if (!Input.GetKey(KeyCode.LeftControl) && !wasLastInputC)
+            crouch = false;
         jump = Input.GetKeyDown(KeyCode.Space);
 
         //Actions

@@ -21,6 +21,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private float speedMultiplier = 1.8f;
     private float aimSensitivity = 0.4f;
+    
     public float sensitivityMultiplier = 1.0f;
     private float ADSsensitivityMultiplier = 0.11f;
     [SerializeField] private float jumpForce = 200.0f; 

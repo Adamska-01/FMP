@@ -163,9 +163,9 @@ public class HUDController : MonoBehaviour
     public void ReturnToMenu()
     {
         Time.timeScale = 1;
-        var roomMngr = FindObjectOfType<RoomManager>().gameObject;
+        var roomMngr = FindObjectOfType<RoomManager>()?.gameObject;
         if(roomMngr != null)
-            Destroy(FindObjectOfType<RoomManager>().gameObject);
+            Destroy(roomMngr);
         
         if (PhotonNetwork.IsConnected)
         {

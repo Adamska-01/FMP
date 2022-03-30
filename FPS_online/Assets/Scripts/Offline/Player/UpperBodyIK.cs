@@ -78,4 +78,5 @@ public class UpperBodyIK : MonoBehaviour
 
     public void ActivateIK() => isIKActive = true;
     public void DeactivateIK() => isIKActive = false;
+    public void SetIK(bool _state) => isIKActive = _state;
 }

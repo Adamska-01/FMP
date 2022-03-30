@@ -11,13 +11,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private AnimationController animController;
     private Vector3 movementDir;
-
-    [SerializeField] private float offsetFloorY = 0.4f;
-    [SerializeField] private float movementSpeed = 3f;
-    [SerializeField] private float speedMultiplier = 1.8f;
-    private float aimSensitivity = 0.4f;
+     
+    private float movementSpeed = 3.8f;
+    private float speedMultiplier = 1.8f;
+    private float crouchMultiplier = 0.6f;
+    private float aimSensitivity = 0.4f; 
     public float sensitivityMultiplier = 1.0f; 
-    private float ADSsensitivityMultiplier = 0.11f;
+    private float ADSsensitivityMultiplier = 0.4f;
     [SerializeField] private float jumpForce = 200.0f; 
     private float ySpeed;
     public bool IsRunning { get { return (!inputManager.Crouch && !inputManager.Back && inputManager.Run); } }
@@ -213,12 +213,12 @@ public class PlayerController : MonoBehaviour
     private void UpdatePhysics()
     {    
         //Update velocity
-        characterController.Move((movementDir * (IsRunning ? movementSpeed * speedMultiplier : movementSpeed) * Time.deltaTime)); 
+        characterController.Move((movementDir * (IsRunning ? movementSpeed * speedMultiplier : currentCrouch ? movementSpeed * crouchMultiplier : movementSpeed) * Time.deltaTime)); 
     }
 
     private void Look()
     {
-        float sensitivity = isAiming ? ADSsensitivityMultiplier : (aimSensitivity * sensitivityMultiplier);
+        float sensitivity = isAiming ? (aimSensitivity * ADSsensitivityMultiplier) : (aimSensitivity * sensitivityMultiplier);
 
         //Rotate player 
         transform.Rotate(Vector3.up * inputManager.XLookAxis * sensitivity);

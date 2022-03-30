@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
+    [SerializeField] private Animator animator = null;
+    private CharacterController characterController;
+    [SerializeField] private Rigidbody[] ragdollBodies;
+    [SerializeField] private Collider[] ragdollColliders;
+    private UpperBodyIK ik;
+
     //max values
     public float MAX_HEALTH_VALUE = 100.0f;
     public float MAX_ARMOUR_VALUE = 50.0f; 
@@ -17,7 +23,11 @@ public class PlayerStats : MonoBehaviour, IDamageable
        
 
     void Start()
-    {  
+    {
+        characterController = GetComponent<CharacterController>();
+        ik = GetComponent<UpperBodyIK>();
+        ToggleRagdoll(false);
+
         HealthValue = MAX_HEALTH_VALUE; 
         ArmourValue = MAX_ARMOUR_VALUE;
 
@@ -28,10 +38,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
     //Changed by Mattie to FixedUpdate
     void FixedUpdate()
     {
-        updateUI();
-    }
+        updateUI(); 
+    } 
 
-     
+
     private void updateUI() //For now there is no UI
     {
         HealthValue = Mathf.Clamp(HealthValue, 0, MAX_HEALTH_VALUE);
@@ -108,4 +118,22 @@ public class PlayerStats : MonoBehaviour, IDamageable
     {
         return isDead;
     } 
+
+    private void ToggleRagdoll(bool _state)
+    {
+        animator.enabled = !_state;
+
+        foreach (Rigidbody item in ragdollBodies)
+        {
+            item.isKinematic = !_state;
+        }
+
+        foreach (Collider item in ragdollColliders)
+        {
+            item.enabled = _state;
+        }
+
+        ik.SetIK(!_state);
+        characterController.enabled = !_state;
+    }
 }
