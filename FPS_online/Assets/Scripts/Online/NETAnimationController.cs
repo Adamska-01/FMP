@@ -24,6 +24,8 @@ public class NETAnimationController : MonoBehaviour
     public int FireHash { get { return fireHash; } }
     private int deathHash;
     public int DeathHash { get { return deathHash; } }
+    private int stabHash;
+    public int StabHash { get { return stabHash; } }
 
     //Crouch lerp
     [SerializeField] private Transform cameraTansf;
@@ -61,6 +63,7 @@ public class NETAnimationController : MonoBehaviour
         reloadHash = Animator.StringToHash("Reloading");
         fireHash = Animator.StringToHash("Fire");
         deathHash = Animator.StringToHash("IsDead");
+        stabHash = Animator.StringToHash("Stab");
 
         inputManager = FindObjectOfType<NETInputManager>(); 
     }

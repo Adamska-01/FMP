@@ -21,6 +21,8 @@ public class AnimationController : MonoBehaviour
     public int ReloadHash { get { return reloadHash; } }
     private int fireHash;
     public int FireHash { get { return fireHash; } }
+    private int stabHash;
+    public int StabHash { get { return stabHash; } }
 
     //Crouch lerp
     [SerializeField] private Transform cameraTansf;
@@ -53,6 +55,7 @@ public class AnimationController : MonoBehaviour
         jumpHash = Animator.StringToHash("Jump");
         reloadHash = Animator.StringToHash("Reloading");
         fireHash = Animator.StringToHash("Fire");
+        stabHash = Animator.StringToHash("Stab");
 
         inputManager = FindObjectOfType<InputManager>(); 
     }

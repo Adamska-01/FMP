@@ -222,7 +222,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
 
     private void FireWeapon()
     { 
-        if (inputManager.FireSingleShot && !isReloading && (items[itemIndex].TryGetComponent<NETSingleShotGun>(out var ssg) || items[itemIndex].TryGetComponent<NETMeleeWeapon>(out var melee)))
+        if (inputManager.FireSingleShot && !isReloading && (items[itemIndex].TryGetComponent<NETSingleShotGun>(out var ssg)))
         {
             if (items[itemIndex].Use())  
                 animator.SetTrigger(animController.FireHash);
@@ -232,6 +232,11 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
         
             if(items[itemIndex].Use())
                 animator.SetTrigger(animController.FireHash);
+        }
+        else if (inputManager.FireSingleShot && items[itemIndex].TryGetComponent<NETMeleeWeapon>(out var melee))
+        {
+            if (items[itemIndex].Use())
+                animator.SetTrigger(animController.StabHash);
         }
         else
         {
