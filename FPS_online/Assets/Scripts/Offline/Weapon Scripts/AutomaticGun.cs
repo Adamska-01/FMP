@@ -31,12 +31,12 @@ public class AutomaticGun : Gun
 
             GameObject bullet = null;
             if(Physics.Raycast(ray, out RaycastHit hit))
-            { 
+            {  
                 bullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.LookRotation(hit.point - bulletStart.transform.position)); 
             }
             else
             { 
-                bullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.LookRotation(cam.transform.forward));
+                bullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.LookRotation(cam.transform.forward)); 
             }
 
             Instantiate(effectPrefab, bulletStart.position, Quaternion.LookRotation(cam.transform.forward));

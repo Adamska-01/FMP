@@ -201,6 +201,11 @@ public class PlayerController : MonoBehaviour
         {
             isReloading = true;
             animator.SetTrigger(animController.ReloadHash);
+
+            if (items[itemIndex].TryGetComponent<SingleShotGun>(out var ssg))
+                SoundManager.instance.PlaySound(SoundManagerConstants.Clips.RELOAD_HANDGUN, SoundManagerConstants.AudioOutput.SFX, gameObject);
+            else
+                SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.RELOAD_RIFLE, SoundManagerConstants.AudioOutput.SFX, gameObject);
         }
     }
 

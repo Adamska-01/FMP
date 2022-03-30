@@ -34,13 +34,15 @@ public class NETAnimationController : MonoBehaviour
     [SerializeField] private Transform headEffectorCrouchTarget;
     private float transitionCrouch = 0.0f;
     private float transitionCrouchTime = 5.0f;
-    //Aim lerp
-    [SerializeField] private Transform rightArmTransf;
+    //Aim lerp 
     private float transitionADS = 0.0f;
     private float transitionADSTime = 10.0f;
+    [SerializeField] private Transform ADSrightHandTarget;
+    [SerializeField] private Transform NoADSrightHandTarget;
+    [SerializeField] private Transform rightHandTarget; 
     [SerializeField] private Camera mainCamera;
-    [SerializeField] private float adsOffFov = 60.0f;
-    [SerializeField] private float adsOnFov = 40.0f;
+    private float adsOffFov = 60.0f;
+    private float adsOnFov = 40.0f;
 
     private NETInputManager inputManager;
     private NETPlayerStats stats;
@@ -60,7 +62,7 @@ public class NETAnimationController : MonoBehaviour
         fireHash = Animator.StringToHash("Fire");
         deathHash = Animator.StringToHash("IsDead");
 
-        inputManager = FindObjectOfType<NETInputManager>();
+        inputManager = FindObjectOfType<NETInputManager>(); 
     }
 
 
@@ -105,6 +107,8 @@ public class NETAnimationController : MonoBehaviour
         }
         //FOV
         mainCamera.fieldOfView = Mathf.Lerp(adsOffFov, adsOnFov, transitionADS);
+        rightHandTarget.position = Vector3.Lerp(NoADSrightHandTarget.position, ADSrightHandTarget.position, transitionADS);
+        rightHandTarget.rotation = Quaternion.Lerp(NoADSrightHandTarget.rotation, ADSrightHandTarget.rotation, transitionADS);
 
         ChangeVelocity(forwardPressed, leftPressed, rightPressed, backPressed, runPressed, currentMaxVelocity);
         LockOrResetVelocity(forwardPressed, leftPressed, rightPressed, backPressed, runPressed, currentMaxVelocity);

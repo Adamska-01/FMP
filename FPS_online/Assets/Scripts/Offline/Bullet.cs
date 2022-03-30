@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        velocity = 150.0f;
+        velocity = 180.0f;
         StartCoroutine("DestroySelf");
         impactsAndHoles = FindObjectOfType<ImpactsAndHoles>();
     }
