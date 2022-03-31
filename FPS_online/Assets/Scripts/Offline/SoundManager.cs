@@ -6,6 +6,9 @@ using UnityEngine.Audio;
  
 public class SoundManager : MonoBehaviour
 {
+    const float MUSIC_VOLUME = 0.2f;
+    private List<AudioSource> currentMusicsPlaying = new List<AudioSource>();
+    public List<AudioClip> musics = new List<AudioClip>();
     public static SoundManager instance; 
     private void Awake()
     {
@@ -21,8 +24,7 @@ public class SoundManager : MonoBehaviour
     public AudioMixer mixer;
     [SerializeField] private AudioMixerGroup sfxGroup;
     [SerializeField] private AudioMixerGroup musicGroup;
-    
-
+     
     [Header("Dictionary Settings")]
     public List<SoundManagerConstants.Clips> clipName = new List<SoundManagerConstants.Clips>();
     public List<AudioClip> clipList = new List<AudioClip>();
@@ -32,6 +34,7 @@ public class SoundManager : MonoBehaviour
     public GameObject prefabToPool;
     public int amountToPool;
     private List<GameObject> pooledPrefabs = new List<GameObject>();
+
 
     void Start()
     {  
@@ -180,6 +183,131 @@ public class SoundManager : MonoBehaviour
         return prefabAudioSource;
     }
 
+    private void SetMusicsPlaying()
+    { 
+        for (int i = 0; i < musics.Count; i++)
+        {
+            GameObject prefab = GetPoolObject();
+            if (prefab == null)
+                continue;
+             
+            prefab.SetActive(true);
+
+            currentMusicsPlaying.Add(prefab.GetComponent<AudioSource>());
+            currentMusicsPlaying[i].outputAudioMixerGroup = musicGroup;
+            currentMusicsPlaying[i].clip = musics[i];
+            currentMusicsPlaying[i].spatialBlend = 0.0f;
+            currentMusicsPlaying[i].priority = 256; //low
+            currentMusicsPlaying[i].volume = 0.0f; 
+            currentMusicsPlaying[i].loop = true; 
+            currentMusicsPlaying[i].Play(); 
+        }
+    }
+
+    public void PlayRandomMusicFromList()
+    {
+        if (currentMusicsPlaying.Count <= 0)
+            SetMusicsPlaying();
+
+        int musicPlayingIndex = -1;
+        for (int i = 0; i < currentMusicsPlaying.Count; i++)
+        {
+            if (currentMusicsPlaying[i].volume > 0)
+            {
+                musicPlayingIndex = i;
+                break;
+            }
+        }
+
+        if (musicPlayingIndex == -1)
+        { 
+            int musicIndex = Random.Range(0, currentMusicsPlaying.Count);
+            currentMusicsPlaying[musicIndex].volume = MUSIC_VOLUME;
+        }
+        else
+        {
+            int musicIndex = Random.Range(0, currentMusicsPlaying.Count);
+            for (int i = 0; i < currentMusicsPlaying.Count; i++)
+            {
+                if (currentMusicsPlaying[i].volume > 0)
+                {
+                    StartCoroutine(FadeOutSong(currentMusicsPlaying[i], musicIndex));
+                    break;
+                }
+            }
+        }
+    }
+
+    public void FadeOutAllMusic(float timeToFade)
+    {
+        for (int i = 0; i < currentMusicsPlaying.Count; i++)
+        {
+            if (currentMusicsPlaying[i].volume > 0)
+            {
+                StartCoroutine(FadeOutAllMusic(currentMusicsPlaying[i], timeToFade));
+                break;
+            }
+        }
+    }
+
+    private IEnumerator FadeOutAllMusic(AudioSource src, float time)
+    {
+        float timeToFade = time;
+        float timeElapsed = 0.0f;
+        float startVl = src.volume;
+        while (timeElapsed < timeToFade)
+        {
+            src.volume = Mathf.Lerp(startVl, 0, timeElapsed / timeToFade);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        src.volume = 0.0f;
+    }
+
+    private IEnumerator FadeOutSong(AudioSource src, int musicInx)
+    {
+        float timeToFade = 0.25f;
+        float timeElapsed = 0.0f;
+        float startVl = src.volume;
+        while (timeElapsed < timeToFade)
+        {
+            src.volume = Mathf.Lerp(startVl, 0, timeElapsed / timeToFade);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        src.volume = 0.0f;
+
+        timeElapsed = 0.0f;
+        while (timeElapsed < timeToFade)
+        {
+            currentMusicsPlaying[musicInx].volume = Mathf.Lerp(0, startVl, timeElapsed / timeToFade);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        currentMusicsPlaying[musicInx].volume = MUSIC_VOLUME;
+    }
+
+    private AudioSource PlayMusic(SoundManagerConstants.Clips clip, float volume)
+    {
+        GameObject prefab = GetPoolObject();
+
+        if (prefab == null)
+            return null;
+         
+        prefab.SetActive(true);
+
+        #region Configure AudioSource
+        AudioSource prefabAudioSource = prefab.GetComponent<AudioSource>();
+
+        prefabAudioSource.clip = clipLib[clip];
+        prefabAudioSource.volume = volume;
+        prefabAudioSource.outputAudioMixerGroup = musicGroup;
+        prefabAudioSource.Play();
+        #endregion
+
+        return prefabAudioSource;
+    }
+
     private void CreateInstances()
     {
         for (int i = 0; i < amountToPool; i++)
@@ -215,12 +343,15 @@ public class SoundManager : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
 
-        if (unparent)
+        if(!prefab.GetComponent<AudioSource>().loop)
         {
-            prefab.transform.parent = gameObject.transform;
-        }
+            if (unparent)
+            {
+                prefab.transform.parent = gameObject.transform;
+            }
 
-        prefab.SetActive(false);
+            prefab.SetActive(false);
+        }
     }
 
 
@@ -259,6 +390,13 @@ public class SoundManagerConstants
         RELOAD_RIFLE,
         RELOAD_HANDGUN,
         DUMMY_SPAWN,
-        DUMMY_DEATH
+        DUMMY_DEATH, 
+        MUSIC_TRACK_1,
+        MUSIC_TRACK_2,
+        MUSIC_TRACK_3,
+        MUSIC_TRACK_4,
+        MUSIC_TRACK_5,        
+        BUTTON_SELECT,
+        BUTTON_CLOSE,
     }
 }

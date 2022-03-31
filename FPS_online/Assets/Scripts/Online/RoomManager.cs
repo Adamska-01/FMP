@@ -34,6 +34,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     private void OnSceneLoaded(Scene _scene, LoadSceneMode _loadSceneMode)
     {
+        SoundManager.instance.FadeOutAllMusic(1.0f);
+
         if(_scene.buildIndex == 2 ||
             _scene.buildIndex == 3) //we are in multiplayer scene 
         {

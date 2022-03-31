@@ -59,7 +59,9 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     public Dictionary<GameMode, MapIndexes> mapsPerMode = new Dictionary<GameMode, MapIndexes>();
      
     void Start()
-    {
+    { 
+        SoundManager.instance.PlayRandomMusicFromList();
+
         //Init maps 
         for (int i = 0; i < modes.Count; i++)
         {
@@ -254,8 +256,9 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     }
 
     public void StartSinglePlayerGame()
-    { 
-        PhotonNetwork.LoadLevel(1);
+    {
+        SoundManager.instance.FadeOutAllMusic(1.0f);
+        SceneManager.LoadScene(1);
     }
 
     public void DisconnetFromServer()

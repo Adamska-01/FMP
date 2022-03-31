@@ -26,4 +26,14 @@ public class RoomListItem : MonoBehaviour
     {
         Launcher.Instance.JoinRoom(info);
     }
+
+    public void PlayButtonPressSound()
+    {
+        AudioSource src = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.BUTTON_SELECT, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        if (src != null)
+        {
+            src.spatialBlend = 0.0f;
+            src.priority = 0;
+        }
+    }
 }
