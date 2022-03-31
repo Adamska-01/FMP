@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateWeapon()
     {
-        isAiming = inputManager.IsAiming;
+        isAiming = characterController.isGrounded ? inputManager.IsAiming : false;
         if (!isReloading)
         {
             //Switch guns with numbers

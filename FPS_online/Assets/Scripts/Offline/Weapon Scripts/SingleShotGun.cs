@@ -43,7 +43,7 @@ public class SingleShotGun : Gun
             Instantiate(effectPrefab, bulletStart.position, Quaternion.LookRotation(cam.transform.forward));
 
             //Sound
-            AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.RIFLE_SHOOT, SoundManagerConstants.AudioOutput.SFX, bulletStart.position, 0.8f);
+            AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.RIFLE_SHOOT, SoundManagerConstants.AudioOutput.SFX, bulletStart.position, 0.15f);
             audioSource.maxDistance = 23.0f;
 
             //Assign damages

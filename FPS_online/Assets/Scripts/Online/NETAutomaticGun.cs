@@ -61,7 +61,7 @@ public class NETAutomaticGun : NETGun
         Instantiate(effectPrefab, _pos, Quaternion.LookRotation(cam.transform.forward));
 
         //Sound
-        AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.RIFLE_SHOOT, SoundManagerConstants.AudioOutput.SFX, _pos, 0.9f);
+        AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.RIFLE_SHOOT, SoundManagerConstants.AudioOutput.SFX, _pos, 0.15f);
         audioSource.maxDistance = 30.0f;
     }
 

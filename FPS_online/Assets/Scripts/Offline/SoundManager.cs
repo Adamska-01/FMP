@@ -257,6 +257,8 @@ public class SoundManagerConstants
         LANDING,
         DEATH,
         RELOAD_RIFLE,
-        RELOAD_HANDGUN
+        RELOAD_HANDGUN,
+        DUMMY_SPAWN,
+        DUMMY_DEATH
     }
 }

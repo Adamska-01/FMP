@@ -85,8 +85,8 @@ public class AnimationController : MonoBehaviour
         cameraTansf.position = Vector3.Lerp(cameraStandTarget.position, cameraCrouchTarget.position, transitionCrouch);
         HeadEffector.position = Vector3.Lerp(headEffectorStandTarget.position, headEffectorCrouchTarget.position, transitionCrouch);
 
-        //ADS lerp
-        if (inputManager.IsAiming)
+        //ADS lerp 
+        if (player.isAiming)
         {
             transitionADS = Mathf.Lerp(transitionADS, 1, Time.smoothDeltaTime * transitionADSTime);
         }

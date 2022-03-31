@@ -1137,6 +1137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8baa7a3709f788a439ee59721dcfe955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffect: {fileID: 5813578293392624220, guid: 32d94e42734d12d40bf0eb1f2c2b8e1d, type: 3}
   MAX_HEALTH_VALUE: 100
   MAX_ARMOUR_VALUE: 50
 --- !u!114 &5419062878670756130

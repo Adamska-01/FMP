@@ -751,6 +751,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7859233901590897346, guid: e8475f95e143c37468d142de2fd091a8, type: 3}
+      propertyPath: clipList.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859233901590897346, guid: e8475f95e143c37468d142de2fd091a8, type: 3}
+      propertyPath: clipName.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859233901590897346, guid: e8475f95e143c37468d142de2fd091a8, type: 3}
+      propertyPath: clipList.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: 021bd76c417d5814c94ad9b5fd9a28cd, type: 3}
+    - target: {fileID: 7859233901590897346, guid: e8475f95e143c37468d142de2fd091a8, type: 3}
+      propertyPath: clipName.Array.data[12]
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8625102941788379649, guid: e8475f95e143c37468d142de2fd091a8, type: 3}
       propertyPath: m_Name
       value: SoundManager
@@ -2419,7 +2435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2462,7 +2478,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}

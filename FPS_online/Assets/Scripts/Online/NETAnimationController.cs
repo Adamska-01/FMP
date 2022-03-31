@@ -100,7 +100,7 @@ public class NETAnimationController : MonoBehaviour
         HeadEffector.position = Vector3.Lerp(headEffectorStandTarget.position, headEffectorCrouchTarget.position, transitionCrouch);
 
         //ADS lerp
-        if (inputManager.IsAiming)
+        if (player.isAiming)
         {
             transitionADS = Mathf.Lerp(transitionADS, 1, Time.smoothDeltaTime * transitionADSTime);
         }
