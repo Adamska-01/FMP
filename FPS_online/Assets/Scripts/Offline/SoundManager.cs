@@ -19,6 +19,12 @@ public class SoundManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         instance = this;
+
+        //Create Dictionary
+        for (int i = 0; i < clipName.Count; i++)
+            clipLib.Add(clipName[i], clipList[i]);
+
+        CreateInstances();
     }
      
     public AudioMixer mixer;
@@ -34,16 +40,7 @@ public class SoundManager : MonoBehaviour
     public GameObject prefabToPool;
     public int amountToPool;
     private List<GameObject> pooledPrefabs = new List<GameObject>();
-
-
-    void Start()
-    {  
-        //Create Dictionary
-        for (int i = 0; i < clipName.Count; i++)
-            clipLib.Add(clipName[i], clipList[i]);
-
-        CreateInstances(); 
-    }
+     
 
 
     public void PlaySound(SoundManagerConstants.Clips clip, SoundManagerConstants.AudioOutput group, Vector3 position, float volume = 1)
@@ -201,7 +198,7 @@ public class SoundManager : MonoBehaviour
             currentMusicsPlaying[i].volume = 0.0f; 
             currentMusicsPlaying[i].loop = true; 
             currentMusicsPlaying[i].Play(); 
-        }
+        } 
     }
 
     public void PlayRandomMusicFromList()

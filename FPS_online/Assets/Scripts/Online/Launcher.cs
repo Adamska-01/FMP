@@ -11,6 +11,7 @@ using UnityEngine.UI;
 
 public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room creation, errrors, joining lobbies etc.
 {
+    private const int LOADING_EVENT_CODE = 100;
     public static Launcher Instance;
     void Awake()
     {
@@ -75,6 +76,16 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         PhotonNetwork.LocalPlayer.SetCustomProperties(hasVotedGeneral);
     }
 
+    public override void OnEnable()
+    {
+        PhotonNetwork.AddCallbackTarget(this);
+    }
+
+    public override void OnDisable()
+    {
+        //Avoid Errors
+        PhotonNetwork.RemoveCallbackTarget(this);
+    }
 
     public void ConnectToServer()
     {
@@ -224,11 +235,19 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
 
     public void StartGame()
     {
-        if(!hasStartedTheGame)
+        if (!hasStartedTheGame)
         {
-            int map = (int)PhotonNetwork.CurrentRoom.CustomProperties["mapToPlay"]; 
+            //Send loading screen event from master client 
+            PhotonNetwork.RaiseEvent(
+                LOADING_EVENT_CODE,
+                null,
+                new RaiseEventOptions { Receivers = ReceiverGroup.All }, //Send to all clients
+                new ExitGames.Client.Photon.SendOptions { Reliability = true } //TCP is always reliable by design)
+                );
+
+            int map = (int)PhotonNetwork.CurrentRoom.CustomProperties["mapToPlay"];
             if (map == -1)
-            {
+            { 
                 //Get Room custom properties 
                 GameMode mode = (GameMode)PhotonNetwork.CurrentRoom.CustomProperties["mode"];
                 int[] votes = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapVotes"];
@@ -247,11 +266,19 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
                 hasStartedTheGame = true;
             }
             else
-            {
+            { 
                 //Load level
                 LevelLoader.Instance.LoadLevelOnline(map); 
                 hasStartedTheGame = true;
             }
+        }
+    }
+
+    public void NetworkingClient_EventReceived(ExitGames.Client.Photon.EventData obj)
+    {
+        if(obj.Code == LOADING_EVENT_CODE && !PhotonNetwork.IsMasterClient)
+        {
+            LevelLoader.Instance.ShowLoadingMenuOnOtherClients();
         }
     }
 

@@ -43,11 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ef9fcf09866544b8f22361cba28f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMusicPlaying: {fileID: 0}
+  musics:
+  - {fileID: 8300000, guid: 6b542afe2a5c5e54abf7599243d24c4f, type: 3}
+  - {fileID: 8300000, guid: 6855e2ef0ee0dc54f8a9c74737171aeb, type: 3}
+  - {fileID: 8300000, guid: cc3e2b7efaa982b4f8eaafdf31fc47a1, type: 3}
+  - {fileID: 8300000, guid: 7a86debcb610a1446b033a77be0d9ef2, type: 3}
+  - {fileID: 8300000, guid: 4998f5a559380b042bd3b639f68add02, type: 3}
   mixer: {fileID: 24100000, guid: 916fcbdcc571cdf44a66734d0e79fd9d, type: 2}
   sfxGroup: {fileID: -481583758512016266, guid: 916fcbdcc571cdf44a66734d0e79fd9d, type: 2}
   musicGroup: {fileID: 1097087962637139923, guid: 916fcbdcc571cdf44a66734d0e79fd9d, type: 2}
-  clipName: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000
+  clipName: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000001200000013000000
   clipList:
   - {fileID: 8300000, guid: 8f04b3ff514c3254898fc3754113a032, type: 3}
   - {fileID: 8300000, guid: ada807241eefef54681c5e9f2e838300, type: 3}
@@ -62,10 +67,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5352c7bdf44b11141ba87d35e6e5a45a, type: 3}
   - {fileID: 8300000, guid: 41864ac28c7108f4c941540e1cdb0fa2, type: 3}
   - {fileID: 8300000, guid: 021bd76c417d5814c94ad9b5fd9a28cd, type: 3}
-  - {fileID: 8300000, guid: 6b542afe2a5c5e54abf7599243d24c4f, type: 3}
-  - {fileID: 8300000, guid: 6855e2ef0ee0dc54f8a9c74737171aeb, type: 3}
-  - {fileID: 8300000, guid: cc3e2b7efaa982b4f8eaafdf31fc47a1, type: 3}
-  - {fileID: 8300000, guid: 7a86debcb610a1446b033a77be0d9ef2, type: 3}
-  - {fileID: 8300000, guid: 4998f5a559380b042bd3b639f68add02, type: 3}
+  - {fileID: 8300000, guid: fc6eb80677102e84fa6499ce5aca2f6e, type: 3}
+  - {fileID: 8300000, guid: 864c37378be68e84ea763be69a7d1dc8, type: 3}
   prefabToPool: {fileID: 1370848306585501843, guid: df38e8f6b7cbf824398985d03afdc2ba, type: 3}
   amountToPool: 50

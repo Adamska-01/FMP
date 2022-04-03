@@ -26,6 +26,10 @@ public class LevelLoader : MonoBehaviour
     {
         StartCoroutine(LoadLevelOnlineAsync(_index));
     }
+    public void ShowLoadingMenuOnOtherClients()
+    {
+        StartCoroutine(ProgressBarOnline());
+    }
 
 
     private IEnumerator LoadLevelOfflineAsync(int _index)
@@ -49,13 +53,25 @@ public class LevelLoader : MonoBehaviour
         PhotonNetwork.LoadLevel(_index);
 
         MenuManager.Instance.OpenMenu(MenuManager.MenuType.LOADING_SCENE);
-         
+
         while (PhotonNetwork.LevelLoadingProgress < 1)
         { 
             float progress = Mathf.Clamp01(PhotonNetwork.LevelLoadingProgress / 0.9f);
 
             loadingBar.value = progress;
             progressText.text = progress * 100.0f + "%"; 
+            yield return null;
+        }
+    }
+    private IEnumerator ProgressBarOnline()
+    {
+        MenuManager.Instance.OpenMenu(MenuManager.MenuType.LOADING_SCENE);
+        while (PhotonNetwork.LevelLoadingProgress < 1)
+        {
+            float progress = Mathf.Clamp01(PhotonNetwork.LevelLoadingProgress / 0.9f);
+
+            loadingBar.value = progress;
+            progressText.text = progress * 100.0f + "%";
             yield return null;
         }
     }

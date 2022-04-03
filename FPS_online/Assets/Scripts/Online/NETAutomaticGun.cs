@@ -10,8 +10,7 @@ public class NETAutomaticGun : NETGun
 
 
     public override bool Use()
-    {
-        Debug.Log("I am instantiating the bullet");
+    { 
         return Shoot();
     }
 
