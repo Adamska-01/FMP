@@ -240,16 +240,16 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
                     bestVote = Random.Range(0, mapsPerMode[mode].indexes.Length);
                 else
                     bestVote = votes.ToList().IndexOf(votes.Max());
-                 
+
                 //Load level
-                PhotonNetwork.LoadLevel(mapsPerMode[mode].indexes[mapsIndexes[bestVote]]);
+                LevelLoader.Instance.LoadLevelOnline(mapsPerMode[mode].indexes[mapsIndexes[bestVote]]); 
 
                 hasStartedTheGame = true;
             }
             else
             {
                 //Load level
-                PhotonNetwork.LoadLevel(map);
+                LevelLoader.Instance.LoadLevelOnline(map); 
                 hasStartedTheGame = true;
             }
         }
@@ -258,7 +258,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     public void StartSinglePlayerGame()
     {
         SoundManager.instance.FadeOutAllMusic(1.0f);
-        SceneManager.LoadScene(1);
+        LevelLoader.Instance.LoadLevelOffline(1); 
     }
 
     public void DisconnetFromServer()

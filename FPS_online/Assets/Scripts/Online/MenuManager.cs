@@ -19,7 +19,8 @@ public class MenuManager : MonoBehaviour
         SETTINGS,
         GENERAL_SETTINGS,
         GRAPHICS_SETTINGS,
-        AUDIO_SETTINGS
+        AUDIO_SETTINGS,
+        LOADING_SCENE
     }
 
     public static MenuManager Instance;
