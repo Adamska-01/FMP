@@ -77,7 +77,7 @@ public class NETUIController : MonoBehaviour
 
     void Update()
     {
-        if(inputManager.Pause)
+        if(inputManager.Pause && MatchManager.instance.state == MatchManager.GameStates.Playing)
         {
             OpenClosePause();
         }
@@ -156,6 +156,10 @@ public class NETUIController : MonoBehaviour
     {
         if (!isPaused)
         {
+            for (int i = 0; i < panels.Length; i++) 
+                if (panels[i].type == PanelType.END && panels[i].isOpen)
+                    return; 
+
             OpenPanel(PanelType.PAUSE);
 
             Cursor.lockState = CursorLockMode.None;
@@ -176,7 +180,9 @@ public class NETUIController : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        Destroy(FindObjectOfType<RoomManager>().gameObject);
+        var rm = FindObjectOfType<RoomManager>()?.gameObject;
+        if (rm != null) Destroy(rm);
+        MatchManager.instance.perpetual = false;
         PhotonNetwork.AutomaticallySyncScene = false;
         PhotonNetwork.LeaveRoom();
     }
@@ -194,6 +200,11 @@ public class NETUIController : MonoBehaviour
             {
                 if (panels[i].type == _panelName)
                     panels[i].Open();
+                else if (panels[i].type == PanelType.PAUSE && panels[i].isOpen)
+                {
+                    ClosePanel(panels[i]);
+                    isPaused = false;
+                }
                 else if (panels[i].isOpen)
                     ClosePanel(panels[i]);
             }
@@ -252,5 +263,25 @@ public class NETUIController : MonoBehaviour
             }
         }
         return null;
-    } 
+    }
+
+    public void PlayButtonPressSound()
+    {
+        AudioSource src = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.BUTTON_SELECT, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        if (src != null)
+        {
+            src.spatialBlend = 0.0f;
+            src.priority = 0;
+        }
+    }
+
+    public void PlayClosePressSound()
+    {
+        AudioSource src = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.BUTTON_CLOSE, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        if (src != null)
+        {
+            src.spatialBlend = 0.0f;
+            src.priority = 0;
+        }
+    }
 }

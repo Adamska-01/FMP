@@ -74,8 +74,17 @@ public class NETAnimationController : MonoBehaviour
         if (!pv.IsMine)
             return;
 
-        if (stats.IsDead() || NETUIController.instance.isPaused)
+        if (stats.IsDead())
             return;
+
+        if(NETUIController.instance.isPaused)
+        {
+            ChangeVelocity(false, false, false, false, false, maximumWalkVelocity);
+            LockOrResetVelocity(false, false, false, false, false, maximumWalkVelocity);
+            animator.SetFloat(XvelocityHash, velocityX);
+            animator.SetFloat(ZvelocityHash, velocityZ);
+            return;
+        }
 
         //Get key input from player
         bool forwardPressed = inputManager.Forward;

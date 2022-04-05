@@ -61,7 +61,6 @@ public class NETInputManager : MonoBehaviour
     public float YLookAxis { get { return yAxis; } }
 
     private PhotonView pv;
-
      
 
     private void Update()

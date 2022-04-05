@@ -273,4 +273,24 @@ public class HUDController : MonoBehaviour
          
         EventSystem.current.SetSelectedGameObject(_selected);
     }
+
+    public void PlayButtonPressSound()
+    {
+        AudioSource src = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.BUTTON_SELECT, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        if (src != null)
+        {
+            src.spatialBlend = 0.0f;
+            src.priority = 0;
+        }
+    }
+
+    public void PlayClosePessSound()
+    {
+        AudioSource src = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.BUTTON_CLOSE, SoundManagerConstants.AudioOutput.SFX, transform.position);
+        if (src != null)
+        {
+            src.spatialBlend = 0.0f;
+            src.priority = 0;
+        }
+    }
 }

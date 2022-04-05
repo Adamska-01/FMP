@@ -472,12 +472,11 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         //Activate cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-         
-        StartCoroutine(NextMatchTimer()); 
+          
         StartCoroutine(EndCO());
-    }
+    } 
 
-    private IEnumerator NextMatchTimer()
+    private IEnumerator EndCO()
     {
         float timer = waitAfterEnding;
         while (timer > 0.0f)
@@ -485,16 +484,12 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
             --timer;
             NETUIController.instance.nextMatchtimeText.text = "Next Round In: <color=red>" + timer.ToString("0") + "</color>";
             yield return new WaitForSeconds(1);
-        }
-    }
-
-    private IEnumerator EndCO()
-    {
-        yield return new WaitForSeconds(waitAfterEnding);
+        } 
 
         if (!perpetual) //Back to the main menu
         {
-            Destroy(FindObjectOfType<RoomManager>().gameObject);
+            var rm = FindObjectOfType<RoomManager>()?.gameObject;
+            if(rm != null) Destroy(rm);
             PhotonNetwork.AutomaticallySyncScene = false;
             PhotonNetwork.LeaveRoom(); //leave room and return to menu
         }

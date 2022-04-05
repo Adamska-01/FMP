@@ -62,7 +62,8 @@ public class SettingsMenu : MonoBehaviour
     }
 
     private void Start()
-    { 
+    {
+        mainMixer.SetFloat("sfxVol", -80);
         //Quality
         qualities = QualitySettings.names;
         List<string> qualityOptions = new List<string>();
@@ -131,10 +132,16 @@ public class SettingsMenu : MonoBehaviour
 
         //Set volumes
         mainMixer.SetFloat("masterVol", masterVolSlider.value);
-        mainMixer.SetFloat("sfxVol", sfxVolSlider.value);
+        StartCoroutine(SetSFXVolDelay());
         mainMixer.SetFloat("musicVol", MusicVolSlider.value);
     }
 
+    private IEnumerator SetSFXVolDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        mainMixer.SetFloat("sfxVol", sfxVolSlider.value);
+
+    }
 
     public void ShowFPS(bool _isActive)
     {
