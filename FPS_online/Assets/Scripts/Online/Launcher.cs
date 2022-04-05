@@ -29,6 +29,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
     //Map vote
     [SerializeField] Transform voteListContent;
     [SerializeField] GameObject mapVotePrefab;
+    [SerializeField] GameObject mapSelectedPrefab;
     [SerializeField] List<TMP_Dropdown> mapDropdowns = new List<TMP_Dropdown>();
     //Players 
     [SerializeField] Transform playerListContent;
@@ -375,7 +376,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
         }
         int mapToPlay = (int)PhotonNetwork.CurrentRoom.CustomProperties["mapToPlay"];
         GameMode mode = (GameMode)PhotonNetwork.CurrentRoom.CustomProperties["mode"];
-        if (mapToPlay == -1)
+        if (mapToPlay == -1) //Vote
         {
             //Create list of map vote
             int[] mapsarrIndex = (int[])PhotonNetwork.CurrentRoom.CustomProperties["mapsIndexes"]; 
@@ -384,17 +385,12 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
             Instantiate(mapVotePrefab, voteListContent).GetComponent<MapVote>().SetUp(voteMaps[0], mapsPerMode[mode].mapImage[mapsarrIndex[0]]);
             Instantiate(mapVotePrefab, voteListContent).GetComponent<MapVote>().SetUp(voteMaps[1], mapsPerMode[mode].mapImage[mapsarrIndex[1]]);
         }
-        else
+        else //Map selected
         {
-            GameObject mapButton = Instantiate(mapVotePrefab, voteListContent);
-            int imageIndex = mapsPerMode[mode].indexes.ToList().FindIndex(0, mapsPerMode[mode].indexes.Length, x => x == mapToPlay);
-        Debug.Log(imageIndex);
-            mapButton.GetComponent<MapVote>().SetUp(0, mapsPerMode[mode].mapImage[imageIndex]);
+            GameObject mapButton = Instantiate(mapSelectedPrefab, voteListContent);
 
-            mapButton.GetComponent<RectTransform>().sizeDelta = new Vector2(720, 480);
-            mapButton.GetComponent<Button>().onClick.RemoveAllListeners();
-            Destroy(mapButton.transform.GetChild(0).gameObject);
-            Destroy(mapButton.GetComponent<MapVote>());
+            int imageIndex = mapsPerMode[mode].indexes.ToList().FindIndex(0, mapsPerMode[mode].indexes.Length, x => x == mapToPlay);  
+            mapButton.GetComponentInChildren<Image>().sprite = mapsPerMode[mode].mapImage[imageIndex]; 
         }
 
         startGameButton.SetActive(PhotonNetwork.IsMasterClient);
