@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 2202287934290449718}
   - component: {fileID: 178781692628979998}
   - component: {fileID: 308064793366829229}
+  - component: {fileID: 5083172524914769248}
   m_Layer: 0
   m_Name: PalmTree
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2202287934290449718
 Transform:
@@ -82,6 +83,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5083172524914769248
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004150269011315593}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1633821710574564935, guid: b1f260f9ad434cd47b03f488f7d8dcaa, type: 3}
 --- !u!1 &2129359179406026048
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,13 +108,12 @@ GameObject:
   - component: {fileID: 1641228125453352954}
   - component: {fileID: 2407468522088820831}
   - component: {fileID: 472311250560812181}
-  - component: {fileID: 7694636346496812415}
   m_Layer: 0
   m_Name: Palm3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1641228125453352954
 Transform:
@@ -144,7 +158,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,20 +180,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7694636346496812415
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129359179406026048}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.36
-  m_Height: 10.36
-  m_Direction: 1
-  m_Center: {x: -0.56, y: 3.03, z: 0}
 --- !u!1 &3810508350553393150
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,12 +191,13 @@ GameObject:
   - component: {fileID: 8200064913865580924}
   - component: {fileID: 5023689008640660947}
   - component: {fileID: 6585053741129719708}
+  - component: {fileID: 5884857990188075888}
   m_Layer: 0
   m_Name: Billboard
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 0
 --- !u!4 &8200064913865580924
 Transform:
@@ -261,6 +262,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5884857990188075888
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810508350553393150}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7850409618950385026, guid: b1f260f9ad434cd47b03f488f7d8dcaa, type: 3}
 --- !u!1 &5784951276751399972
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +290,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2510689568423222628
 Transform:

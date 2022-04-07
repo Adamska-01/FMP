@@ -390,7 +390,7 @@ public class Launcher : MonoBehaviourPunCallbacks //Access to callbacks for room
             GameObject mapButton = Instantiate(mapSelectedPrefab, voteListContent);
 
             int imageIndex = mapsPerMode[mode].indexes.ToList().FindIndex(0, mapsPerMode[mode].indexes.Length, x => x == mapToPlay);  
-            mapButton.GetComponentInChildren<Image>().sprite = mapsPerMode[mode].mapImage[imageIndex]; 
+            mapButton.transform.GetChild(0).GetComponent<Image>().sprite = mapsPerMode[mode].mapImage[imageIndex]; 
         }
 
         startGameButton.SetActive(PhotonNetwork.IsMasterClient);

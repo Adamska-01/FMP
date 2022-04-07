@@ -492,7 +492,7 @@ MonoBehaviour:
   movementSpeed: 3
   speedMultiplier: 1.6
   sensitivityMultiplier: 1
-  jumpForce: 3
+  jumpForce: 2.5
   gunTarget: {fileID: 1776943362171896212}
   cameraTarget: {fileID: 1776943361665775460}
   isFiring: 0
