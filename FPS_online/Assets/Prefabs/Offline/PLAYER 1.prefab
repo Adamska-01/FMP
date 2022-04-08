@@ -306,7 +306,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000091369264, y: 0.24938302, z: -0.0090806}
+  m_ConnectedAnchor: {x: 0.00009137485, y: 0.24938327, z: -0.009080607}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -891,7 +891,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000055879354, y: 0.41064757, z: 4.656613e-10}
+  m_ConnectedAnchor: {x: 0.00000015459955, y: 0.41064757, z: -0.000000013038516}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1002,7 +1002,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.13400273, y: -0.060395934, z: -0.007268008}
+  m_ConnectedAnchor: {x: -0.13400303, y: -0.060395934, z: -0.007267999}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1234,7 +1234,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 4.5474735e-13, y: 0.10871267, z: -0.0095144}
+  m_ConnectedAnchor: {x: 0.00000018949595, y: 0.10871267, z: -0.009514402}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -2475,7 +2475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3499264257594868501}
   m_LocalRotation: {x: -0.5041501, y: -5.6843424e-13, z: 1.3426253e-13, w: 0.8636161}
-  m_LocalPosition: {x: 0.093, y: 1.4015248, z: 0.31599995}
+  m_LocalPosition: {x: 0.093, y: 1.516, z: 0.31599995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3964675308686363430}
@@ -2761,7 +2761,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.19496936, y: 0.36961675, z: -0.01062873}
+  m_ConnectedAnchor: {x: 0.19496937, y: 0.36961672, z: -0.010628715}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -2967,7 +2967,7 @@ MonoBehaviour:
   fixTransforms: 1
   solver:
     executedInEditor: 0
-    IKPosition: {x: -0.6926145, y: 1.4294722, z: -0.047495056}
+    IKPosition: {x: -13.392614, y: 1.3259969, z: 0.45250493}
     IKPositionWeight: 1
     root: {fileID: 3964675308686363430}
     IKRotationWeight: 1
@@ -3010,30 +3010,30 @@ MonoBehaviour:
     isLeft: 1
     arm:
       bones:
-      - readPosition: {x: -0.07670158, y: 1.4757314, z: -0.04432486}
+      - readPosition: {x: -12.776701, y: 1.372256, z: 0.45567513}
         readRotation: {x: 0.5238769, y: -0.4209977, z: 0.5851075, w: 0.4538318}
-        solverPosition: {x: -0.07670158, y: 1.4757314, z: -0.04432486}
+        solverPosition: {x: -12.776701, y: 1.372256, z: 0.45567513}
         solverRotation: {x: 0.5238769, y: -0.4209977, z: 0.5851075, w: 0.4538318}
-        length: 0.12702912
-        sqrMag: 0.016136399
-        axis: {x: -0.0026840838, y: 0.12583478, z: 0.01717002}
-      - readPosition: {x: -0.1949658, y: 1.4294721, z: -0.04749545}
+        length: 0.1270291
+        sqrMag: 0.016136395
+        axis: {x: -0.002684073, y: 0.12583476, z: 0.017170025}
+      - readPosition: {x: -12.894965, y: 1.3259968, z: 0.45250455}
         readRotation: {x: 0.48378736, y: -0.46487713, z: 0.5329838, w: 0.5155263}
-        solverPosition: {x: -0.1949658, y: 1.4294721, z: -0.04749545}
+        solverPosition: {x: -12.894965, y: 1.3259968, z: 0.45250455}
         solverRotation: {x: 0.48378736, y: -0.46487713, z: 0.5329838, w: 0.5155263}
-        length: 0.24954824
-        sqrMag: 0.062274326
-        axis: {x: 0.00009129207, y: 0.24938297, z: -0.009080518}
-      - readPosition: {x: -0.44451404, y: 1.4294719, z: -0.0474952}
+        length: 0.24954891
+        sqrMag: 0.06227466
+        axis: {x: 0.00009132274, y: 0.24938363, z: -0.009080659}
+      - readPosition: {x: -13.144514, y: 1.3259966, z: 0.4525048}
         readRotation: {x: 0.47419825, y: -0.47419852, z: 0.52453375, w: 0.52453446}
-        solverPosition: {x: -0.44451404, y: 1.4294719, z: -0.0474952}
+        solverPosition: {x: -13.144514, y: 1.3259966, z: 0.4525048}
         solverRotation: {x: 0.47419825, y: -0.47419852, z: 0.52453375, w: 0.52453446}
-        length: 0.24810046
-        sqrMag: 0.06155384
-        axis: {x: 0.00000012874962, y: 0.24810052, z: -0.00000010460109}
-      - readPosition: {x: -0.6926145, y: 1.4294722, z: -0.047495056}
+        length: 0.24810028
+        sqrMag: 0.06155375
+        axis: {x: 0.00000009081901, y: 0.24810034, z: 0.000000011382102}
+      - readPosition: {x: -13.392614, y: 1.3259969, z: 0.45250493}
         readRotation: {x: 0.47079656, y: -0.51292425, z: 0.53195894, w: 0.48195368}
-        solverPosition: {x: -0.6926145, y: 1.4294722, z: -0.047495056}
+        solverPosition: {x: -13.392614, y: 1.3259969, z: 0.45250493}
         solverRotation: {x: 0.47079656, y: -0.51292425, z: 0.53195894, w: 0.48195368}
         length: 0
         sqrMag: 0
@@ -3051,7 +3051,7 @@ MonoBehaviour:
       swivelOffset: 0
       wristToPalmAxis: {x: 0, y: 0, z: 0}
       palmToThumbAxis: {x: 0, y: 0, z: 0}
-      armLengthMlp: 1
+      armLengthMlp: 1.35
       stretchCurve:
         serializedVersion: 2
         m_Curve: []
@@ -3073,7 +3073,7 @@ MonoBehaviour:
   fixTransforms: 1
   solver:
     executedInEditor: 0
-    IKPosition: {x: 0.6926388, y: 1.4294695, z: -0.04749507}
+    IKPosition: {x: -12.007361, y: 1.3259943, z: 0.45250493}
     IKPositionWeight: 1
     root: {fileID: 3964675308686363430}
     IKRotationWeight: 1
@@ -3116,30 +3116,30 @@ MonoBehaviour:
     isLeft: 0
     arm:
       bones:
-      - readPosition: {x: 0.07671074, y: 1.4757314, z: -0.041154273}
+      - readPosition: {x: -12.623289, y: 1.372256, z: 0.45884573}
         readRotation: {x: -0.53509223, y: -0.41370147, z: 0.57487327, w: -0.46048686}
-        solverPosition: {x: 0.07671074, y: 1.4757314, z: -0.041154273}
+        solverPosition: {x: -12.623289, y: 1.372256, z: 0.45884573}
         solverRotation: {x: -0.53509223, y: -0.41370147, z: 0.57487327, w: -0.46048686}
-        length: 0.12714735
-        sqrMag: 0.016166447
-        axis: {x: 0.009943238, y: 0.12567112, z: 0.016563512}
-      - readPosition: {x: 0.19497393, y: 1.4294707, z: -0.04749544}
+        length: 0.12714739
+        sqrMag: 0.01616646
+        axis: {x: 0.009943231, y: 0.12567116, z: 0.0165635}
+      - readPosition: {x: -12.505026, y: 1.3259953, z: 0.45250458}
         readRotation: {x: -0.47572643, y: -0.48310664, z: 0.5401809, w: -0.49849454}
-        solverPosition: {x: 0.19497393, y: 1.4294707, z: -0.04749544}
+        solverPosition: {x: -12.505026, y: 1.3259953, z: 0.45250458}
         solverRotation: {x: -0.47572643, y: -0.48310664, z: 0.5401809, w: -0.49849454}
-        length: 0.24954517
-        sqrMag: 0.062272795
-        axis: {x: -0.012570798, y: 0.24909794, z: -0.008060626}
-      - readPosition: {x: 0.4445191, y: 1.4294698, z: -0.047495395}
+        length: 0.2495451
+        sqrMag: 0.062272757
+        axis: {x: -0.012570789, y: 0.24909785, z: -0.008060743}
+      - readPosition: {x: -12.255481, y: 1.3259946, z: 0.4525046}
         readRotation: {x: -0.47920924, y: -0.47920772, z: 0.51996094, w: -0.5199606}
-        solverPosition: {x: 0.4445191, y: 1.4294698, z: -0.047495395}
+        solverPosition: {x: -12.255481, y: 1.3259946, z: 0.4525046}
         solverRotation: {x: -0.47920924, y: -0.47920772, z: 0.51996094, w: -0.5199606}
-        length: 0.24811971
-        sqrMag: 0.06156339
-        axis: {x: 0.0000000018820923, y: 0.2481197, z: -0.00000009781162}
-      - readPosition: {x: 0.6926388, y: 1.4294695, z: -0.04749507}
+        length: 0.24811935
+        sqrMag: 0.061563212
+        axis: {x: -0.0000000018312507, y: 0.24811934, z: -0.00000009750755}
+      - readPosition: {x: -12.007361, y: 1.3259943, z: 0.45250493}
         readRotation: {x: -0.4807365, y: -0.5085999, z: 0.5264904, w: -0.482728}
-        solverPosition: {x: 0.6926388, y: 1.4294695, z: -0.04749507}
+        solverPosition: {x: -12.007361, y: 1.3259943, z: 0.45250493}
         solverRotation: {x: -0.4807365, y: -0.5085999, z: 0.5264904, w: -0.482728}
         length: 0
         sqrMag: 0
@@ -3157,7 +3157,7 @@ MonoBehaviour:
       swivelOffset: 0
       wristToPalmAxis: {x: 0, y: 0, z: 0}
       palmToThumbAxis: {x: 0, y: 0, z: 0}
-      armLengthMlp: 1
+      armLengthMlp: 1.5
       stretchCurve:
         serializedVersion: 2
         m_Curve: []
@@ -3217,7 +3217,7 @@ MonoBehaviour:
   solver:
     executedInEditor: 0
     IKPosition: {x: 0, y: 0, z: 0}
-    IKPositionWeight: 0
+    IKPositionWeight: 0.05
     root: {fileID: 3964675308686363430}
     iterations: 4
     chain:
@@ -4081,7 +4081,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.19497037, y: 0.36961815, z: -0.010628618}
+  m_ConnectedAnchor: {x: -0.19496994, y: 0.36961815, z: -0.010628622}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -4192,7 +4192,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.012570858, y: 0.24909794, z: -0.008060738}
+  m_ConnectedAnchor: {x: -0.012570855, y: 0.24909787, z: -0.008060735}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -4489,7 +4489,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.094947e-13, y: 0.49533457, z: 0.029473685}
+  m_ConnectedAnchor: {x: 0.00000018949595, y: 0.49533457, z: 0.029473685}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4845,7 +4845,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.13400273, y: -0.06039598, z: -0.007971215}
+  m_ConnectedAnchor: {x: 0.13400234, y: -0.06039598, z: -0.007971218}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -5047,7 +5047,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.313226e-10, y: 0.41065064, z: -9.313226e-10}
+  m_ConnectedAnchor: {x: 0.00000019278377, y: 0.41065064, z: -0.000000004656613}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:

@@ -520,7 +520,7 @@ MonoBehaviour:
   fixTransforms: 1
   solver:
     executedInEditor: 0
-    IKPosition: {x: -0.6926145, y: 1.4294722, z: -0.047495056}
+    IKPosition: {x: -0.6926145, y: 1.2834721, z: -0.047495056}
     IKPositionWeight: 1
     root: {fileID: 2243428061368702062}
     IKRotationWeight: 1
@@ -563,30 +563,30 @@ MonoBehaviour:
     isLeft: 1
     arm:
       bones:
-      - readPosition: {x: -0.07670158, y: 1.4757314, z: -0.04432486}
+      - readPosition: {x: -0.07670158, y: 1.3297312, z: -0.04432486}
         readRotation: {x: 0.5238769, y: -0.4209977, z: 0.5851075, w: 0.4538318}
-        solverPosition: {x: -0.07670158, y: 1.4757314, z: -0.04432486}
+        solverPosition: {x: -0.07670158, y: 1.3297312, z: -0.04432486}
         solverRotation: {x: 0.5238769, y: -0.4209977, z: 0.5851075, w: 0.4538318}
         length: 0.12702912
         sqrMag: 0.016136399
         axis: {x: -0.0026840838, y: 0.12583478, z: 0.01717002}
-      - readPosition: {x: -0.1949658, y: 1.4294721, z: -0.04749545}
+      - readPosition: {x: -0.1949658, y: 1.283472, z: -0.04749545}
         readRotation: {x: 0.48378736, y: -0.46487713, z: 0.5329838, w: 0.5155263}
-        solverPosition: {x: -0.1949658, y: 1.4294721, z: -0.04749545}
+        solverPosition: {x: -0.1949658, y: 1.283472, z: -0.04749545}
         solverRotation: {x: 0.48378736, y: -0.46487713, z: 0.5329838, w: 0.5155263}
         length: 0.24954824
         sqrMag: 0.062274326
         axis: {x: 0.00009129207, y: 0.24938297, z: -0.009080518}
-      - readPosition: {x: -0.44451404, y: 1.4294719, z: -0.0474952}
+      - readPosition: {x: -0.44451404, y: 1.2834717, z: -0.0474952}
         readRotation: {x: 0.47419825, y: -0.47419852, z: 0.52453375, w: 0.52453446}
-        solverPosition: {x: -0.44451404, y: 1.4294719, z: -0.0474952}
+        solverPosition: {x: -0.44451404, y: 1.2834717, z: -0.0474952}
         solverRotation: {x: 0.47419825, y: -0.47419852, z: 0.52453375, w: 0.52453446}
         length: 0.24810046
         sqrMag: 0.06155384
         axis: {x: 0.00000012874962, y: 0.24810052, z: -0.00000010460109}
-      - readPosition: {x: -0.6926145, y: 1.4294722, z: -0.047495056}
+      - readPosition: {x: -0.6926145, y: 1.2834721, z: -0.047495056}
         readRotation: {x: 0.47079656, y: -0.51292425, z: 0.53195894, w: 0.48195368}
-        solverPosition: {x: -0.6926145, y: 1.4294722, z: -0.047495056}
+        solverPosition: {x: -0.6926145, y: 1.2834721, z: -0.047495056}
         solverRotation: {x: 0.47079656, y: -0.51292425, z: 0.53195894, w: 0.48195368}
         length: 0
         sqrMag: 0
@@ -604,7 +604,7 @@ MonoBehaviour:
       swivelOffset: 0
       wristToPalmAxis: {x: 0, y: 0, z: 0}
       palmToThumbAxis: {x: 0, y: 0, z: 0}
-      armLengthMlp: 1
+      armLengthMlp: 1.35
       stretchCurve:
         serializedVersion: 2
         m_Curve: []
@@ -626,7 +626,7 @@ MonoBehaviour:
   fixTransforms: 1
   solver:
     executedInEditor: 0
-    IKPosition: {x: 0.6926388, y: 1.4294695, z: -0.04749507}
+    IKPosition: {x: 0.6926388, y: 1.2834693, z: -0.04749507}
     IKPositionWeight: 1
     root: {fileID: 2243428061368702062}
     IKRotationWeight: 1
@@ -669,30 +669,30 @@ MonoBehaviour:
     isLeft: 0
     arm:
       bones:
-      - readPosition: {x: 0.07671074, y: 1.4757314, z: -0.041154273}
+      - readPosition: {x: 0.07671074, y: 1.3297312, z: -0.041154273}
         readRotation: {x: -0.53509223, y: -0.41370147, z: 0.57487327, w: -0.46048686}
-        solverPosition: {x: 0.07671074, y: 1.4757314, z: -0.041154273}
+        solverPosition: {x: 0.07671074, y: 1.3297312, z: -0.041154273}
         solverRotation: {x: -0.53509223, y: -0.41370147, z: 0.57487327, w: -0.46048686}
         length: 0.12714735
         sqrMag: 0.016166447
         axis: {x: 0.009943238, y: 0.12567112, z: 0.016563512}
-      - readPosition: {x: 0.19497393, y: 1.4294707, z: -0.04749544}
+      - readPosition: {x: 0.19497393, y: 1.2834705, z: -0.04749544}
         readRotation: {x: -0.47572643, y: -0.48310664, z: 0.5401809, w: -0.49849454}
-        solverPosition: {x: 0.19497393, y: 1.4294707, z: -0.04749544}
+        solverPosition: {x: 0.19497393, y: 1.2834705, z: -0.04749544}
         solverRotation: {x: -0.47572643, y: -0.48310664, z: 0.5401809, w: -0.49849454}
         length: 0.24954517
         sqrMag: 0.062272795
         axis: {x: -0.012570798, y: 0.24909794, z: -0.008060626}
-      - readPosition: {x: 0.4445191, y: 1.4294698, z: -0.047495395}
+      - readPosition: {x: 0.4445191, y: 1.2834697, z: -0.047495395}
         readRotation: {x: -0.47920924, y: -0.47920772, z: 0.51996094, w: -0.5199606}
-        solverPosition: {x: 0.4445191, y: 1.4294698, z: -0.047495395}
+        solverPosition: {x: 0.4445191, y: 1.2834697, z: -0.047495395}
         solverRotation: {x: -0.47920924, y: -0.47920772, z: 0.51996094, w: -0.5199606}
         length: 0.24811971
         sqrMag: 0.06156339
         axis: {x: 0.0000000018820923, y: 0.2481197, z: -0.00000009781162}
-      - readPosition: {x: 0.6926388, y: 1.4294695, z: -0.04749507}
+      - readPosition: {x: 0.6926388, y: 1.2834693, z: -0.04749507}
         readRotation: {x: -0.4807365, y: -0.5085999, z: 0.5264904, w: -0.482728}
-        solverPosition: {x: 0.6926388, y: 1.4294695, z: -0.04749507}
+        solverPosition: {x: 0.6926388, y: 1.2834693, z: -0.04749507}
         solverRotation: {x: -0.4807365, y: -0.5085999, z: 0.5264904, w: -0.482728}
         length: 0
         sqrMag: 0
@@ -710,7 +710,7 @@ MonoBehaviour:
       swivelOffset: 0
       wristToPalmAxis: {x: 0, y: 0, z: 0}
       palmToThumbAxis: {x: 0, y: 0, z: 0}
-      armLengthMlp: 1
+      armLengthMlp: 1.5
       stretchCurve:
         serializedVersion: 2
         m_Curve: []
@@ -782,7 +782,7 @@ MonoBehaviour:
   solver:
     executedInEditor: 0
     IKPosition: {x: 0, y: 0, z: 0}
-    IKPositionWeight: 0
+    IKPositionWeight: 0.05
     root: {fileID: 2243428061368702062}
     iterations: 4
     chain:
@@ -1632,7 +1632,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776943361190836859}
   m_LocalRotation: {x: -0.45593354, y: 0, z: 0, w: 0.8900138}
-  m_LocalPosition: {x: 0.115, y: 1.0049999, z: 0.392}
+  m_LocalPosition: {x: 0.124, y: 1.036, z: 0.493}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2243428061368702062}
@@ -2832,7 +2832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776943362908937309}
   m_LocalRotation: {x: -0.5041501, y: -5.6843424e-13, z: 1.3426253e-13, w: 0.8636161}
-  m_LocalPosition: {x: 0.093, y: 1.4015248, z: 0.31599995}
+  m_LocalPosition: {x: 0.093, y: 1.516, z: 0.31599995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2243428061368702062}

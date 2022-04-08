@@ -180,6 +180,7 @@ public class NETPlayerStats : MonoBehaviour, IDamageable
         }
 
         ik.SetIK(!_state);
+        ik.SetFBBIK(!_state);
         if(characterController != null) characterController.enabled = !_state;
     }
 }

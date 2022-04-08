@@ -13,6 +13,7 @@ public class UpperBodyIK : MonoBehaviour
      
 
     private bool isIKActive = true;
+    private bool isFBBIKActive = true;
      
 
     void Start()
@@ -27,7 +28,7 @@ public class UpperBodyIK : MonoBehaviour
 
     void Update()
     {
-        fbbIK.solver.FixTransforms();
+        if (isFBBIKActive) fbbIK.solver.FixTransforms();
         if(isIKActive)
         {
             rightArmIK.solver.FixTransforms();
@@ -37,7 +38,7 @@ public class UpperBodyIK : MonoBehaviour
 
     void LateUpdate()
     {
-        FBBIKUpdate();
+        if (isFBBIKActive) FBBIKUpdate();
         if(isIKActive)
         {
             ArmsIKUpdate();
@@ -79,4 +80,5 @@ public class UpperBodyIK : MonoBehaviour
     public void ActivateIK() => isIKActive = true;
     public void DeactivateIK() => isIKActive = false;
     public void SetIK(bool _state) => isIKActive = _state;
+    public void SetFBBIK(bool _state) => isFBBIKActive = _state;
 }

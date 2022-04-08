@@ -77,7 +77,7 @@ public class NETAnimationController : MonoBehaviour
         if (stats.IsDead())
             return;
 
-        if(NETUIController.instance.isPaused)
+        if(NETUIController.instance.isPaused || MatchManager.instance.state == MatchManager.GameStates.Ending)
         {
             ChangeVelocity(false, false, false, false, false, maximumWalkVelocity);
             LockOrResetVelocity(false, false, false, false, false, maximumWalkVelocity);

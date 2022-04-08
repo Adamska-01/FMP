@@ -88,7 +88,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
         if (!pv.IsMine) //Return if this is not the local user 
             return;
 
-        if(!stats.IsDead() && !NETUIController.instance.isPaused)
+        if(!stats.IsDead() && !NETUIController.instance.isPaused && MatchManager.instance.state != MatchManager.GameStates.Ending)
         {
             UpdateMovementInput();
             UpdatePhysics();

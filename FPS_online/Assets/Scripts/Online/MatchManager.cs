@@ -337,6 +337,8 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
             player.kills = 0;
             player.deaths = 0;
         }
+        
+        UpdateStatsDisplay();
 
         var playerMngr = FindObjectsOfType<PlayerManager>();
         foreach (var item in playerMngr)
