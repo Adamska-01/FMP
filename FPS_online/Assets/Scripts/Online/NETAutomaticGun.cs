@@ -28,7 +28,7 @@ public class NETAutomaticGun : NETGun
             //Start ray from center of screen
             Vector2 recoil = player.isAiming ? Vector2.zero : Recoil();
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f + recoil.x, 0.5f + recoil.y));
-            ray.origin = cam.transform.position;
+            ray.origin = cam.transform.position + (cam.transform.forward * 0.8f);
              
             if (Physics.Raycast(ray, out RaycastHit hit))
             {

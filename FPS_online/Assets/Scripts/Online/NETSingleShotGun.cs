@@ -26,8 +26,8 @@ public class NETSingleShotGun : NETGun
             //Start ray from center of screen
             Vector2 recoil = player.isAiming ? Vector2.zero : Recoil();
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f + recoil.x, 0.5f + recoil.y));
-            ray.origin = cam.transform.position;
-             
+            ray.origin = cam.transform.position + (cam.transform.forward * 0.7f);
+
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 GetComponent<PhotonView>().RPC("RPC_ShootBullet", RpcTarget.All, bulletStart.position, Quaternion.LookRotation(hit.point - bulletStart.transform.position), GetComponent<PhotonView>().Owner.NickName, PhotonNetwork.LocalPlayer.ActorNumber);
