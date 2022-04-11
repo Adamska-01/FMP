@@ -5,12 +5,14 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
     private Resolution[] resolutions;
     private string[] qualities;
+    public SkinnedMeshRenderer chMesh;
 
     [Header("Settings Components")]
     public Slider sensitivitySlider;
@@ -22,7 +24,10 @@ public class SettingsMenu : MonoBehaviour
     public Toggle latencyToggle;
     public TMP_Dropdown resolutionDropdown;
     public TMP_Dropdown qualityDropdown;
-    public AudioMixer mainMixer; 
+    public AudioMixer mainMixer;
+    public Slider skinRedSlider;
+    public Slider skinGreenSlider;
+    public Slider skinBlueSlider;
 
     [Header("UI Display")]
     public GameObject fpsDisplay;
@@ -40,7 +45,7 @@ public class SettingsMenu : MonoBehaviour
         if (PlayerPrefs.HasKey("Settings->General->Sensitivity"))
             sensitivitySlider.value = PlayerPrefs.GetFloat("Settings->General->Sensitivity");
         else
-            sensitivitySlider.value = sensitivitySlider.maxValue * 0.4f;
+            sensitivitySlider.value = sensitivitySlider.maxValue * 0.2f;
          
         if (PlayerPrefs.HasKey("Settings->Graphics->Quality"))
             QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("Settings->Graphics->Quality"));
@@ -59,6 +64,24 @@ public class SettingsMenu : MonoBehaviour
             MusicVolSlider.value = PlayerPrefs.GetFloat("Settings->Audio->Music");
         else
             MusicVolSlider.value = MusicVolSlider.maxValue;
+
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            if (PlayerPrefs.HasKey("SkinRed"))
+                skinRedSlider.value = PlayerPrefs.GetFloat("SkinRed") * 255.0f;
+            else
+                skinRedSlider.value = chMesh.material.color.r * 255.0f;
+
+            if (PlayerPrefs.HasKey("SkinGreen"))
+                skinGreenSlider.value = PlayerPrefs.GetFloat("SkinGreen") * 255.0f;
+            else
+                skinGreenSlider.value = chMesh.material.color.g * 255.0f;
+
+            if (PlayerPrefs.HasKey("SkinBlue"))
+                skinBlueSlider.value = PlayerPrefs.GetFloat("SkinBlue") * 255.0f;
+            else
+                skinBlueSlider.value = chMesh.material.color.b * 255.0f;
+        }
     }
 
     private void Start()
@@ -134,6 +157,10 @@ public class SettingsMenu : MonoBehaviour
         mainMixer.SetFloat("masterVol", masterVolSlider.value);
         StartCoroutine(SetSFXVolDelay());
         mainMixer.SetFloat("musicVol", MusicVolSlider.value);
+
+        //Set Skin color
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+            chMesh.material.color = new Color(skinRedSlider.value / 255.0f, skinGreenSlider.value / 255.0f, skinBlueSlider.value / 255.0f);
     }
 
     private IEnumerator SetSFXVolDelay()
@@ -219,5 +246,23 @@ public class SettingsMenu : MonoBehaviour
         mainMixer.SetFloat("musicVol", _vol);
         
         PlayerPrefs.SetFloat("Settings->Audio->Music", _vol); 
+    }
+
+    public void SetRed(float _value)
+    {
+        chMesh.material.color = new Color((int)_value / 255.0f, chMesh.material.color.g, chMesh.material.color.b);
+        PlayerPrefs.SetFloat("SkinRed", _value);
+    }
+
+    public void SetGreeen(float _value)
+    {
+        chMesh.material.color = new Color(chMesh.material.color.r, (int)_value / 255.0f, chMesh.material.color.b);
+        PlayerPrefs.SetFloat("SkinGreen", _value);
+    }
+
+    public void SetBlue(float _value)
+    {
+        chMesh.material.color = new Color(chMesh.material.color.r, chMesh.material.color.g, (int)_value / 255.0f);
+        PlayerPrefs.SetFloat("SkinBlue", _value);
     }
 }

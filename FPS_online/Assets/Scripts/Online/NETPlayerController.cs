@@ -17,6 +17,8 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     [SerializeField] private NETAnimationController animController;
     private Vector3 movementDir;
 
+    private SkinnedMeshRenderer chMesh;
+
     [SerializeField] private float offsetFloorY = 0.4f;
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private float speedMultiplier = 1.8f;
@@ -60,6 +62,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
         pv = GetComponent<PhotonView>();
         animator = GetComponent<Animator>();
         inputManager = FindObjectOfType<NETInputManager>();
+        chMesh = GetComponentInChildren<SkinnedMeshRenderer>();
 
         if (PlayerPrefs.HasKey("Settings->General->Sensitivity"))
             sensitivityMultiplier = PlayerPrefs.GetFloat("Settings->General->Sensitivity");
@@ -72,6 +75,12 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
         if (pv.IsMine)
         { 
             EquipItem(0);
+
+            //Set Skin color
+            float r = PlayerPrefs.HasKey("SkinRed") ? PlayerPrefs.GetFloat("SkinRed") / 255.0f : chMesh.material.color.r;
+            float g = PlayerPrefs.HasKey("SkinGreen") ? PlayerPrefs.GetFloat("SkinGreen") / 255.0f : chMesh.material.color.g;
+            float b = PlayerPrefs.HasKey("SkinBlue") ? PlayerPrefs.GetFloat("SkinBlue") / 255.0f : chMesh.material.color.b;
+            chMesh.material.color = new Color(r, g, b);
         }
         else
         {

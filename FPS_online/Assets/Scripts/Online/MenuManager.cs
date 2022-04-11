@@ -20,7 +20,8 @@ public class MenuManager : MonoBehaviour
         GENERAL_SETTINGS,
         GRAPHICS_SETTINGS,
         AUDIO_SETTINGS,
-        LOADING_SCENE
+        LOADING_SCENE,
+        SKIN_COLOR_MENU
     }
 
     public static MenuManager Instance;
