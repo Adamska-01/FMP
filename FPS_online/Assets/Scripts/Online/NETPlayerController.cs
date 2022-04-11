@@ -80,7 +80,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
             float r = PlayerPrefs.HasKey("SkinRed") ? PlayerPrefs.GetFloat("SkinRed") / 255.0f : chMesh.material.color.r;
             float g = PlayerPrefs.HasKey("SkinGreen") ? PlayerPrefs.GetFloat("SkinGreen") / 255.0f : chMesh.material.color.g;
             float b = PlayerPrefs.HasKey("SkinBlue") ? PlayerPrefs.GetFloat("SkinBlue") / 255.0f : chMesh.material.color.b;
-            chMesh.material.color = new Color(r, g, b);
+            pv.RPC("ChangeSkinColor", RpcTarget.AllBuffered, r, g, b);
         }
         else
         {
@@ -298,4 +298,10 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -70.0f, 70f); 
         cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation; 
     }  
+
+    [PunRPC]
+    private void ChangeSkinColor(float _r, float _g, float _b)
+    {
+        chMesh.material.color = new Color(_r, _g, _b);
+    }
 }

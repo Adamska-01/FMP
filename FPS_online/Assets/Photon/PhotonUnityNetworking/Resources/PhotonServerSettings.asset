@@ -42,6 +42,7 @@ MonoBehaviour:
   - RPC_KnifeSound
   - RPC_KnifeHitIndicator
   - RPC_Die
+  - ChangeSkinColor
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
