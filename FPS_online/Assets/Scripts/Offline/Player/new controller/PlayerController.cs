@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private AnimationController animController;
     private Vector3 movementDir;
-     
+
+    private SkinnedMeshRenderer chMesh;
+
     private float movementSpeed = 3.8f;
     private float speedMultiplier = 1.8f;
     private float crouchMultiplier = 0.6f;
@@ -48,9 +50,17 @@ public class PlayerController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        inputManager = FindObjectOfType<InputManager>();
+        chMesh = GetComponentInChildren<SkinnedMeshRenderer>();
+
         isReloading = false;
         EquipItem(0); 
-        inputManager = FindObjectOfType<InputManager>();
+
+        //Set Skin color
+        float r = PlayerPrefs.HasKey("SkinRed") ? PlayerPrefs.GetFloat("SkinRed") / 255.0f : chMesh.material.color.r;
+        float g = PlayerPrefs.HasKey("SkinGreen") ? PlayerPrefs.GetFloat("SkinGreen") / 255.0f : chMesh.material.color.g;
+        float b = PlayerPrefs.HasKey("SkinBlue") ? PlayerPrefs.GetFloat("SkinBlue") / 255.0f : chMesh.material.color.b;
+        chMesh.material.color = new Color(r, g, b); 
 
         if (PlayerPrefs.HasKey("Settings->General->Sensitivity"))
             sensitivityMultiplier = PlayerPrefs.GetFloat("Settings->General->Sensitivity");

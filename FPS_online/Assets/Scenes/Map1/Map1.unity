@@ -10177,9 +10177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathCamera: {fileID: 1183750111}
   players: []
-  killsToWin: 6
+  killsToWin: 10
   state: 0
-  waitAfterEnding: 5
+  waitAfterEnding: 10
   perpetual: 1
   matchLength: 180
 --- !u!1 &1834252855
