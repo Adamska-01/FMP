@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Item[] items;
     int itemIndex;
     int previousItemIndex = -1;
+    public bool hasKnife = false;
 
     private void Start()
     {
@@ -129,7 +130,7 @@ public class PlayerController : MonoBehaviour
                     EquipItem(itemIndex - 1);
             }
         }
-        
+          
         //Fire
         FireWeapon();
         TryToReloadWeapon();
@@ -168,6 +169,11 @@ public class PlayerController : MonoBehaviour
             } 
         }
         previousItemIndex = itemIndex;
+
+        if (items[itemIndex].TryGetComponent<MeleeWeapon>(out var melee))
+            hasKnife = true;
+        else
+            hasKnife = false;
 
         //Change left arm target
         ik.StartCoroutine(ik.ChangeLeftArmTarget(((GunInfo)items[itemIndex].itemInfo).leftHandTarget));

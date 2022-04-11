@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a1c66968b3879fd43abd0238bae09c97, type: 2}
+  - {fileID: 2100000, guid: d294e89cc45ba684a8fec09151726bcf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 19900000}
   - component: {fileID: 11400002}
   m_Layer: 0
-  m_Name: WFX_BImpact Wood + Hole Lit
+  m_Name: WFX_KImpact Wood + Hit Lit 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

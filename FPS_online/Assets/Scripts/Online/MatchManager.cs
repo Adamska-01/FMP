@@ -330,6 +330,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
         NETUIController.instance.endScreen.SetActive(false);
         NETUIController.instance.leaderboard.SetActive(false);
+        NETUIController.instance.OpenPanel(PanelType.HUD);
         deathCamera.SetActive(false);
 
         foreach (PlayerInfo player in players)

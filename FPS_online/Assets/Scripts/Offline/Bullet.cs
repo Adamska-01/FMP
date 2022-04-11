@@ -76,31 +76,26 @@ public class Bullet : MonoBehaviour
     {
         switch(_hit.collider.tag)
         {
-            case "Concrete":
-                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.CONCRETE].impact, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up));
+            case "Concrete": 
                 Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.CONCRETE].hole, _hit.point + (_hit.normal * 0.001f), Quaternion.LookRotation(_hit.normal, Vector3.up));
                 break;
-            case "Dirt":
-                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.DIRT].impact, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up));
+            case "Dirt": 
                 Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.DIRT].hole, _hit.point + (_hit.normal * 0.001f), Quaternion.LookRotation(_hit.normal, Vector3.up));
                 break;
-            case "Metal":
-                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.METAL].impact, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up));
+            case "Metal": 
                 Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.METAL].hole, _hit.point + (_hit.normal * 0.001f), Quaternion.LookRotation(_hit.normal, Vector3.up));
                 break;
-            case "Sand":
-                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.SAND].impact, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up));
+            case "Sand": 
                 Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.SAND].hole, _hit.point + (_hit.normal * 0.001f), Quaternion.LookRotation(_hit.normal, Vector3.up));
                 break;
-            case "Wood":
-                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.WOOD].impact, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up));
+            case "Wood": 
                 Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.WOOD].hole, _hit.point + (_hit.normal * 0.001f), Quaternion.LookRotation(_hit.normal, Vector3.up));
                 break;
             case "Body":
-                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.BODY].impact, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up)); 
+                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.BODY].hit, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up)); 
                 break;
             default:
-                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.CONCRETE].impact, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up)); 
+                Instantiate(impactsAndHoles.GetBulletsAndImpacts()[ImpactsAndHoles.ImpactType.CONCRETE].hole, _hit.point, Quaternion.LookRotation(_hit.normal, Vector3.up)); 
                 break;
         }
     }

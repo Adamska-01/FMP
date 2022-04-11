@@ -15,9 +15,9 @@ public class ImpactsAndHoles : MonoBehaviour
     }
 
     [System.Serializable] public class ImpactAndHole
-    {
-        public GameObject impact;
+    { 
         public GameObject hole;
+        public GameObject hit;
     }
      
     public List<ImpactType> impactTypes = new List<ImpactType>();

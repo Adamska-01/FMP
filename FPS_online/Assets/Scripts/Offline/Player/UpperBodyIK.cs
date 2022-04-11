@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RootMotion.FinalIK;
+using Photon.Pun;
 
 public class UpperBodyIK : MonoBehaviour
 { 
@@ -18,8 +19,24 @@ public class UpperBodyIK : MonoBehaviour
 
     void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if(PhotonNetwork.IsConnected)
+        {
+            var NETUIcontroller = NETUIController.instance; 
+            if(NETUIcontroller != null && !NETUIcontroller.isPaused)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+        else
+        {
+            var UIcontroller = HUDController.instance;
+            if (UIcontroller != null && !UIcontroller.isPaused)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
 
         rightArmIK.enabled = false;
         leftArmIK.enabled = false;

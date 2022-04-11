@@ -94,6 +94,8 @@ public class AnimationController : MonoBehaviour
         {
             transitionADS = Mathf.Lerp(transitionADS, 0, Time.smoothDeltaTime * transitionADSTime);
         }
+        if (player.hasKnife)
+            transitionADS = 0;
         //FOV
         mainCamera.fieldOfView = Mathf.Lerp(adsOffFov, adsOnFov, transitionADS);
         rightHandTarget.position = Vector3.Lerp(NoADSrightHandTarget.position, ADSrightHandTarget.position, transitionADS);

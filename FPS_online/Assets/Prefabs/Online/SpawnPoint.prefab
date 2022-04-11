@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3100344909806046983}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.149, z: 0.432}
+  m_LocalPosition: {x: 0, y: 0.149, z: 0.443}
   m_LocalScale: {x: 0.5, y: 0.1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 5212706674511516051}
@@ -91,6 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2772585881828189024}
   - component: {fileID: 318340839287349685}
+  - component: {fileID: 5650682046770410555}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -126,6 +127,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graphics: {fileID: 8996668584415195554}
+  cam: {fileID: 0}
+--- !u!65 &5650682046770410555
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6272142031992441546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8996668584415195554
 GameObject:
   m_ObjectHideFlags: 0

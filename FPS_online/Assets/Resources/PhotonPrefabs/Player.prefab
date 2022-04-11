@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 2933613696771325605}
   - component: {fileID: 475575661187690423}
   - component: {fileID: 3846199712660598207}
-  - component: {fileID: 8660553480462827932}
+  - component: {fileID: 959519124053522060}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -505,6 +505,7 @@ MonoBehaviour:
   - {fileID: 3232651619509457459}
   - {fileID: 5919796146297964430}
   - {fileID: 7874309683560667680}
+  hasKnife: 0
 --- !u!114 &1776943361427710361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,7 +1267,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 3513186042500015843}
   - {fileID: 3846199712660598207}
-  - {fileID: 8660553480462827932}
+  - {fileID: 959519124053522060}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -1286,7 +1287,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &8660553480462827932
+--- !u!114 &959519124053522060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1318,13 +1319,13 @@ MonoBehaviour:
     Name: Fire
   - Type: 9
     SynchronizeType: 1
+    Name: Stab
+  - Type: 9
+    SynchronizeType: 1
     Name: Reloading
   - Type: 4
     SynchronizeType: 1
     Name: IsDead
-  - Type: 9
-    SynchronizeType: 1
-    Name: Stab
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
@@ -1332,8 +1333,6 @@ MonoBehaviour:
     LayerIndex: 1
   - SynchronizeType: 1
     LayerIndex: 2
-  - SynchronizeType: 1
-    LayerIndex: 3
 --- !u!1 &1564427668378272213
 GameObject:
   m_ObjectHideFlags: 0

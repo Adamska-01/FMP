@@ -48,6 +48,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     [SerializeField] NETItem[] items;
     int itemIndex;
     int previousItemIndex = -1;
+    public bool hasKnife = false;
 
     private PhotonView pv;
     public PhotonView PV { get { return pv; } }
@@ -196,6 +197,11 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
             } 
         }
         previousItemIndex = itemIndex;
+
+        if (items[itemIndex].TryGetComponent<NETMeleeWeapon>(out var melee))
+            hasKnife = true;
+        else
+            hasKnife = false;
 
         ik.StartCoroutine(ik.ChangeLeftArmTarget(((GunInfo)items[itemIndex].itemInfo).leftHandTarget));
         
