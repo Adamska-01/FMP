@@ -42,7 +42,7 @@ public class AutomaticGun : Gun
             Instantiate(effectPrefab, bulletStart.position, Quaternion.LookRotation(cam.transform.forward));
 
             //Sound
-            AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.RIFLE_SHOOT, SoundManagerConstants.AudioOutput.SFX, bulletStart.position, 0.15f);
+            AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.RIFLE_SHOOT, SoundManagerConstants.AudioOutput.SFX, bulletStart.position, 0.1f);
             audioSource.maxDistance = 30.0f;
             audioSource.priority = 256;
 
@@ -50,6 +50,13 @@ public class AutomaticGun : Gun
             bullet.GetComponent<Bullet>().SetDamages(((GunInfo)itemInfo).damageHead, ((GunInfo)itemInfo).damageBody, ((GunInfo)itemInfo).damageLeg);
 
             return true;
+        }
+        else if (canShootNextBullet)
+        {
+            StartCoroutine(FireRateDelay());
+            AudioSource src = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.EMPTY_CLIP_RIFLE, SoundManagerConstants.AudioOutput.SFX, gameObject, 0.1f);
+            src.spatialBlend = 0.0f;
+            src.priority = 256;
         }
 
         return false;

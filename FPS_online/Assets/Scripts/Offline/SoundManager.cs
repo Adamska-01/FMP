@@ -395,5 +395,7 @@ public class SoundManagerConstants
         MUSIC_TRACK_5,        
         BUTTON_SELECT,
         BUTTON_CLOSE,
+        EMPTY_CLIP_HANDGUN,
+        EMPTY_CLIP_RIFLE,
     }
 }

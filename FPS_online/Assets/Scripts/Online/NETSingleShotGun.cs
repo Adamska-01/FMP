@@ -39,6 +39,13 @@ public class NETSingleShotGun : NETGun
 
             return true;
         }
+        else if (canShootNextBullet)
+        {
+            StartCoroutine(FireRateDelay());
+            AudioSource src = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.EMPTY_CLIP_HANDGUN, SoundManagerConstants.AudioOutput.SFX, gameObject, 0.1f);
+            src.spatialBlend = 0.0f;
+            src.priority = 256;
+        }
 
         return false;
     }
@@ -58,7 +65,7 @@ public class NETSingleShotGun : NETGun
         Instantiate(effectPrefab, _pos, Quaternion.LookRotation(cam.transform.forward));
 
         //Sound
-        AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.HANDGUN_SHOOT, SoundManagerConstants.AudioOutput.SFX, _pos, 0.15f);
+        AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.HANDGUN_SHOOT, SoundManagerConstants.AudioOutput.SFX, _pos, 0.10f);
         audioSource.maxDistance = 23.0f;
     }
 
