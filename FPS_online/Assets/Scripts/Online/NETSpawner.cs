@@ -23,7 +23,7 @@ public class NETSpawner : MonoBehaviour
         //Find a suitable spawn point (far from enemies in sight)
         for (int i = 0; i < spawnP.Length; i++)
         {
-            Collider[] targetsInView = Physics.OverlapSphere(spawnP[i].transform.position, 25.0f);
+            Collider[] targetsInView = Physics.OverlapSphere(spawnP[i].transform.position, 28.0f);
             bool canSpawnHere = true;
             for (int j = 0; j < targetsInView.Length; j++)
             {
@@ -31,7 +31,7 @@ public class NETSpawner : MonoBehaviour
                 {
                     Transform target = targetsInView[j].gameObject.transform;
                     Vector3 dirToTarget = (target.position - spawnP[i].transform.position).normalized;
-                    if(Vector3.Angle(spawnP[i].transform.forward, dirToTarget) < (60.0f/2.0f)) //60.0f == view angle (default FOV of the camera)
+                    if(Vector3.Angle(spawnP[i].transform.forward, dirToTarget) < (120.0f/2.0f)) //60.0f == view angle (default FOV of the camera)
                     {
                         float dstToTarget = Vector3.Distance(spawnP[i].transform.position, target.position);
                         if(Physics.Raycast(spawnP[i].transform.position, dirToTarget, out RaycastHit hit, dstToTarget))

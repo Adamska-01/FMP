@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Item[] items;
     int itemIndex;
     int previousItemIndex = -1;
-    public bool hasKnife = false;
+    [HideInInspector] public bool hasKnife = false;
 
     private void Start()
     {

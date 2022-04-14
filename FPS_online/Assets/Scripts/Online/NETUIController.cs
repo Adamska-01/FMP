@@ -181,8 +181,7 @@ public class NETUIController : MonoBehaviour
     public void ReturnToMenu()
     {
         var rm = FindObjectOfType<RoomManager>()?.gameObject;
-        if (rm != null) Destroy(rm);
-        MatchManager.instance.perpetual = false;
+        if (rm != null) Destroy(rm); 
         PhotonNetwork.AutomaticallySyncScene = false;
         PhotonNetwork.LeaveRoom();
     }

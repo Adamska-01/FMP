@@ -32,7 +32,7 @@ public class NETMeleeWeapon : NETGun
 
             GetComponent<PhotonView>().RPC("RPC_KnifeSound", RpcTarget.All, ray.origin);
 
-            if (Physics.Raycast(ray, out RaycastHit hit, 0.9f))
+            if (Physics.Raycast(ray, out RaycastHit hit, 1.4f))
             { 
                 if (hit.collider.gameObject.TryGetComponent<HitboxPlayer>(out var hitbox))
                 {

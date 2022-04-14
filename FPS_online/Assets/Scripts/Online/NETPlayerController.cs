@@ -50,7 +50,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
     [SerializeField] NETItem[] items;
     int itemIndex;
     int previousItemIndex = -1;
-    public bool hasKnife = false;
+    [HideInInspector] public bool hasKnife = false;
 
     private PhotonView pv;
     public PhotonView PV { get { return pv; } }

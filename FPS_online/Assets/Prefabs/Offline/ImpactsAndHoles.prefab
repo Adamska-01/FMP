@@ -56,4 +56,4 @@ MonoBehaviour:
   - hole: {fileID: 100002, guid: 5d73f72c6be7d0440bbc9c87d4f718c0, type: 3}
     hit: {fileID: 100002, guid: 791e698b8cbed2b4786e36f16b6d37c5, type: 3}
   - hole: {fileID: 0}
-    hit: {fileID: 1968586304485042, guid: 6c86c599d7bf3464eb4506d2584fbe57, type: 3}
+    hit: {fileID: 1743637094903878, guid: 021a2f7a2c5bc4449b4c64a66a050e8c, type: 3}

@@ -34,7 +34,7 @@ public class MeleeWeapon : Gun
             AudioSource audioSource = SoundManager.instance.PlaySoundAndReturn(SoundManagerConstants.Clips.KNIFE_SWING, SoundManagerConstants.AudioOutput.SFX, cam.transform.position, 0.15f);
             audioSource.maxDistance = 4.0f;
 
-            if (Physics.Raycast(ray, out RaycastHit hit, 0.9f))
+            if (Physics.Raycast(ray, out RaycastHit hit, 1.4f))
             {
                 Debug.DrawLine(cam.transform.position, hit.point);
                 if (hit.collider.gameObject.TryGetComponent<HitboxPlayer>(out var hitbox))

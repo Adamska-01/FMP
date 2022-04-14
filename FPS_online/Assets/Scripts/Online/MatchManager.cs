@@ -13,6 +13,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     private NETInputManager inputManger;
     public GameObject deathCamera;
     public IEnumerator CO_kill;
+    public IEnumerator CO_NextMatch;
 
     public static MatchManager instance;
     private void Awake()
@@ -45,15 +46,13 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
     public int killsToWin = 3; 
     public GameStates state = GameStates.Waiting;
-    public float waitAfterEnding = 7.0f;
-
-    //Next match
-    public bool perpetual;
+    private float waitAfterEnding = 10.0f; 
 
     //Timer
     public float matchLength = 180f;
     private float currentMatchTime;
-    private float sendTimer;
+    private float countdownTimer;
+    private float sendTimer; 
 
     void Start()
     {
@@ -233,7 +232,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
             if (PhotonNetwork.LocalPlayer.ActorNumber == player.actor)   //assigning our index
                 index = i - 1; //-1 cause of the state...
-        }
+        } 
 
         StateCheck();
     }
@@ -314,7 +313,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     }
 
     public void NextMatchSend()
-    {
+    { 
         //Send package
         PhotonNetwork.RaiseEvent(
             (byte)EventCodes.NextMatch,
@@ -326,6 +325,9 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
     public void NextMatchReceive()
     {
+        StopCoroutine(CO_NextMatch);
+        CO_NextMatch = null;
+
         state = GameStates.Playing;
 
         NETUIController.instance.endScreen.SetActive(false);
@@ -353,7 +355,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
     public void TimerSend()
     {
-        object[] package = new object[] { (int)currentMatchTime, state };
+        object[] package = new object[] { (int)currentMatchTime, (int)countdownTimer, state };
 
         //Send package
         PhotonNetwork.RaiseEvent(
@@ -367,7 +369,8 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     public void TimerReceive(object[] dataReceived)
     {
         currentMatchTime = (int)dataReceived[0];
-        state = (GameStates)dataReceived[1];
+        countdownTimer = (int)dataReceived[1];
+        state = (GameStates)dataReceived[2];
 
         UpdateTimerDisplay(); 
     }
@@ -379,6 +382,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         if (matchLength > 0)
         {
             currentMatchTime = matchLength;
+            countdownTimer = waitAfterEnding;
             UpdateTimerDisplay();
         }
     }
@@ -388,9 +392,10 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         var timeToDisplay = System.TimeSpan.FromSeconds(currentMatchTime);
 
         NETUIController.instance.timerText.text = timeToDisplay.Minutes.ToString("0") + ":" + timeToDisplay.Seconds.ToString("00");
-
         if (currentMatchTime <= 30)
             NETUIController.instance.timerText.text = $"<color=red>{NETUIController.instance.timerText.text}</color>";
+
+        NETUIController.instance.nextMatchtimeText.text = "Next Round In: <color=red>" + countdownTimer.ToString("0") + "</color>";
     }
 
     private void ShowLeaderboard()
@@ -448,22 +453,16 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     {
         if (state == GameStates.Ending)
         {
+            if(PhotonNetwork.IsMasterClient)
+                isEnding = true;
+
             EndGame();
         }
     }
 
     private void EndGame()
     {
-        state = GameStates.Ending; //makes sure
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            var players = FindObjectsOfType<PlayerController>();
-            foreach (var item in players)
-            {
-                PhotonNetwork.Destroy(item.gameObject.GetComponent<PhotonView>());
-            }
-        }
+        state = GameStates.Ending; //makes sure 
 
         //Death camera
         deathCamera.SetActive(true);
@@ -475,45 +474,40 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         //Activate cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-          
-        StartCoroutine(EndCO());
+
+        if (CO_NextMatch == null)
+        {
+            CO_NextMatch = EndCO();
+            StartCoroutine(CO_NextMatch);
+        }
     } 
 
     private IEnumerator EndCO()
     {
-        float timer = waitAfterEnding;
-        while (timer > 0.0f)
+        if (PhotonNetwork.IsMasterClient)
         {
-            --timer;
-            NETUIController.instance.nextMatchtimeText.text = "Next Round In: <color=red>" + timer.ToString("0") + "</color>";
-            yield return new WaitForSeconds(1);
-        } 
-
-        if (!perpetual) //Back to the main menu
-        {
-            var rm = FindObjectOfType<RoomManager>()?.gameObject;
-            if(rm != null) Destroy(rm);
-            PhotonNetwork.AutomaticallySyncScene = false;
-            PhotonNetwork.LeaveRoom(); //leave room and return to menu
-        }
-        else //Start new match
-        {
-            if (PhotonNetwork.IsMasterClient)
+            countdownTimer = waitAfterEnding;
+            while (countdownTimer > 0.0f)
             {
-                NextMatchSend();
-                //PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().buildIndex);
-                //if (!Launcher.instance.changeMapBetweenRounds)
-                //    NextMatchSend();
-                //else
-                //{
-                //    int newLevel = Random.Range(0, Launcher.instance.Maps.Length);
+                --countdownTimer;
+                TimerSend();
+                
+                yield return new WaitForSeconds(1);
+            } 
+             
+            NextMatchSend();
+            //PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+            //if (!Launcher.instance.changeMapBetweenRounds)
+            //    NextMatchSend();
+            //else
+            //{
+            //    int newLevel = Random.Range(0, Launcher.instance.Maps.Length);
 
-                //    if (Launcher.instance.Maps[newLevel] == SceneManager.GetActiveScene().name)
-                //        NextMatchSend();
-                //    else
-                //        PhotonNetwork.LoadLevel(Launcher.instance.Maps[newLevel]);
-                //}
-            }
+            //    if (Launcher.instance.Maps[newLevel] == SceneManager.GetActiveScene().name)
+            //        NextMatchSend();
+            //    else
+            //        PhotonNetwork.LoadLevel(Launcher.instance.Maps[newLevel]);
+            //}
         }
     }
 

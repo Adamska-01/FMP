@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4017024136773740383}
   - component: {fileID: 5229578889446251112}
   - component: {fileID: 1373669935638685669}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 2772585881828189024}
   - component: {fileID: 318340839287349685}
   - component: {fileID: 5650682046770410555}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graphics: {fileID: 8996668584415195554}
-  cam: {fileID: 0}
+  isOccupied: 0
+  pCol: {fileID: 0}
 --- !u!65 &5650682046770410555
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ GameObject:
   - component: {fileID: 5212706674511516051}
   - component: {fileID: 2076336135994750063}
   - component: {fileID: 1075205191068446891}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
