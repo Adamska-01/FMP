@@ -16133,8 +16133,7 @@ MonoBehaviour:
   players: []
   killsToWin: 10
   state: 0
-  perpetual: 1
-  matchLength: 20
+  matchLength: 180
 --- !u!4 &1814102690
 Transform:
   m_ObjectHideFlags: 0

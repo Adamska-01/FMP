@@ -324,10 +324,12 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     }
 
     public void NextMatchReceive()
-    {
-        StopCoroutine(CO_NextMatch);
-        CO_NextMatch = null;
-
+    { 
+        if (CO_NextMatch != null)
+        {
+            StopCoroutine(CO_NextMatch);
+            CO_NextMatch = null;
+        }
         state = GameStates.Playing;
 
         NETUIController.instance.endScreen.SetActive(false);
@@ -452,10 +454,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     private void StateCheck()
     {
         if (state == GameStates.Ending)
-        {
-            if(PhotonNetwork.IsMasterClient)
-                isEnding = true;
-
+        {  
             EndGame();
         }
     }
