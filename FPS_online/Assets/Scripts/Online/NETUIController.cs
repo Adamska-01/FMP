@@ -17,6 +17,8 @@ public enum PanelType
     SETTINGS_GENERAL,
     SETTINGS_AUDIO,
     SETTINGS_GRAPHICS, 
+    MATCH_WAITING,
+    MATCH_SETTINGS
 }
 
 public class NETUIController : MonoBehaviour
@@ -58,7 +60,9 @@ public class NETUIController : MonoBehaviour
     public GameObject endScreen;
     public TMP_Text timerText;
     public TMP_Text killsIndicator, deathsIndicator;
-    public TMP_Text nextMatchtimeText;
+    public TMP_Text nextMatchtimeTextEnd;
+    public TMP_Text matchtimeTextStartHost;
+    public TMP_Text matchtimeTextStartClient;
     public TMP_Text currentKillText;
 
     public GameObject KillsFeed;

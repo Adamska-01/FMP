@@ -11,6 +11,7 @@ using UnityEngine.SceneManagement;
 public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 {
     private NETInputManager inputManger;
+    private PlayerManager playerManager;
     public GameObject deathCamera;
     public IEnumerator CO_kill;
     public IEnumerator CO_NextMatch;
@@ -18,7 +19,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     public static MatchManager instance;
     private void Awake()
     {
-        instance = this;
+        instance = this; 
     }
 
     //Events
@@ -28,7 +29,9 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         ListPlayer,
         UpdateStat,
         NextMatch,
-        TimerSync
+        TimerSync,
+        MatchSettings,
+        CreatePlayer
     }
 
 
@@ -47,26 +50,38 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     public int killsToWin = 3; 
     public GameStates state = GameStates.Waiting;
     private float waitAfterEnding = 10.0f; 
+    private float SettingsWaitTime = 20.0f; 
 
     //Timer
     public float matchLength = 180f;
     private float currentMatchTime;
-    private float countdownTimer;
+    private float countdownTimerEndGame;
+    private float countdownTimerStartGame;
     private float sendTimer; 
 
     void Start()
     {
-        if (!PhotonNetwork.IsConnected)
-            SceneManager.LoadScene(0);
-        else
-        { 
-            NewPlayerSend(PhotonNetwork.NickName); 
-            state = GameStates.Playing;
-
-            SetupTimer();
+        PlayerManager[] playerMngr = FindObjectsOfType<PlayerManager>();
+        foreach (var item in playerMngr)
+        {
+            if (item.PV.IsMine)
+                playerManager = item;
         }
 
         inputManger = FindObjectOfType<NETInputManager>();
+
+        countdownTimerEndGame = waitAfterEnding;
+        countdownTimerStartGame = SettingsWaitTime;
+
+        if (!PhotonNetwork.IsConnected)
+            SceneManager.LoadScene(0);
+        else
+        {
+            NewPlayerSend(PhotonNetwork.NickName);
+            StartCoroutine(MatchSettings());
+
+            //SetupTimer();
+        }
     }
 
 
@@ -150,6 +165,12 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
                 case EventCodes.TimerSync:
                     TimerReceive(data);
                     break;
+                case EventCodes.MatchSettings:
+                    SettingsReceive(data);
+                    break;
+                case EventCodes.CreatePlayer:
+                    CreatePlayerReceive();
+                    break;
             }
         }
     }
@@ -232,7 +253,10 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
             if (PhotonNetwork.LocalPlayer.ActorNumber == player.actor)   //assigning our index
                 index = i - 1; //-1 cause of the state...
-        } 
+        }
+
+        if(PhotonNetwork.IsMasterClient) 
+            SettingsSend();
 
         StateCheck();
     }
@@ -345,19 +369,15 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         
         UpdateStatsDisplay();
 
-        var playerMngr = FindObjectsOfType<PlayerManager>();
-        foreach (var item in playerMngr)
-        {
-            if (item.PV.IsMine)
-                item.CreateController();
-        }
+        playerManager.CreateController();
+
         //Reset timer
         SetupTimer();
     }
 
     public void TimerSend()
     {
-        object[] package = new object[] { (int)currentMatchTime, (int)countdownTimer, state };
+        object[] package = new object[] { (int)currentMatchTime, (int)countdownTimerEndGame, (int)countdownTimerStartGame, state };
 
         //Send package
         PhotonNetwork.RaiseEvent(
@@ -371,12 +391,54 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     public void TimerReceive(object[] dataReceived)
     {
         currentMatchTime = (int)dataReceived[0];
-        countdownTimer = (int)dataReceived[1];
-        state = (GameStates)dataReceived[2];
+        countdownTimerEndGame = (int)dataReceived[1];
+        countdownTimerStartGame = (int)dataReceived[2];
+        state = (GameStates)dataReceived[3];
 
         UpdateTimerDisplay(); 
     }
 
+    public void SettingsSend()
+    {
+        object[] package = new object[] { (int)matchLength, killsToWin };
+
+        //Send package
+        PhotonNetwork.RaiseEvent(
+            (byte)EventCodes.MatchSettings,
+            package,
+            new RaiseEventOptions { Receivers = ReceiverGroup.All }, //Send to all
+            new SendOptions { Reliability = true } //TCP is always reliable by design
+            );
+    }
+
+    public void SettingsReceive(object[] dataReceived)
+    {
+        matchLength = (int)dataReceived[0];
+        killsToWin = (int)dataReceived[1]; 
+    }
+
+    public void CreatePlayerSend()
+    { 
+        //Send package
+        PhotonNetwork.RaiseEvent(
+            (byte)EventCodes.CreatePlayer,
+            null,
+            new RaiseEventOptions { Receivers = ReceiverGroup.All }, //Send to all
+            new SendOptions { Reliability = true } //TCP is always reliable by design
+            );
+    }
+
+    public void CreatePlayerReceive()
+    { 
+        playerManager.CreateController();
+        deathCamera.SetActive(false);
+
+        NETUIController.instance.OpenPanel(PanelType.HUD);
+
+        SetupTimer();
+
+        state = GameStates.Playing;
+    }
 
     //-------------------------Helper Functions-------------------------
     public void SetupTimer()
@@ -384,7 +446,8 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         if (matchLength > 0)
         {
             currentMatchTime = matchLength;
-            countdownTimer = waitAfterEnding;
+            countdownTimerEndGame = waitAfterEnding;
+            countdownTimerStartGame = SettingsWaitTime;
             UpdateTimerDisplay();
         }
     }
@@ -392,12 +455,12 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     public void UpdateTimerDisplay()
     {
         var timeToDisplay = System.TimeSpan.FromSeconds(currentMatchTime);
-
         NETUIController.instance.timerText.text = timeToDisplay.Minutes.ToString("0") + ":" + timeToDisplay.Seconds.ToString("00");
-        if (currentMatchTime <= 30)
-            NETUIController.instance.timerText.text = $"<color=red>{NETUIController.instance.timerText.text}</color>";
+        if (currentMatchTime <= 30) NETUIController.instance.timerText.text = $"<color=red>{NETUIController.instance.timerText.text}</color>";
 
-        NETUIController.instance.nextMatchtimeText.text = "Next Round In: <color=red>" + countdownTimer.ToString("0") + "</color>";
+        NETUIController.instance.nextMatchtimeTextEnd.text = "Next Round In: <color=red>" + countdownTimerEndGame.ToString("0") + "</color>";
+        NETUIController.instance.matchtimeTextStartHost.text = "Match Starts In: <color=red>" + countdownTimerStartGame.ToString("0") + "</color>";
+        NETUIController.instance.matchtimeTextStartClient.text = "Match Starts In: <color=red>" + countdownTimerStartGame.ToString("0") + "</color>";
     }
 
     private void ShowLeaderboard()
@@ -485,10 +548,10 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            countdownTimer = waitAfterEnding;
-            while (countdownTimer > 0.0f)
+            countdownTimerEndGame = waitAfterEnding;
+            while (countdownTimerEndGame > 0.0f)
             {
-                --countdownTimer;
+                --countdownTimerEndGame;
                 TimerSend();
                 
                 yield return new WaitForSeconds(1);
@@ -526,6 +589,43 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         NETUIController.instance.currentKillText.gameObject.SetActive(false);
     }
 
+    private IEnumerator MatchSettings()
+    {  
+        var settingsPanel = NETUIController.instance.GetPannel(PanelType.MATCH_SETTINGS);
+        var waitingPanel = NETUIController.instance.GetPannel(PanelType.MATCH_WAITING);
+        countdownTimerStartGame = SettingsWaitTime;
+        while (countdownTimerStartGame > 0.0f)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                if (!settingsPanel.isOpen) NETUIController.instance.OpenPanel(PanelType.MATCH_SETTINGS);
+                --countdownTimerStartGame;
+                TimerSend();
+
+                yield return new WaitForSeconds(1); 
+            }
+            else
+            {  
+                if (!waitingPanel.isOpen) 
+                    NETUIController.instance.OpenPanel(PanelType.MATCH_WAITING); 
+                if (state == GameStates.Playing)
+                {
+                    playerManager.CreateController();
+                    NETUIController.instance.OpenPanel(PanelType.HUD); 
+                    deathCamera.SetActive(false);
+                    break;
+                }
+                yield return null; 
+            }
+        }
+
+        if(PhotonNetwork.IsMasterClient)
+        {
+            //<<Match settings are set with onClick() events>> 
+            SettingsSend();
+            CreatePlayerSend();
+        }
+    }
 
     //-----------------------------Photon Callbacks-----------------------------
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -542,7 +642,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
     public override void OnLeftRoom()
     {
-        base.OnLeftRoom(); 
+        base.OnLeftRoom();  
         if (PhotonNetwork.IsConnected)
         {
             PhotonNetwork.Disconnect();

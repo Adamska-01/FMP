@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        if (pv.IsMine) //if pv is owned by the local player
+        if (pv.IsMine && MatchManager.instance.state == MatchManager.GameStates.Playing) //if pv is owned by the local player
         {
             CreateController();
             deathCamera.SetActive(false);
