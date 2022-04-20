@@ -287,4 +287,9 @@ public class NETUIController : MonoBehaviour
             src.priority = 0;
         }
     }
+
+    public void StartGameWithoutWaiting()
+    {
+        MatchManager.instance.StartGameWithoutWaiting();
+    }
 }

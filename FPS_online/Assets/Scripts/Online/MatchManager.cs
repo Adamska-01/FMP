@@ -557,19 +557,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
                 yield return new WaitForSeconds(1);
             } 
              
-            NextMatchSend();
-            //PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().buildIndex);
-            //if (!Launcher.instance.changeMapBetweenRounds)
-            //    NextMatchSend();
-            //else
-            //{
-            //    int newLevel = Random.Range(0, Launcher.instance.Maps.Length);
-
-            //    if (Launcher.instance.Maps[newLevel] == SceneManager.GetActiveScene().name)
-            //        NextMatchSend();
-            //    else
-            //        PhotonNetwork.LoadLevel(Launcher.instance.Maps[newLevel]);
-            //}
+            NextMatchSend(); 
         }
     }
 
@@ -625,6 +613,11 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
             SettingsSend();
             CreatePlayerSend();
         }
+    }
+
+    public void StartGameWithoutWaiting()
+    {
+        countdownTimerStartGame = 0.0f;
     }
 
     //-----------------------------Photon Callbacks-----------------------------

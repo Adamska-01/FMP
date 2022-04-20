@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 3132853}
   - component: {fileID: 3132852}
   - component: {fileID: 3132851}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (22)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 38939462}
   - component: {fileID: 38939461}
   - component: {fileID: 38939460}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (9)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 58765715}
   - component: {fileID: 58765714}
   - component: {fileID: 58765713}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (11)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 107846412}
   - component: {fileID: 107846411}
   - component: {fileID: 107846410}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (4)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 115778051}
   - component: {fileID: 115778050}
   - component: {fileID: 115778049}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (14)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -733,7 +733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 128212942}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 159270277}
   - component: {fileID: 159270276}
   - component: {fileID: 159270275}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (13)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -922,7 +922,7 @@ GameObject:
   - component: {fileID: 179547444}
   - component: {fileID: 179547443}
   - component: {fileID: 179547442}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (14)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -1017,7 +1017,7 @@ GameObject:
   - component: {fileID: 180876151}
   - component: {fileID: 180876150}
   - component: {fileID: 180876149}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (19)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -1109,7 +1109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 183932798}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tunnel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1146,7 +1146,7 @@ GameObject:
   - component: {fileID: 200302288}
   - component: {fileID: 200302287}
   - component: {fileID: 200302286}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (8)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -1241,7 +1241,7 @@ GameObject:
   - component: {fileID: 221720540}
   - component: {fileID: 221720539}
   - component: {fileID: 221720538}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (21)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -1336,7 +1336,7 @@ GameObject:
   - component: {fileID: 236733053}
   - component: {fileID: 236733052}
   - component: {fileID: 236733051}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (26)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -1494,7 +1494,7 @@ GameObject:
   - component: {fileID: 261689919}
   - component: {fileID: 261689918}
   - component: {fileID: 261689917}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (2)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -1647,7 +1647,7 @@ GameObject:
   - component: {fileID: 286675004}
   - component: {fileID: 286675003}
   - component: {fileID: 286675002}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ramp
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -1742,7 +1742,7 @@ GameObject:
   - component: {fileID: 295510086}
   - component: {fileID: 295510085}
   - component: {fileID: 295510084}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (1)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -1838,7 +1838,7 @@ GameObject:
   - component: {fileID: 310267466}
   - component: {fileID: 310267465}
   - component: {fileID: 310267464}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (4)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -1999,7 +1999,7 @@ GameObject:
   - component: {fileID: 333988003}
   - component: {fileID: 333988002}
   - component: {fileID: 333988001}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (15)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -2094,7 +2094,7 @@ GameObject:
   - component: {fileID: 347578500}
   - component: {fileID: 347578499}
   - component: {fileID: 347578498}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (7)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -2189,7 +2189,7 @@ GameObject:
   - component: {fileID: 349346676}
   - component: {fileID: 349346675}
   - component: {fileID: 349346674}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (18)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -2347,7 +2347,7 @@ GameObject:
   - component: {fileID: 377127497}
   - component: {fileID: 377127496}
   - component: {fileID: 377127495}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (6)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -2442,7 +2442,7 @@ GameObject:
   - component: {fileID: 383167296}
   - component: {fileID: 383167295}
   - component: {fileID: 383167294}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (18)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -2537,7 +2537,7 @@ GameObject:
   - component: {fileID: 386704606}
   - component: {fileID: 386704605}
   - component: {fileID: 386704604}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (16)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -2695,7 +2695,7 @@ GameObject:
   - component: {fileID: 398282598}
   - component: {fileID: 398282597}
   - component: {fileID: 398282596}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (28)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -2790,7 +2790,7 @@ GameObject:
   - component: {fileID: 400145897}
   - component: {fileID: 400145896}
   - component: {fileID: 400145895}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (8)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -2983,7 +2983,7 @@ GameObject:
   - component: {fileID: 503923673}
   - component: {fileID: 503923672}
   - component: {fileID: 503923671}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (6)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -3078,7 +3078,7 @@ GameObject:
   - component: {fileID: 506473687}
   - component: {fileID: 506473686}
   - component: {fileID: 506473685}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (19)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -3173,7 +3173,7 @@ GameObject:
   - component: {fileID: 507330048}
   - component: {fileID: 507330047}
   - component: {fileID: 507330046}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Sand
   m_Icon: {fileID: 0}
@@ -3326,7 +3326,7 @@ GameObject:
   - component: {fileID: 543672171}
   - component: {fileID: 543672170}
   - component: {fileID: 543672169}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (5)
   m_TagString: Sand
   m_Icon: {fileID: 0}
@@ -3418,7 +3418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 594744351}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3460,7 +3460,7 @@ GameObject:
   - component: {fileID: 600894350}
   - component: {fileID: 600894349}
   - component: {fileID: 600894348}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (23)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -3555,7 +3555,7 @@ GameObject:
   - component: {fileID: 605746212}
   - component: {fileID: 605746211}
   - component: {fileID: 605746210}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (10)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -3770,7 +3770,7 @@ GameObject:
   - component: {fileID: 638482957}
   - component: {fileID: 638482956}
   - component: {fileID: 638482955}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (7)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -3865,7 +3865,7 @@ GameObject:
   - component: {fileID: 638973396}
   - component: {fileID: 638973395}
   - component: {fileID: 638973394}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (8)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -3960,7 +3960,7 @@ GameObject:
   - component: {fileID: 644398203}
   - component: {fileID: 644398202}
   - component: {fileID: 644398201}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -4055,7 +4055,7 @@ GameObject:
   - component: {fileID: 658295477}
   - component: {fileID: 658295476}
   - component: {fileID: 658295475}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (11)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -4150,7 +4150,7 @@ GameObject:
   - component: {fileID: 659040343}
   - component: {fileID: 659040342}
   - component: {fileID: 659040341}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (16)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -4245,7 +4245,7 @@ GameObject:
   - component: {fileID: 682743896}
   - component: {fileID: 682743895}
   - component: {fileID: 682743894}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (29)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -4340,7 +4340,7 @@ GameObject:
   - component: {fileID: 690943863}
   - component: {fileID: 690943862}
   - component: {fileID: 690943861}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (2)
   m_TagString: Sand
   m_Icon: {fileID: 0}
@@ -4435,7 +4435,7 @@ GameObject:
   - component: {fileID: 740088551}
   - component: {fileID: 740088550}
   - component: {fileID: 740088549}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (13)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -4530,7 +4530,7 @@ GameObject:
   - component: {fileID: 756488318}
   - component: {fileID: 756488317}
   - component: {fileID: 756488316}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (9)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -4625,7 +4625,7 @@ GameObject:
   - component: {fileID: 769109413}
   - component: {fileID: 769109412}
   - component: {fileID: 769109411}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (32)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -4720,7 +4720,7 @@ GameObject:
   - component: {fileID: 774327597}
   - component: {fileID: 774327596}
   - component: {fileID: 774327595}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (8)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -4815,7 +4815,7 @@ GameObject:
   - component: {fileID: 792605119}
   - component: {fileID: 792605118}
   - component: {fileID: 792605117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (6)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -4910,7 +4910,7 @@ GameObject:
   - component: {fileID: 826343805}
   - component: {fileID: 826343804}
   - component: {fileID: 826343803}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -5005,7 +5005,7 @@ GameObject:
   - component: {fileID: 852719576}
   - component: {fileID: 852719575}
   - component: {fileID: 852719574}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (12)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -5100,7 +5100,7 @@ GameObject:
   - component: {fileID: 862016867}
   - component: {fileID: 862016866}
   - component: {fileID: 862016865}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (33)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -5258,7 +5258,7 @@ GameObject:
   - component: {fileID: 889094230}
   - component: {fileID: 889094229}
   - component: {fileID: 889094228}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (2)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -5354,7 +5354,7 @@ GameObject:
   - component: {fileID: 897834412}
   - component: {fileID: 897834411}
   - component: {fileID: 897834410}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (17)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -5449,7 +5449,7 @@ GameObject:
   - component: {fileID: 910290204}
   - component: {fileID: 910290203}
   - component: {fileID: 910290202}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (1)
   m_TagString: Sand
   m_Icon: {fileID: 0}
@@ -5544,7 +5544,7 @@ GameObject:
   - component: {fileID: 915099657}
   - component: {fileID: 915099656}
   - component: {fileID: 915099655}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ramp
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -5639,7 +5639,7 @@ GameObject:
   - component: {fileID: 944798132}
   - component: {fileID: 944798131}
   - component: {fileID: 944798130}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (22)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -5734,7 +5734,7 @@ GameObject:
   - component: {fileID: 985545393}
   - component: {fileID: 985545392}
   - component: {fileID: 985545391}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (2)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -5829,7 +5829,7 @@ GameObject:
   - component: {fileID: 1005839580}
   - component: {fileID: 1005839579}
   - component: {fileID: 1005839578}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (7)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -5924,7 +5924,7 @@ GameObject:
   - component: {fileID: 1035393542}
   - component: {fileID: 1035393541}
   - component: {fileID: 1035393540}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (7)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -6140,7 +6140,7 @@ GameObject:
   - component: {fileID: 1162729063}
   - component: {fileID: 1162729062}
   - component: {fileID: 1162729061}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -6318,7 +6318,7 @@ GameObject:
   - component: {fileID: 1189700663}
   - component: {fileID: 1189700662}
   - component: {fileID: 1189700661}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (1)
   m_TagString: Sand
   m_Icon: {fileID: 0}
@@ -6413,7 +6413,7 @@ GameObject:
   - component: {fileID: 1194118179}
   - component: {fileID: 1194118178}
   - component: {fileID: 1194118177}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (15)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -6508,7 +6508,7 @@ GameObject:
   - component: {fileID: 1206988704}
   - component: {fileID: 1206988703}
   - component: {fileID: 1206988702}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (1)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -6604,7 +6604,7 @@ GameObject:
   - component: {fileID: 1212625828}
   - component: {fileID: 1212625827}
   - component: {fileID: 1212625826}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (31)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -6699,7 +6699,7 @@ GameObject:
   - component: {fileID: 1237712677}
   - component: {fileID: 1237712676}
   - component: {fileID: 1237712675}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (10)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -6794,7 +6794,7 @@ GameObject:
   - component: {fileID: 1243888485}
   - component: {fileID: 1243888484}
   - component: {fileID: 1243888483}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (8)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -6889,7 +6889,7 @@ GameObject:
   - component: {fileID: 1299797421}
   - component: {fileID: 1299797420}
   - component: {fileID: 1299797419}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (17)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -6989,7 +6989,7 @@ GameObject:
   - component: {fileID: 1309752834}
   - component: {fileID: 1309752833}
   - component: {fileID: 1309752832}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (4)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -7081,7 +7081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1317917667}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tunnel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7118,7 +7118,7 @@ GameObject:
   - component: {fileID: 1334936177}
   - component: {fileID: 1334936176}
   - component: {fileID: 1334936175}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (10)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -7213,7 +7213,7 @@ GameObject:
   - component: {fileID: 1339039958}
   - component: {fileID: 1339039957}
   - component: {fileID: 1339039956}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (25)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -7308,7 +7308,7 @@ GameObject:
   - component: {fileID: 1355340799}
   - component: {fileID: 1355340798}
   - component: {fileID: 1355340797}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (27)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -7403,7 +7403,7 @@ GameObject:
   - component: {fileID: 1359477262}
   - component: {fileID: 1359477261}
   - component: {fileID: 1359477260}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (6)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -7498,7 +7498,7 @@ GameObject:
   - component: {fileID: 1374922331}
   - component: {fileID: 1374922330}
   - component: {fileID: 1374922329}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (20)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -7593,7 +7593,7 @@ GameObject:
   - component: {fileID: 1375374554}
   - component: {fileID: 1375374553}
   - component: {fileID: 1375374552}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (35)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -7688,7 +7688,7 @@ GameObject:
   - component: {fileID: 1381159357}
   - component: {fileID: 1381159356}
   - component: {fileID: 1381159355}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (26)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -7783,7 +7783,7 @@ GameObject:
   - component: {fileID: 1388466493}
   - component: {fileID: 1388466492}
   - component: {fileID: 1388466491}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -7879,7 +7879,7 @@ GameObject:
   - component: {fileID: 1420729756}
   - component: {fileID: 1420729755}
   - component: {fileID: 1420729754}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (8)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -7974,7 +7974,7 @@ GameObject:
   - component: {fileID: 1431357776}
   - component: {fileID: 1431357775}
   - component: {fileID: 1431357774}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (6)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -8069,7 +8069,7 @@ GameObject:
   - component: {fileID: 1446546945}
   - component: {fileID: 1446546944}
   - component: {fileID: 1446546943}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (27)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -8161,7 +8161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1460410058}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8207,7 +8207,7 @@ GameObject:
   - component: {fileID: 1467034661}
   - component: {fileID: 1467034660}
   - component: {fileID: 1467034659}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (10)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -8302,7 +8302,7 @@ GameObject:
   - component: {fileID: 1472367666}
   - component: {fileID: 1472367665}
   - component: {fileID: 1472367664}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (29)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -8397,7 +8397,7 @@ GameObject:
   - component: {fileID: 1483386147}
   - component: {fileID: 1483386146}
   - component: {fileID: 1483386145}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (1)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -8492,7 +8492,7 @@ GameObject:
   - component: {fileID: 1484069425}
   - component: {fileID: 1484069424}
   - component: {fileID: 1484069423}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (11)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -8587,7 +8587,7 @@ GameObject:
   - component: {fileID: 1493425180}
   - component: {fileID: 1493425179}
   - component: {fileID: 1493425178}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (10)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -8682,7 +8682,7 @@ GameObject:
   - component: {fileID: 1533252940}
   - component: {fileID: 1533252939}
   - component: {fileID: 1533252938}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (7)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -8777,7 +8777,7 @@ GameObject:
   - component: {fileID: 1537046229}
   - component: {fileID: 1537046228}
   - component: {fileID: 1537046227}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (9)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -8872,7 +8872,7 @@ GameObject:
   - component: {fileID: 1543857948}
   - component: {fileID: 1543857947}
   - component: {fileID: 1543857946}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (21)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -8967,7 +8967,7 @@ GameObject:
   - component: {fileID: 1545609991}
   - component: {fileID: 1545609990}
   - component: {fileID: 1545609989}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (25)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -9062,7 +9062,7 @@ GameObject:
   - component: {fileID: 1548721023}
   - component: {fileID: 1548721022}
   - component: {fileID: 1548721021}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (9)
   m_TagString: Sand
   m_Icon: {fileID: 0}
@@ -9157,7 +9157,7 @@ GameObject:
   - component: {fileID: 1558653906}
   - component: {fileID: 1558653905}
   - component: {fileID: 1558653904}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (11)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -9252,7 +9252,7 @@ GameObject:
   - component: {fileID: 1563919150}
   - component: {fileID: 1563919149}
   - component: {fileID: 1563919148}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (8)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -9347,7 +9347,7 @@ GameObject:
   - component: {fileID: 1664145499}
   - component: {fileID: 1664145498}
   - component: {fileID: 1664145497}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (8)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -9497,7 +9497,7 @@ GameObject:
   - component: {fileID: 1674646078}
   - component: {fileID: 1674646077}
   - component: {fileID: 1674646076}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (24)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -9757,7 +9757,7 @@ GameObject:
   - component: {fileID: 1698141628}
   - component: {fileID: 1698141627}
   - component: {fileID: 1698141626}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (31)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -9852,7 +9852,7 @@ GameObject:
   - component: {fileID: 1735190168}
   - component: {fileID: 1735190167}
   - component: {fileID: 1735190166}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -9948,7 +9948,7 @@ GameObject:
   - component: {fileID: 1738031312}
   - component: {fileID: 1738031311}
   - component: {fileID: 1738031310}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (12)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -10040,7 +10040,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1751905514}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10192,7 +10192,7 @@ GameObject:
   - component: {fileID: 1834252859}
   - component: {fileID: 1834252858}
   - component: {fileID: 1834252857}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (10)
   m_TagString: Sand
   m_Icon: {fileID: 0}
@@ -10287,7 +10287,7 @@ GameObject:
   - component: {fileID: 1852897136}
   - component: {fileID: 1852897135}
   - component: {fileID: 1852897134}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (24)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -10382,7 +10382,7 @@ GameObject:
   - component: {fileID: 1859759268}
   - component: {fileID: 1859759267}
   - component: {fileID: 1859759266}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -10477,7 +10477,7 @@ GameObject:
   - component: {fileID: 1866345579}
   - component: {fileID: 1866345578}
   - component: {fileID: 1866345577}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (30)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -10572,7 +10572,7 @@ GameObject:
   - component: {fileID: 1875249261}
   - component: {fileID: 1875249260}
   - component: {fileID: 1875249259}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (6)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -10667,7 +10667,7 @@ GameObject:
   - component: {fileID: 1876180728}
   - component: {fileID: 1876180727}
   - component: {fileID: 1876180726}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -10762,7 +10762,7 @@ GameObject:
   - component: {fileID: 1877741360}
   - component: {fileID: 1877741359}
   - component: {fileID: 1877741358}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (1)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -10857,7 +10857,7 @@ GameObject:
   - component: {fileID: 1881009670}
   - component: {fileID: 1881009669}
   - component: {fileID: 1881009668}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (3)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -10952,7 +10952,7 @@ GameObject:
   - component: {fileID: 1882960121}
   - component: {fileID: 1882960120}
   - component: {fileID: 1882960119}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (8)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -11047,7 +11047,7 @@ GameObject:
   - component: {fileID: 1888558402}
   - component: {fileID: 1888558401}
   - component: {fileID: 1888558400}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (23)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -11142,7 +11142,7 @@ GameObject:
   - component: {fileID: 1917256129}
   - component: {fileID: 1917256128}
   - component: {fileID: 1917256127}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (10)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -11300,7 +11300,7 @@ GameObject:
   - component: {fileID: 1986003650}
   - component: {fileID: 1986003649}
   - component: {fileID: 1986003648}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (20)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -11395,7 +11395,7 @@ GameObject:
   - component: {fileID: 1989270197}
   - component: {fileID: 1989270196}
   - component: {fileID: 1989270195}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (34)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -11487,7 +11487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2000791955}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ramp (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11586,7 +11586,7 @@ GameObject:
   - component: {fileID: 2024292523}
   - component: {fileID: 2024292522}
   - component: {fileID: 2024292521}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (28)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -11681,7 +11681,7 @@ GameObject:
   - component: {fileID: 2052712028}
   - component: {fileID: 2052712027}
   - component: {fileID: 2052712026}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (12)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -11773,7 +11773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2053156764}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11811,7 +11811,7 @@ GameObject:
   - component: {fileID: 2056411399}
   - component: {fileID: 2056411398}
   - component: {fileID: 2056411397}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (7)
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -11906,7 +11906,7 @@ GameObject:
   - component: {fileID: 2104600203}
   - component: {fileID: 2104600202}
   - component: {fileID: 2104600201}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (30)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -11998,7 +11998,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2116422402}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BalconyStands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12037,7 +12037,7 @@ GameObject:
   - component: {fileID: 2133826264}
   - component: {fileID: 2133826263}
   - component: {fileID: 2133826262}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (11)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -12143,6 +12143,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2729066868742773367, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729066868742773367, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729066868742773367, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729066868742773367, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239311278487160036, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239311278487160036, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239311278487160036, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239311278487160036, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5673757231116988291, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -12234,6 +12266,22 @@ PrefabInstance:
     - target: {fileID: 5673757231116988295, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537403892710129786, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537403892710129786, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537403892710129786, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537403892710129786, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90c2faa9255dbe847a49d87a0a06d793, type: 3}

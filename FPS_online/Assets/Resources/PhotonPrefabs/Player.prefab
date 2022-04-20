@@ -405,6 +405,7 @@ Transform:
   - {fileID: 1776943361406172899}
   - {fileID: 1776943363023994431}
   - {fileID: 2588901896970295519}
+  - {fileID: 6030695343116948872}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -489,10 +490,7 @@ MonoBehaviour:
   animator: {fileID: 1776943361427710438}
   animController: {fileID: 3572392640253649042}
   offsetFloorY: 0.4
-  movementSpeed: 3
-  speedMultiplier: 1.6
   sensitivityMultiplier: 1
-  jumpForce: 2.5
   gunTarget: {fileID: 1776943362171896212}
   cameraTarget: {fileID: 1776943361665775460}
   isFiring: 0
@@ -500,6 +498,10 @@ MonoBehaviour:
   isReloading: 0
   isAiming: 0
   canReload: 0
+  groundCheck: {fileID: 6030695343116948872}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
   ik: {fileID: 1776943361427710367}
   items:
   - {fileID: 3232651619509457459}
@@ -4360,6 +4362,36 @@ Transform:
   m_Father: {fileID: 7605912627330086179}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45.01491, y: -2.820107, z: -6.5937614}
+--- !u!1 &3844094067980971722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6030695343116948872}
+  m_Layer: 2
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6030695343116948872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3844094067980971722}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.063, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2243428061368702062}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3858400297742077491
 GameObject:
   m_ObjectHideFlags: 0

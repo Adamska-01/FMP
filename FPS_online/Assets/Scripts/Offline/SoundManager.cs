@@ -319,6 +319,18 @@ public class SoundManager : MonoBehaviour
     {
         for (int i = 0; i < pooledPrefabs.Count; i++)
         {
+            //Sometimes the object is destroyed
+            if (pooledPrefabs[i] == null)
+            {
+                pooledPrefabs.Remove(pooledPrefabs[i]);
+
+                GameObject go = Instantiate(prefabToPool, gameObject.transform);
+                go.SetActive(false);
+                pooledPrefabs.Add(go);
+                
+                continue;
+            }
+
             if (pooledPrefabs[i].gameObject.transform.parent == gameObject.transform)
                 if (!pooledPrefabs[i].gameObject.activeInHierarchy)
                     return pooledPrefabs[i];

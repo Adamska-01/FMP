@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 91870481}
   - component: {fileID: 91870480}
   - component: {fileID: 91870479}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -1480,7 +1480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985657904}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1525,7 +1525,7 @@ GameObject:
   - component: {fileID: 1039022498}
   - component: {fileID: 1039022497}
   - component: {fileID: 1039022496}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1620,7 +1620,7 @@ GameObject:
   - component: {fileID: 1152787260}
   - component: {fileID: 1152787259}
   - component: {fileID: 1152787258}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (4)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -2138,7 +2138,7 @@ GameObject:
   - component: {fileID: 1413404171}
   - component: {fileID: 1413404170}
   - component: {fileID: 1413404169}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Sand
   m_Icon: {fileID: 0}
@@ -2367,7 +2367,7 @@ GameObject:
   - component: {fileID: 1451738674}
   - component: {fileID: 1451738673}
   - component: {fileID: 1451738672}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (1)
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -3058,7 +3058,7 @@ GameObject:
   - component: {fileID: 1554066030}
   - component: {fileID: 1554066029}
   - component: {fileID: 1554066028}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (3)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -3153,7 +3153,7 @@ GameObject:
   - component: {fileID: 1630764368}
   - component: {fileID: 1630764367}
   - component: {fileID: 1630764366}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Concrete
   m_Icon: {fileID: 0}
@@ -3609,7 +3609,7 @@ GameObject:
   - component: {fileID: 1802210683}
   - component: {fileID: 1802210682}
   - component: {fileID: 1802210681}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3704,7 +3704,7 @@ GameObject:
   - component: {fileID: 1833865445}
   - component: {fileID: 1833865444}
   - component: {fileID: 1833865443}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Metal
   m_Icon: {fileID: 0}
@@ -4320,12 +4320,44 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1148143324, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148143324, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148143324, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148143324, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1436730361, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1436730361, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524315131, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524315131, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524315131, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524315131, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1558280408, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
@@ -4342,6 +4374,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1762853328, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119781106, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119781106, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119781106, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119781106, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8030887007456071353, guid: 081df2de0db47ae4a9105c0104bf435e, type: 3}

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private float aimSensitivity = 0.4f; 
     public float sensitivityMultiplier = 1.0f; 
     private float ADSsensitivityMultiplier = 0.3f;
-    [SerializeField] private float jumpForce = 200.0f; 
+    private float jumpForce = 0.35f; 
     private float ySpeed;
     public bool IsRunning { get { return (!inputManager.Crouch && !inputManager.Back && inputManager.Run); } }
 
@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool isReloading;
     [HideInInspector] public bool isAiming;
     [HideInInspector] public bool canReload;
+
+    public Transform groundCheck;
+    private float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    private bool isGrounded;
 
     private bool previousCrouch;
     private bool currentCrouch;
@@ -86,19 +91,18 @@ public class PlayerController : MonoBehaviour
         Vector3 combinedInput = (forward + sideway).normalized;
          
         movementDir = new Vector3(combinedInput.x, 0f, combinedInput.z);
-        ySpeed += Physics.gravity.y * Time.deltaTime;
 
         Look();
 
-        if(characterController.isGrounded)
+        ySpeed += Physics.gravity.y * Time.deltaTime * 2.5f; //Gravity
+        if (ySpeed < -9.0f)
+            ySpeed = -9.0f; 
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);    
+        if (isGrounded && inputManager.Jump && !inputManager.Crouch)
         {
-            ySpeed = -0.5f;
-            if (inputManager.Jump && !inputManager.Crouch)
-            {
-                ySpeed = jumpForce;
-                animator.SetTrigger(animController.JumpHash);
-            }
-        }
+            ySpeed = jumpForce * -2.0f * Physics.gravity.y;
+            animator.SetTrigger(animController.JumpHash);
+        } 
         movementDir.y = ySpeed;
 
         //Crouch/Stand UI
@@ -112,7 +116,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateWeapon()
     {
-        isAiming = characterController.isGrounded ? inputManager.IsAiming : false;
+        isAiming = isGrounded ? inputManager.IsAiming : false;
         if (!isReloading)
         {
             //Switch guns with numbers
@@ -237,9 +241,12 @@ public class PlayerController : MonoBehaviour
     }
 
     private void UpdatePhysics()
-    {    
+    {
+        float multiplier = (IsRunning ? movementSpeed * speedMultiplier : currentCrouch ? movementSpeed * crouchMultiplier : movementSpeed);
+        Vector3 movement = new Vector3(movementDir.x * multiplier, movementDir.y, movementDir.z * multiplier);
+
         //Update velocity
-        characterController.Move((movementDir * (IsRunning ? movementSpeed * speedMultiplier : currentCrouch ? movementSpeed * crouchMultiplier : movementSpeed) * Time.deltaTime)); 
+        characterController.Move(movement * Time.deltaTime);
     }
 
     private void Look()

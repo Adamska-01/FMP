@@ -16,12 +16,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Hitbox
+  - Ground
   - Water
   - UI
   - PostProcessing
   - NoLight
-  - 
+  - Hitbox
   - 
   - 
   - 
