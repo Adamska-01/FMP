@@ -43,7 +43,7 @@ public class LevelLoader : MonoBehaviour
             float progress = Mathf.Clamp01(op.progress / 0.9f);
              
             loadingBar.value = progress;
-            progressText.text = progress * 100.0f + "%"; 
+            progressText.text = (int)(progress * 100.0f) + "%"; 
             yield return null;
         }
     }
@@ -59,7 +59,7 @@ public class LevelLoader : MonoBehaviour
             float progress = Mathf.Clamp01(PhotonNetwork.LevelLoadingProgress / 0.9f);
 
             loadingBar.value = progress;
-            progressText.text = progress * 100.0f + "%"; 
+            progressText.text = (int)(progress * 100.0f) + "%"; 
             yield return null;
         }
     }
@@ -71,7 +71,7 @@ public class LevelLoader : MonoBehaviour
             float progress = Mathf.Clamp01(PhotonNetwork.LevelLoadingProgress / 0.9f);
 
             loadingBar.value = progress;
-            progressText.text = progress * 100.0f + "%";
+            progressText.text = (int)(progress * 100.0f) + "%";
             yield return null;
         }
     }

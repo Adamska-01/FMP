@@ -121,10 +121,8 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
 
         Look();
 
-        ySpeed += Physics.gravity.y * Time.deltaTime * 2.5f; //Gravity
-        if (ySpeed < -9.0f)
-            ySpeed = -9.0f; 
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        ySpeed += Physics.gravity.y * Time.deltaTime * 2.5f; //Gravity 
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) || characterController.isGrounded;
         if (isGrounded && inputManager.Jump && !inputManager.Crouch)
         {
             ySpeed = jumpForce * -2.0f * Physics.gravity.y;
@@ -134,7 +132,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
 
         //Crouch/Stand UI
         currentCrouch = inputManager.Crouch;
-        if(currentCrouch != previousCrouch)
+        if (currentCrouch != previousCrouch)
         {
             NETUIController.instance.CrouchStand(currentCrouch);
             previousCrouch = currentCrouch;
@@ -143,7 +141,7 @@ public class NETPlayerController : MonoBehaviourPunCallbacks
 
     private void UpdateWeapon()
     {
-        isAiming = characterController.isGrounded ? inputManager.IsAiming : false;
+        isAiming = (isGrounded && !IsRunning) ? inputManager.IsAiming : false;
         if (!isReloading)
         {
             //Switch guns with numbers
